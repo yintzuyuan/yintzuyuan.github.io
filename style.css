@@ -101,12 +101,12 @@ h1 {
     margin-bottom: 20px;
     display: flex;
     align-items: center;
-    transition: transform 0.3s ease;
+    /* transition: transform 0.3s ease; */
 }
 
-.content p:hover {
+/* .content p:hover {
     transform: translateX(10px);
-}
+} */
 
 .content a {
     color: var(--text-color);
