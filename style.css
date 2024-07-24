@@ -38,14 +38,24 @@ header {
     border-bottom: 1px solid rgba(245, 240, 229, 0.1);
 }
 
+.logo-link {
+    display: inline-block;
+}
+
 .logo {
     width: 60px; /* 設置 LOGO 的寬度 */
     height: auto; /* 高度自動調整以保持比例 */
-    transition: opacity 0.3s ease;
 }
 
-.logo:hover {
-    opacity: 0.8; /* 懸停時略微降低不透明度 */
+.logo svg {
+    transition: fill 0.3s ease;
+}
+
+.logo-link:hover .logo svg,
+.logo-link:hover .logo path,
+.logo-link:hover .logo rect,
+.logo-link:hover .logo circle {
+    fill: var(--white);
 }
 
 nav a {
@@ -58,8 +68,24 @@ nav a {
     transition: color 0.3s ease;
 }
 
-nav a:hover {
-    color: var(--white);
+nav a:not(.external-link) {
+    position: relative;
+}
+
+nav a:not(.external-link)::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    bottom: -2px;
+    left: 0;
+    background-color: var(--white);
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+nav a:not(.external-link):hover::after {
+    transform: scaleX(1);
 }
 
 nav a.external-link {
@@ -98,10 +124,10 @@ h1 {
 }
 
 .content p {
-    margin-bottom: 20px;
     display: flex;
-    align-items: center;
-    /* transition: transform 0.3s ease; */
+    align-items: center; /* 將項目靠上對齊 */
+    flex-wrap: wrap; /* 允許內容在需要時換行 */
+    margin-bottom: 20px;
 }
 
 /* .content p:hover {
@@ -127,6 +153,12 @@ h1 {
     display: inline-block;
     width: 30px;
     text-align: center;
+}
+
+/* 為文字內容添加一個新的 span 包裹 */
+.content p span.text {
+    flex: 1; /* 允許文字占用剩餘空間 */
+    min-width: 200px; /* 設置最小寬度，迫使在窄屏幕上換行 */
 }
 
 .newsletter {
@@ -235,4 +267,48 @@ footer {
     .content p:hover {
         transform: none;
     }
+}
+
+/* 添加到您的主 CSS 文件中 */
+.newsletter-floating {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    z-index: 1000;
+}
+
+.newsletter-toggle {
+    background-color: var(--text-color);
+    color: var(--bg-color);
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.newsletter-form {
+    background-color: var(--bg-color);
+    border: 1px solid var(--text-color);
+    padding: 20px;
+    border-radius: 5px;
+    position: absolute;
+    bottom: 100%;
+    right: 0;
+    width: 300px;
+    margin-bottom: 10px;
+}
+
+.newsletter-close {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    color: var(--text-color);
+}
+
+.hidden {
+    display: none;
 }

@@ -1,13 +1,16 @@
-document.addEventListener('DOMContentLoaded', (event) => {
-    // 平滑滾動功能
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            document.querySelector(this.getAttribute('href')).scrollIntoView({
-                behavior: 'smooth'
-            });
-        });
-    });
+// script.js
+document.addEventListener('DOMContentLoaded', function() {
+    const headerTemplate = document.getElementById('header-template');
+    const footerTemplate = document.getElementById('footer-template');
+    const newsletterTemplate = document.getElementById('newsletter-template');
 
-    // 這裡可以添加更多功能，比如表單驗證、動態內容加載等
+    document.getElementById('header-placeholder').appendChild(
+        document.importNode(headerTemplate.content, true)
+    );
+    document.getElementById('footer-placeholder').appendChild(
+        document.importNode(footerTemplate.content, true)
+    );
+    document.getElementById('newsletter-placeholder').appendChild(
+        document.importNode(newsletterTemplate.content, true)
+    );
 });
