@@ -1,0 +1,26 @@
+<div class="timeline timeline-medium timeline-line-left">
+    <!-- <div class="timeline-header">時間軸</div> -->
+    <div class="timeline-content">
+      <div class="timeline-line">
+        <div class="timeline-arrow"></div>
+      </div>
+      <div class="timeline-item timeline-start">
+        <div class="timeline-event">
+          <!-- <span class="event-icon">↑</span> -->
+          <span class="event-text">to be continue...</span>
+        </div>
+      </div>
+      {% for item in site.data.timeline %}
+        <div class="timeline-item {% if item.year %}timeline-year{% endif %}">
+          {% if item.year %}
+            <div class="timeline-year-marker"></div>
+            <div class="timeline-year-text">{{ item.year }}</div>
+          {% endif %}
+          <div class="timeline-event">
+            <span class="event-icon">{{ item.icon }}</span>
+            <span class="event-text">{{ item.event | markdownify | replace: '<a href', '<a target="_blank" rel="noopener noreferrer" href' }}</span>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>

@@ -1,0 +1,12 @@
+title: 殷慈遠的設計工作室
+description: 創意字型設計與作品展示
+url: "https://erikyin.net"
+baseurl: ""
+
+# 添加其他配置...
+
+sass:
+  sass_dir: _sass
+  style: compressed
+
+verbose: true

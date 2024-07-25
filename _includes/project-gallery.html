@@ -1,0 +1,46 @@
+<div class="tag-cloud">
+    <span class="tag active" data-filter="all">全部</span>
+    {% assign all_categories = site.data.projects | map: "categories" | flatten | uniq %}
+    {% for category in all_categories %}
+      <span class="tag" data-filter="{{ category }}">{{ category }}</span>
+    {% endfor %}
+  </div>
+  
+  <div class="project-container" id="projectContainer">
+    {% for project in site.data.projects %}
+      <a href="{{ project.url }}" target="_blank" class="project-item no-underline" data-categories="{{ project.categories | join: ',' }}">
+        <span class="project-title">{{ project.title }}</span>
+      </a>
+    {% endfor %}
+  </div>
+  
+  <script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const tags = document.querySelectorAll('.tag');
+    const projectItems = document.querySelectorAll('.project-item');
+  
+    tags.forEach(tag => {
+      tag.addEventListener('click', function() {
+        const filter = this.getAttribute('data-filter');
+        
+        tags.forEach(t => t.classList.remove('active'));
+        this.classList.add('active');
+  
+        projectItems.forEach(item => {
+          const categories = item.getAttribute('data-categories').split(',');
+          if (filter === 'all' || categories.includes(filter)) {
+            item.style.display = 'inline-block';
+          } else {
+            item.style.display = 'none';
+          }
+        });
+      });
+    });
+  
+    // 隨機排序項目
+    const container = document.getElementById('projectContainer');
+    const items = Array.from(container.children);
+    items.sort(() => Math.random() - 0.5);
+    items.forEach(item => container.appendChild(item));
+  });
+  </script>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    {% include head.html %}
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;700&family=Fira+Code:wght@400;700&family=Noto+Emoji&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ page.title }} - 殷慈遠</title>
+    <link rel="stylesheet" href="{{ '/assets/css/styles.css' | relative_url }}">
+</head>
+<body>
+    {% include header.html %}
+    
+    <main>
+        <div class="container content" role="main">
+            {{ content }}
+        </div>
+        
+        {% include footer.html %}
+    </main>
+    
+    {% include newsletter-floating.html %}
+    {% include scripts.html %}
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!-- _includes/contact-form.html -->
+<form id="contact-form" onsubmit="return sendEmail();" class="contact-form">
+    <div class="form-group">
+      <!-- <label for="name">姓名</label> -->
+      <input type="text" id="name" name="name" placeholder="姓名" required>
+    </div>
+    <div class="form-group">
+      <!-- <label for="message">訊息</label> -->
+      <textarea id="message" name="message" placeholder="訊息" required></textarea>
+    </div>
+    <button type="submit" class="btn-send">準備發送</button>
+  </form>
+  
+  <script>
+  function sendEmail() {
+    var name = document.getElementById('name').value;
+    var message = document.getElementById('message').value;
+    
+    var mailBody = "姓名: " + name + "\n\n";
+    mailBody += "訊息:\n" + message;
+    
+    window.location.href = "mailto:info@erikyin.net?subject=來自網站的訊息&body=" + encodeURIComponent(mailBody);
+    
+    return false;
+  }
+  </script>
