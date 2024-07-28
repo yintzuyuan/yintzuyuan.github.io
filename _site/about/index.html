@@ -1,33 +1,35 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
 <head>
+    <head>
     <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>關於我 - 殷慈遠的個人網站</title>
-<meta name="description" content="字體設計師的個人空間">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>關於我 - 殷慈遠的設計工作室</title>
+    <meta name="description" content="創意字型設計與作品展示">
 
-<!-- Favicon -->
-<link rel="icon" type="image/png" href="/assets/images/favicon.png">
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/assets/images/favicon.png">
 
-<!-- Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;700&family=Noto+Serif+TC:wght@700&family=Noto+Emoji&display=swap" rel="stylesheet">
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;700&family=Noto+Serif+TC:wght@700&family=Noto+Emoji&display=swap" rel="stylesheet">
 
-<!-- Styles -->
-<link rel="stylesheet" href="/assets/css/styles.css">
+    <!-- Styles -->
+    <link rel="stylesheet" href="/assets/css/styles.css">
 
-<!-- Open Graph / Facebook -->
-<meta property="og:type" content="website">
-<meta property="og:url" content="http://localhost:4000/about/">
-<meta property="og:title" content="關於我">
-<meta property="og:description" content="字體設計師的個人空間">
-<meta property="og:image" content="http://localhost:4000/assets/images/og-image.jpg">
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="http://localhost:4000/about/">
+    <meta property="og:title" content="關於我">
+    <meta property="og:description" content="創意字型設計與作品展示">
+    <meta property="og:image" content="http://localhost:4000/assets/images/og-image.jpg">
 
-<!-- Twitter -->
-<meta property="twitter:card" content="summary_large_image">
-<meta property="twitter:url" content="http://localhost:4000/about/">
-<meta property="twitter:title" content="關於我">
-<meta property="twitter:description" content="字體設計師的個人空間">
-<meta property="twitter:image" content="http://localhost:4000/assets/images/og-image.jpg">
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="http://localhost:4000/about/">
+    <meta property="twitter:title" content="關於我">
+    <meta property="twitter:description" content="創意字型設計與作品展示">
+    <meta property="twitter:image" content="http://localhost:4000/assets/images/og-image.jpg">
+</head>
 
 <!-- MailerLite Universal -->
 <script>
@@ -45,12 +47,20 @@
     <link rel="stylesheet" href="/assets/css/styles.css">
 </head>
 <body>
-    <header id="site-header">
+    <!-- header.html -->
+<header id="site-header">
     <div class="header-content">
       <a href="/" class="logo-link">
         <img src="/assets/images/LOGO_2024.svg" alt="網站 LOGO" class="logo">
       </a>
-      <div class="nav-and-button">
+      
+      <button id="menu-toggle" class="menu-toggle" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+  
+      <div class="nav-and-button" id="nav-and-button">
         <nav>
           <a href="/works/" >作品</a>
           <a href="/about/" class="current">關於</a>
@@ -58,20 +68,19 @@
           <a href="/boost/" >支持</a>
           <a href="https://blog.erikyin.net" class="external-link">字碼筆記</a>
         </nav>
-        <button id="back-to-top" aria-label="回到頂部">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-up"><polyline points="18 15 12 9 6 15"></polyline></svg>
-        </button>
       </div>
     </div>
   </header>
+
     
-    <main>
-        <div class="container content" role="main">
+    <main role="main">
+        <div class="container content ">
             <h1 id="️">🏛️</h1>
 
 <hr />
 
 <h2 id="-字我介紹">👤 字我介紹</h2>
+
 <p>嗨！我是殷慈遠 aka Erikyin，一位熱愛字體設計、程式開發與創意影音的創作者。我目前居住在台灣，於<a href="https://www.arphic.com.tw/">文鼎字型</a>擔任字體設計師，在字型設計領域，我主要使用 <a href="https://glyphsapp.com/">Glyphs</a> 這套軟體來創造出獨特且具有表現力的字體。除此之外，我也正在學習使用 Python 程式語言，透過撰寫腳本和工具，讓我的設計工作更加順利與高效率。</p>
 
 <p>另外，我也是一名 <a href="https://www.youtube.com/@erikin1205_typogame">YouTube 頻道</a>經營者，在這裡我分享許多新穎實用的字型設計點子，與觀眾們一同探索創作的無限可能。無論是設計、程式還是影音製作，我都致力於將這些熱情帶給世界，並持續探索著各種新的創作可能性。</p>
@@ -328,7 +337,7 @@
   </div>
 </div>
 
-        </div>
+          </div>
         
         <footer>
     <section class="social-icons">
@@ -357,8 +366,8 @@
     
     <div id="newsletter-floating" class="newsletter-floating">
     <button id="newsletter-toggle" class="newsletter-toggle">
-      <span class="emoji-minimized">📰</span>
-      <span class="toggle-text">訂閱電子報</span>
+        <span class="emoji-minimized">📰</span>
+        <span class="toggle-text">訂閱電子報</span>
       <svg class="minimize-icon hidden" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
         <polyline points="7 13 12 18 17 13"></polyline>
         <polyline points="7 6 12 11 17 6"></polyline>
@@ -383,5 +392,9 @@
     ml('account', '1005736');
 </script>
 <!-- End MailerLite Universal -->
+
+    <button id="back-to-top" aria-label="回到頂部" class="back-to-top">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-up"><polyline points="18 15 12 9 6 15"></polyline></svg>
+      </button>
 </body>
 </html>

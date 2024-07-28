@@ -1,0 +1,158 @@
+// Newsletter 樣式
+
+// 內嵌 Newsletter
+.newsletter {
+    margin: 60px 0;
+    padding: 30px 40px;
+    border: 1px solid rgba(245, 240, 229, 0.3);
+    border-radius: var(--border-radius);
+  
+    h2 {
+      @include flex-center;
+      margin: 0 0 20px;
+      font-size: 1.8em;
+  
+      .emoji {
+        font-size: 1em;
+        margin-right: 10px;
+      }
+    }
+  }
+  
+  // MailerLite 表單樣式
+  .ml-embedded {
+    form {
+      max-width: 100%;
+      margin: 0 auto;
+    }
+  
+    input[type="email"] {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border: 1px solid var(--text-color);
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      font-family: var(--font-sans);
+    }
+  
+    button {
+      width: 100%;
+      padding: 10px;
+      background-color: var(--text-color);
+      color: var(--bg-color);
+      border: none;
+      cursor: pointer;
+      font-family: var(--font-mono), var(--font-sans), var(--font-emoji);
+      font-weight: 700;
+      transition: background-color var(--transition-duration) ease;
+  
+      &:hover {
+        background-color: var(--white);
+      }
+    }
+  }
+  
+  // 浮動 Newsletter
+  .newsletter-floating {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    z-index: 1000;
+    background-color: var(--bg-color);
+    border: 1px solid var(--text-color);
+    border-radius: var(--border-radius);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    font-family: var(--font-mono), var(--font-sans), var(--font-emoji);
+  
+    .newsletter-toggle {
+      @include flex-center;
+      justify-content: space-between;
+      background-color: var(--text-color);
+      color: var(--bg-color);
+      border: none;
+      padding: 10px 15px;
+      cursor: pointer;
+      transition: all var(--transition-duration) ease;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+      width: 100%;
+  
+      .toggle-text {
+        margin-right: 8px;
+      }
+  
+      .emoji, .emoji-minimized {
+        font-family: var(--font-emoji);
+        margin-right: 8px;
+      }
+  
+      .minimize-icon,
+      .close-icon {
+        width: 18px;
+        height: 18px;
+      }
+
+      // 新增：在行動裝置上隱藏文字
+    @media (max-width: 768px) {
+        .toggle-text {
+          display: none;
+        }
+        
+        .emoji-minimized {
+          margin-right: 0; // 移除右邊距，因為文字被隱藏了
+        }
+      }
+    }
+  
+    .newsletter-form {
+      padding: 15px;
+      color: var(--text-color);
+  
+      h3 {
+        margin-top: 0;
+        font-family: var(--font-serif);
+        font-size: 1.4em;
+        margin-bottom: 10px;
+  
+        &::first-letter {
+          font-family: var(--font-emoji);
+        }
+  
+        .emoji {
+          font-family: var(--font-emoji);
+        }
+      }
+  
+      .ml-embedded {
+        margin-top: 10px;
+      }
+    }
+
+    @media (max-width: 768px) {
+        right: 20px;
+        bottom: 20px;
+        left: auto;
+        width: auto;
+    
+        .newsletter-toggle {
+            // width: 40px;
+
+          .toggle-text {
+            @media (max-width: 480px) {
+                font-size: 2em;
+              display: none; // 在小螢幕上隱藏文字
+            }
+          }
+        }
+    
+        .newsletter-form {
+          max-height: 80vh; // 限制最大高度
+          overflow-y: auto; // 允許內容滾動
+        }
+      }
+  }
+  
+  .hidden {
+    display: none;
+  }

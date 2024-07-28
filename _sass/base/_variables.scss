@@ -1,0 +1,28 @@
+:root {
+    // 顏色變量
+    --bg-color: #28262C;      // 背景顏色
+    --text-color: #F5F0E5;    // 文字顏色
+    --accent-color: #45424A;  // 強調顏色
+    --white: #FFFFFF;         // 白色
+    
+    // 字體變量
+    --font-emoji: 'Noto Emoji', sans-serif;  // emoji 字體
+    --font-mono: 'Fira Code', monospace;     // 等寬字體
+    --font-sans: 'Noto Sans TC', sans-serif; // 無襯線字體
+    --font-serif: 'Noto Serif TC', serif;    // 襯線字體
+    
+    // 其他變量
+    --logo-color: var(--text-color);  // logo 顏色
+    --border-radius: 1px;             // 邊框圓角
+    --transition-duration: 0.3s;      // 過渡動畫持續時間
+    --content-max-width: 800px;       // 內容最大寬度
+
+    // 響應式設計斷點
+    --breakpoint-tablet: 768px;
+    --breakpoint-desktop: 1024px;
+    
+    // 響應式字體大小
+    --font-size-base: 16px;
+    --font-size-large: 1.25rem;
+    --font-size-small:  0.875rem;
+  }

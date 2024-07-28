@@ -11,15 +11,19 @@
 <body>
     {% include header.html %}
     
-    <main>
-        <div class="container content" role="main">
+    <main role="main">
+        <div class="container content {% if page.center_content %}center-content{% endif %}">
             {{ content }}
-        </div>
+          </div>
         
         {% include footer.html %}
     </main>
     
     {% include newsletter-floating.html %}
     {% include scripts.html %}
+
+    <button id="back-to-top" aria-label="回到頂部" class="back-to-top">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-up"><polyline points="18 15 12 9 6 15"></polyline></svg>
+      </button>
 </body>
 </html>

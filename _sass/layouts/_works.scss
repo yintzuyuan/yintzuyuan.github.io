@@ -1,0 +1,57 @@
+// _works.scss
+
+// 作品集頁面佈局樣式
+.works-content {
+    h1 {
+      font-size: 3.5em;
+      margin-bottom: 30px;
+    }
+  
+    // 標籤雲樣式覆蓋
+    .tag-cloud {
+      .tag {
+        padding: 5px 10px;
+        border: 1px solid var(--text-color);
+        border-radius: var(--border-radius);
+  
+        &:hover,
+        &.active {
+          background-color: var(--text-color);
+          color: var(--bg-color);
+        }
+  
+        &::after {
+          content: none; // 移除下劃線效果
+        }
+      }
+    }
+  
+    // 作品項目容器樣式覆蓋
+    .project-container {
+      gap: 20px;
+    }
+  
+    // 作品項目樣式覆蓋
+    .project-item {
+      padding: 10px 15px;
+      text-decoration: none;
+      color: var(--text-color);
+  
+      &:hover {
+        transform: translateY(-3px);
+      }
+    }
+  }
+  
+  // 響應式設計
+  @media (max-width: 768px) {
+    .works-content {
+      h1 {
+        font-size: 2.5em;
+      }
+  
+      .tag-cloud .tag {
+        margin: 5px;
+      }
+    }
+  }

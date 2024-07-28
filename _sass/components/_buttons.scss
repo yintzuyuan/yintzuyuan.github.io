@@ -1,0 +1,82 @@
+// _components/_buttons.scss
+
+.btn-send {
+    background-color: var(--text-color);
+    color: var(--bg-color);
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: opacity var(--transition-duration) ease;
+  
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+  
+  .support-button {
+    @include no-underline;
+    
+    display: inline-block;
+    padding: 8px 15px;
+    background-color: rgba(245, 240, 229, 0.1);
+    color: var(--text-color);
+    border-radius: var(--border-radius);
+    transition: all var(--transition-duration) ease;
+    margin-top: auto;
+  
+    &:hover {
+      background-color: rgba(245, 240, 229, 0.2);
+    }
+  
+    &.disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+      background-color: rgba(245, 240, 229, 0.1);
+  
+      &:hover {
+        background-color: rgba(245, 240, 229, 0.1);
+        color: var(--text-color);
+      }
+    }
+  }
+  
+  // 綠界Pay按鈕懸停效果
+  .support-options .support-option:nth-child(1) .support-button:not(.disabled):hover {
+    background-color: rgba(0, 150, 136, 0.8); // 使用綠色系
+  }
+  
+  // Buy Me A Coffee按鈕懸停效果
+  .support-options .support-option:nth-child(2) .support-button:hover {
+    background-color: rgba(255, 221, 0, 0.8); // 使用黃色系
+    color: #000; // 改變文字顏色以增加對比度
+  }
+  
+  // PayPal按鈕懸停效果
+  .support-options .support-option:nth-child(3) .support-button:hover {
+    background-color: rgba(0, 48, 135, 0.8); // 使用藍色系
+  }
+  
+  .share-button {
+    @include no-underline;
+    display: inline-flex;
+    align-items: center;
+    padding: 8px 15px;
+    border-radius: var(--border-radius);
+    color: var(--text-color);
+    background-color: rgba(245, 240, 229, 0.1);
+    transition: all var(--transition-duration) ease;
+  
+    i {
+      margin-right: 8px;
+    }
+  
+    &:hover {
+      background-color: rgba(245, 240, 229, 0.2);
+    }
+  
+    &.facebook:hover { background-color: rgba(59, 89, 152, 0.2); }
+    &.line:hover { background-color: rgba(0, 185, 0, 0.2); }
+    &.twitter:hover { background-color: rgba(29, 161, 242, 0.2); }
+    &.linkedin:hover { background-color: rgba(0, 119, 181, 0.2); }
+    &.copy-link:hover { background-color: rgba(245, 240, 229, 0.3); }
+  }

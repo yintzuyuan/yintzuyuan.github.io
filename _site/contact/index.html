@@ -1,33 +1,35 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
 <head>
+    <head>
     <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>聯繫 - 殷慈遠 - 殷慈遠的個人網站</title>
-<meta name="description" content="字體設計師的個人空間">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>聯繫 - 殷慈遠 - 殷慈遠的設計工作室</title>
+    <meta name="description" content="創意字型設計與作品展示">
 
-<!-- Favicon -->
-<link rel="icon" type="image/png" href="/assets/images/favicon.png">
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/assets/images/favicon.png">
 
-<!-- Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;700&family=Noto+Serif+TC:wght@700&family=Noto+Emoji&display=swap" rel="stylesheet">
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;700&family=Noto+Serif+TC:wght@700&family=Noto+Emoji&display=swap" rel="stylesheet">
 
-<!-- Styles -->
-<link rel="stylesheet" href="/assets/css/styles.css">
+    <!-- Styles -->
+    <link rel="stylesheet" href="/assets/css/styles.css">
 
-<!-- Open Graph / Facebook -->
-<meta property="og:type" content="website">
-<meta property="og:url" content="http://localhost:4000/contact/">
-<meta property="og:title" content="聯繫 - 殷慈遠">
-<meta property="og:description" content="字體設計師的個人空間">
-<meta property="og:image" content="http://localhost:4000/assets/images/og-image.jpg">
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="http://localhost:4000/contact/">
+    <meta property="og:title" content="聯繫 - 殷慈遠">
+    <meta property="og:description" content="創意字型設計與作品展示">
+    <meta property="og:image" content="http://localhost:4000/assets/images/og-image.jpg">
 
-<!-- Twitter -->
-<meta property="twitter:card" content="summary_large_image">
-<meta property="twitter:url" content="http://localhost:4000/contact/">
-<meta property="twitter:title" content="聯繫 - 殷慈遠">
-<meta property="twitter:description" content="字體設計師的個人空間">
-<meta property="twitter:image" content="http://localhost:4000/assets/images/og-image.jpg">
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="http://localhost:4000/contact/">
+    <meta property="twitter:title" content="聯繫 - 殷慈遠">
+    <meta property="twitter:description" content="創意字型設計與作品展示">
+    <meta property="twitter:image" content="http://localhost:4000/assets/images/og-image.jpg">
+</head>
 
 <!-- MailerLite Universal -->
 <script>
@@ -45,12 +47,20 @@
     <link rel="stylesheet" href="/assets/css/styles.css">
 </head>
 <body>
-    <header id="site-header">
+    <!-- header.html -->
+<header id="site-header">
     <div class="header-content">
       <a href="/" class="logo-link">
         <img src="/assets/images/LOGO_2024.svg" alt="網站 LOGO" class="logo">
       </a>
-      <div class="nav-and-button">
+      
+      <button id="menu-toggle" class="menu-toggle" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+  
+      <div class="nav-and-button" id="nav-and-button">
         <nav>
           <a href="/works/" >作品</a>
           <a href="/about/" >關於</a>
@@ -58,38 +68,37 @@
           <a href="/boost/" >支持</a>
           <a href="https://blog.erikyin.net" class="external-link">字碼筆記</a>
         </nav>
-        <button id="back-to-top" aria-label="回到頂部">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-up"><polyline points="18 15 12 9 6 15"></polyline></svg>
-        </button>
       </div>
     </div>
   </header>
+
     
-    <main>
-        <div class="container content" role="main">
+    <main role="main">
+        <div class="container content center-content">
             <h1>📮</h1>
 
-<div style="text-align: center;">
-無論是關於字體設計的疑問，還是創意合作的提案，我都很樂意傾聽您的想法。
-</div>
+<hr />
+
+<p>無論是關於字體設計的疑問，還是創意合作的提案，我都很樂意傾聽您的想法。</p>
 
 <h2 id="-發送訊息">📨 發送訊息</h2>
 
-<div style="text-align: center;">
 <!-- _includes/contact-form.html -->
-<form id="contact-form" onsubmit="return sendEmail();" class="contact-form">
-    <div class="form-group">
-      <!-- <label for="name">姓名</label> -->
-      <input type="text" id="name" name="name" placeholder="姓名" required="" />
-    </div>
-    <div class="form-group">
-      <!-- <label for="message">訊息</label> -->
-      <textarea id="message" name="message" placeholder="訊息" required=""></textarea>
-    </div>
-    <button type="submit" class="btn-send">準備發送</button>
-  </form>
-  
-  <script>
+<div class="contact-container">
+    <form id="contact-form" onsubmit="return sendEmail();" class="contact-form">
+        <div class="form-group">
+        <!-- <label for="name">姓名</label> -->
+        <input type="text" id="name" name="name" placeholder="姓名" required="" />
+        </div>
+        <div class="form-group">
+        <!-- <label for="message">訊息</label> -->
+        <textarea id="message" name="message" placeholder="訊息" required=""></textarea>
+        </div>
+        <button type="submit" class="btn-send">準備發送</button>
+    </form>
+</div>
+
+<script>
   function sendEmail() {
     var name = document.getElementById('name').value;
     var message = document.getElementById('message').value;
@@ -102,22 +111,14 @@
     return false;
   }
   </script>
-</div>
-<p><br /></p>
 
-<div style="text-align: center;">
-偏好傳統方式？您也可以直接發送郵件至 <a href="mailto:info@erikyin.net">info@erikyin.net</a>
-</div>
-<p><br /></p>
+<p>偏好傳統方式？您也可以直接發送郵件至 <a href="mailto:info@erikyin.net">info@erikyin.net</a></p>
 
 <hr />
 
-<div style="text-align: center;">
-期待與您一同探索文字設計的無限可能。也許您的一個想法，就是下一個精彩項目的開始。
-</div>
+<p>期待與您一同探索文字設計的無限可能。也許您的一個想法，就是下一個精彩項目的開始。</p>
 
-
-        </div>
+          </div>
         
         <footer>
     <section class="social-icons">
@@ -146,8 +147,8 @@
     
     <div id="newsletter-floating" class="newsletter-floating">
     <button id="newsletter-toggle" class="newsletter-toggle">
-      <span class="emoji-minimized">📰</span>
-      <span class="toggle-text">訂閱電子報</span>
+        <span class="emoji-minimized">📰</span>
+        <span class="toggle-text">訂閱電子報</span>
       <svg class="minimize-icon hidden" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
         <polyline points="7 13 12 18 17 13"></polyline>
         <polyline points="7 6 12 11 17 6"></polyline>
@@ -172,5 +173,9 @@
     ml('account', '1005736');
 </script>
 <!-- End MailerLite Universal -->
+
+    <button id="back-to-top" aria-label="回到頂部" class="back-to-top">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-up"><polyline points="18 15 12 9 6 15"></polyline></svg>
+      </button>
 </body>
 </html>

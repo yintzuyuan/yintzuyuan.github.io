@@ -1,33 +1,35 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
 <head>
+    <head>
     <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>首頁 - 殷慈遠的個人網站</title>
-<meta name="description" content="字體設計師的個人空間">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>首頁 - 殷慈遠的設計工作室</title>
+    <meta name="description" content="創意字型設計與作品展示">
 
-<!-- Favicon -->
-<link rel="icon" type="image/png" href="/assets/images/favicon.png">
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/assets/images/favicon.png">
 
-<!-- Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;700&family=Noto+Serif+TC:wght@700&family=Noto+Emoji&display=swap" rel="stylesheet">
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;700&family=Noto+Serif+TC:wght@700&family=Noto+Emoji&display=swap" rel="stylesheet">
 
-<!-- Styles -->
-<link rel="stylesheet" href="/assets/css/styles.css">
+    <!-- Styles -->
+    <link rel="stylesheet" href="/assets/css/styles.css">
 
-<!-- Open Graph / Facebook -->
-<meta property="og:type" content="website">
-<meta property="og:url" content="http://localhost:4000/">
-<meta property="og:title" content="首頁">
-<meta property="og:description" content="字體設計師的個人空間">
-<meta property="og:image" content="http://localhost:4000/assets/images/og-image.jpg">
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="http://localhost:4000/">
+    <meta property="og:title" content="首頁">
+    <meta property="og:description" content="創意字型設計與作品展示">
+    <meta property="og:image" content="http://localhost:4000/assets/images/og-image.jpg">
 
-<!-- Twitter -->
-<meta property="twitter:card" content="summary_large_image">
-<meta property="twitter:url" content="http://localhost:4000/">
-<meta property="twitter:title" content="首頁">
-<meta property="twitter:description" content="字體設計師的個人空間">
-<meta property="twitter:image" content="http://localhost:4000/assets/images/og-image.jpg">
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="http://localhost:4000/">
+    <meta property="twitter:title" content="首頁">
+    <meta property="twitter:description" content="創意字型設計與作品展示">
+    <meta property="twitter:image" content="http://localhost:4000/assets/images/og-image.jpg">
+</head>
 
 <!-- MailerLite Universal -->
 <script>
@@ -45,12 +47,20 @@
     <link rel="stylesheet" href="/assets/css/styles.css">
 </head>
 <body>
-    <header id="site-header">
+    <!-- header.html -->
+<header id="site-header">
     <div class="header-content">
       <a href="/" class="logo-link">
         <img src="/assets/images/LOGO_2024.svg" alt="網站 LOGO" class="logo">
       </a>
-      <div class="nav-and-button">
+      
+      <button id="menu-toggle" class="menu-toggle" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+  
+      <div class="nav-and-button" id="nav-and-button">
         <nav>
           <a href="/works/" >作品</a>
           <a href="/about/" >關於</a>
@@ -58,30 +68,25 @@
           <a href="/boost/" >支持</a>
           <a href="https://blog.erikyin.net" class="external-link">字碼筆記</a>
         </nav>
-        <button id="back-to-top" aria-label="回到頂部">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-up"><polyline points="18 15 12 9 6 15"></polyline></svg>
-        </button>
       </div>
     </div>
   </header>
+
     
-    <main>
-        <div class="container content" role="main">
+    <main role="main">
+        <div class="container content ">
             <h1 id="殷-慈遠">殷 慈遠</h1>
 
-<p>🙂 嗨，你好，這是我的名片</p>
+<hr />
 
-<p>🗃️ 這本<a href="/works">作品集</a>展示了我的作品</p>
+<p>🙂 嗨，你好，這是我的名片<br />
+🗃️ 這本<a href="/works">作品集</a>展示了我的作品<br />
+🏛️ 你可以從<a href="/about">關於</a>了解我是誰<br />
+📝 我正在透過<a href="https://blog.erikyin.net">字碼筆記</a>將知識堆砌成文字<br />
+📮 如果有任何建議請<a href="/contact">和我聯繫</a><br />
+❤ 也歡迎<a href="/boost">支持我的創作</a></p>
 
-<p>🏛️ 你可以從<a href="/about">關於</a>了解我是誰</p>
-
-<p>📝 我正在透過<a href="https://blog.erikyin.net">字碼筆記</a>將知識堆砌成文字</p>
-
-<p>📮 如果有任何建議請<a href="/contact">和我聯繫</a></p>
-
-<p>❤ 也歡迎<a href="/boost">支持我的創作</a></p>
-
-        </div>
+          </div>
         
         <footer>
     <section class="social-icons">
@@ -110,8 +115,8 @@
     
     <div id="newsletter-floating" class="newsletter-floating">
     <button id="newsletter-toggle" class="newsletter-toggle">
-      <span class="emoji-minimized">📰</span>
-      <span class="toggle-text">訂閱電子報</span>
+        <span class="emoji-minimized">📰</span>
+        <span class="toggle-text">訂閱電子報</span>
       <svg class="minimize-icon hidden" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
         <polyline points="7 13 12 18 17 13"></polyline>
         <polyline points="7 6 12 11 17 6"></polyline>
@@ -136,5 +141,9 @@
     ml('account', '1005736');
 </script>
 <!-- End MailerLite Universal -->
+
+    <button id="back-to-top" aria-label="回到頂部" class="back-to-top">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-up"><polyline points="18 15 12 9 6 15"></polyline></svg>
+      </button>
 </body>
 </html>

@@ -1,0 +1,235 @@
+// Header 樣式
+
+// 網站 header
+header#site-header {
+    font-family: var(--font-mono), var(--font-sans), var(--font-emoji);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: var(--bg-color);
+    z-index: 1000;
+    transition: all var(--transition-duration) ease;
+    border-bottom: 1px solid rgba(245, 240, 229, 0.1);
+    padding: 10px 0; // 增加上下內邊距
+    min-height: 70px; // 設置最小高度
+    width: 100%;
+    max-width: var(--content-max-width);
+    margin-left: auto;
+    margin-right: auto;
+    box-sizing: border-box;
+    margin-top: auto;
+
+  
+    @media (min-width: 768px) {
+      min-height: 80px; // 在大屏幕上稍微增加高度
+    }
+  }
+  
+  // Header 內容區
+  .header-content {
+    @include flex-center;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px; // 增加左右內邊距
+    height: 100%; // 確保內容填滿整個頭部區域
+  }
+  
+  // Logo 樣式
+  .logo-link {
+    display: flex;
+    align-items: center;
+  }
+  
+  .logo {
+    width: 50px;
+    height: auto;
+  
+    @include for-tablet-up {
+      width: 60px; // 在平板及以上設備恢復原來的大小
+    }
+  
+    svg, path, rect, circle {
+      fill: var(--logo-color);
+    }
+  
+    &:hover {
+      svg, path, rect, circle {
+        fill: var(--white);
+      }
+    }
+  }
+
+// 漢堡菜單按鈕
+.menu-toggle {
+    display: none; // 默認隱藏
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+  
+    span {
+      display: block;
+      width: 25px;
+      height: 2px;
+      background-color: var(--text-color);
+      margin: 5px 0;
+      transition: all 0.3s ease;
+    }
+  
+    @media (max-width: 767px) {
+      display: block; // 在小螢幕上顯示
+    }
+  }
+  
+// 導航和按鈕容器
+.nav-and-button {
+    @include flex-center;
+    
+    @media (max-width: 767px) {
+        display: none; // 在小螢幕上默認隱藏
+        flex-direction: column;
+        position: absolute; // 改回絕對定位
+        top: 100%; // 從 header 底部開始
+        left: 0;
+        right: 0;
+        background-color: var(--bg-color);
+        padding: 5px 20px 20px;        
+        z-index: 1000;
+        overflow-y: auto; // 允許內容滾動
+        transform: translateY(-10px); // 初始位置稍微向上
+        opacity: 0; // 初始透明
+        transition: transform 0.3s ease, opacity 0.3s ease, box-shadow 0.3s ease; // 添加過渡效果
+        box-shadow: 0 0 0 rgba(0, 0, 0, 0); // 初始無陰影
+    
+        &.active {
+          display: flex;
+          transform: translateY(0); // 顯示時回到正確位置
+          opacity: 1; // 顯示時完全不透明
+          box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); // 顯示時添加陰影
+        }
+      }
+  }
+  
+  // 導航樣式
+  nav {
+    margin-top: -5px;
+    @include flex-center;
+
+    @media (max-width: 767px) {
+      flex-direction: column;
+      width: 100%;
+    }
+
+    a {
+      font-family: var(--font-sans);
+      color: var(--text-color);
+      text-decoration: none;
+      margin-left: 20px;
+      letter-spacing: 1px;
+      transition: color var(--transition-duration) ease;
+      position: relative;
+      font-size: 1em;
+      margin: 5px 10px; // 調整間距
+  
+      @include for-tablet-up {
+        font-size: 1.2em; // 在平板及以上設備恢復原來的字體大小
+        margin-left: 20px; // 恢復原來的左邊距
+      }
+      @media (max-width: 767px) {
+        margin: 10px 0;
+        font-size: 1.2em;
+      }
+  
+      &:not(.external-link) {
+        &::after {
+          content: '';
+          position: absolute;
+          width: 100%;
+          height: 1px;
+          bottom: -2px;
+          left: 0;
+          background-color: var(--white);
+          transform: scaleX(0);
+          transition: transform var(--transition-duration) ease;
+        }
+  
+        &:hover::after,
+        &.current::after {
+          transform: scaleX(1);
+        }
+      }
+  
+      &.external-link {
+        background-color: var(--text-color);
+        color: var(--bg-color);
+        padding: 5px 10px;
+        border-radius: var(--border-radius);
+        transition: all var(--transition-duration) ease;
+        font-weight: 500;
+        font-size: 0.95em;
+        letter-spacing: 0.5px;
+  
+        &:hover {
+          background-color: var(--white);
+        }
+      }
+    }
+  }
+  
+  // 回到頂部按鈕
+  .back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    border: 1px solid var(--text-color);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s, visibility 0.3s;
+    z-index: 998;
+  
+    &.visible {
+      opacity: 1;
+      visibility: visible;
+    }
+  
+    &:hover {
+      background-color: var(--text-color);
+      color: var(--bg-color);
+    }
+  
+    @media (max-width: 767px) {
+      bottom: 70px; // 調整位置以避免與電子報訂閱區塊衝突
+    }
+
+    @media (min-width: 768px) {
+        bottom: 80px; // 在桌面版上提高位置，避免與電子報區塊重疊
+        right: 30px;
+      }
+  }
+
+  // 當菜單打開時，禁止body滾動
+    body.menu-open {
+        overflow: hidden;
+    }
+  
+  // 響應式設計
+  @include for-tablet-up {
+    header#site-header {
+      height: 60px; // 移動設備上可能需要較小的header
+    }
+  
+    main {
+      padding-top: 80px; // 調整移動設備上的頂部padding
+      min-height: calc(100vh - 60px - 60px); // 調整移動設備上的最小高度
+    }
+  }

@@ -1,0 +1,151 @@
+// _components/_timeline.scss
+
+.timeline {
+    font-family: var(--font-mono), var(--font-sans), var(--font-emoji);
+    color: var(--text-color);
+    background-color: var(--bg-color);
+    padding: 1.5em 20px;
+    max-width: 600px;
+    margin: 0 auto;
+    position: relative;
+  
+    &-header {
+      font-size: 1.5em;
+      font-weight: bold;
+      margin-bottom: 30px;
+      border-bottom: 1px solid var(--text-color);
+      padding-bottom: 10px;
+    }
+  
+    &-content {
+      position: relative;
+      padding-left: 60px;
+    }
+  
+    &-line {
+      position: absolute;
+      left: 30px;
+      top: 0;
+      bottom: 0;
+      width: 1px;
+      background-color: var(--text-color);
+  
+      &::before {
+        content: '';
+        position: absolute;
+        top: -10px;
+        left: -4px;
+        width: 0;
+        height: 0;
+        border-left: 5px solid transparent;
+        border-right: 5px solid transparent;
+        border-bottom: 10px solid var(--text-color);
+      }
+    }
+  
+    &-item {
+      margin-bottom: 15px;
+      position: relative;
+      min-height: 50px;
+    }
+  
+    &-year {
+      margin-bottom: 20px;
+    }
+  
+    &-year-marker {
+      position: absolute;
+      left: -33.5px;
+      top: 12px;
+      width: 8px;
+      height: 8px;
+      background-color: var(--text-color);
+      border-radius: 50%;
+    }
+  
+    &-year-text {
+      position: absolute;
+      left: -90px;
+      top: 0;
+      font-weight: bold;
+    }
+  
+    &-event {
+      display: flex;
+      align-items: flex-start;
+      margin-top: -27px;
+    }
+  
+    .event-icon {
+      margin-right: 10px;
+      font-size: 1.2em;
+      font-family: var(--font-emoji);
+      flex-shrink: 0;
+    }
+  
+    .event-text {
+      flex-grow: 1;
+      line-height: 1.5;
+      position: relative;
+      top: -14px;
+  
+      a {
+        color: var(--text-color);
+        text-decoration: none;
+        transition: all var(--transition-duration) ease;
+  
+        &:hover {
+          color: var(--white);
+          border-bottom-color: var(--white);
+        }
+      }
+    }
+  
+    &-start {
+      margin-bottom: 10px;
+  
+      .event-icon {
+        font-size: 1.5em;
+      }
+    }
+  
+    &-short .timeline-line {
+      height: 90%;
+    }
+  
+    &-medium .timeline-line {
+      height: 96%;
+    }
+  }
+  
+  // 響應式設計
+  @media (max-width: 768px) {
+    .timeline {
+      padding: 2.5em 20px;
+  
+      &-content {
+        padding-left: 40px;
+      }
+  
+      &-line {
+        left: 20px;
+      }
+  
+      &-year-marker {
+        left: -23.5px;
+      }
+  
+      &-year-text {
+        left: -70px;
+        font-size: 0.9em;
+      }
+  
+      .event-text {
+        font-size: 0.9em;
+      }
+
+      &-medium .timeline-line {
+        height: 97%;
+      }
+    }
+  }

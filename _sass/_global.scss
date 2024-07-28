@@ -1,0 +1,127 @@
+// _sass/_global.scss
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    font-size: var(--font-size-base);
+    margin: 0;
+  }
+  
+  main {
+    width: 100%;
+    max-width: var(--content-max-width);
+    margin: var(--header-height, 70px) auto 0;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 20px 20px 40px;
+    box-sizing: border-box;
+  
+    @media (max-width: 768px) {
+      padding: 15px 15px 30px;
+    }
+  }
+  
+  .content,
+  .container {
+    max-width: 100%;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    box-sizing: border-box;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 0 20px; // 增加左右內邊距
+
+  
+    h1 {
+      font-size: 5em;
+      margin-top: -6vh;
+      margin-bottom: 15px;
+      letter-spacing: 1px;
+      text-align: center;
+  
+      @media (max-width: 768px) {
+        font-size: 4.5em;
+        margin-bottom: 15px;
+      }
+  
+      @media (max-width: 480px) {
+        font-size: 4em;
+        margin-top: -1vh;
+        margin-bottom: 10px;
+      }
+    }
+  
+    p {
+      margin-bottom: 1.8em;
+      line-height: 2; // 增加行距
+      font-size: var(--font-size-base);
+    //   text-align:justify;
+    }
+  
+    a {
+      color: var(--text-color);
+      text-decoration: none;
+      position: relative;
+      transition: all var(--transition-duration) ease;
+  
+      &::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: -2px;
+        width: 100%;
+        height: 1px;
+        background-color: var(--text-color);
+        transition: all var(--transition-duration) ease;
+      }
+  
+      &:hover, &:focus {
+        color: var(--white);
+  
+        &::after {
+          background-color: var(--white);
+        }
+      }
+    }
+  
+    hr {
+        border: none;
+        border-top: 1px dashed var(--text-color);
+        opacity: 0.3;
+        margin: 30px 0;
+      }
+  }
+
+/* 文字置中的樣式 */
+.center-content {
+    text-align: center;
+  
+    /* 針對特定元素的左對齊，如果需要的話 */
+    h1, h2, h3, h4, h5, h6 {
+      text-align: center; // 或者保持 left，取決於您的需求
+    }
+  
+    ul, ol {
+      display: inline-block;
+      text-align: left;
+    }
+  }
+
+// 調整行動裝置上的內容間距
+@media (max-width: 768px) {
+    .content,
+    .container {
+      p, ul, ol {
+        padding-left: 10px;
+        padding-right: 10px;
+      }
+    }
+  }
+  

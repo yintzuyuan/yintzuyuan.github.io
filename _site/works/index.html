@@ -1,33 +1,35 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
 <head>
+    <head>
     <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>我的作品 - 殷慈遠的個人網站</title>
-<meta name="description" content="字體設計師的個人空間">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我的作品 - 殷慈遠的設計工作室</title>
+    <meta name="description" content="創意字型設計與作品展示">
 
-<!-- Favicon -->
-<link rel="icon" type="image/png" href="/assets/images/favicon.png">
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/assets/images/favicon.png">
 
-<!-- Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;700&family=Noto+Serif+TC:wght@700&family=Noto+Emoji&display=swap" rel="stylesheet">
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;700&family=Noto+Serif+TC:wght@700&family=Noto+Emoji&display=swap" rel="stylesheet">
 
-<!-- Styles -->
-<link rel="stylesheet" href="/assets/css/styles.css">
+    <!-- Styles -->
+    <link rel="stylesheet" href="/assets/css/styles.css">
 
-<!-- Open Graph / Facebook -->
-<meta property="og:type" content="website">
-<meta property="og:url" content="http://localhost:4000/works/">
-<meta property="og:title" content="我的作品">
-<meta property="og:description" content="字體設計師的個人空間">
-<meta property="og:image" content="http://localhost:4000/assets/images/og-image.jpg">
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="http://localhost:4000/works/">
+    <meta property="og:title" content="我的作品">
+    <meta property="og:description" content="創意字型設計與作品展示">
+    <meta property="og:image" content="http://localhost:4000/assets/images/og-image.jpg">
 
-<!-- Twitter -->
-<meta property="twitter:card" content="summary_large_image">
-<meta property="twitter:url" content="http://localhost:4000/works/">
-<meta property="twitter:title" content="我的作品">
-<meta property="twitter:description" content="字體設計師的個人空間">
-<meta property="twitter:image" content="http://localhost:4000/assets/images/og-image.jpg">
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="http://localhost:4000/works/">
+    <meta property="twitter:title" content="我的作品">
+    <meta property="twitter:description" content="創意字型設計與作品展示">
+    <meta property="twitter:image" content="http://localhost:4000/assets/images/og-image.jpg">
+</head>
 
 <!-- MailerLite Universal -->
 <script>
@@ -45,12 +47,20 @@
     <link rel="stylesheet" href="/assets/css/styles.css">
 </head>
 <body>
-    <header id="site-header">
+    <!-- header.html -->
+<header id="site-header">
     <div class="header-content">
       <a href="/" class="logo-link">
         <img src="/assets/images/LOGO_2024.svg" alt="網站 LOGO" class="logo">
       </a>
-      <div class="nav-and-button">
+      
+      <button id="menu-toggle" class="menu-toggle" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+  
+      <div class="nav-and-button" id="nav-and-button">
         <nav>
           <a href="/works/" class="current">作品</a>
           <a href="/about/" >關於</a>
@@ -58,16 +68,16 @@
           <a href="/boost/" >支持</a>
           <a href="https://blog.erikyin.net" class="external-link">字碼筆記</a>
         </nav>
-        <button id="back-to-top" aria-label="回到頂部">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-up"><polyline points="18 15 12 9 6 15"></polyline></svg>
-        </button>
       </div>
     </div>
   </header>
+
     
-    <main>
-        <div class="container content" role="main">
+    <main role="main">
+        <div class="container content ">
             <h1 id="️">🗃️</h1>
+
+<hr />
 
 <div class="tag-cloud">
     <span class="tag active" data-filter="all">全部</span>
@@ -91,125 +101,125 @@
     
   </div>
 
-<div class="project-container" id="projectContainer">
+<div id="projectContainer" class="project-container">
     
-      <a href="https://www.behance.net/gallery/6749045/Prism-Font" target="_blank" class="project-item no-underline" data-categories="歐文,字體設計">
+      <a href="https://www.behance.net/gallery/6749045/Prism-Font" class="project-link project-item" target="_blank" data-categories="歐文,字體設計">
         <span class="project-title">Prism</span>
       </a>
     
-      <a href="https://www.behance.net/gallery/7122563/ERKN-font" target="_blank" class="project-item no-underline" data-categories="歐文,字體設計">
+      <a href="https://www.behance.net/gallery/7122563/ERKN-font" class="project-link project-item" target="_blank" data-categories="歐文,字體設計">
         <span class="project-title">ERKN</span>
       </a>
     
-      <a href="https://www.behance.net/gallery/106657379/Coward-Prophet-Font-a-Few-Years-Later_JonahAFYL" target="_blank" class="project-item no-underline" data-categories="歐文,字體設計">
+      <a href="https://www.behance.net/gallery/106657379/Coward-Prophet-Font-a-Few-Years-Later_JonahAFYL" class="project-link project-item" target="_blank" data-categories="歐文,字體設計">
         <span class="project-title">Jonah</span>
       </a>
     
-      <a href="https://www.behance.net/gallery/59729821/Goalthink-Font" target="_blank" class="project-item no-underline" data-categories="歐文,字體設計">
+      <a href="https://www.behance.net/gallery/59729821/Goalthink-Font" class="project-link project-item" target="_blank" data-categories="歐文,字體設計">
         <span class="project-title">Goalthink</span>
       </a>
     
-      <a href="https://www.behance.net/gallery/77648235/Typori-Font" target="_blank" class="project-item no-underline" data-categories="歐文,字體設計">
+      <a href="https://www.behance.net/gallery/77648235/Typori-Font" class="project-link project-item" target="_blank" data-categories="歐文,字體設計">
         <span class="project-title">Typori</span>
       </a>
     
-      <a href="https://www.behance.net/gallery/116873545/Sisyphus-Font" target="_blank" class="project-item no-underline" data-categories="歐文,字體設計">
+      <a href="https://www.behance.net/gallery/116873545/Sisyphus-Font" class="project-link project-item" target="_blank" data-categories="歐文,字體設計">
         <span class="project-title">Sisyphus</span>
       </a>
     
-      <a href="https://www.behance.net/gallery/117754611/Font-Rasterquan" target="_blank" class="project-item no-underline" data-categories="歐文,字體設計">
+      <a href="https://www.behance.net/gallery/117754611/Font-Rasterquan" class="project-link project-item" target="_blank" data-categories="歐文,字體設計">
         <span class="project-title">Rasterquan</span>
       </a>
     
-      <a href="https://www.behance.net/gallery/120115315/Font-Bazilikin" target="_blank" class="project-item no-underline" data-categories="歐文,字體設計">
+      <a href="https://www.behance.net/gallery/120115315/Font-Bazilikin" class="project-link project-item" target="_blank" data-categories="歐文,字體設計">
         <span class="project-title">Bazilikin</span>
       </a>
     
-      <a href="https://www.behance.net/gallery/121834739/Font-Alugu" target="_blank" class="project-item no-underline" data-categories="歐文,字體設計">
+      <a href="https://www.behance.net/gallery/121834739/Font-Alugu" class="project-link project-item" target="_blank" data-categories="歐文,字體設計">
         <span class="project-title">Alugu</span>
       </a>
     
-      <a href="https://www.behance.net/gallery/124860047/Font-Electlilywave" target="_blank" class="project-item no-underline" data-categories="歐文,字體設計">
+      <a href="https://www.behance.net/gallery/124860047/Font-Electlilywave" class="project-link project-item" target="_blank" data-categories="歐文,字體設計">
         <span class="project-title">Electlilywave</span>
       </a>
     
-      <a href="https://www.behance.net/gallery/125875695/Font-Kalosgon" target="_blank" class="project-item no-underline" data-categories="歐文,字體設計">
+      <a href="https://www.behance.net/gallery/125875695/Font-Kalosgon" class="project-link project-item" target="_blank" data-categories="歐文,字體設計">
         <span class="project-title">Kalosgon</span>
       </a>
     
-      <a href="https://www.facebook.com/jftypeclass/posts/pfbid02mSGzkkcjWU72RF4hHyiPGyPcj694Ujvey92e3x7YYA9cF9P3TNjJ5Sm6vtrYZfU1l" target="_blank" class="project-item no-underline" data-categories="漢字,字體設計">
+      <a href="https://www.facebook.com/jftypeclass/posts/pfbid02mSGzkkcjWU72RF4hHyiPGyPcj694Ujvey92e3x7YYA9cF9P3TNjJ5Sm6vtrYZfU1l" class="project-link project-item" target="_blank" data-categories="漢字,字體設計">
         <span class="project-title">殷泉明</span>
       </a>
     
-      <a href="https://www.behance.net/gallery/61406349/-CubeFarm-Font-(Chinese)" target="_blank" class="project-item no-underline" data-categories="漢字,字體設計">
+      <a href="https://www.behance.net/gallery/61406349/-CubeFarm-Font-(Chinese)" class="project-link project-item" target="_blank" data-categories="漢字,字體設計">
         <span class="project-title">口方體</span>
       </a>
     
-      <a href="https://github.com/yintzuyuan/NineBoxView" target="_blank" class="project-item no-underline" data-categories="Glyphs工具,工具開發">
+      <a href="https://github.com/yintzuyuan/NineBoxView" class="project-link project-item" target="_blank" data-categories="Glyphs工具,工具開發">
         <span class="project-title">九宮格預覽</span>
       </a>
     
-      <a href="https://github.com/yintzuyuan/Glyphs_Scripts" target="_blank" class="project-item no-underline" data-categories="Glyphs工具,工具開發">
+      <a href="https://github.com/yintzuyuan/Glyphs_Scripts" class="project-link project-item" target="_blank" data-categories="Glyphs工具,工具開發">
         <span class="project-title">我的腳本集</span>
       </a>
     
-      <a href="https://github.com/yintzuyuan/Bopomo_Ligasystem" target="_blank" class="project-item no-underline" data-categories="Glyphs工具,工具開發">
+      <a href="https://github.com/yintzuyuan/Bopomo_Ligasystem" class="project-link project-item" target="_blank" data-categories="Glyphs工具,工具開發">
         <span class="project-title">注音合字架構系統</span>
       </a>
     
-      <a href="https://chatgpt.com/g/g-6VY8cYFqx-glyphs-jiao-ben-zhu-shou" target="_blank" class="project-item no-underline" data-categories="Glyphs工具,工具開發">
+      <a href="https://chatgpt.com/g/g-6VY8cYFqx-glyphs-jiao-ben-zhu-shou" class="project-link project-item" target="_blank" data-categories="Glyphs工具,工具開發">
         <span class="project-title">GPTs - Glyphs 腳本助手</span>
       </a>
     
-      <a href="https://github.com/yintzuyuan/mekkablue_Glyphs-Scripts-zh-tw" target="_blank" class="project-item no-underline" data-categories="翻譯,Glyphs工具">
+      <a href="https://github.com/yintzuyuan/mekkablue_Glyphs-Scripts-zh-tw" class="project-link project-item" target="_blank" data-categories="翻譯,Glyphs工具">
         <span class="project-title">mekkablue 腳本集翻譯</span>
       </a>
     
-      <a href="https://github.com/yintzuyuan/GlyphsApp-Stubs_zh-tw" target="_blank" class="project-item no-underline" data-categories="翻譯,工具開發,Glyphs工具">
+      <a href="https://github.com/yintzuyuan/GlyphsApp-Stubs_zh-tw" class="project-link project-item" target="_blank" data-categories="翻譯,工具開發,Glyphs工具">
         <span class="project-title">Glyphs 架構字典檔</span>
       </a>
     
-      <a href="https://github.com/yintzuyuan/SelectionPalette_trans_TW" target="_blank" class="project-item no-underline" data-categories="翻譯,Glyphs工具">
+      <a href="https://github.com/yintzuyuan/SelectionPalette_trans_TW" class="project-link project-item" target="_blank" data-categories="翻譯,Glyphs工具">
         <span class="project-title">SelectionPalette 外掛翻譯</span>
       </a>
     
-      <a href="https://www.behance.net/gallery/23465617/Taipei-Metro-Route-Map-reDesign" target="_blank" class="project-item no-underline" data-categories="藝術創作">
+      <a href="https://www.behance.net/gallery/23465617/Taipei-Metro-Route-Map-reDesign" class="project-link project-item" target="_blank" data-categories="藝術創作">
         <span class="project-title">redesign 台北捷運地圖</span>
       </a>
     
-      <a href="https://www.behance.net/gallery/18322553/Good-Morning" target="_blank" class="project-item no-underline" data-categories="藝術創作,插畫">
+      <a href="https://www.behance.net/gallery/18322553/Good-Morning" class="project-link project-item" target="_blank" data-categories="藝術創作,插畫">
         <span class="project-title">Good Morning</span>
       </a>
     
-      <a href="https://www.behance.net/gallery/17811591/Sleep-in-the-Water" target="_blank" class="project-item no-underline" data-categories="藝術創作,插畫">
+      <a href="https://www.behance.net/gallery/17811591/Sleep-in-the-Water" class="project-link project-item" target="_blank" data-categories="藝術創作,插畫">
         <span class="project-title">Sleep in the Water</span>
       </a>
     
-      <a href="https://www.behance.net/gallery/17149219/-Last-Remaining-Fragments" target="_blank" class="project-item no-underline" data-categories="藝術創作,插畫">
+      <a href="https://www.behance.net/gallery/17149219/-Last-Remaining-Fragments" class="project-link project-item" target="_blank" data-categories="藝術創作,插畫">
         <span class="project-title">吉光片羽</span>
       </a>
     
-      <a href="https://www.behance.net/gallery/15105363/Robots-Life" target="_blank" class="project-item no-underline" data-categories="藝術創作,插畫">
+      <a href="https://www.behance.net/gallery/15105363/Robots-Life" class="project-link project-item" target="_blank" data-categories="藝術創作,插畫">
         <span class="project-title">Robot's Life</span>
       </a>
     
-      <a href="https://www.behance.net/gallery/14996839/The-Core" target="_blank" class="project-item no-underline" data-categories="藝術創作,插畫">
+      <a href="https://www.behance.net/gallery/14996839/The-Core" class="project-link project-item" target="_blank" data-categories="藝術創作,插畫">
         <span class="project-title">The Core</span>
       </a>
     
-      <a href="https://www.behance.net/gallery/13483465/Robot-Me" target="_blank" class="project-item no-underline" data-categories="藝術創作,插畫">
+      <a href="https://www.behance.net/gallery/13483465/Robot-Me" class="project-link project-item" target="_blank" data-categories="藝術創作,插畫">
         <span class="project-title">Robot Me</span>
       </a>
     
-      <a href="https://www.behance.net/gallery/12452595/Heart-Sutra-" target="_blank" class="project-item no-underline" data-categories="藝術創作">
+      <a href="https://www.behance.net/gallery/12452595/Heart-Sutra-" class="project-link project-item" target="_blank" data-categories="藝術創作">
         <span class="project-title">心經</span>
       </a>
     
-      <a href="https://www.behance.net/gallery/10575917/Music-of-Sense" target="_blank" class="project-item no-underline" data-categories="藝術創作,插畫">
+      <a href="https://www.behance.net/gallery/10575917/Music-of-Sense" class="project-link project-item" target="_blank" data-categories="藝術創作,插畫">
         <span class="project-title">Music of Sense</span>
       </a>
     
-      <a href="https://www.behance.net/gallery/6647139/Blank" target="_blank" class="project-item no-underline" data-categories="藝術創作,插畫">
+      <a href="https://www.behance.net/gallery/6647139/Blank" class="project-link project-item" target="_blank" data-categories="藝術創作,插畫">
         <span class="project-title">Blank</span>
       </a>
     
@@ -246,8 +256,9 @@
   });
   </script>
 
+<p><br /></p>
 
-        </div>
+          </div>
         
         <footer>
     <section class="social-icons">
@@ -276,8 +287,8 @@
     
     <div id="newsletter-floating" class="newsletter-floating">
     <button id="newsletter-toggle" class="newsletter-toggle">
-      <span class="emoji-minimized">📰</span>
-      <span class="toggle-text">訂閱電子報</span>
+        <span class="emoji-minimized">📰</span>
+        <span class="toggle-text">訂閱電子報</span>
       <svg class="minimize-icon hidden" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
         <polyline points="7 13 12 18 17 13"></polyline>
         <polyline points="7 6 12 11 17 6"></polyline>
@@ -302,5 +313,9 @@
     ml('account', '1005736');
 </script>
 <!-- End MailerLite Universal -->
+
+    <button id="back-to-top" aria-label="回到頂部" class="back-to-top">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-up"><polyline points="18 15 12 9 6 15"></polyline></svg>
+      </button>
 </body>
 </html>

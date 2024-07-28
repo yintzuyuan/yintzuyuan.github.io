@@ -1,0 +1,30 @@
+// 平板設備及以上的媒體查詢
+@mixin for-tablet-up {
+    @media (min-width: 768px) { @content; }
+  }
+  
+  // 桌面設備及以上的媒體查詢
+  @mixin for-desktop-up {
+    @media (min-width: 1024px) { @content; }
+  }
+  
+  // 居中對齊的彈性盒子
+  @mixin flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  // 移除下劃線
+  @mixin no-underline {
+    text-decoration: none !important;
+    border-bottom: none !important;
+    &::after {
+      content: none !important;
+    }
+  }
+
+  // 手機設備的媒體查詢
+@mixin for-phone-only {
+    @media (max-width: 767px) { @content; }
+  }

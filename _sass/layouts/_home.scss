@@ -1,0 +1,65 @@
+// _layouts/home.scss
+
+.home-content {
+    h1 {
+      font-size: 4em;
+      margin-top: 60px; // 增加頂部間距
+      margin-bottom: 60px; // 增加底部間距
+      letter-spacing: 2px;
+      text-align: center;
+    }
+  
+    .content {
+      hr {
+        border: none;
+        border-top: 1px solid var(--text-color); // 使用單色分隔線
+        margin: 40px 0; // 增加分隔線上下間距
+      }
+  
+      .emoji-text-combo {
+        display: flex;
+        align-items: flex-start; // 確保 emoji 和文字頂部對齊
+        margin-bottom: 1.5em;
+  
+        .emoji {
+          margin-right: 15px;
+          flex-shrink: 0;
+          font-size: 1.4em;
+          line-height: 1.4; // 確保 emoji 和文字行高一致
+        }
+      }
+    }
+  }
+  
+  // 響應式設計
+  @media (max-width: 768px) {
+    .home-content {
+      h1 {
+        font-size: 2.5em;
+        margin-top: 40px; // 調整頂部間距
+        margin-bottom: 40px; // 調整底部間距
+      }
+  
+      .content {
+        hr {
+          margin: 30px 0; // 調整分隔線間距
+        }
+      }
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .home-content {
+      h1 {
+        font-size: 2em;
+        margin-top: 30px;
+        margin-bottom: 30px;
+      }
+  
+      .content {
+        hr {
+          margin: 25px 0;
+        }
+      }
+    }
+  }

@@ -6,9 +6,9 @@
     {% endfor %}
   </div>
   
-  <div class="project-container" id="projectContainer">
+  <div id="projectContainer" class="project-container">
     {% for project in site.data.projects %}
-      <a href="{{ project.url }}" target="_blank" class="project-item no-underline" data-categories="{{ project.categories | join: ',' }}">
+      <a href="{{ project.url }}" class="project-link project-item" target="_blank" data-categories="{{ project.categories | join: ',' }}">
         <span class="project-title">{{ project.title }}</span>
       </a>
     {% endfor %}
