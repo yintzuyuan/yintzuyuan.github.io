@@ -3,6 +3,9 @@ layout: default
 title: 聯繫 - 殷慈遠
 permalink: /contact/
 center_content: true
+header_title: 📮
+hide_first_title: true
+body_class: home-page
 ---
 
 # 📮

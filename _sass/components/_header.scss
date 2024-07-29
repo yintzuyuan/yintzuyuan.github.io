@@ -130,7 +130,7 @@ header#site-header {
       transition: color var(--transition-duration) ease;
       position: relative;
       font-size: 1em;
-      margin: 5px 10px; // 調整間距
+      margin: -10px 0px; // 調整間距
   
       @include for-tablet-up {
         font-size: 1.2em; // 在平板及以上設備恢復原來的字體大小
@@ -224,6 +224,10 @@ header#site-header {
   
   // 響應式設計
   @include for-tablet-up {
+    .site-title {
+        display: none; // 在平板及以上設備隱藏標題
+      }
+      
     header#site-header {
       height: 60px; // 移動設備上可能需要較小的header
     }
@@ -231,5 +235,47 @@ header#site-header {
     main {
       padding-top: 80px; // 調整移動設備上的頂部padding
       min-height: calc(100vh - 60px - 60px); // 調整移動設備上的最小高度
+    }
+  }
+
+// 網站標題樣式
+.site-title {
+    display: none; // 默認隱藏
+    font-family: var(--font-emoji); // 使用變量，方便後續修改
+    font-size: var(--font-size-header-title, 1.5em); // 使用變量，並提供默認值
+    font-weight: var(--font-weight-header-title, 700);
+    color: var(--header-title-color, var(--text-color)); // 允許單獨設置標題顏色
+    margin: 0;
+    text-align: center;
+    letter-spacing: var(--letter-spacing-header-title, normal);
+    text-transform: var(--text-transform-header-title, none);
+  
+    @media (max-width: 767px) {
+      display: block; // 在行動裝置上顯示
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      top: 50%;
+      margin-top: -0.75em; // 調整垂直位置
+    }
+  }
+  
+  // 調整 logo 在行動裝置上的樣式
+  @media (max-width: 767px) {
+    .logo-link {
+      position: absolute;
+      left: 20px; // 調整左邊距
+      top: 50%;
+      transform: translateY(-50%);
+    }
+  }
+  
+  // 調整導航按鈕在行動裝置上的樣式
+  @media (max-width: 767px) {
+    .menu-toggle {
+      position: absolute;
+      right: 20px; // 調整右邊距
+      top: 50%;
+      transform: translateY(-50%);
     }
   }

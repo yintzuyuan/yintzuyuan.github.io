@@ -3,6 +3,9 @@ layout: default
 title: 支持
 permalink: /boost/
 center_content: true
+header_title: ❤
+hide_first_title: true
+body_class: home-page
 ---
 
 # ❤

@@ -25,4 +25,11 @@
     --font-size-base: 16px;
     --font-size-large: 1.25rem;
     --font-size-small:  0.875rem;
+
+    // 頁首標題樣式變量
+    --font-size-header-title: 1.5em;
+    --font-weight-header-title: 700;
+    --header-title-color: var(--text-color);
+    --letter-spacing-header-title: 1px;
+    --text-transform-header-title: uppercase;
   }

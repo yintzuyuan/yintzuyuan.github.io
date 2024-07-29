@@ -2,7 +2,8 @@
 
 .social-icons {
     @include flex-center;
-    margin-top: 60px;
+    margin-top: 20px;
+    margin-bottom: 15px; // 添加底部間距
   
     a {
       color: var(--text-color);
@@ -38,12 +39,38 @@
   }
   
   // 響應式設計
-  @media (max-width: 768px) {
+  @media (max-width: var(--breakpoint-tablet)) {
     .social-icons {
       flex-wrap: wrap;
+      margin-bottom: 10px; // 縮小行動版上的底部間距
   
       a {
-        margin: 10px;
+        margin: 8px; // 縮小圖標之間的間距
+  
+        svg {
+          width: 22px; // 縮小圖標大小
+          height: 22px;
+          opacity: 0.8; // 降低不透明度
+        }
+  
+        &:hover svg {
+          opacity: 1; // 懸停時恢復完全不透明
+        }
+      }
+    }
+  }
+  
+  // 為更小的螢幕進一步優化
+  @media (max-width: 480px) {
+    .social-icons {
+      a {
+        margin: 6px; // 在更小的螢幕上進一步縮小間距
+  
+        svg {
+          width: 18px; // 在更小的螢幕上再次縮小圖標
+          height: 18px;
+          opacity: 0.7; // 進一步降低不透明度
+        }
       }
     }
   }

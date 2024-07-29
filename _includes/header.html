@@ -5,6 +5,16 @@
         <img src="{{ '/assets/images/LOGO_2024.svg' | relative_url }}" alt="網站 LOGO" class="logo">
       </a>
       
+      <h1 class="site-title">
+        {% if page.header_title %}
+          {{ page.header_title }}
+        {% elsif site.header_title %}
+          {{ site.header_title }}
+        {% else %}
+          {{ site.title }}
+        {% endif %}
+      </h1>
+
       <button id="menu-toggle" class="menu-toggle" aria-label="Toggle menu">
         <span></span>
         <span></span>

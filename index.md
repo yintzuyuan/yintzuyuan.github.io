@@ -1,6 +1,7 @@
 ---
 layout: default
 title: 首頁
+header_title: ""
 ---
 
 # 殷 慈遠

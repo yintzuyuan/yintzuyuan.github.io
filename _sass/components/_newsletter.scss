@@ -1,60 +1,7 @@
 // Newsletter 樣式
 
 // 內嵌 Newsletter
-.newsletter {
-    margin: 60px 0;
-    padding: 30px 40px;
-    border: 1px solid rgba(245, 240, 229, 0.3);
-    border-radius: var(--border-radius);
-  
-    h2 {
-      @include flex-center;
-      margin: 0 0 20px;
-      font-size: 1.8em;
-  
-      .emoji {
-        font-size: 1em;
-        margin-right: 10px;
-      }
-    }
-  }
-  
-  // MailerLite 表單樣式
-  .ml-embedded {
-    form {
-      max-width: 100%;
-      margin: 0 auto;
-    }
-  
-    input[type="email"] {
-      width: 100%;
-      padding: 10px;
-      margin-bottom: 10px;
-      border: 1px solid var(--text-color);
-      background-color: var(--bg-color);
-      color: var(--text-color);
-      font-family: var(--font-sans);
-    }
-  
-    button {
-      width: 100%;
-      padding: 10px;
-      background-color: var(--text-color);
-      color: var(--bg-color);
-      border: none;
-      cursor: pointer;
-      font-family: var(--font-mono), var(--font-sans), var(--font-emoji);
-      font-weight: 700;
-      transition: background-color var(--transition-duration) ease;
-  
-      &:hover {
-        background-color: var(--white);
-      }
-    }
-  }
-  
-  // 浮動 Newsletter
-  .newsletter-floating {
+.newsletter-floating {
     position: fixed;
     right: 20px;
     bottom: 20px;
@@ -64,6 +11,16 @@
     border-radius: var(--border-radius);
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
     font-family: var(--font-mono), var(--font-sans), var(--font-emoji);
+    
+    max-width: 300px;
+    width: auto;
+  
+    @media (max-width: 768px) {
+      left: 20px;
+      right: 20px;
+      width: auto;
+      max-width: none;
+    }
   
     .newsletter-toggle {
       @include flex-center;
@@ -92,15 +49,12 @@
         width: 18px;
         height: 18px;
       }
-
-      // 新增：在行動裝置上隱藏文字
-    @media (max-width: 768px) {
-        .toggle-text {
-          display: none;
-        }
-        
+  
+      // 新增：行動裝置上最小化時的樣式
+      @media (max-width: 768px) {
         .emoji-minimized {
-          margin-right: 0; // 移除右邊距，因為文字被隱藏了
+          font-size: 1.5em; // 放大 emoji 字體
+          margin-right: 0; // 移除右邊距
         }
       }
     }
@@ -128,31 +82,96 @@
         margin-top: 10px;
       }
     }
+  
+    @media (max-width: 768px) {
+      .newsletter-form {
+        max-height: 80vh;
+        overflow-y: auto;
+      }
+    }
+    &:not(.initially-hidden) {
+        opacity: 1;
+        visibility: visible;
+        transform: scale(1);
+        position: fixed; // 恢復固定定位
+        pointer-events: auto; // 恢復鼠標事件
+        transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+      }
+    
+  }
+
+  &.minimized {
+    width: auto;
+    max-width: none;
+    left: auto;
+    right: 20px;
+    transition: all var(--transition-duration) ease; // 添加過渡效果
 
     @media (max-width: 768px) {
-        right: 20px;
-        bottom: 20px;
-        left: auto;
-        width: auto;
-    
-        .newsletter-toggle {
-            // width: 40px;
+        border: none;
+        background-color: transparent;
+        box-shadow: none;
+        transition: all var(--transition-duration) ease; // 添加過渡效果
 
-          .toggle-text {
-            @media (max-width: 480px) {
-                font-size: 2em;
-              display: none; // 在小螢幕上隱藏文字
+        .newsletter-toggle {
+            padding: 10px;
+            border-radius: 50%;
+            transition: all var(--transition-duration) ease; // 添加過渡效果
+
+            .toggle-text,
+            .minimize-icon,
+            .close-icon {
+                display: none;
             }
-          }
+
+            .emoji-minimized {
+                margin: 0;
+                transition: all var(--transition-duration) ease; // 添加過渡效果
+            }
         }
-    
-        .newsletter-form {
-          max-height: 80vh; // 限制最大高度
-          overflow-y: auto; // 允許內容滾動
-        }
+    }
+    &.initially-hidden {
+        opacity: 0;
+        visibility: hidden;
+        transform: scale(0.8);
+        pointer-events: none;
       }
-  }
+    
+      transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+}
   
   .hidden {
     display: none;
+  }
+
+  .newsletter-floating {
+    &.initially-hidden {
+      opacity: 0 !important;
+      visibility: hidden !important;
+      pointer-events: none !important;
+      position: fixed !important;
+      transform: translateY(20px) !important;
+      transition: none !important;
+  
+      // 隱藏所有子元素
+      * {
+        opacity: 0 !important;
+        visibility: hidden !important;
+        transition: none !important;
+      }
+    }
+  
+    transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+  
+    &:not(.initially-hidden) {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+  
+      * {
+        opacity: 1;
+        visibility: visible;
+        transition: opacity 0.3s ease, visibility 0.3s ease;
+      }
+    }
   }

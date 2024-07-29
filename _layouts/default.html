@@ -8,13 +8,16 @@
     <title>{{ page.title }} - 殷慈遠</title>
     <link rel="stylesheet" href="{{ '/assets/css/styles.css' | relative_url }}">
 </head>
-<body>
-    {% include header.html %}
+<body class="{% if page.body_class %}{{ page.body_class }}{% endif %}">
+    {% include header.html 
+        show_title=page.show_header_title 
+        custom_title=page.header_title
+    %}
     
     <main role="main">
-        <div class="container content {% if page.center_content %}center-content{% endif %}">
+        <div class="container content {% if page.center_content %}center-content{% endif %} {% if page.hide_first_title %}hide-first-title{% endif %}">
             {{ content }}
-          </div>
+        </div>
         
         {% include footer.html %}
     </main>

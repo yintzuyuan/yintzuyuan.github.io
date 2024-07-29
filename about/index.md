@@ -2,6 +2,9 @@
 layout: default
 title: 關於我
 permalink: /about/
+header_title: 🏛️
+hide_first_title: true
+body_class: home-page
 ---
 
 # 🏛️

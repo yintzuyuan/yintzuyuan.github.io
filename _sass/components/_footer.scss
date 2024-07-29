@@ -13,12 +13,45 @@ footer {
     margin-right: auto;
     box-sizing: border-box;
     margin-top: auto;
+  
+    // 社群圖標容器
+    .social-icons {
+      margin-bottom: 15px; // 縮小社群按鈕和版權聲明之間的間距
+  
+      a {
+        margin: 0 10px;
+        transition: opacity var(--transition-duration) ease;
+  
+        svg {
+          width: 30px;
+          height: 30px;
+        }
+      }
+    }
   }
   
   // 響應式設計
-  @media (max-width: 768px) {
+  @media (max-width: var(--breakpoint-tablet)) {
     footer {
       font-size: 0.8em;
       padding: 15px 0;
+  
+      .social-icons {
+        margin-bottom: 10px; // 進一步縮小行動版上的間距
+  
+        a {
+          margin: 0 8px; // 稍微縮小圖標之間的間距
+  
+          svg {
+            width: 16px; // 縮小圖標大小
+            height: 16px;
+            
+          }
+  
+          &:hover svg {
+            opacity: 1; // 懸停時恢復完全不透明
+          }
+        }
+      }
     }
   }

@@ -1,4 +1,6 @@
-title: 殷慈遠的設計工作室
+# 網站設置
+title: 殷慈遠的設計工作室 # 預設網站標題
+header_title: "殷慈遠"  # 預設頁首標題
 description: 創意字型設計與作品展示
 url: "https://erikyin.net"
 baseurl: ""

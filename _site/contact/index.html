@@ -46,7 +46,7 @@
     <title>聯繫 - 殷慈遠 - 殷慈遠</title>
     <link rel="stylesheet" href="/assets/css/styles.css">
 </head>
-<body>
+<body class="home-page">
     <!-- header.html -->
 <header id="site-header">
     <div class="header-content">
@@ -54,6 +54,12 @@
         <img src="/assets/images/LOGO_2024.svg" alt="網站 LOGO" class="logo">
       </a>
       
+      <h1 class="site-title">
+        
+          📮
+        
+      </h1>
+
       <button id="menu-toggle" class="menu-toggle" aria-label="Toggle menu">
         <span></span>
         <span></span>
@@ -74,7 +80,7 @@
 
     
     <main role="main">
-        <div class="container content center-content">
+        <div class="container content center-content hide-first-title">
             <h1>📮</h1>
 
 <hr />
@@ -118,7 +124,7 @@
 
 <p>期待與您一同探索文字設計的無限可能。也許您的一個想法，就是下一個精彩項目的開始。</p>
 
-          </div>
+        </div>
         
         <footer>
     <section class="social-icons">
@@ -145,8 +151,9 @@
 </footer>
     </main>
     
+    <div id="newsletter-container" style="display: none;">
     <div id="newsletter-floating" class="newsletter-floating">
-    <button id="newsletter-toggle" class="newsletter-toggle">
+      <button id="newsletter-toggle" class="newsletter-toggle">
         <span class="emoji-minimized">📰</span>
         <span class="toggle-text">訂閱電子報</span>
       <svg class="minimize-icon hidden" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -163,6 +170,7 @@
       <div class="ml-embedded" data-form="H2EYyg"></div>
     </div>
   </div>
+</div>
     <script src="/assets/js/main.js"></script>
 <!-- MailerLite Universal -->
 <script>

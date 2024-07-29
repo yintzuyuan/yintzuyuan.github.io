@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
     // 電子報訂閱相關元素
+    const newsletterContainer = document.getElementById('newsletter-container');
     const newsletterFloating = document.getElementById('newsletter-floating');
     const newsletterToggle = document.getElementById('newsletter-toggle');
     const newsletterForm = document.getElementById('newsletter-form');
@@ -21,22 +22,20 @@ document.addEventListener('DOMContentLoaded', function() {
     // 設置電子報訂閱區塊的最小化狀態
     function setMinimizedState(minimized) {
         if (minimized) {
-            newsletterForm.classList.add('hidden');
-            toggleText.classList.remove('hidden');
-            emojiMinimized.classList.remove('hidden');
-            minimizeIcon.classList.add('hidden');
-            closeIcon.classList.add('hidden');
-            newsletterFloating.classList.add('minimized');
+          newsletterForm.classList.add('hidden');
+          newsletterFloating.classList.add('minimized');
         } else {
-            newsletterForm.classList.remove('hidden');
-            toggleText.classList.add('hidden');
-            emojiMinimized.classList.add('hidden');
-            minimizeIcon.classList.remove('hidden');
-            closeIcon.classList.add('hidden');
-            newsletterFloating.classList.remove('minimized');
+          newsletterForm.classList.remove('hidden');
+          newsletterFloating.classList.remove('minimized');
         }
         localStorage.setItem(storageKey, minimized);
     }
+
+    function initNewsletter() {
+        const initiallyMinimized = localStorage.getItem(storageKey) === 'true';
+        setMinimizedState(initiallyMinimized);
+        newsletterContainer.style.display = 'block';
+      }
 
     // 切換回到頂部按鈕的顯示狀態
     function toggleBackToTop() {
@@ -107,4 +106,14 @@ document.addEventListener('DOMContentLoaded', function() {
     if (window.ml) {
         window.ml('webforms');
     }
+    document.body.classList.add('js-loaded');
+
+    // 初始化 MailerLite
+  if (window.ml) {
+    window.ml('on', 'pageView', function() {
+      initNewsletter();
+    });
+  } else {
+    initNewsletter();
+  }
 });

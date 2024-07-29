@@ -36,6 +36,19 @@ document.addEventListener('DOMContentLoaded', function() {
             newsletterFloating.classList.remove('minimized');
         }
         localStorage.setItem(storageKey, minimized);
+
+        // 移除初始隱藏類，顯示整個 newsletter-floating 元素
+        setTimeout(() => {
+            newsletterFloating.classList.remove('initially-hidden');
+            // 強制重繪以確保過渡效果正常工作
+            newsletterFloating.offsetHeight;
+            newsletterFloating.style.transition = 'all var(--transition-duration) ease';
+            // 確保所有子元素也可見
+            Array.from(newsletterFloating.getElementsByTagName('*')).forEach(el => {
+            el.style.opacity = '1';
+            el.style.visibility = 'visible';
+            });
+        }, 100);
     }
 
     // 切換回到頂部按鈕的顯示狀態
@@ -106,5 +119,21 @@ document.addEventListener('DOMContentLoaded', function() {
     // 初始化 MailerLite
     if (window.ml) {
         window.ml('webforms');
+    }
+    document.body.classList.add('js-loaded');
+
+    // 在 DOMContentLoaded 事件處理程序中添加
+    if (window.ml) {
+        window.ml('on', 'pageView', function() {
+        // MailerLite 表單已加載
+        const form = document.querySelector('#newsletter-form form');
+        if (form) {
+            form.style.opacity = '0';
+            form.style.transition = 'opacity 0.3s ease';
+            setTimeout(() => {
+            form.style.opacity = '1';
+            }, 100);
+        }
+        });
     }
 });
