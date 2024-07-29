@@ -98,47 +98,48 @@
         transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
       }
     
-  }
-
-  &.minimized {
-    width: auto;
-    max-width: none;
-    left: auto;
-    right: 20px;
-    transition: all var(--transition-duration) ease; // 添加過渡效果
-
-    @media (max-width: 768px) {
-        border: none;
-        background-color: transparent;
-        box-shadow: none;
+      &.minimized {
+        width: auto;
+        max-width: none;
+        left: auto;
+        right: 20px;
         transition: all var(--transition-duration) ease; // 添加過渡效果
-
-        .newsletter-toggle {
-            padding: 10px;
-            border-radius: 50%;
+    
+        @media (max-width: 768px) {
+            border: none;
+            background-color: transparent;
+            box-shadow: none;
             transition: all var(--transition-duration) ease; // 添加過渡效果
-
-            .toggle-text,
-            .minimize-icon,
-            .close-icon {
-                display: none;
-            }
-
-            .emoji-minimized {
-                margin: 0;
+    
+            .newsletter-toggle {
+                padding: 10px;
+                border-radius: 50%;
                 transition: all var(--transition-duration) ease; // 添加過渡效果
+    
+                .toggle-text,
+                .minimize-icon,
+                .close-icon {
+                    display: none;
+                }
+    
+                .emoji-minimized {
+                    margin: 0;
+                    transition: all var(--transition-duration) ease; // 添加過渡效果
+                }
             }
         }
+        &.initially-hidden {
+            opacity: 0;
+            visibility: hidden;
+            transform: scale(0.8);
+            pointer-events: none;
+          }
+        
+          transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
     }
-    &.initially-hidden {
-        opacity: 0;
-        visibility: hidden;
-        transform: scale(0.8);
-        pointer-events: none;
-      }
-    
-      transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
-}
+  }
+
+
   
   .hidden {
     display: none;

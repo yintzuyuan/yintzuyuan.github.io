@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // 頁首和回到頂部按鈕元素
     const header = document.getElementById('site-header');
-    const backToTopButton = document.getElementById('back-to-top');
+    // const backToTopButton = document.getElementById('back-to-top');
 
     // 漢堡菜單相關元素
     const menuToggle = document.querySelector('.menu-toggle');
@@ -51,16 +51,16 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 100);
     }
 
-    // 切換回到頂部按鈕的顯示狀態
-    function toggleBackToTop() {
-        if (window.pageYOffset > 300) {
-            header.classList.add('scrolled');
-            backToTopButton.classList.add('visible');
-        } else {
-            header.classList.remove('scrolled');
-            backToTopButton.classList.remove('visible');
-        }
-    }
+    // // 切換回到頂部按鈕的顯示狀態
+    // function toggleBackToTop() {
+    //     if (window.pageYOffset > 300) {
+    //         header.classList.add('scrolled');
+    //         backToTopButton.classList.add('visible');
+    //     } else {
+    //         header.classList.remove('scrolled');
+    //         backToTopButton.classList.remove('visible');
+    //     }
+    // }
 
     // 切換漢堡菜單的狀態
     function toggleMenu() {
@@ -87,13 +87,13 @@ document.addEventListener('DOMContentLoaded', function() {
         setMinimizedState(true);
     });
 
-    // 回到頂部按鈕點擊事件
-    if (backToTopButton) {
-        backToTopButton.addEventListener('click', function(e) {
-            e.preventDefault();
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
-    }
+    // // 回到頂部按鈕點擊事件
+    // if (backToTopButton) {
+    //     backToTopButton.addEventListener('click', function(e) {
+    //         e.preventDefault();
+    //         window.scrollTo({ top: 0, behavior: 'smooth' });
+    //     });
+    // }
 
     // 漢堡菜單切換按鈕點擊事件
     if (menuToggle) {
@@ -110,11 +110,11 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // 監聽滾動事件，切換回到頂部按鈕的顯示狀態
-    window.addEventListener('scroll', toggleBackToTop);
+    // // 監聽滾動事件，切換回到頂部按鈕的顯示狀態
+    // window.addEventListener('scroll', toggleBackToTop);
 
-    // 初始化時觸發一次回到頂部按鈕狀態檢查
-    toggleBackToTop();
+    // // 初始化時觸發一次回到頂部按鈕狀態檢查
+    // toggleBackToTop();
 
     // 初始化 MailerLite
     if (window.ml) {

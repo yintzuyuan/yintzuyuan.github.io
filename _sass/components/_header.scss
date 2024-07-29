@@ -177,45 +177,45 @@ header#site-header {
     }
   }
   
-  // 回到頂部按鈕
-  .back-to-top {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background-color: var(--bg-color);
-    color: var(--text-color);
-    border: 1px solid var(--text-color);
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.3s, visibility 0.3s;
-    z-index: 998;
+//   // 回到頂部按鈕
+//   .back-to-top {
+//     position: fixed;
+//     bottom: 20px;
+//     right: 20px;
+//     background-color: var(--bg-color);
+//     color: var(--text-color);
+//     border: 1px solid var(--text-color);
+//     border-radius: 50%;
+//     width: 40px;
+//     height: 40px;
+//     display: flex;
+//     align-items: center;
+//     justify-content: center;
+//     cursor: pointer;
+//     opacity: 0;
+//     visibility: hidden;
+//     transition: opacity 0.3s, visibility 0.3s;
+//     z-index: 998;
   
-    &.visible {
-      opacity: 1;
-      visibility: visible;
-    }
+//     &.visible {
+//       opacity: 1;
+//       visibility: visible;
+//     }
   
-    &:hover {
-      background-color: var(--text-color);
-      color: var(--bg-color);
-    }
+//     &:hover {
+//       background-color: var(--text-color);
+//       color: var(--bg-color);
+//     }
   
-    @media (max-width: 767px) {
-      bottom: 70px; // 調整位置以避免與電子報訂閱區塊衝突
-    }
+//     @media (max-width: 767px) {
+//       bottom: 70px; // 調整位置以避免與電子報訂閱區塊衝突
+//     }
 
-    @media (min-width: 768px) {
-        bottom: 80px; // 在桌面版上提高位置，避免與電子報區塊重疊
-        right: 30px;
-      }
-  }
+//     @media (min-width: 768px) {
+//         bottom: 80px; // 在桌面版上提高位置，避免與電子報區塊重疊
+//         right: 30px;
+//       }
+//   }
 
   // 當菜單打開時，禁止body滾動
     body.menu-open {
