@@ -1,4 +1,10 @@
 document.addEventListener('DOMContentLoaded', function() {
+
+    window.scrollTo(0, 0);
+    if ('scrollRestoration' in history) {
+        history.scrollRestoration = 'manual';
+    }
+
     // 電子報訂閱相關元素
     const newsletterFloating = document.getElementById('newsletter-floating');
     const newsletterToggle = document.getElementById('newsletter-toggle');
@@ -50,6 +56,8 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         }, 100);
     }
+
+    setMinimizedState(true);
 
     // // 切換回到頂部按鈕的顯示狀態
     // function toggleBackToTop() {
@@ -136,4 +144,11 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         });
     }
+
+    window.scrollTo(0, 0);
+});
+
+// 在 DOMContentLoaded 事件監聽器之外添加這個
+window.addEventListener('load', function() {
+    window.scrollTo(0, 0);
 });
