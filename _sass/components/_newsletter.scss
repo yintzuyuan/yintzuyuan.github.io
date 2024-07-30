@@ -113,6 +113,8 @@
     
             .newsletter-toggle {
                 padding: 10px;
+                width: 45px; // 設置固定寬度
+                height: 45px; // 設置固定高度，與寬度相同
                 border-radius: 50%;
                 transition: all var(--transition-duration) ease; // 添加過渡效果
     
