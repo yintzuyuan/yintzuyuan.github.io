@@ -8,8 +8,6 @@ body_class: home-page
 
 # 🗃️
 
----
-
 {% include project-gallery.html %}
 
 <br>

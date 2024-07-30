@@ -9,8 +9,6 @@ body_class: home-page
 
 # 🏛️
 
----
-
 ## 👤 字我介紹
 
 {: .justify-text}
