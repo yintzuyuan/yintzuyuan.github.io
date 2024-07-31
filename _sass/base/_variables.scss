@@ -6,10 +6,16 @@
     --white: #FFFFFF;         // 白色
     
     // 字體變量
-    --font-emoji: 'Noto Emoji', sans-serif;  // emoji 字體
-    --font-mono: 'Fira Code', monospace;     // 等寬字體
-    --font-sans: 'Noto Sans TC', sans-serif; // 無襯線字體
-    --font-serif: 'Noto Serif TC', serif;    // 襯線字體
+    --font-emoji: 'Noto Emoji', sans-serif;
+    --font-mono: 'Fira Code', monospace;
+    --font-sans: 'Noto Sans TC', sans-serif;
+    --font-serif: 'Noto Serif TC', serif;
+    
+    // 字體權重變量
+    --font-weight-light: 300;
+    --font-weight-regular: 400;
+    --font-weight-medium: 500;
+    --font-weight-bold: 700;
     
     // 其他變量
     --logo-color: var(--text-color);  // logo 顏色
