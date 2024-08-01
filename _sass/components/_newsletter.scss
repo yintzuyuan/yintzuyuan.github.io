@@ -23,32 +23,37 @@
     }
   
     .newsletter-toggle {
-      @include flex-center;
-      justify-content: space-between;
-      background-color: var(--text-color);
-      color: var(--bg-color);
-      border: none;
-      padding: 10px 15px;
-      cursor: pointer;
-      transition: all var(--transition-duration) ease;
-      font-weight: 500;
-      letter-spacing: 0.5px;
-      width: 100%;
-  
-      .toggle-text {
-        margin-right: 8px;
-      }
-  
-      .emoji, .emoji-minimized {
-        font-family: var(--font-emoji);
-        margin-right: 8px;
-      }
-  
-      .minimize-icon,
-      .close-icon {
-        width: 18px;
-        height: 18px;
-      }
+        @include flex-center;
+        justify-content: space-between;
+        background-color: var(--text-color);
+        color: var(--bg-color);
+        border: none;
+        padding: 10px 15px;
+        cursor: pointer;
+        transition: all var(--transition-duration) ease, font-weight var(--transition-duration) ease; // 添加字重過渡效果
+        font-weight: var(--font-weight-regular); // 設置初始字重
+        letter-spacing: 0.5px;
+        width: 100%;
+    
+        .toggle-text {
+          margin-right: 8px;
+        }
+    
+        .emoji, .emoji-minimized {
+          font-family: var(--font-emoji);
+          margin-right: 8px;
+        }
+    
+        .minimize-icon,
+        .close-icon {
+          width: 18px;
+          height: 18px;
+        }
+    
+        &:hover {
+          opacity: 0.8; // 添加透明度變化，與 `準備發送` 按鈕一致
+          font-weight: var(--font-weight-bold); // 懸停時加粗
+        }    
   
       // 新增：行動裝置上最小化時的樣式
       @media (max-width: 768px) {

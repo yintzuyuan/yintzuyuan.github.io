@@ -122,15 +122,15 @@ header#site-header {
     }
 
     a {
-      font-family: var(--font-sans);
-      color: var(--text-color);
-      text-decoration: none;
-      margin-left: 20px;
-      letter-spacing: 1px;
-      transition: color var(--transition-duration) ease;
-      position: relative;
-      font-size: 1em;
-      margin: -10px 0px; // 調整間距
+        font-family: var(--font-sans);
+        color: var(--text-color);
+        text-decoration: none;
+        margin-left: 20px;
+        letter-spacing: 1px;
+        transition: color var(--transition-duration) ease, font-weight var(--transition-duration) ease; // 添加字重過渡效果
+        position: relative;
+        font-size: 1em;
+        margin: -10px 0px;
   
       @include for-tablet-up {
         font-size: 1.2em; // 在平板及以上設備恢復原來的字體大小
@@ -171,6 +171,7 @@ header#site-header {
         letter-spacing: 0.5px;
   
         &:hover {
+            font-weight: var(--font-weight-bold); // 懸停時加粗
           background-color: var(--white);
         }
       }

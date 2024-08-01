@@ -1,19 +1,36 @@
 // _components/_buttons.scss
 
-.btn-send {
+// 基礎按鈕樣式 (僅作為擴展使用，不會影響現有樣式)
+%btn-base {
+    font-family: var(--font-mono), var(--font-sans), var(--font-emoji);
+    font-weight: var(--font-weight-regular);
+    transition: all var(--transition-duration) ease, font-weight var(--transition-duration) ease;
+    
+    &:hover {
+      font-weight: var(--font-weight-bold);
+    }
+  }
+  
+  // 保留原有的按鈕樣式
+  .btn-send {
+    @extend %btn-base; // 擴展基礎樣式
+    letter-spacing: 1px;
     background-color: var(--text-color);
     color: var(--bg-color);
     border: none;
     padding: 10px 20px;
     cursor: pointer;
-    transition: opacity var(--transition-duration) ease;
+    transition: opacity var(--transition-duration) ease, font-weight var(--transition-duration) ease; // 添加字重過渡效果
+    font-weight: var(--font-weight-regular); // 設置初始字重
   
     &:hover {
       opacity: 0.8;
+      font-weight: var(--font-weight-bold); // 懸停時加粗
     }
   }
   
   .support-button {
+    @extend %btn-base; // 擴展基礎樣式
     @include no-underline;
     
     display: inline-block;
@@ -57,6 +74,7 @@
   }
   
   .share-button {
+    // @extend %btn-base; // 擴展基礎樣式
     @include no-underline;
     display: inline-flex;
     align-items: center;
@@ -64,7 +82,8 @@
     border-radius: var(--border-radius);
     color: var(--text-color);
     background-color: rgba(245, 240, 229, 0.1);
-    transition: all var(--transition-duration) ease;
+    transition: all var(--transition-duration) ease, font-weight var(--transition-duration) ease; // 添加字重過渡效果
+    font-weight: var(--font-weight-regular); // 設置初始字重
   
     i {
       margin-right: 8px;
@@ -72,6 +91,7 @@
   
     &:hover {
       background-color: rgba(245, 240, 229, 0.2);
+      font-weight: var(--font-weight-bold); // 懸停時加粗
     }
   
     &.facebook:hover { background-color: rgba(59, 89, 152, 0.2); }
