@@ -4,7 +4,9 @@ title: 首頁
 header_title: ""
 ---
 
-# 殷 慈遠
+<div class="variable-weight-container">
+  <h1 class="variable-weight-text">殷 慈遠</h1>
+</div>
 
 |  |  |
 |--:|:--|

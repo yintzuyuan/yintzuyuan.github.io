@@ -24,6 +24,23 @@ body {
       padding: 15px 15px 30px;
     }
   }
+
+  // 可變字重文字效果
+.animated-title {
+    display: inline-block;
+    padding: 20px; // 增加點擊區域
+    cursor: default; // 防止顯示文字選擇游標
+  
+    .variable-weight-text {
+      display: inline-block;
+    }
+  
+    .vw-char {
+      display: inline-block;
+      transition: font-variation-settings 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+      font-variation-settings: "wght" 700; // 起始字重設為 700
+    }
+  }
   
   .content,
   .container {
@@ -40,23 +57,35 @@ body {
 
   
     h1 {
-      font-size: 5em;
-      margin-top: -6vh;
-      margin-bottom: 15px;
-      letter-spacing: 1px;
-      text-align: center;
-  
-      @media (max-width: 768px) {
-        font-size: 4.5em;
+        font-size: 5em;
+        margin-top: -6vh;
         margin-bottom: 15px;
-      }
-  
-      @media (max-width: 480px) {
-        font-size: 4em;
-        margin-top: 2vh;
-        margin-bottom: 10px;
-      }
+        letter-spacing: 1px;
+        text-align: center;
+
+        // .variable-weight-text {
+        //     font-size: inherit;
+        //     letter-spacing: 0.05em;
+        //   }
+    
+        @media (max-width: 768px) {
+            font-size: 4.5em;
+            margin-bottom: 15px;
+        }
+    
+        @media (max-width: 480px) {
+            font-size: 4em;
+            margin-top: 2vh;
+            margin-bottom: 10px;
+        }
     }
+
+    h1.animated-title {
+        .variable-weight-text {
+          font-size: inherit;
+        //   letter-spacing: 0.05em;
+        }
+      }
   
     p {
       margin-bottom: 1.8em;
@@ -159,4 +188,40 @@ body {
     display: none !important;
     opacity: 0 !important;
     visibility: hidden !important;
+  }
+
+// 可變字重文字效果
+.variable-weight-container {
+    position: relative;
+    width: 100%;
+    max-width: var(--content-max-width);
+    margin: 0 auto;
+    padding: 0.5em 0; // 增加上下內邊距來擴大互動區域
+  }
+  
+  .variable-weight-text {
+    font-variation-settings: "wght" 700;
+    text-align: center; // 確保文字居中
+  }
+  
+  // 為標題添加特殊樣式
+  .content,
+  .container {
+    h1.variable-weight-text {
+      font-size: 5em;
+      margin-top: -6vh;
+      margin-bottom: 15px;
+      letter-spacing: 1px;
+  
+      @media (max-width: 768px) {
+        font-size: 4.5em;
+        margin-bottom: 15px;
+      }
+  
+      @media (max-width: 480px) {
+        font-size: 4em;
+        margin-top: 2vh;
+        margin-bottom: 10px;
+      }
+    }
   }

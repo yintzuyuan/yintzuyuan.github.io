@@ -152,3 +152,96 @@ document.addEventListener('DOMContentLoaded', function() {
 window.addEventListener('load', function() {
     window.scrollTo(0, 0);
 });
+
+document.addEventListener('DOMContentLoaded', function() {
+    const text = document.querySelector('.variable-weight-text');
+  
+    if (!text) return;
+  
+    const minWeight = 200;
+    const maxWeight = 900;
+    const defaultWeight = 600;
+    let currentWeight = defaultWeight;
+    let targetWeight = defaultWeight;
+    let lastUpdateTime = 0;
+    const updateInterval = 100; // 每 100 毫秒更新一次目標值
+    let animationFrameId = null;
+  
+    function updateTargetWeight(e) {
+      const now = Date.now();
+      if (now - lastUpdateTime < updateInterval) return;
+      lastUpdateTime = now;
+  
+      const width = window.innerWidth;
+      const height = window.innerHeight;
+      
+      const mouseX = e.clientX;
+      const mouseY = e.clientY;
+      
+      // 計算相對位置（0到1之間）
+      const relativeX = mouseX / width;
+      const relativeY = mouseY / height;
+      
+      // 更新目標字重，從左上（200）到右下（600）
+      targetWeight = minWeight + (relativeX + relativeY) / 2 * (maxWeight - minWeight);
+    }
+  
+    function animateWeight() {
+      // 平滑過渡到目標字重
+      currentWeight += (targetWeight - currentWeight) * 0.1;
+      
+      // 設置字重
+      text.style.fontVariationSettings = `"wght" ${Math.round(currentWeight)}`;
+      
+      // 如果還沒有達到目標字重，繼續動畫
+      if (Math.abs(currentWeight - targetWeight) > 0.5) {
+        animationFrameId = requestAnimationFrame(animateWeight);
+      } else {
+        animationFrameId = null;
+      }
+    }
+  
+    function resetWeight() {
+      targetWeight = defaultWeight;
+      if (!animationFrameId) {
+        animationFrameId = requestAnimationFrame(animateWeight);
+      }
+    }
+  
+    // 使用 throttle 函數來限制目標值更新頻率
+    function throttle(func, limit) {
+      let inThrottle;
+      return function(e) {
+        if (!inThrottle) {
+          func(e);
+          inThrottle = true;
+          setTimeout(() => inThrottle = false, limit);
+        }
+      }
+    }
+  
+    const throttledUpdateTargetWeight = throttle(updateTargetWeight, updateInterval);
+  
+    window.addEventListener('mousemove', function(e) {
+      throttledUpdateTargetWeight(e);
+      if (!animationFrameId) {
+        animationFrameId = requestAnimationFrame(animateWeight);
+      }
+    });
+  
+    window.addEventListener('mouseleave', resetWeight);
+  
+    // 初始化字重
+    resetWeight();
+  
+    // 觸摸設備支持
+    window.addEventListener('touchmove', function(e) {
+      e.preventDefault();
+      throttledUpdateTargetWeight(e.touches[0]);
+      if (!animationFrameId) {
+        animationFrameId = requestAnimationFrame(animateWeight);
+      }
+    }, { passive: false });
+  
+    window.addEventListener('touchend', resetWeight);
+  });
