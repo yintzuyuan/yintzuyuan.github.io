@@ -21,18 +21,28 @@
     display: inline-block;
     margin: 5px;
     padding: 5px 10px;
-    background-color: rgba(69, 66, 74, 0.6);
+    background-color: rgba(var(--accent-color-rgb), 0.5);
     border-radius: var(--border-radius);
     transition: all var(--transition-duration) ease;
     cursor: pointer;
-  
+    
+    body.light-theme & {
+        background-color: rgba(var(--accent-color-rgb), 0.2);
+      }
+
     &:hover {
-        background-color: rgba(245, 240, 229, 0.2);
+        background-color: rgba(var(--accent-color-rgb), 1);
     
         .project-title {
-          color: var(--white);
+          color: var(--text-color);
+        }
+
+        body.light-theme & {
+            background-color: rgba(var(--accent-color-rgb), 0.1);
         }
       }
+
+      
     
       .project-title {
         color: var(--text-color);

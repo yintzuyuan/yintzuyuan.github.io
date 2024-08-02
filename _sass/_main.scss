@@ -16,13 +16,13 @@
 @import 'components/footer';       // 頁尾樣式
 @import 'components/newsletter';   // 電子報樣式
 @import 'components/social-icons'; // 社交圖標樣式
-@import 'components/buttons';         // 按鈕樣式
-@import 'components/timeline';  // 時間軸樣式
-@import 'components/projects';  // 作品集樣式
+@import 'components/buttons';      // 按鈕樣式 (移動到這裡)
+@import 'components/timeline';     // 時間軸樣式
+@import 'components/projects';     // 作品集樣式
 
 // 導入佈局樣式
-// @import 'layouts/home';            // 首頁佈局
-@import 'layouts/about';           // 關於頁面佈局
-// @import 'layouts/works';       // 作品集頁面佈局
-@import 'layouts/contact';            // 聯繫頁面佈局
-@import 'layouts/boost';            // 支持頁面佈局
+// @import 'layouts/home';         // 首頁佈局
+// @import 'layouts/about';        // 關於頁面佈局
+// @import 'layouts/works';        // 作品集頁面佈局
+@import 'layouts/contact';         // 聯繫頁面佈局
+@import 'layouts/boost';           // 支持頁面佈局

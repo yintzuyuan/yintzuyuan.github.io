@@ -24,6 +24,45 @@ document.addEventListener('DOMContentLoaded', function() {
     const navAndButton = document.querySelector('.nav-and-button');
     const body = document.body;
 
+    // 主題切換邏輯
+    const themeToggle = document.getElementById('theme-toggle');
+    const prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)");
+
+    function setTheme(theme) {
+        document.body.style.transition = 'none';
+        if (theme === "dark") {
+          document.body.classList.remove("light-theme");
+          localStorage.setItem("theme", "dark");
+        } else {
+          document.body.classList.add("light-theme");
+          localStorage.setItem("theme", "light");
+        }
+        // 強制重繪以確保過渡效果正常工作
+        document.body.offsetHeight;
+        document.body.style.transition = '';
+      }
+
+    // 檢查本地存儲或系統偏好
+    const currentTheme = localStorage.getItem("theme");
+    if (currentTheme) {
+        setTheme(currentTheme);
+    } else {
+        setTheme(prefersDarkScheme.matches ? "dark" : "light");
+    }
+
+    themeToggle.addEventListener("click", function() {
+        if (document.body.classList.contains("light-theme")) {
+            setTheme("dark");
+        } else {
+            setTheme("light");
+        }
+    });
+
+    // 監聽系統主題變化
+    prefersDarkScheme.addListener((e) => {
+        setTheme(e.matches ? "dark" : "light");
+    });
+
     // 設置電子報訂閱區塊的最小化狀態
     function setMinimizedState(minimized) {
         if (minimized) {
@@ -245,3 +284,4 @@ document.addEventListener('DOMContentLoaded', function() {
   
     window.addEventListener('touchend', resetWeight);
   });
+  

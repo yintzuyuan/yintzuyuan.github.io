@@ -23,11 +23,15 @@
   
       <div class="nav-and-button" id="nav-and-button">
         <nav>
-          <a href="{{ '/works/' | relative_url }}" {% if page.url contains 'works' %}class="current"{% endif %}>作品</a>
-          <a href="{{ '/about/' | relative_url }}" {% if page.url contains 'about' %}class="current"{% endif %}>關於</a>
-          <a href="{{ '/contact/' | relative_url }}" {% if page.url contains 'contact' %}class="current"{% endif %}>聯繫</a>
-          <a href="{{ '/boost/' | relative_url }}" {% if page.url contains 'boost' %}class="current"{% endif %}>支持</a>
-          <a href="https://blog.erikyin.net" class="external-link">字碼筆記</a>
+            <a href="{{ '/works/' | relative_url }}" {% if page.url contains 'works' %}class="current"{% endif %}>作品</a>
+            <a href="{{ '/about/' | relative_url }}" {% if page.url contains 'about' %}class="current"{% endif %}>關於</a>
+            <a href="{{ '/contact/' | relative_url }}" {% if page.url contains 'contact' %}class="current"{% endif %}>聯繫</a>
+            <a href="{{ '/boost/' | relative_url }}" {% if page.url contains 'boost' %}class="current"{% endif %}>支持</a>
+            <a href="https://blog.erikyin.net" class="external-link">字碼筆記</a>
+            <button id="theme-toggle" aria-label="切換主題">
+                <span class="theme-toggle-dark">🌙</span>
+                <span class="theme-toggle-light">☀️</span>
+            </button>
         </nav>
       </div>
     </div>

@@ -9,7 +9,7 @@ header#site-header {
     right: 0;
     background-color: var(--bg-color);
     z-index: 1000;
-    transition: all var(--transition-duration) ease;
+    transition: font-weight var(--transition-duration) ease; // 添加字重過渡效果 
     border-bottom: 1px solid rgba(245, 240, 229, 0.1);
     padding: 10px 0; // 增加上下內邊距
     min-height: 70px; // 設置最小高度
@@ -44,7 +44,10 @@ header#site-header {
   .logo {
     width: 50px;
     height: auto;
-  
+    svg, path, rect, circle {
+        fill: var(--logo-color);
+        transition: fill var(--transition-duration) ease; // 添加過渡效果
+    }
     @include for-tablet-up {
       width: 60px; // 在平板及以上設備恢復原來的大小
     }
@@ -55,7 +58,7 @@ header#site-header {
   
     &:hover {
       svg, path, rect, circle {
-        fill: var(--white);
+        fill: var(--logo-color);
       }
     }
   }
@@ -127,7 +130,7 @@ header#site-header {
         text-decoration: none;
         margin-left: 20px;
         letter-spacing: 1px;
-        transition: color var(--transition-duration) ease, font-weight var(--transition-duration) ease; // 添加字重過渡效果
+        transition: font-weight var(--transition-duration) ease; // 添加字重過渡效果
         position: relative;
         font-size: 1em;
         margin: -10px 0px;
@@ -143,36 +146,37 @@ header#site-header {
   
       &:not(.external-link) {
         &::after {
-          content: '';
-          position: absolute;
-          width: 100%;
-          height: 1px;
-          bottom: -2px;
-          left: 0;
-          background-color: var(--white);
-          transform: scaleX(0);
-          transition: transform var(--transition-duration) ease;
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 1px;
+            bottom: -2px;
+            left: 0;
+            background-color: var(--text-color); // 使用文字顏色變量
+            transform: scaleX(0);
+            transition: font-weight var(--transition-duration) ease, transform var(--transition-duration) ease; // 添加字重過渡效果    
         }
-  
-        &:hover::after,
-        &.current::after {
-          transform: scaleX(1);
+    
+          &:hover::after,
+          &.current::after {
+            transform: scaleX(1);
+          }
         }
-      }
   
       &.external-link {
         background-color: var(--text-color);
         color: var(--bg-color);
         padding: 5px 10px;
         border-radius: var(--border-radius);
-        transition: all var(--transition-duration) ease;
+        transition: font-weight var(--transition-duration) ease; // 添加字重過渡效果 
         font-weight: 500;
         font-size: 0.95em;
         letter-spacing: 0.5px;
   
         &:hover {
-            font-weight: var(--font-weight-bold); // 懸停時加粗
-          background-color: var(--white);
+            font-weight: calc(var(--font-weight-base) + var(--font-weight-light-mode-adjustment));
+            // background-color: var(--white);
+            color: var(--bg-color);
         }
       }
     }
@@ -279,4 +283,37 @@ header#site-header {
       top: 50%;
       transform: translateY(-50%);
     }
+  }
+
+// 主題切換按鈕
+#theme-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.2em;
+    color: var(--text-color);
+    // transition: color var(--transition-duration) ease;
+    padding: 5px;
+    margin-left: 15px;
+  
+    @media (max-width: 767px) {
+      position: absolute;
+      right: 60px; // 調整位置，避免與漢堡菜單按鈕重疊
+      top: 50%;
+      transform: translateY(-50%);
+    }
+  
+    &:hover {
+      color: var(--white);
+    }
+  }
+  
+  .theme-toggle-dark,
+  .theme-toggle-light {
+    display: none;
+  }
+  
+  body:not(.light-theme) .theme-toggle-dark,
+  body.light-theme .theme-toggle-light {
+    display: inline;
   }

@@ -1,102 +1,112 @@
 // _components/_buttons.scss
 
-// 基礎按鈕樣式 (僅作為擴展使用，不會影響現有樣式)
-%btn-base {
-    font-family: var(--font-mono), var(--font-sans), var(--font-emoji);
-    font-weight: var(--font-weight-regular);
-    transition: all var(--transition-duration) ease, font-weight var(--transition-duration) ease;
-    
-    &:hover {
-      font-weight: var(--font-weight-bold);
-    }
-  }
-  
-  // 保留原有的按鈕樣式
-  .btn-send {
-    @extend %btn-base; // 擴展基礎樣式
-    letter-spacing: 1px;
-    background-color: var(--text-color);
-    color: var(--bg-color);
-    border: none;
-    padding: 10px 20px;
-    cursor: pointer;
-    transition: opacity var(--transition-duration) ease, font-weight var(--transition-duration) ease; // 添加字重過渡效果
-    font-weight: var(--font-weight-regular); // 設置初始字重
-  
-    &:hover {
-      opacity: 0.8;
-      font-weight: var(--font-weight-bold); // 懸停時加粗
-    }
-  }
-  
-  .support-button {
-    @extend %btn-base; // 擴展基礎樣式
-    @include no-underline;
-    
+// 基礎按鈕樣式
+button {
     display: inline-block;
     padding: 8px 15px;
-    background-color: rgba(245, 240, 229, 0.1);
+    font-size: 0.95em;
+    font-weight: var(--font-weight-regular);
+    letter-spacing: 0.5px;
+    text-decoration: none;
     color: var(--text-color);
+    background-color: rgba(var(--accent-color-rgb), 0.5);
+    border: none;
+    border-radius: var(--border-radius);
+    transition: background-color var(--transition-duration) ease,
+                color var(--transition-duration) ease,
+                font-weight var(--transition-duration) ease;
+    cursor: pointer;
+    height: 3em;
+
+    body.light-theme & {
+        background-color: rgba(var(--accent-color-rgb), 0.2);
+    }
+
+    &:hover, &:focus {
+        background-color: var(--accent-color);
+        color: var(--text-color);
+        font-weight: var(--font-weight-bold);
+    }
+}
+
+// 支持按鈕樣式
+button.focus {
+    display: inline-block;
+    padding: 8px 15px;
+    font-size: 0.95em;
+    font-weight: var(--font-weight-medium);
+    letter-spacing: 0.5px;
+    text-decoration: none;
+    color: var(--bg-color);
+    background-color: var(--text-color);
+    border: none;
     border-radius: var(--border-radius);
     transition: all var(--transition-duration) ease;
-    margin-top: auto;
-  
-    &:hover {
-      background-color: rgba(245, 240, 229, 0.2);
+    
+    cursor: pointer;
+    height: 3em;
+
+    body.light-theme & {
+        background-color: var(--text-color);
     }
-  
-    &.disabled {
-      opacity: 0.5;
-      cursor: not-allowed;
-      background-color: rgba(245, 240, 229, 0.1);
-  
-      &:hover {
-        background-color: rgba(245, 240, 229, 0.1);
-        color: var(--text-color);
-      }
+
+    &:hover, &:focus {
+        background-color: var(--accent-color);
+        color: var(--bg-color);
+        font-weight: var(--font-weight-bold);
     }
-  }
-  
-  // 綠界Pay按鈕懸停效果
-  .support-options .support-option:nth-child(1) .support-button:not(.disabled):hover {
-    background-color: rgba(0, 150, 136, 0.8); // 使用綠色系
-  }
-  
-  // Buy Me A Coffee按鈕懸停效果
-  .support-options .support-option:nth-child(2) .support-button:hover {
-    background-color: rgba(255, 221, 0, 0.8); // 使用黃色系
-    color: #000; // 改變文字顏色以增加對比度
-  }
-  
-  // PayPal按鈕懸停效果
-  .support-options .support-option:nth-child(3) .support-button:hover {
-    background-color: rgba(0, 48, 135, 0.8); // 使用藍色系
-  }
-  
-  .share-button {
-    // @extend %btn-base; // 擴展基礎樣式
-    @include no-underline;
-    display: inline-flex;
-    align-items: center;
-    padding: 8px 15px;
-    border-radius: var(--border-radius);
+}
+
+// 特定的分享按鈕顏色
+button.share {
+    background-color: rgba(var(--accent-color-rgb), 0.3);
     color: var(--text-color);
-    background-color: rgba(245, 240, 229, 0.1);
-    transition: all var(--transition-duration) ease, font-weight var(--transition-duration) ease; // 添加字重過渡效果
-    font-weight: var(--font-weight-regular); // 設置初始字重
-  
-    i {
-      margin-right: 8px;
+    transition: background-color var(--transition-duration) ease,
+                color var(--transition-duration) ease,
+                font-weight var(--transition-duration) ease;
+
+    &:hover, &:focus {
+        background-color: rgba(var(--accent-color-rgb), 0.8);
+        font-weight: var(--font-weight-bold);
     }
-  
-    &:hover {
-      background-color: rgba(245, 240, 229, 0.2);
-      font-weight: var(--font-weight-bold); // 懸停時加粗
+
+    // 特定的分享按鈕顏色
+    &.facebook:hover { 
+        background-color: rgba(59, 89, 152, 0.8);
     }
-  
-    &.facebook:hover { background-color: rgba(59, 89, 152, 0.2); }
-    &.line:hover { background-color: rgba(0, 185, 0, 0.2); }
-    &.twitter:hover { background-color: rgba(29, 161, 242, 0.2); }
-    &.linkedin:hover { background-color: rgba(0, 119, 181, 0.2); }
-    &.copy-link:hover { background-color: rgba(245, 240, 229, 0.3); }
+    &.line:hover { 
+        background-color: rgba(0, 185, 0, 0.8);
+    }
+    &.twitter:hover { 
+        background-color: rgba(29, 161, 242, 0.8);
+    }
+    &.linkedin:hover { 
+        background-color: rgba(0, 119, 181, 0.8);
+    }
+    &.copy-link:hover { 
+        background-color: rgba(69, 66, 74, 1);
+    }
+
+    @media (max-width: 768px) {
+        max-width: none;
+        width: 100%;
+        margin-top: 15px;
+      }
   }
+
+// 特定的支持按鈕顏色
+button.focus {
+    &.ecpay:hover {
+        color: var(--white);
+        background-color: rgba(0, 150, 136, 0.8);
+    }
+    &.buymeacoffee:hover {
+        font-weight: var(--font-weight-medium);
+        background-color: rgba(255, 221, 0, 0.8);
+        color: #000;
+    }
+    &.paypal:hover {
+        color: var(--white);
+        background-color: rgba(0, 48, 135, 0.8);
+    }
+}

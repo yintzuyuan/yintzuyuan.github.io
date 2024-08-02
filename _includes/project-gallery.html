@@ -8,7 +8,7 @@
   
   <div id="projectContainer" class="project-container">
     {% for project in site.data.projects %}
-      <a href="{{ project.url }}" class="project-link project-item" target="_blank" data-categories="{{ project.categories | join: ',' }}">
+      <a href="{{ project.url }}" class="nounderline project-item" target="_blank" data-categories="{{ project.categories | join: ',' }}">
         <span class="project-title">{{ project.title }}</span>
       </a>
     {% endfor %}

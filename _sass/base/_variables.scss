@@ -1,9 +1,15 @@
 :root {
-    // 顏色變量
-    --bg-color: #28262C;      // 背景顏色
-    --text-color: #F5F0E5;    // 文字顏色
-    --accent-color: #45424A;  // 強調顏色
-    --white: #FFFFFF;         // 白色
+    // 原有的暗色主題
+    --color-1: rgb(40, 38, 44); //bg-color #28262C
+    --color-2: rgb(245, 240, 229); //text-color #F5F0E5
+    --color-3: rgb(69, 66, 74); //accent-color #45424A
+    --white: rgb(255, 255, 255);
+
+    // 新增 RGB 值，方便使用 rgba()
+    --color-1-rgb: 40, 38, 44; //bg-color #28262C
+    --color-2-rgb: 245, 240, 229; //text-color #F5F0E5
+    --color-3-rgb: 69, 66, 74; //accent-color #45424A
+    --white-rgb: 255, 255, 255; //白色
     
     // 字體變量
     --font-emoji: 'Noto Emoji', sans-serif;
@@ -16,9 +22,13 @@
     --font-weight-regular: 400;
     --font-weight-medium: 500;
     --font-weight-bold: 650;
+    --font-weight-base: 400; // 基礎字重
+    --font-weight-light-mode-adjustment: 20; // 亮色模式下的字重調整值
 
     --font-size-base: 16px;
     --font-size-small: 14px;
+    --font-weight-base-dark: var(--font-weight-regular);
+    --font-weight-base-light: var(--font-weight-medium);
     
     // 其他變量
     --logo-color: var(--text-color);  // logo 顏色
@@ -38,7 +48,54 @@
     // 頁首標題樣式變量
     --font-size-header-title: 1.5em;
     --font-weight-header-title: 700;
-    --header-title-color: var(--text-color);
+    // --header-title-color: var(--color-2);
     --letter-spacing-header-title: 1px;
     --text-transform-header-title: uppercase;
+
+    --selection-bg-color: var(--color-3); // 使用 --color-2 作為背景
+    --selection-text-color: var(--color-1); // 使用 --color-1 作為文字顏色
+    }
+
+// 使用 CSS 變量實現主題切換
+body {
+    --bg-color: var(--color-1);
+    --text-color: var(--color-2);
+    --accent-color: var(--white);
+    --logo-color: var(--color-2);
+
+    // 新增 RGB 值，方便使用 rgba()
+    --bg-color-rgb: var(--color-1-rgb);
+    --text-color-rgb: var(--color-2-rgb);
+    --accent-color-rgb: var(--color-3-rgb);
+    --logo-color-rgb: var(--color-2-rgb);
+
+    font-weight: calc(var(--font-weight-base) + var(--font-weight-light-mode-adjustment));
+    // transition: background-color var(--transition-duration) ease, 
+    //           color var(--transition-duration) ease,
+    //           font-weight var(--transition-duration) ease;
+    
+    // 新增選取文字的顏色變量
+    --selection-bg-color: var(--text-color);
+    --selection-text-color: var(--bg-color);
+
+    // 當 body 有 light-theme 類時切換到亮色主題
+    &.light-theme {
+        --bg-color: var(--color-2);
+        --text-color: var(--color-3);
+        --accent-color: var(--color-1);
+        --logo-color: var(--color-1);
+        --selection-bg-color: var(--text-color);
+        --selection-text-color: var(--bg-color);
+
+        // 新增 RGB 值，方便使用 rgba()
+        --bg-color-rgb: var(--color-2-rgb);
+        --text-color-rgb: var(--color-1-rgb);
+        --accent-color-rgb: var(--color-3-rgb);
+        --logo-color-rgb: var(--color-1-rgb);
+        
+        font-weight: calc(var(--font-weight-base) + var(--font-weight-light-mode-adjustment));
   }
+    
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
