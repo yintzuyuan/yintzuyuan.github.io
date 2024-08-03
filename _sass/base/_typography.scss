@@ -45,7 +45,7 @@
   
   // 標題樣式
   h1, h2, h3, h4, h5, h6 {
-    font-family: var(--font-mono), var(--font-emoji), var(--font-serif);
+    font-family: var(--font-serif), var(--font-emoji);
     font-weight: var(--font-weight-bold);
     color: var(--white);
     text-align: center;
@@ -93,12 +93,12 @@
   // 按鈕樣式
   .button, button, input[type="button"], input[type="submit"] {
     font-family: var(--font-mono), var(--font-emoji), var(--font-sans);
-    font-weight: var(--font-weight-regular);
+    // font-weight: var(--font-weight-regular);
     transition: font-weight 0.3s ease;
     
-    &:hover {
-      font-weight: var(--font-weight-bold);
-    }
+    // &:hover {
+    //   font-weight: var(--font-weight-bold);
+    // }
   }
   
   // 響應式設計

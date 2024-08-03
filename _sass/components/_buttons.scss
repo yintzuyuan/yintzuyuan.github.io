@@ -5,7 +5,6 @@ button {
     display: inline-block;
     padding: 8px 15px;
     font-size: 0.95em;
-    font-weight: var(--font-weight-regular);
     letter-spacing: 0.5px;
     text-decoration: none;
     color: var(--text-color);
@@ -20,12 +19,15 @@ button {
 
     body.light-theme & {
         background-color: rgba(var(--accent-color-rgb), 0.2);
+
+        &:hover, &:focus {
+            background-color: rgba(var(--accent-color-rgb), 0.1);
+        }
     }
 
     &:hover, &:focus {
         background-color: var(--accent-color);
         color: var(--text-color);
-        font-weight: var(--font-weight-bold);
     }
 }
 
@@ -33,7 +35,7 @@ button {
 button.focus {
     display: inline-block;
     padding: 8px 15px;
-    font-size: 0.95em;
+    font-size: 0.9em;
     font-weight: var(--font-weight-medium);
     letter-spacing: 0.5px;
     text-decoration: none;
@@ -53,7 +55,6 @@ button.focus {
     &:hover, &:focus {
         background-color: var(--accent-color);
         color: var(--bg-color);
-        font-weight: var(--font-weight-bold);
     }
 }
 
@@ -61,30 +62,52 @@ button.focus {
 button.share {
     background-color: rgba(var(--accent-color-rgb), 0.3);
     color: var(--text-color);
+    margin: 5px;
+
     transition: background-color var(--transition-duration) ease,
                 color var(--transition-duration) ease,
                 font-weight var(--transition-duration) ease;
 
     &:hover, &:focus {
         background-color: rgba(var(--accent-color-rgb), 0.8);
-        font-weight: var(--font-weight-bold);
     }
 
     // 特定的分享按鈕顏色
     &.facebook:hover { 
         background-color: rgba(59, 89, 152, 0.8);
+
+        body.light-theme & {
+            color: var(--bg-color);
+        }
     }
     &.line:hover { 
         background-color: rgba(0, 185, 0, 0.8);
+
+        body.light-theme & {
+            color: var(--bg-color);
+        }
     }
     &.twitter:hover { 
         background-color: rgba(29, 161, 242, 0.8);
+
+        body.light-theme & {
+            color: var(--bg-color);
+        }
     }
     &.linkedin:hover { 
         background-color: rgba(0, 119, 181, 0.8);
+
+        body.light-theme & {
+            color: var(--bg-color);
+        }
     }
     &.copy-link:hover { 
         background-color: rgba(69, 66, 74, 1);
+
+        body.light-theme & {
+            background-color: rgba(69, 66, 74, 0.8);
+            color: var(--bg-color);
+        }
     }
 
     @media (max-width: 768px) {

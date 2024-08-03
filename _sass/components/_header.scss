@@ -79,6 +79,14 @@ header#site-header {
       margin: 5px 0;
       transition: all 0.3s ease;
     }
+
+    &:hover {
+        background: none;
+        span {
+            background-color: var(--text-color);
+
+        }
+      }
   
     @media (max-width: 767px) {
       display: block; // 在小螢幕上顯示

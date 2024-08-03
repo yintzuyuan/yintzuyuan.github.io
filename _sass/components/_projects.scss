@@ -7,8 +7,10 @@
     justify-content: center; // 置中對齊
     align-items: center;
     max-width: 100%;
-    margin: 0 auto;
+    margin: 10px;
     padding: 0 15px;
+    margin: 5px;
+
   }
   
   // 作品鏈接樣式
@@ -104,31 +106,6 @@
         }
       }
     }
-    
-    // // 作品項目樣式
-    // .project-item {
-    //   display: inline-block;
-    //   margin: 5px;
-    //   padding: 5px 10px;
-    //   background-color: rgba(69, 66, 74, 0.6);
-    //   border-radius: var(--border-radius);
-    //   transition: all var(--transition-duration) ease;
-    //   cursor: pointer;
-    
-    //   &:hover {
-    //     background-color: rgba(245, 240, 229, 0.2);
-    
-    //     .project-title {
-    //       color: var(--white);
-    //     }
-    //   }
-    
-    //   .project-title {
-    //     color: var(--text-color);
-    //     font-weight: 500;
-    //     font-family: var(--font-mono);
-    //   }
-    // }
   
 // 響應式設計
 @media (max-width: 768px) {

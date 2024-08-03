@@ -8,8 +8,8 @@
   
   <div id="projectContainer" class="project-container">
     {% for project in site.data.projects %}
-      <a href="{{ project.url }}" class="nounderline project-item" target="_blank" data-categories="{{ project.categories | join: ',' }}">
-        <span class="project-title">{{ project.title }}</span>
+      <a href="{{ project.url }}" class="nounderline" target="_blank" data-categories="{{ project.categories | join: ',' }}">
+        <button class="button share">{{ project.title }}</button>
       </a>
     {% endfor %}
   </div>
