@@ -10,7 +10,7 @@ header#site-header {
     background-color: var(--bg-color);
     z-index: 1000;
     transition: font-weight var(--transition-duration) ease; // 添加字重過渡效果 
-    border-bottom: 1px solid rgba(245, 240, 229, 0.1);
+    border-bottom: 1px solid rgba(var(--accent-color-rgb), 0.5);
     padding: 10px 0; // 增加上下內邊距
     min-height: 70px; // 設置最小高度
     width: 100%;
@@ -69,6 +69,7 @@ header#site-header {
   
     span {
       display: block;
+      background: none;
       width: 25px;
       height: 2px;
       background-color: var(--text-color);
@@ -78,11 +79,15 @@ header#site-header {
 
     &:hover {
         background: none;
-        span {
-            background-color: var(--text-color);
-
-        }
       }
+
+    body.light-theme & {
+        background: none;
+
+        &:hover {
+            background: none;
+          }
+    }
   
     @media (max-width: 767px) {
       display: block; // 在小螢幕上顯示
