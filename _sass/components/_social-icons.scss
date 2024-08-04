@@ -18,13 +18,13 @@
         height: 2px;
         bottom: -5px;
         left: 0;
-        background-color: var(--white);
+        background-color: var(--text-color);
         transform: scaleX(0);
         transition: transform var(--transition-duration) ease;
       }
   
       &:hover {
-        color: var(--white);
+        color: var(--text-color);
   
         &::after {
           transform: scaleX(1);
