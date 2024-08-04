@@ -86,7 +86,10 @@
     transition: font-weight 0.3s ease;
     
     &:hover {
-      font-weight: var(--font-weight-bold);
+        // font-variation-settings: "wght" + 100;
+        font-weight: var(--font-weight-bold);
+
+        
     }
   }
   

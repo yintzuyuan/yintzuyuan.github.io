@@ -98,7 +98,6 @@ body {
       margin-bottom: 1.8em;
       line-height: 2.5; // 增加行距
       font-size: var(--font-size-base);
-    //   text-align:justify;
     }
 
     .justify-text {
@@ -109,7 +108,6 @@ body {
       color: var(--text-color);
       text-decoration: none;
       position: relative;
-      transition: all var(--transition-duration) ease;
   
       &::after {
         content: '';
@@ -119,16 +117,11 @@ body {
         width: 100%;
         height: 1px;
         background-color: var(--text-color);
-        transition: all var(--transition-duration) ease;
       }
   
       &:hover, &:focus {
-        color: var(--white);
-  
-        &::after {
-          background-color: var(--white);
+        color: var(--text-color);
         }
-      }
     }
   
     hr {
@@ -234,28 +227,7 @@ body {
     }
   }
 
-  #theme-toggle {
-    background: none;
-    border: none;
-    cursor: pointer;
-    font-size: 1.5rem;
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    z-index: 1000;
-}
-
-.theme-toggle-dark,
-.theme-toggle-light {
-    display: none;
-}
-
-body:not(.light-theme) .theme-toggle-dark,
-body.light-theme .theme-toggle-light {
-    display: inline;
-}
-
-body, h1, h2, h3, h4, h5, h6, p, span, a, button, input, textarea, select, li {
+body, h1, h2, h3, h4, h5, h6, p, span, a, input, textarea, select, li {
     font-weight: inherit;
   }
 

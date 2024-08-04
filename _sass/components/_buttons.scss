@@ -26,6 +26,7 @@ button {
     }
 
     &:hover, &:focus {
+        font-weight: var(--font-weight-bold);
         background-color: var(--accent-color);
         color: var(--text-color);
     }
@@ -53,6 +54,7 @@ button.focus {
     }
 
     &:hover, &:focus {
+        font-weight: var(--font-weight-bold);
         background-color: var(--accent-color);
         color: var(--bg-color);
     }
@@ -67,12 +69,23 @@ button.share {
     transition: background-color var(--transition-duration) ease,
                 color var(--transition-duration) ease,
                 font-weight var(--transition-duration) ease;
-
+    
     &:hover, &:focus {
         background-color: rgba(var(--accent-color-rgb), 0.8);
     }
 
     // 特定的分享按鈕顏色
+
+    &.theme-toggle { 
+        background-color: transparent;
+        font-size: 1.25em;
+        border-radius: 50%;
+
+        body.light-theme & {
+            background-color: transparent;
+        }
+    }
+
     &.facebook:hover { 
         background-color: rgba(59, 89, 152, 0.8);
 
