@@ -81,7 +81,7 @@ header#site-header {
         background: none;
       }
 
-    body.light-theme & {
+    [data-theme="light"] & {
         background: none;
 
         &:hover {
@@ -182,7 +182,7 @@ header#site-header {
         }
   
         // 明亮模式特定樣式
-        body.light-theme & {
+        [data-theme="light"] & {
           transition: font-variation-settings var(--transition-duration) ease;
           font-variation-settings: "wght" 400; // 默認字重
   
@@ -284,6 +284,6 @@ header#site-header {
   }
   
   body:not(.light-theme) .theme-toggle-dark,
-  body.light-theme .theme-toggle-light {
+  [data-theme="light"] .theme-toggle-light {
     display: inline;
   }

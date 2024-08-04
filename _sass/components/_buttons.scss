@@ -18,7 +18,7 @@ button {
     height: 3em;
 
     // 明亮模式特定樣式
-    body.light-theme & {
+    [data-theme="light"] & {
         transition: background-color var(--transition-duration) ease,
         color var(--transition-duration) ease,
         font-variation-settings 0.3s ease;
@@ -53,7 +53,7 @@ button.focus {
     cursor: pointer;
     height: 3em;
 
-    body.light-theme & {
+    [data-theme="light"] & {
         background-color: var(--text-color);
     }
 
@@ -85,7 +85,7 @@ button.share {
         font-size: 1.25em;
         border-radius: 50%;
 
-        body.light-theme & {
+        [data-theme="light"] & {
             background-color: transparent;
         }
     }
@@ -93,35 +93,35 @@ button.share {
     &.facebook:hover { 
         background-color: rgba(59, 89, 152, 0.8);
 
-        body.light-theme & {
+        [data-theme="light"] & {
             color: var(--bg-color);
         }
     }
     &.line:hover { 
         background-color: rgba(0, 185, 0, 0.8);
 
-        body.light-theme & {
+        [data-theme="light"] & {
             color: var(--bg-color);
         }
     }
     &.twitter:hover { 
         background-color: rgba(29, 161, 242, 0.8);
 
-        body.light-theme & {
+        [data-theme="light"] & {
             color: var(--bg-color);
         }
     }
     &.linkedin:hover { 
         background-color: rgba(0, 119, 181, 0.8);
 
-        body.light-theme & {
+        [data-theme="light"] & {
             color: var(--bg-color);
         }
     }
     &.copy-link:hover { 
         background-color: rgba(69, 66, 74, 1);
 
-        body.light-theme & {
+        [data-theme="light"] & {
             background-color: rgba(69, 66, 74, 0.8);
             color: var(--bg-color);
         }

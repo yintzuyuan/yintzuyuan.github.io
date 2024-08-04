@@ -95,8 +95,8 @@
         transition: all var(--transition-duration) ease;
   
         &:hover {
-          color: var(--white);
-          border-bottom-color: var(--white);
+          color: var(--text-color);
+          border-bottom-color: var(--text-color);
         }
       }
     }

@@ -28,7 +28,7 @@
     transition: all var(--transition-duration) ease;
     cursor: pointer;
     
-    body.light-theme & {
+    [data-theme="light"] & {
         background-color: rgba(var(--accent-color-rgb), 0.2);
       }
 
@@ -39,7 +39,7 @@
           color: var(--text-color);
         }
 
-        body.light-theme & {
+        [data-theme="light"] & {
             background-color: rgba(var(--accent-color-rgb), 0.1);
         }
       }
@@ -56,7 +56,7 @@
         }
 
         // 明亮模式特定樣式
-        body.light-theme & {
+        [data-theme="light"] & {
             transition: font-variation-settings 0.3s ease;
             font-variation-settings: "wght" 500;
             
@@ -96,7 +96,7 @@
         position: relative;
 
         // 明亮模式特定樣式
-        body.light-theme & {
+        [data-theme="light"] & {
             transition: font-variation-settings 0.3s ease;
             font-variation-settings: "wght" 500;
             
@@ -111,7 +111,7 @@
             font-weight: var(--font-weight-bold);
 
         // 明亮模式特定樣式
-        body.light-theme & {
+        [data-theme="light"] & {
             font-variation-settings: "wght" 700;
         }
         }

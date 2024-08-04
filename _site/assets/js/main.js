@@ -29,38 +29,38 @@ document.addEventListener('DOMContentLoaded', function() {
     const prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)");
 
     function setTheme(theme) {
-        document.body.style.transition = 'none';
-        if (theme === "dark") {
-          document.body.classList.remove("light-theme");
-          localStorage.setItem("theme", "dark");
-        } else {
-          document.body.classList.add("light-theme");
-          localStorage.setItem("theme", "light");
-        }
-        // 強制重繪以確保過渡效果正常工作
-        document.body.offsetHeight;
-        document.body.style.transition = '';
-      }
+    document.documentElement.setAttribute('data-theme', theme);
+    localStorage.setItem("theme", theme);
+    
+    // 重新啟用過渡效果
+    setTimeout(() => {
+        document.body.style.transition = 'background-color var(--transition-duration) ease, color var(--transition-duration) ease';
+    }, 50);
+    }
 
     // 檢查本地存儲或系統偏好
     const currentTheme = localStorage.getItem("theme");
     if (currentTheme) {
-        setTheme(currentTheme);
+    setTheme(currentTheme);
     } else {
-        setTheme(prefersDarkScheme.matches ? "dark" : "light");
+    setTheme(prefersDarkScheme.matches ? "dark" : "light");
     }
 
     themeToggle.addEventListener("click", function() {
-        if (document.body.classList.contains("light-theme")) {
-            setTheme("dark");
-        } else {
-            setTheme("light");
-        }
+    // 切換主題時暫時禁用過渡效果
+    document.body.style.transition = 'none';
+    
+    const currentTheme = document.documentElement.getAttribute('data-theme');
+    const newTheme = currentTheme === "light" ? "dark" : "light";
+    setTheme(newTheme);
     });
 
     // 監聽系統主題變化
     prefersDarkScheme.addListener((e) => {
-        setTheme(e.matches ? "dark" : "light");
+    if (!localStorage.getItem("theme")) {
+        const newTheme = e.matches ? "dark" : "light";
+        setTheme(newTheme);
+    }
     });
 
     // 設置電子報訂閱區塊的最小化狀態

@@ -57,7 +57,7 @@
     }
 
 // 使用 CSS 變量實現主題切換
-body {
+:root, [data-theme="dark"] {
     --bg-color: var(--color-1);
     --text-color: var(--color-2);
     --accent-color: var(--white);
@@ -77,25 +77,27 @@ body {
     // 新增選取文字的顏色變量
     --selection-bg-color: var(--text-color);
     --selection-text-color: var(--bg-color);
+}
 
     // 當 body 有 light-theme 類時切換到亮色主題
-    &.light-theme {
-        --bg-color: var(--color-2);
-        --text-color: var(--color-3);
-        --accent-color: var(--color-1);
-        --logo-color: var(--color-3);
-        --selection-bg-color: var(--text-color);
-        --selection-text-color: var(--bg-color);
+[data-theme="light"] {
+    --bg-color: var(--color-2);
+    --text-color: var(--color-3);
+    --accent-color: var(--color-1);
+    --logo-color: var(--color-3);
+    --selection-bg-color: var(--text-color);
+    --selection-text-color: var(--bg-color);
 
-        // 新增 RGB 值，方便使用 rgba()
-        --bg-color-rgb: var(--color-2-rgb);
-        --text-color-rgb: var(--color-1-rgb);
-        --accent-color-rgb: var(--color-3-rgb);
-        --logo-color-rgb: var(--color-1-rgb);
-        
-        font-weight: calc(var(--font-weight-base) + var(--font-weight-light-mode-adjustment));
-  }
+    // 新增 RGB 值，方便使用 rgba()
+    --bg-color-rgb: var(--color-2-rgb);
+    --text-color-rgb: var(--color-1-rgb);
+    --accent-color-rgb: var(--color-3-rgb);
+    --logo-color-rgb: var(--color-1-rgb);
     
+    font-weight: calc(var(--font-weight-base) + var(--font-weight-light-mode-adjustment));
+}
+    
+body {
     background-color: var(--bg-color);
     color: var(--text-color);
-}
+  }

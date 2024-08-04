@@ -91,7 +91,7 @@
     }
 
     // 明亮模式特定樣式
-    body.light-theme & {
+    [data-theme="light"] & {
         transition: font-variation-settings 0.3s ease;
         font-variation-settings: "wght" 500;
         

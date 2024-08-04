@@ -1,6 +1,37 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
 <head>
+    <script>
+        (function() {
+          var savedTheme = localStorage.getItem('theme') || 'dark';
+          document.documentElement.setAttribute('data-theme', savedTheme);
+        })();
+      </script>
+      <style>
+        :root {
+          --color-1: rgb(40, 38, 44);
+          --color-2: rgb(245, 240, 229);
+          --color-3: rgb(69, 66, 74);
+          --white: rgb(255, 255, 255);
+        }
+        :root, [data-theme="dark"] {
+          --bg-color: var(--color-1);
+          --text-color: var(--color-2);
+          --accent-color: var(--white);
+          --logo-color: var(--color-2);
+        }
+        [data-theme="light"] {
+          --bg-color: var(--color-2);
+          --text-color: var(--color-3);
+          --accent-color: var(--color-1);
+          --logo-color: var(--color-3);
+        }
+        body {
+          background-color: var(--bg-color);
+          color: var(--text-color);
+          transition: none;
+        }
+      </style>
     <head>
     <meta charset="utf-8">
     <!-- 預先連接到 Google Fonts -->
