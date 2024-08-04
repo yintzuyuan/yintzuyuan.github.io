@@ -90,14 +90,16 @@
         font-weight: var(--font-weight-bold);
     }
 
+    // 明亮模式特定樣式
     body.light-theme & {
-        font-weight: var(--font-weight-medium);
-        transition: font-weight 0.3s ease;
-
+        transition: font-variation-settings 0.3s ease;
+        font-variation-settings: "wght" 500;
+        
         &:hover {
-            font-weight: var(--font-weight-bold);
+          font-variation-settings: "wght" 700;
+        //   color: blue;
         }
-    }
+      }
   }
   
   // 按鈕樣式

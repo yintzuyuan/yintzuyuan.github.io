@@ -54,6 +54,17 @@
         &:hover {
           font-weight: var(--font-weight-bold);
         }
+
+        // 明亮模式特定樣式
+        body.light-theme & {
+            transition: font-variation-settings 0.3s ease;
+            font-variation-settings: "wght" 500;
+            
+            &:hover {
+            font-variation-settings: "wght" 700;
+            //   color: blue;
+            }
+        }
     }
   }
 
@@ -83,6 +94,27 @@
         cursor: pointer;
         transition: all var(--transition-duration) ease, font-weight var(--transition-duration) ease;
         position: relative;
+
+        // 明亮模式特定樣式
+        body.light-theme & {
+            transition: font-variation-settings 0.3s ease;
+            font-variation-settings: "wght" 500;
+            
+            &:hover {
+            font-variation-settings: "wght" 700;
+            //   color: blue;
+            }
+        }
+
+        &.active,
+        &:hover {
+            font-weight: var(--font-weight-bold);
+
+        // 明亮模式特定樣式
+        body.light-theme & {
+            font-variation-settings: "wght" 700;
+        }
+        }
     
         &::after {
           content: '';

@@ -17,13 +17,17 @@ button {
     cursor: pointer;
     height: 3em;
 
+    // 明亮模式特定樣式
     body.light-theme & {
-        background-color: rgba(var(--accent-color-rgb), 0.2);
-
-        &:hover, &:focus {
-            background-color: rgba(var(--accent-color-rgb), 0.1);
+        transition: background-color var(--transition-duration) ease,
+        color var(--transition-duration) ease,
+        font-variation-settings 0.3s ease;
+        font-variation-settings: "wght" 500;
+        
+        &:hover {
+          font-variation-settings: "wght" 700;
         }
-    }
+      }
 
     &:hover, &:focus {
         font-weight: var(--font-weight-bold);

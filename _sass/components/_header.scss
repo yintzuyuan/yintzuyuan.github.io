@@ -154,23 +154,45 @@ header#site-header {
       }
   
       &:not(.external-link) {
+        transition: all var(--transition-duration) ease;
+        font-variation-settings: "wght" 400;
+        // background-color: yellow;
+        
         &::after {
-            content: '';
-            position: absolute;
-            width: 100%;
-            height: 1px;
-            bottom: -2px;
-            left: 0;
-            background-color: var(--text-color); // 使用文字顏色變量
-            transform: scaleX(0);
-            transition: font-weight var(--transition-duration) ease, transform var(--transition-duration) ease; // 添加字重過渡效果    
+          content: '';
+          position: absolute;
+          width: 100%;
+          height: 1px;
+          bottom: -2px;
+          left: 0;
+          background-color: var(--text-color);
+        //   font-weight: var(--font-weight-normal); // 默認字重
+          transform: scaleX(0);
+          transition: all var(--transition-duration) ease;
         }
-    
-          &:hover::after,
-          &.current::after {
+  
+        &:hover,
+        &.current {
+            font-variation-settings: "wght" 700;
+            // background-color: red;
+  
+          &::after {
             transform: scaleX(1);
           }
         }
+  
+        // 明亮模式特定樣式
+        body.light-theme & {
+          transition: font-variation-settings var(--transition-duration) ease;
+          font-variation-settings: "wght" 400; // 默認字重
+  
+          &:hover,
+          &.current {
+            font-variation-settings: "wght" 700;
+          }
+        }
+      }
+  
   
       &.external-link {
         background-color: var(--text-color);

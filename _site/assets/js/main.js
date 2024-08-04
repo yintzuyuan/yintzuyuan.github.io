@@ -285,3 +285,55 @@ document.addEventListener('DOMContentLoaded', function() {
     window.addEventListener('touchend', resetWeight);
   });
   
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const navLinks = document.querySelectorAll('nav a:not(.external-link)');
+  
+    navLinks.forEach(link => {
+      link.addEventListener('click', (e) => {
+        // 移除所有導航項目的 current 類
+        navLinks.forEach(l => l.classList.remove('current'));
+        
+        // 為被點擊的項目添加 current 類
+        e.target.classList.add('current');
+      });
+    });
+  
+    // 設置初始的當前頁面
+    const currentPath = window.location.pathname;
+    navLinks.forEach(link => {
+      if (link.getAttribute('href') === currentPath) {
+        link.classList.add('current');
+      }
+    });
+  });
+
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const navLinks = document.querySelectorAll('nav a:not(.external-link)');
+  
+    navLinks.forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault(); // 暫時阻止默認行為
+        
+        // 移除所有導航項目的 current 類
+        navLinks.forEach(l => l.classList.remove('current'));
+        
+        // 為被點擊的項目添加 current 類
+        e.target.classList.add('current');
+        
+        // 延遲導航，以便看到過渡效果
+        setTimeout(() => {
+          window.location.href = e.target.href; // 在延遲後進行實際導航
+        }, 300); // 延遲時間應與 CSS 過渡時間匹配
+      });
+    });
+  
+    // 設置初始的當前頁面
+    const currentPath = window.location.pathname;
+    navLinks.forEach(link => {
+      if (link.getAttribute('href') === currentPath) {
+        link.classList.add('current');
+      }
+    });
+  });
