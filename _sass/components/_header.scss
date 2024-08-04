@@ -35,27 +35,36 @@ header#site-header {
     height: 100%; // 確保內容填滿整個頭部區域
   }
   
-  // Logo 樣式
-  .logo-link {
-    display: flex;
-    align-items: center;
-  }
-  
-  .logo {
-    width: 50px;
+// Logo 樣式
+.logo-link {
+    color: var(--logo-color);
+    width: 50px; // 設置 logo 的寬度
     height: auto;
-    svg, path, rect, circle {
-        fill: var(--logo-color);
-        transition: fill var(--transition-duration) ease; // 添加過渡效果
-    }
+    display: block;
+  
     @include for-tablet-up {
-      width: 60px; // 在平板及以上設備恢復原來的大小
+      width: 60px;
     }
-      
+  
+    svg {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+  
+    [data-theme="light"] & {
+      color: var(--logo-color);
+
+      &:hover {
+        color: black;
+        transition: color var(--transition-duration) ease,
+    }
+    }
+  
     &:hover {
-      svg, path, rect, circle {
-        fill: var(--logo-color);
-      }
+        color: white;
+        transition: color var(--transition-duration) ease,
+
     }
   }
 
@@ -307,6 +316,6 @@ header#site-header {
     align-items: center;
   
     #theme-toggle {
-      margin-left: 20px; // 與其他導航項目保持一致的間距
+      margin: 10px; // 與其他導航項目保持一致的間距
     }
   }
