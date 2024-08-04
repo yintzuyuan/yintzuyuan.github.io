@@ -276,14 +276,37 @@ header#site-header {
     }
   }
 
-
+  #theme-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+    font-size: 1.2em; // 調整圖示大小
+    color: var(--text-color); // 使用文字顏色變量
+    transition: color var(--transition-duration) ease;
   
-  .theme-toggle-dark,
-  .theme-toggle-light {
-    display: none;
+    .theme-toggle-dark,
+    .theme-toggle-light {
+      display: none; // 改回使用 display 來控制可見性
+    }
+  
+    &:hover {
+      color: var(--accent-color); // 懸停時的顏色變化
+    }
   }
   
-  body:not(.light-theme) .theme-toggle-dark,
-  [data-theme="light"] .theme-toggle-light {
-    display: inline;
+  // 修改這些選擇器以匹配原始邏輯
+  html:not([data-theme="light"]) #theme-toggle .theme-toggle-dark,
+  html[data-theme="light"] #theme-toggle .theme-toggle-light {
+    display: inline; // 顯示相應的圖示
+  }
+  
+  // 為按鈕添加一些額外的樣式，使其更好地融入導航欄
+  nav {
+    display: flex;
+    align-items: center;
+  
+    #theme-toggle {
+      margin-left: 20px; // 與其他導航項目保持一致的間距
+    }
   }
