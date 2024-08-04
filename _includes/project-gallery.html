@@ -8,39 +8,38 @@
   
   <div id="projectContainer" class="project-container">
     {% for project in site.data.projects %}
-      <a href="{{ project.url }}" class="nounderline" target="_blank" data-categories="{{ project.categories | join: ',' }}">
-        <button class="button share">{{ project.title }}</button>
+      <a href="{{ project.url }}" class="project-link" target="_blank">
+        <div class="project-item" data-categories="{{ project.categories | join: ' ' }}">
+          <span class="project-title">{{ project.title }}</span>
+        </div>
       </a>
     {% endfor %}
   </div>
   
   <script>
   document.addEventListener('DOMContentLoaded', function() {
-    const tags = document.querySelectorAll('.tag');
-    const projectItems = document.querySelectorAll('.project-item');
-  
-    tags.forEach(tag => {
-      tag.addEventListener('click', function() {
-        const filter = this.getAttribute('data-filter');
+    const tagCloud = document.querySelector('.tag-cloud');
+  const projectItems = document.querySelectorAll('.project-item');
+
+  if (tagCloud) {
+    tagCloud.addEventListener('click', function(e) {
+      if (e.target.classList.contains('tag')) {
+        const filter = e.target.getAttribute('data-filter');
         
-        tags.forEach(t => t.classList.remove('active'));
-        this.classList.add('active');
-  
+        // 更新活動標籤
+        document.querySelectorAll('.tag').forEach(tag => tag.classList.remove('active'));
+        e.target.classList.add('active');
+        
+        // 篩選項目
         projectItems.forEach(item => {
-          const categories = item.getAttribute('data-categories').split(',');
-          if (filter === 'all' || categories.includes(filter)) {
-            item.style.display = 'inline-block';
+          if (filter === 'all' || item.getAttribute('data-categories').includes(filter)) {
+            item.style.display = '';
           } else {
             item.style.display = 'none';
           }
         });
-      });
+      }
     });
-  
-    // 隨機排序項目
-    const container = document.getElementById('projectContainer');
-    const items = Array.from(container.children);
-    items.sort(() => Math.random() - 0.5);
-    items.forEach(item => container.appendChild(item));
+  }
   });
   </script>

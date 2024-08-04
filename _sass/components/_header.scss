@@ -51,11 +51,7 @@ header#site-header {
     @include for-tablet-up {
       width: 60px; // 在平板及以上設備恢復原來的大小
     }
-  
-    svg, path, rect, circle {
-      fill: var(--logo-color);
-    }
-  
+      
     &:hover {
       svg, path, rect, circle {
         fill: var(--logo-color);

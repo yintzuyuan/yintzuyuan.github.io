@@ -88,8 +88,15 @@
     &:hover {
         // font-variation-settings: "wght" + 100;
         font-weight: var(--font-weight-bold);
+    }
 
-        
+    body.light-theme & {
+        font-weight: var(--font-weight-medium);
+        transition: font-weight 0.3s ease;
+
+        &:hover {
+            font-weight: var(--font-weight-bold);
+        }
     }
   }
   
