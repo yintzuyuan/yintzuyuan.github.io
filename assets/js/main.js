@@ -83,9 +83,12 @@ function initializeTheme(themeToggle) {
 function initializeNewsletter(elements) {
     const { newsletterFloating, newsletterToggle, newsletterForm } = elements;
     const storageKey = 'newsletter_minimized';
+    const toggleText = newsletterToggle.querySelector('.toggle-text');
+    const emojiMinimized = newsletterToggle.querySelector('.emoji-minimized');
+    const minimizeIcon = newsletterToggle.querySelector('.minimize-icon');
+    const closeIcon = newsletterToggle.querySelector('.close-icon');
 
     function setMinimizedState(minimized) {
-        // 設置最小化狀態的邏輯
         if (minimized) {
             newsletterForm.classList.add('hidden');
             toggleText.classList.remove('hidden');
@@ -103,16 +106,13 @@ function initializeNewsletter(elements) {
         }
         localStorage.setItem(storageKey, minimized);
 
-        // 移除初始隱藏類，顯示整個 newsletter-floating 元素
         setTimeout(() => {
             newsletterFloating.classList.remove('initially-hidden');
-            // 強制重繪以確保過渡效果正常工作
             newsletterFloating.offsetHeight;
             newsletterFloating.style.transition = 'all var(--transition-duration) ease';
-            // 確保所有子元素也可見
             Array.from(newsletterFloating.getElementsByTagName('*')).forEach(el => {
-            el.style.opacity = '1';
-            el.style.visibility = 'visible';
+                el.style.opacity = '1';
+                el.style.visibility = 'visible';
             });
         }, 100);
     }
@@ -124,7 +124,6 @@ function initializeNewsletter(elements) {
         setMinimizedState(!isCurrentlyMinimized);
     });
 
-    const closeIcon = newsletterToggle.querySelector('.close-icon');
     closeIcon.addEventListener('click', function(event) {
         event.stopPropagation();
         setMinimizedState(true);
@@ -204,22 +203,22 @@ function initializeNavLinks() {
 
 // 處理主題和表單
 function handleThemeAndForm() {
-    function setTheme() {
-        const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
-        const originalForm = document.getElementById('original-form');
-        const mailerliteForm = document.getElementById('mailerlite-form');
+    const darkModeForm = document.querySelector('.dark-mode-form');
+    const lightModeForm = document.querySelector('.light-mode-form');
 
+    function setTheme() {
+        const isDarkMode = document.documentElement.getAttribute('data-theme') === 'dark';
         if (isDarkMode) {
-            originalForm.style.display = 'block';
-            mailerliteForm.style.display = 'none';
+            darkModeForm.style.display = 'block';
+            lightModeForm.style.display = 'none';
         } else {
-            originalForm.style.display = 'none';
-            mailerliteForm.style.display = 'block';
+            darkModeForm.style.display = 'none';
+            lightModeForm.style.display = 'block';
         }
     }
 
     setTheme();
-    window.matchMedia('(prefers-color-scheme: dark)').addListener(setTheme);
+    document.getElementById('theme-toggle').addEventListener('click', setTheme);
 }
 
 // 在頁面加載完成後再次滾動到頂部

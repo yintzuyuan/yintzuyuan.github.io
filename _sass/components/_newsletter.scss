@@ -70,7 +70,7 @@
   
       h3 {
         margin-top: 0;
-        // font-family: var(--font-serif);
+        font-weight: bold;
         font-size: 1.4em;
         margin-bottom: 10px;
   
@@ -84,7 +84,91 @@
       }
   
       .ml-embedded {
-        margin-top: 10px;
+        // 表單容器樣式
+        background-color: transparent;
+        padding: 15px;
+        border-radius: var(--border-radius);
+    
+        // 標題樣式
+        .ml-form-embedContent {
+          h4 {
+            font-family: var(--font-serif);
+            font-size: 1.2em;
+            color: var(--text-color);
+            margin-bottom: 10px;
+          }
+          p {
+            font-family: var(--font-sans);
+            font-size: 0.9em;
+            color: var(--text-color);
+            margin-bottom: 15px;
+          }
+        }
+    
+        // 輸入框樣式
+        .ml-form-formContent {
+          .ml-form-fieldRow {
+            margin-bottom: 15px;
+    
+            input {
+              width: 100%;
+              padding: 10px;
+              border: 1px solid var(--text-color);
+              background-color: var(--bg-color);
+              color: var(--text-color);
+              font-family: var(--font-sans);
+              font-size: 0.9em;
+              transition: border-color var(--transition-duration) ease;
+    
+              &:focus {
+                outline: none;
+                border-color: var(--accent-color);
+              }
+    
+              &::placeholder {
+                color: rgba(var(--text-color-rgb), 0.6);
+              }
+            }
+          }
+        }
+    
+        // 提交按鈕樣式
+        .ml-form-embedSubmit {
+          button {
+            width: 100%;
+            padding: 10px;
+            background-color: var(--accent-color);
+            color: var(--bg-color);
+            border: none;
+            font-family: var(--font-sans);
+            font-size: 1em;
+            font-weight: var(--font-weight-bold);
+            cursor: pointer;
+            transition: background-color var(--transition-duration) ease,
+                        color var(--transition-duration) ease;
+    
+            &:hover {
+              background-color: var(--accent-color);
+              color: var(--text-color);
+            }
+          }
+        }
+    
+        // 錯誤信息樣式
+        .ml-error {
+          color: #ff4136; // 使用一個醒目的紅色
+          font-size: 0.8em;
+          margin-top: 5px;
+        }
+    
+        // 成功信息樣式
+        .ml-form-successContent {
+          text-align: center;
+          color: var(--text-color);
+          font-family: var(--font-sans);
+          font-size: 1em;
+          margin-top: 15px;
+        }
       }
     }
   
@@ -112,7 +196,6 @@
     
         @media (max-width: 768px) {
             border: none;
-            background-color: transparent;
             box-shadow: none;
             transition: all var(--transition-duration) ease; // 添加過渡效果
     
