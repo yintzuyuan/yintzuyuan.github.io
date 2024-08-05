@@ -128,9 +128,9 @@ button.share {
     }
 
     @media (max-width: 768px) {
-        max-width: none;
-        width: 100%;
-        margin-top: 15px;
+        max-width: auto;
+        // width: 100%;
+        // margin-top: 15px;
       }
   }
 
