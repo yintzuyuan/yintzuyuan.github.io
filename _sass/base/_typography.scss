@@ -36,7 +36,7 @@
   
   // 基本文字樣式
   body {
-    font-family: var(--font-mono), var(--font-emoji), var(--font-sans);
+    font-family: var(--font-emoji), var(--font-mono), var(--font-sans);
     font-weight: var(--font-weight-light);
     font-size: var(--font-size-base);
     line-height: 1.8;
@@ -45,7 +45,7 @@
   
   // 標題樣式
   h1, h2, h3, h4, h5, h6 {
-    font-family: var(--font-serif), var(--font-emoji);
+    font-family: var(--font-emoji), var(--font-serif);
     font-weight: var(--font-weight-bold);
     text-align: center;
   }
@@ -59,7 +59,7 @@
   
   // Emoji 樣式
   .emoji {
-    font-family: var(--font-emoji), var(--font-sans);
+    font-family: var(--font-emoji);
     font-weight: var(--font-weight-regular);
     font-size: 1.4em;
     margin-right: 15px;
@@ -80,7 +80,7 @@
   
   // 連結樣式
   a {
-    font-family: var(--font-mono), var(--font-emoji), var(--font-sans);
+    font-family: var(--font-emoji), var(--font-mono), var(--font-sans);
     font-weight: var(--font-weight-regular);
     transition: font-weight 0.3s ease;
     
@@ -103,7 +103,7 @@
   
   // 按鈕樣式
   .button, button, input[type="button"], input[type="submit"] {
-    font-family: var(--font-mono), var(--font-emoji), var(--font-sans);
+    font-family: var(--font-emoji), var(--font-mono), var(--font-sans);
     // font-weight: var(--font-weight-regular);
     transition: font-weight 0.3s ease;
     

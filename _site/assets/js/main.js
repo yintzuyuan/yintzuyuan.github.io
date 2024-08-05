@@ -337,3 +337,24 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     });
   });
+
+  // 檢查並設置主題
+function setTheme() {
+    const isDarkMode = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const originalForm = document.getElementById('original-form');
+    const mailerliteForm = document.getElementById('mailerlite-form');
+  
+    if (isDarkMode) {
+      originalForm.style.display = 'block';
+      mailerliteForm.style.display = 'none';
+    } else {
+      originalForm.style.display = 'none';
+      mailerliteForm.style.display = 'block';
+    }
+  }
+  
+  // 頁面加載時設置主題
+  document.addEventListener('DOMContentLoaded', setTheme);
+  
+  // 監聽系統主題變化
+  window.matchMedia('(prefers-color-scheme: dark)').addListener(setTheme);
