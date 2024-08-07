@@ -122,3 +122,31 @@
       font-size: 2.5em;
     }
   }
+
+// Emoji 樣式
+@mixin emoji-font {
+    font-family: var(--font-emoji), var(--font-sans);
+  }
+  
+  // 為特定 Unicode 範圍的字符應用 emoji 字體
+  @each $range in (
+    "1F600" "1F64F", // 基本表情符號
+    "1F300" "1F5FF", // Miscellaneous Symbols and Pictographs
+    "1F900" "1F9FF", // Supplemental Symbols and Pictographs
+    "1F680" "1F6FF", // Transport and Map Symbols
+    "1F910" "1F93A", // Additional Emoticons
+    "1F1E6" "1F1FF"  // Flags
+  ) {
+    @supports (font-family: "emoji") {
+      body *:not(pre):not(code):not(textarea):not(input):not(button):not(select):not(option) {
+        &[data-emoji^="#{$range[0]}"], &[data-emoji$="#{$range[1]}"] {
+          @include emoji-font;
+        }
+      }
+    }
+  }
+  
+  // 保留原有的 .emoji 類，以便在需要時手動應用
+  .emoji {
+    @include emoji-font;
+  }
