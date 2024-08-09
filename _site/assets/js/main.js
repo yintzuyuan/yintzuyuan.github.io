@@ -40,7 +40,7 @@ function initializeScrollPosition() {
 
 // 獲取 DOM 元素
 function getDOMElements() {
-    return {
+    const elements = {
         newsletterFloating: document.getElementById('newsletter-floating'),
         newsletterToggle: document.getElementById('newsletter-toggle'),
         newsletterForm: document.getElementById('newsletter-form'),
@@ -49,6 +49,15 @@ function getDOMElements() {
         navAndButton: document.querySelector('.nav-and-button'),
         themeToggle: document.getElementById('theme-toggle')
     };
+
+    // 檢查是否所有元素都存在
+    for (const [key, value] of Object.entries(elements)) {
+        if (!value) {
+            console.warn(`元素 "${key}" 未找到`);
+        }
+    }
+
+    return elements;
 }
 
 // 初始化主題
@@ -117,7 +126,9 @@ function initializeNewsletter(elements) {
         }, 100);
     }
 
-    setMinimizedState(localStorage.getItem(storageKey) === 'true');
+    // 修改這裡：預設為縮小狀態，但仍然檢查 localStorage
+    const isMinimized = localStorage.getItem(storageKey) !== 'false';
+    setMinimizedState(isMinimized);
 
     newsletterToggle.addEventListener('click', function() {
         const isCurrentlyMinimized = newsletterForm.classList.contains('hidden');
@@ -144,6 +155,12 @@ function initializeMenu(elements) {
 
     if (menuToggle) {
         menuToggle.addEventListener('click', toggleMenu);
+        menuToggle.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                toggleMenu();
+            }
+        });
     }
 
     const navLinks = document.querySelectorAll('.nav-and-button a');
@@ -207,8 +224,7 @@ function initializeVariableWeightText() {
         targetWeight = minWeight + (relativeX + relativeY) / 2 * (maxWeight - minWeight);
     }
 
-    function animateWeight() {
-        // 平滑過渡到目標字重
+    function updateWeight() {
         currentWeight += (targetWeight - currentWeight) * 0.1;
         
         // 設置字重
@@ -216,16 +232,22 @@ function initializeVariableWeightText() {
         
         // 如果還沒有達到目標字重，繼續動畫
         if (Math.abs(currentWeight - targetWeight) > 0.5) {
-            animationFrameId = requestAnimationFrame(animateWeight);
+            animationFrameId = requestAnimationFrame(updateWeight);
         } else {
             animationFrameId = null;
+        }
+    }
+
+    function startAnimation() {
+        if (!animationFrameId) {
+            animationFrameId = requestAnimationFrame(updateWeight);
         }
     }
 
     function resetWeight() {
         targetWeight = defaultWeight;
         if (!animationFrameId) {
-            animationFrameId = requestAnimationFrame(animateWeight);
+            animationFrameId = requestAnimationFrame(updateWeight);
         }
     }
 
@@ -245,9 +267,7 @@ function initializeVariableWeightText() {
 
     window.addEventListener('mousemove', function(e) {
         throttledUpdateTargetWeight(e);
-        if (!animationFrameId) {
-            animationFrameId = requestAnimationFrame(animateWeight);
-        }
+        startAnimation();
     });
 
     window.addEventListener('mouseleave', resetWeight);
@@ -259,9 +279,7 @@ function initializeVariableWeightText() {
     window.addEventListener('touchmove', function(e) {
         e.preventDefault();
         throttledUpdateTargetWeight(e.touches[0]);
-        if (!animationFrameId) {
-            animationFrameId = requestAnimationFrame(animateWeight);
-        }
+        startAnimation();
     }, { passive: false });
 
     window.addEventListener('touchend', resetWeight);

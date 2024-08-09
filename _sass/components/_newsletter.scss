@@ -2,267 +2,253 @@
 
 // 內嵌 Newsletter
 .newsletter-floating {
-    position: fixed;
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 1000;
+  background-color: var(--bg-color);
+  border: 1px solid var(--text-color);
+  border-radius: var(--border-radius);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  font-family: var(--font-mono), var(--font-sans), var(--font-emoji);
+  max-width: 300px;
+  width: auto;
+  transition: all var(--transition-duration) ease;
+
+  @media (max-width: 768px) {
+    left: 20px;
     right: 20px;
-    bottom: 20px;
-    z-index: 1000;
-    background-color: var(--bg-color);
-    border: 1px solid var(--text-color);
-    border-radius: var(--border-radius);
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-    font-family: var(--font-mono), var(--font-sans), var(--font-emoji);
-    
-    max-width: 300px;
     width: auto;
-  
+    max-width: none;
+  }
+
+  // Newsletter 切換按鈕
+  .newsletter-toggle {
+    @include flex-center;
+    justify-content: space-between;
+    background-color: var(--text-color);
+    color: var(--bg-color);
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    transition: all var(--transition-duration) ease;
+    letter-spacing: 0.5px;
+    width: 100%;
+
+    .toggle-text {
+      margin-right: 8px;
+    }
+
+    .emoji, .emoji-minimized {
+      font-family: var(--font-emoji);
+      margin-right: 8px;
+    }
+
+    .minimize-icon,
+    .close-icon {
+      width: 18px;
+      height: 18px;
+    }
+
+    &:hover {
+      opacity: 0.8;
+      font-weight: var(--font-weight-bold);
+    }
+
+    // 行動裝置上最小化時的樣式
     @media (max-width: 768px) {
-      left: 20px;
-      right: 20px;
-      width: auto;
-      max-width: none;
-    }
-  
-    .newsletter-toggle {
-        @include flex-center;
-        justify-content: space-between;
-        background-color: var(--text-color);
-        color: var(--bg-color);
-        border: none;
-        padding: 10px 15px;
-        cursor: pointer;
-        transition: all var(--transition-duration) ease, font-weight var(--transition-duration) ease; // 添加字重過渡效果
-        // font-weight: var(--font-weight-regular); // 設置初始字重
-        letter-spacing: 0.5px;
-        width: 100%;
-    
-        .toggle-text {
-          margin-right: 8px;
-        }
-    
-        .emoji, .emoji-minimized {
-          font-family: var(--font-emoji);
-          margin-right: 8px;
-        }
-    
-        .minimize-icon,
-        .close-icon {
-          width: 18px;
-          height: 18px;
-        }
-    
-        &:hover {
-          opacity: 0.8; // 添加透明度變化，與 `準備發送` 按鈕一致
-          font-weight: var(--font-weight-bold); // 懸停時加粗
-        }    
-  
-      // 新增：行動裝置上最小化時的樣式
-      @media (max-width: 768px) {
-        .emoji-minimized {
-          font-size: 1.5em; // 放大 emoji 字體
-          margin-right: 0; // 移除右邊距
-        }
+      .emoji-minimized {
+        font-size: 1.5em;
+        margin-right: 0;
       }
     }
-  
-    .newsletter-form {
+  }
+
+  // Newsletter 表單
+  .newsletter-form {
+    padding: 15px;
+    color: var(--text-color);
+    background-color: var(--bg-color); // 新增這行
+
+    h3 {
+      margin-top: 0;
+      font-weight: bold;
+      font-size: 1.4em;
+      margin-bottom: 10px;
+
+      &::first-letter {
+        font-family: var(--font-emoji);
+      }
+
+      .emoji {
+        font-family: var(--font-emoji);
+      }
+    }
+
+    // MailerLite 嵌入式表單樣式
+    .ml-embedded {
+      background-color: transparent;
       padding: 15px;
-      color: var(--text-color);
-  
-      h3 {
-        margin-top: 0;
-        font-weight: bold;
-        font-size: 1.4em;
-        margin-bottom: 10px;
-  
-        &::first-letter {
-          font-family: var(--font-emoji);
-        }
-  
-        .emoji {
-          font-family: var(--font-emoji);
+      border-radius: var(--border-radius);
+
+      // 表單內容樣式
+      .ml-form-embedContent {
+        h4, p {
+          color: var(--text-color);
         }
       }
-  
-      .ml-embedded {
-        // 表單容器樣式
-        background-color: transparent;
-        padding: 15px;
-        border-radius: var(--border-radius);
-    
-        // 標題樣式
-        .ml-form-embedContent {
-          h4 {
-            font-family: var(--font-serif);
-            font-size: 1.2em;
-            color: var(--text-color);
-            margin-bottom: 10px;
-          }
-          p {
-            font-family: var(--font-sans);
-            font-size: 0.9em;
-            color: var(--text-color);
-            margin-bottom: 15px;
-          }
-        }
-    
-        // 輸入框樣式
-        .ml-form-formContent {
-          .ml-form-fieldRow {
-            margin-bottom: 15px;
-    
-            input {
-              width: 100%;
-              padding: 10px;
-              border: 1px solid var(--text-color);
-              background-color: var(--bg-color);
-              color: var(--text-color);
-              font-family: var(--font-sans);
-              font-size: 0.9em;
-              transition: border-color var(--transition-duration) ease;
-    
-              &:focus {
-                outline: none;
-                border-color: var(--accent-color);
-              }
-    
-              &::placeholder {
-                color: rgba(var(--text-color-rgb), 0.6);
-              }
-            }
-          }
-        }
-    
-        // 提交按鈕樣式
-        .ml-form-embedSubmit {
-          button {
+
+      // 輸入框樣式
+      .ml-form-formContent {
+        .ml-form-fieldRow {
+          margin-bottom: 15px;
+
+          input {
             width: 100%;
             padding: 10px;
-            background-color: var(--accent-color);
-            color: var(--bg-color);
-            border: none;
+            border: 1px solid var(--text-color);
+            background-color: var(--bg-color);
+            color: var(--text-color);
             font-family: var(--font-sans);
-            font-size: 1em;
-            font-weight: var(--font-weight-bold);
-            cursor: pointer;
-            transition: background-color var(--transition-duration) ease,
-                        color var(--transition-duration) ease;
-    
-            &:hover {
-              background-color: var(--accent-color);
-              color: var(--text-color);
+            font-size: 0.9em;
+            transition: border-color var(--transition-duration) ease;
+
+            &:focus {
+              outline: none;
+              border-color: var(--accent-color);
+            }
+
+            &::placeholder {
+              color: rgba(var(--text-color-rgb), 0.6);
             }
           }
         }
-    
-        // 錯誤信息樣式
-        .ml-error {
-          color: #ff4136; // 使用一個醒目的紅色
-          font-size: 0.8em;
-          margin-top: 5px;
-        }
-    
-        // 成功信息樣式
-        .ml-form-successContent {
-          text-align: center;
-          color: var(--text-color);
+      }
+
+      // 提交按鈕樣式
+      .ml-form-embedSubmit {
+        button {
+          width: 100%;
+          padding: 10px;
+          background-color: var(--accent-color);
+          color: var(--bg-color);
+          border: none;
           font-family: var(--font-sans);
           font-size: 1em;
-          margin-top: 15px;
-        }
-      }
-    }
-  
-    @media (max-width: 768px) {
-      .newsletter-form {
-        max-height: 80vh;
-        overflow-y: auto;
-      }
-    }
-    &:not(.initially-hidden) {
-        opacity: 1;
-        visibility: visible;
-        transform: scale(1);
-        position: fixed; // 恢復固定定位
-        pointer-events: auto; // 恢復鼠標事件
-        transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
-      }
-    
-      &.minimized {
-        width: auto;
-        max-width: none;
-        left: auto;
-        right: 20px;
-        transition: all var(--transition-duration) ease; // 添加過渡效果
-    
-        @media (max-width: 768px) {
-            border: none;
-            box-shadow: none;
-            transition: all var(--transition-duration) ease; // 添加過渡效果
-    
-            .newsletter-toggle {
-                padding: 10px;
-                width: 45px; // 設置固定寬度
-                height: 45px; // 設置固定高度，與寬度相同
-                border-radius: 50%;
-                transition: all var(--transition-duration) ease; // 添加過渡效果
-    
-                .toggle-text,
-                .minimize-icon,
-                .close-icon {
-                    display: none;
-                }
-    
-                .emoji-minimized {
-                    margin: 0;
-                    transition: all var(--transition-duration) ease; // 添加過渡效果
-                }
-            }
-        }
-        &.initially-hidden {
-            opacity: 0;
-            visibility: hidden;
-            transform: scale(0.8);
-            pointer-events: none;
+          font-weight: var(--font-weight-bold);
+          cursor: pointer;
+          transition: background-color var(--transition-duration) ease,
+                      color var(--transition-duration) ease;
+
+          &:hover {
+            background-color: var(--accent-color);
+            color: var(--text-color);
           }
-        
-          transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
-    }
-  }
+        }
+      }
 
+      // 錯誤信息樣式
+      .ml-error {
+        color: #ff4136;
+        font-size: 0.8em;
+        margin-top: 5px;
+      }
 
-  
-  .hidden {
-    display: none;
-  }
-
-  .newsletter-floating {
-    &.initially-hidden {
-      opacity: 0 !important;
-      visibility: hidden !important;
-      pointer-events: none !important;
-      position: fixed !important;
-      transform: translateY(20px) !important;
-      transition: none !important;
-  
-      // 隱藏所有子元素
-      * {
-        opacity: 0 !important;
-        visibility: hidden !important;
-        transition: none !important;
+      // 成功信息樣式
+      .ml-form-successContent {
+        text-align: center;
+        color: var(--text-color);
+        font-family: var(--font-sans);
+        font-size: 1em;
+        margin-top: 15px;
       }
     }
-  
-    transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
-  
-    &:not(.initially-hidden) {
+  }
+
+  // 行動裝置樣式
+  @media (max-width: 768px) {
+    .newsletter-form {
+      max-height: 80vh;
+      overflow-y: auto;
+    }
+  }
+
+  // 最小化樣式
+  &.minimized {
+    width: auto;
+    max-width: none;
+    left: auto;
+    right: 20px;
+
+    @media (max-width: 768px) {
+      border: none;
+      box-shadow: none;
+
+      .newsletter-toggle {
+        padding: 10px;
+        width: 45px;
+        height: 45px;
+        border-radius: 50%;
+
+        .toggle-text,
+        .minimize-icon,
+        .close-icon {
+          display: none;
+        }
+
+        .emoji-minimized {
+          margin: 0;
+        }
+      }
+    }
+  }
+
+  // 初始隱藏樣式
+  &.initially-hidden {
+    opacity: 0;
+    visibility: hidden;
+    transform: scale(0.8) translateY(20px);
+    pointer-events: none;
+
+    * {
+      opacity: 0;
+      visibility: hidden;
+    }
+  }
+
+  // 顯示時的樣式
+  &:not(.initially-hidden) {
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1) translateY(0);
+    pointer-events: auto;
+
+    * {
       opacity: 1;
       visibility: visible;
-      transform: translateY(0);
-  
-      * {
-        opacity: 1;
-        visibility: visible;
-        transition: opacity 0.3s ease, visibility 0.3s ease;
-      }
     }
   }
+}
+
+// 新增全局樣式以覆蓋 MailerLite 默認樣式
+body .ml-form-embedWrapper {
+  background-color: transparent !important;
+}
+
+body .ml-form-embedContent,
+body .ml-form-embedPermissions,
+body .ml-form-embedBody {
+  background-color: transparent !important;
+  color: var(--text-color) !important;
+}
+
+body .ml-form-formContent .ml-form-fieldRow input {
+  background-color: var(--bg-color) !important;
+  color: var(--text-color) !important;
+  border-color: var(--text-color) !important;
+}
+
+// 隱藏元素
+.hidden {
+  display: none;
+}
