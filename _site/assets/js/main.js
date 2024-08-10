@@ -291,6 +291,11 @@ function initializeNavLinks() {
 
     navLinks.forEach(link => {
         link.addEventListener('click', (e) => {
+            // 檢查連結是否為外部連結
+            if (link.hostname !== window.location.hostname) {
+                return;
+            }
+
             e.preventDefault();
             navLinks.forEach(l => l.classList.remove('current'));
             e.target.classList.add('current');
