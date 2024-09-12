@@ -1,0 +1,23 @@
+# 忽略編譯產物
+/_site/
+/*.log
+/*.tmp
+
+# 忽略環境設定檔
+.env
+.env.local
+.env.*.local
+
+# 忽略依賴檔案
+/vendor/
+node_modules/
+
+# 忽略 IDE 設定檔
+.idea/
+.vscode/
+*.sublime-workspace
+*.sublime-project
+
+# 忽略其他不需要的檔案
+.DS_Store
+Thumbs.db
