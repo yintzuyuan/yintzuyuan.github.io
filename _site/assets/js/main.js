@@ -287,21 +287,13 @@ function initializeVariableWeightText() {
 
 // 初始化導航鏈接
 function initializeNavLinks() {
-    const navLinks = document.querySelectorAll('nav a:not(.external-link)');
+    const navLinks = document.querySelectorAll('nav a');
 
     navLinks.forEach(link => {
         link.addEventListener('click', (e) => {
-            // 檢查連結是否為外部連結
-            if (link.hostname !== window.location.hostname) {
-                return;
-            }
-
-            e.preventDefault();
+            // 移除所有跳轉相關的代碼
             navLinks.forEach(l => l.classList.remove('current'));
             e.target.classList.add('current');
-            setTimeout(() => {
-                window.location.href = e.target.href;
-            }, 300);
         });
     });
 

@@ -12,3 +12,14 @@ sass:
   style: compressed
 
 verbose: true
+
+# 部落格設置
+permalink: /blog/:year/:month/:day/:title/
+paginate: 5
+paginate_path: "/blog/page:num/"
+
+# 添加部落格相關的集合
+collections:
+  posts:
+    output: true
+    permalink: /blog/:year/:month/:day/:title/

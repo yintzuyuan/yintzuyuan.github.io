@@ -1,0 +1,26 @@
+---
+layout: default
+---
+
+<article class="post">
+  <h1>{{ page.title }}</h1>
+  <time datetime="{{ page.date | date: "%Y-%m-%d" }}">{{ page.date | date: "%Y年%m月%d日" }}</time>
+  
+  {{ content }}
+  
+  {% if page.categories %}
+    <p>分類：
+    {% for category in page.categories %}
+      <a href="/blog/categories/#{{ category | slugize }}">{{ category }}</a>
+    {% endfor %}
+    </p>
+  {% endif %}
+  
+  {% if page.tags %}
+    <p>標籤：
+    {% for tag in page.tags %}
+      <a href="/blog/tags/#{{ tag | slugize }}">{{ tag }}</a>
+    {% endfor %}
+    </p>
+  {% endif %}
+</article>
