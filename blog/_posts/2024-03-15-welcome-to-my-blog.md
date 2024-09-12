@@ -1,5 +1,6 @@
 ---
 layout: post
+header_title: 📝
 title: "歡迎來到我的部落格"
 date: 2024-03-15
 categories: [公告]

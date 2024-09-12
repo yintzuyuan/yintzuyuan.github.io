@@ -23,3 +23,10 @@ collections:
   posts:
     output: true
     permalink: /blog/:year/:month/:day/:title/
+
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"

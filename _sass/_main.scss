@@ -26,3 +26,7 @@
 // @import 'layouts/works';        // 作品集頁面佈局
 @import 'layouts/contact';         // 聯繫頁面佈局
 @import 'layouts/boost';           // 支持頁面佈局
+@import 'layouts/post';           // 文章頁面佈局
+
+// 在適當的位置添加以下行（如果還沒有的話）
+@import 'layouts/post';
