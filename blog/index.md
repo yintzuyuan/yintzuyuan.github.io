@@ -11,7 +11,7 @@ body_class: home-page
 {% for post in site.posts %}
   <article class="blog-post-summary">
     <h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
-    <time datetime="{{ post.date | date: "%Y-%m-%d" }}">{{ post.date | date: "%Y年%m月%d日" }}</time>
+    <time datetime="{{ post.date | date: "%Y-%m-%d" }}">{{ post.date | date: "%Y-%m-%d" }}</time>
     {{ post.excerpt }}
     <a href="{{ post.url }}" class="read-more">繼續閱讀</a>
   </article>
