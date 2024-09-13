@@ -296,15 +296,14 @@ function initializeNavLinks() {
                 return;
             }
 
-            e.preventDefault();
+            // 移除所有連結的 'current' 類
             navLinks.forEach(l => l.classList.remove('current'));
+            // 為當前點擊的連結添加 'current' 類
             e.target.classList.add('current');
-            setTimeout(() => {
-                window.location.href = e.target.href;
-            }, 300);
         });
     });
 
+    // 設置當前頁面的導航鏈接為 'current'
     const currentPath = window.location.pathname;
     navLinks.forEach(link => {
         if (link.getAttribute('href') === currentPath) {

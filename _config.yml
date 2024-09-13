@@ -5,7 +5,8 @@ description: 創意字型設計與作品展示
 url: "https://erikyin.net"
 baseurl: ""
 
-# 添加其他配置...
+# 部落格文章的永久連結格式
+permalink: /blog/:title/
 
 sass:
   sass_dir: _sass
