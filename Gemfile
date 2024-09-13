@@ -7,6 +7,8 @@ gem "base64"
 
 group :jekyll_plugins do
   gem "jekyll-feed", "~> 0.12"
+  gem "jekyll-archives"
+  gem "jekyll-paginate"
   # 添加其他你可能使用的 Jekyll 插件
 end
 

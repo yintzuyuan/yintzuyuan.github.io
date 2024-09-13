@@ -1,0 +1,15 @@
+---
+layout: default
+---
+<div class="category-page">
+  <h1>分類：{{ page.category }}</h1>
+  
+  {% for post in site.categories[page.category] %}
+    <article class="post-preview">
+      <h2><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
+      {% include post-meta.html %}
+      <p>{{ post.excerpt | strip_html | truncatewords: 50 }}</p>
+      <a href="{{ post.url | relative_url }}">繼續閱讀</a>
+    </article>
+  {% endfor %}
+</div>

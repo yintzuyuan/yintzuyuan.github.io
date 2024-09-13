@@ -1,0 +1,48 @@
+---
+layout: default
+title: 字碼筆記
+header_title: 📝
+hide_first_title: true
+body_class: home-page
+---
+
+<h1>📝</h1>
+
+<!-- <h2>調試信息：</h2>
+<p>paginator.posts 大小：{{ paginator.posts.size }}</p>
+<p>paginator.total_posts：{{ paginator.total_posts }}</p>
+<p>paginator.page：{{ paginator.page }}</p>
+<p>paginator.total_pages：{{ paginator.total_pages }}</p>
+<p>paginator.per_page：{{ paginator.per_page }}</p> -->
+
+{% for post in paginator.posts %}
+  <article>
+    <h2><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
+    <p>發布日期：{{ post.date | date: "%Y-%m-%d" }}</p>
+    <p>{{ post.excerpt }}</p>
+    <p><a href="{{ post.url | relative_url }}">繼續閱讀...</a></p>
+  </article>
+{% else %}
+  <p>目前還沒有文章。</p>
+{% endfor %}
+
+{% if paginator.total_pages > 1 %}
+<nav class="pagination">
+  {% if paginator.previous_page %}
+    <a href="{{ paginator.previous_page_path | relative_url }}" class="preivate">⬅️</a>
+  {% endif %}
+  
+  <span class="page_number">{{ paginator.page }} / {{ paginator.total_pages }}</span>
+  
+  {% if paginator.next_page %}
+    <a href="{{ paginator.next_page_path | relative_url }}" class="next">➡️</a>
+  {% endif %}
+</nav>
+{% endif %}
+
+<!-- <h2>所有文章列表：</h2>
+<ul>
+{% for post in site.posts %}
+  <li>{{ post.title }} - {{ post.date | date: "%Y-%m-%d" }}</li>
+{% endfor %}
+</ul> -->

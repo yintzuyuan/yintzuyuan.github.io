@@ -1,0 +1,15 @@
+---
+layout: default
+---
+<div class="tag-page">
+  <h1>標籤：{{ page.tag }}</h1>
+  
+  {% for post in site.tags[page.tag] %}
+    <article class="post-preview">
+      <h2><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
+      {% include post-meta.html %}
+      <p>{{ post.excerpt | strip_html | truncatewords: 50 }}</p>
+      <a href="{{ post.url | relative_url }}">繼續閱讀</a>
+    </article>
+  {% endfor %}
+</div>

@@ -5,11 +5,58 @@ description: 創意字型設計與作品展示
 url: "https://erikyin.net"
 baseurl: ""
 
-# 部落格文章的永久連結格式
-permalink: /blog/:title/
-
 sass:
   sass_dir: _sass
   style: compressed
 
 verbose: true
+
+
+# 部落格文章的永久連結格式
+permalink: /blog/:title/
+
+# 分類和標籤設置
+collections:
+  categories:
+    output: true
+    permalink: /blog/category/:name/
+  tags:
+    output: true
+    permalink: /blog/tag/:name/
+
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+      author: "殷慈遠"
+  - scope:
+      path: ""
+      type: "categories"
+    values:
+      layout: "category"
+  - scope:
+      path: ""
+      type: "tags"
+    values:
+      layout: "tag"
+
+# 部落格相關設置
+plugins:
+  - jekyll-archives # 分類和標籤設置
+  - jekyll-paginate # 分頁設置
+
+jekyll-archives:
+  enabled:
+    - categories
+    - tags
+  layouts:
+    category: category
+    tag: tag
+  permalinks:
+    category: /blog/category/:name/
+    tag: /blog/tag/:name/  
+
+paginate: 10
+paginate_path: "/blog/page:num/"
