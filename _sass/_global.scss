@@ -270,3 +270,74 @@ body, h1, h2, h3, h4, h5, h6, p, span, a, input, textarea, select, li {
 .nounderline {
     @include no-underline;
 }
+
+// 設定文章搜尋框的樣式
+.search-container {
+    margin: 20px 0;
+    position: relative;
+  }
+  
+  #search-input {
+    width: 100%;
+    padding: 10px 15px;
+    font-size: var(--font-size-base);
+    border: 1px solid var(--text-color);
+    border-radius: 0;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: all 0.3s ease;
+    
+    &::placeholder {
+      color: var(--text-color);
+      opacity: 0.7;
+    }
+    
+    &:focus {
+      outline: none;
+      box-shadow: 0 0 0 2px var(--text-color);
+    }
+  }
+  
+  #results-container {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    z-index: 999;
+    background: var(--bg-color);
+    border: 1px solid var(--text-color);
+    border-top: none;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    max-height: 300px;
+    overflow-y: auto;
+    
+    li {
+      padding: 10px 15px;
+      border-bottom: 1px solid var(--text-color);
+      transition: background-color 0.3s ease;
+      
+      &:last-child {
+        border-bottom: none;
+      }
+      
+      &:hover {
+        background-color: rgba(var(--text-color-rgb), 0.1);
+      }
+    }
+    
+    a {
+      color: var(--text-color);
+      text-decoration: none;
+      display: block;
+      
+      &:hover {
+        text-decoration: none;
+      }
+      
+      &::after {
+        display: none;
+      }
+    }
+  }

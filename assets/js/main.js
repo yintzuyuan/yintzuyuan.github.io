@@ -336,3 +336,15 @@ function handleThemeAndForm() {
 window.addEventListener('load', function() {
     window.scrollTo(0, 0);
 });
+
+document.addEventListener('DOMContentLoaded', function() {
+    SimpleJekyllSearch({
+      searchInput: document.getElementById('search-input'),
+      resultsContainer: document.getElementById('results-container'),
+      json: '/search.json',
+      searchResultTemplate: '<li><a href="{url}">{title}</a></li>',
+      noResultsText: '沒有找到相關結果',
+      limit: 10,
+      fuzzy: false
+    });
+  });

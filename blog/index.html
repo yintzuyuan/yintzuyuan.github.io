@@ -8,12 +8,10 @@ body_class: home-page
 
 <h1>📝</h1>
 
-<!-- <h2>調試信息：</h2>
-<p>paginator.posts 大小：{{ paginator.posts.size }}</p>
-<p>paginator.total_posts：{{ paginator.total_posts }}</p>
-<p>paginator.page：{{ paginator.page }}</p>
-<p>paginator.total_pages：{{ paginator.total_pages }}</p>
-<p>paginator.per_page：{{ paginator.per_page }}</p> -->
+<div class="search-container">
+    <input type="text" id="search-input" placeholder="搜尋文章...">
+    <ul id="results-container"></ul>
+  </div>
 
 {% for post in paginator.posts %}
   <article>
