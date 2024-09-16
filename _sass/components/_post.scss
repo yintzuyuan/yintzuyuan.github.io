@@ -1,7 +1,7 @@
 .post-preview {
     margin-bottom: 2em;
     padding-bottom: 1em;
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid rgba(var(--text-color-rgb), 0.2);
   
     h2 {
       margin-bottom: 0.5em;
@@ -9,7 +9,7 @@
   
     .post-meta {
       font-size: 0.9em;
-      color: #666;
+      color: rgba(var(--text-color-rgb), 0.5);
       margin-bottom: 1em;
     }
   

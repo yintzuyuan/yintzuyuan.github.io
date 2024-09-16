@@ -59,7 +59,7 @@
   
   // Emoji 樣式
   .emoji {
-    font-family: var(--font-emoji);
+    font-family: var(--font-emoji), var(--font-mono);
     font-weight: var(--font-weight-regular);
     font-size: 1.4em;
     margin-right: 15px;

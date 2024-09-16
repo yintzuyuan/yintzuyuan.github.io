@@ -12,12 +12,15 @@ body_class: home-page
   <article class="post-preview">
     <h2><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
     <p class="post-meta">
-      發布日期：{{ post.date | date: "%Y-%m-%d" }}
-      {% capture words %}
-        {{ post.content | strip_html | strip_newlines | remove: " " | size }}
-      {% endcapture %}
-      {% assign read_time = words | plus: 250 | divided_by: 250 | at_least: 1 %}
-      • {{ read_time }} 分鐘閱讀
+        <span>📅</span>
+        <span class="event-text">{{ post.date | date: "%Y-%m-%d" }}
+        {% capture words %}
+          {{ post.content | strip_html | strip_newlines | remove: " " | size }}
+        {% endcapture %}
+        {% assign read_time = words | plus: 250 | divided_by: 250 | at_least: 1 %}
+        </span>
+        <span>• ⏱️</span>
+        <span>{{ read_time }} 分鐘</span>
     </p>
     <div class="post-excerpt">
       {{ post.excerpt }}
@@ -25,17 +28,17 @@ body_class: home-page
     <a href="{{ post.url | relative_url }}" class="read-more">繼續閱讀...</a>
   </article>
 {% else %}
-  <p>目前還沒有文章。</p>
+  <p>目前還沒有文章</p>
 {% endfor %}
 
 {% if paginator.total_pages > 1 %}
   <div class="pagination">
     {% if paginator.previous_page %}
-      <a href="{{ paginator.previous_page_path | relative_url }}" class="previous">上一頁</a>
+      <a href="{{ paginator.previous_page_path | relative_url }}" class="previous">⬅️</a>
     {% endif %}
-    <span class="page_number">第 {{ paginator.page }} 頁，共 {{ paginator.total_pages }} 頁</span>
+    <span class="page_number">{{ paginator.page }} / {{ paginator.total_pages }}</span>
     {% if paginator.next_page %}
-      <a href="{{ paginator.next_page_path | relative_url }}" class="next">下一頁</a>
+      <a href="{{ paginator.next_page_path | relative_url }}" class="next">➡️</a>
     {% endif %}
   </div>
 {% endif %}

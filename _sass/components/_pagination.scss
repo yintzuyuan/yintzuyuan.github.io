@@ -4,12 +4,12 @@
     align-items: center;
     margin-top: 2rem;
     padding: 1rem 0;
-    border-top: 1px solid #eee;
+    // border-top: 1px solid rgba(var(--text-color-rgb), 0.5);
     font-size: 1rem;
   
     a {
       text-decoration: none;
-      color: #666;
+      color: rgba(var(--text-color-rgb), 1);
       padding: 0.5rem 1rem;
     //   border: 1px solid #ddd;
     //   border-radius: 3px;
@@ -21,6 +21,6 @@
     }
   
     .page_number {
-      color: #eee;
+      color: rgba(var(--text-color-rgb), 0.5);
     }
   }
