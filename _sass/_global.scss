@@ -409,36 +409,6 @@ body, h1, h2, h3, h4, h5, h6, p, span, a, input, textarea, select, li {
     opacity: 0.3;
   }
   
-  // 極簡風格的其他修改
-  body {
-    line-height: 1.6;
-  }
-  
-  .content,
-  .container {
-    h1, h2, h3, h4, h5, h6 {
-      margin-top: 1.5em;
-      margin-bottom: 0.5em;
-    }
-  
-    p {
-      margin-bottom: 1.5em;
-    }
-  
-    a {
-      border-bottom: 1px solid var(--text-color);
-      transition: all 0.3s ease;
-  
-      &:hover {
-        opacity: 0.7;
-      }
-  
-      &::after {
-        display: none;
-      }
-    }
-  }
-  
   // 簡化搜尋框樣式
   .search-container {
     #search-input {
