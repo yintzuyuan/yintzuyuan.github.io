@@ -341,3 +341,126 @@ body, h1, h2, h3, h4, h5, h6, p, span, a, input, textarea, select, li {
       }
     }
   }
+
+// 加入新的目錄樣式
+.toc-toggle {
+    background-color: transparent;
+    color: var(--text-color);
+    border: 1px solid var(--text-color);
+    padding: 0.5em 1em;
+    cursor: pointer;
+    font-size: 0.9em;
+    transition: all 0.3s ease;
+  
+    &.toc-hover, &:focus {
+      background-color: var(--text-color);
+      color: var(--bg-color);
+      outline: none;
+    }
+  
+    &.toc-toggle-active {
+      background-color: var(--text-color);
+      color: var(--bg-color);
+  
+      &.toc-hover, &:focus {
+        background-color: transparent;
+        color: var(--text-color);
+      }
+    }
+  }
+  
+  .toc {
+    margin-top: 1em;
+    padding: 0 1em;
+    transition: all 0.3s ease;
+  
+    .toc-list {
+      list-style-type: none;
+      padding-left: 0;
+  
+      ul {
+        padding-left: 1.5em;
+      }
+  
+      li {
+        margin-bottom: 0.5em;
+      }
+  
+      a {
+        color: var(--text-color);
+        text-decoration: none;
+        transition: all 0.3s ease;
+  
+        &:hover {
+          opacity: 0.7;
+        }
+  
+        &::after {
+          display: none;
+        }
+      }
+    }
+  }
+  
+  .toc-separator {
+    border: none;
+    border-top: 1px solid var(--text-color);
+    margin: 1em 0;
+    opacity: 0.3;
+  }
+  
+  // 極簡風格的其他修改
+  body {
+    line-height: 1.6;
+  }
+  
+  .content,
+  .container {
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.5em;
+      margin-bottom: 0.5em;
+    }
+  
+    p {
+      margin-bottom: 1.5em;
+    }
+  
+    a {
+      border-bottom: 1px solid var(--text-color);
+      transition: all 0.3s ease;
+  
+      &:hover {
+        opacity: 0.7;
+      }
+  
+      &::after {
+        display: none;
+      }
+    }
+  }
+  
+  // 簡化搜尋框樣式
+  .search-container {
+    #search-input {
+      border: none;
+      border-bottom: 1px solid var(--text-color);
+      border-radius: 0;
+      padding: 0.5em 0;
+      transition: all 0.3s ease;
+  
+      &:focus {
+        outline: none;
+        box-shadow: none;
+        border-bottom-width: 2px;
+      }
+    }
+  
+    #results-container {
+      border: none;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  
+      li {
+        border-bottom: none;
+      }
+    }
+  }

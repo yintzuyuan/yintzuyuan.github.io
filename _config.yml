@@ -60,3 +60,7 @@ jekyll-archives:
 
 paginate: 10
 paginate_path: "/blog/page:num/"
+
+markdown: kramdown
+kramdown:
+  toc_levels: 2..3

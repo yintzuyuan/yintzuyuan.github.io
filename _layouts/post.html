@@ -4,32 +4,49 @@ layout: default
 <article class="post">
   <header class="post-header">
     <h1 class="post-title">{{ page.title }}</h1>
-    {% include post-meta.html %}
+    <p class="post-meta">{{ page.date | date: "%Y年%m月%d日" }}</p>
   </header>
 
   <div class="post-content">
+    {% assign headers = content | split: '<h' %}
+    {% assign header_count = headers | size %}
+    {% if header_count > 1 %}
+    <div class="toc-container">
+      <button id="toc-toggle" class="toc-toggle">目錄</button>
+      <div id="toc" class="toc">
+        {% include toc.html html=content h_min=2 h_max=3 class="toc-list" %}
+      </div>
+      <hr class="toc-separator">
+    </div>
+    {% endif %}
     {{ content }}
   </div>
 
-  <footer class="post-footer">
-    {% if page.categories.size > 0 %}
-      <div class="post-categories">
-        分類：
-        {% for category in page.categories %}
-          <a href="{{ site.baseurl }}/blog/category/{{ category | slugify }}/">{{ category }}</a>
-          {% unless forloop.last %}, {% endunless %}
-        {% endfor %}
-      </div>
-    {% endif %}
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      var tocToggle = document.getElementById('toc-toggle');
+      var toc = document.getElementById('toc');
+      
+      if (tocToggle && toc) {
+        tocToggle.addEventListener('click', function() {
+          var isHidden = toc.style.display === 'none' || toc.style.display === '';
+          toc.style.display = isHidden ? 'block' : 'none';
+          tocToggle.classList.toggle('toc-toggle-active', isHidden);
+          tocToggle.setAttribute('aria-expanded', isHidden);
+        });
 
-    {% if page.tags.size > 0 %}
-      <div class="post-tags">
-        標籤：
-        {% for tag in page.tags %}
-          <a href="{{ site.baseurl }}/blog/tag/{{ tag | slugify }}/">{{ tag }}</a>
-          {% unless forloop.last %}, {% endunless %}
-        {% endfor %}
-      </div>
-    {% endif %}
-  </footer>
+        // 新增：處理滑鼠離開按鈕的事件
+        tocToggle.addEventListener('mouseleave', function() {
+          if (!tocToggle.classList.contains('toc-toggle-active')) {
+            tocToggle.classList.remove('toc-hover');
+          }
+        });
+
+        // 新增：處理滑鼠進入按鈕的事件
+        tocToggle.addEventListener('mouseenter', function() {
+          tocToggle.classList.add('toc-hover');
+        });
+      }
+    });
+  </script>
 </article>
