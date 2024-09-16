@@ -1,0 +1,36 @@
+.post-preview {
+    margin-bottom: 2em;
+    padding-bottom: 1em;
+    border-bottom: 1px solid #eee;
+  
+    h2 {
+      margin-bottom: 0.5em;
+    }
+  
+    .post-meta {
+      font-size: 0.9em;
+      color: #666;
+      margin-bottom: 1em;
+    }
+  
+    .post-excerpt {
+      margin-bottom: 1em;
+    }
+  
+    .read-more {
+      font-weight: bold;
+    }
+  }
+  
+  .pagination {
+    margin-top: 2em;
+    text-align: center;
+  
+    .previous, .next {
+      padding: 0 1em;
+    }
+  
+    .page_number {
+      padding: 0 1em;
+    }
+  }

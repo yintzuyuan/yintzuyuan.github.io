@@ -8,39 +8,34 @@ body_class: home-page
 
 <h1>📝</h1>
 
-<div class="search-container">
-    <input type="text" id="search-input" placeholder="搜尋文章...">
-    <ul id="results-container"></ul>
-  </div>
-
 {% for post in paginator.posts %}
-  <article>
+  <article class="post-preview">
     <h2><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
-    <p>發布日期：{{ post.date | date: "%Y-%m-%d" }}</p>
-    <p>{{ post.excerpt }}</p>
-    <p><a href="{{ post.url | relative_url }}">繼續閱讀...</a></p>
+    <p class="post-meta">
+      發布日期：{{ post.date | date: "%Y-%m-%d" }}
+      {% capture words %}
+        {{ post.content | strip_html | strip_newlines | remove: " " | size }}
+      {% endcapture %}
+      {% assign read_time = words | plus: 250 | divided_by: 250 | at_least: 1 %}
+      • {{ read_time }} 分鐘閱讀
+    </p>
+    <div class="post-excerpt">
+      {{ post.excerpt }}
+    </div>
+    <a href="{{ post.url | relative_url }}" class="read-more">繼續閱讀...</a>
   </article>
 {% else %}
   <p>目前還沒有文章。</p>
 {% endfor %}
 
 {% if paginator.total_pages > 1 %}
-<nav class="pagination">
-  {% if paginator.previous_page %}
-    <a href="{{ paginator.previous_page_path | relative_url }}" class="preivate">⬅️</a>
-  {% endif %}
-  
-  <span class="page_number">{{ paginator.page }} / {{ paginator.total_pages }}</span>
-  
-  {% if paginator.next_page %}
-    <a href="{{ paginator.next_page_path | relative_url }}" class="next">➡️</a>
-  {% endif %}
-</nav>
+  <div class="pagination">
+    {% if paginator.previous_page %}
+      <a href="{{ paginator.previous_page_path | relative_url }}" class="previous">上一頁</a>
+    {% endif %}
+    <span class="page_number">第 {{ paginator.page }} 頁，共 {{ paginator.total_pages }} 頁</span>
+    {% if paginator.next_page %}
+      <a href="{{ paginator.next_page_path | relative_url }}" class="next">下一頁</a>
+    {% endif %}
+  </div>
 {% endif %}
-
-<!-- <h2>所有文章列表：</h2>
-<ul>
-{% for post in site.posts %}
-  <li>{{ post.title }} - {{ post.date | date: "%Y-%m-%d" }}</li>
-{% endfor %}
-</ul> -->

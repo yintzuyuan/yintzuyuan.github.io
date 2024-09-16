@@ -64,3 +64,6 @@ paginate_path: "/blog/page:num/"
 markdown: kramdown
 kramdown:
   toc_levels: 2..3
+
+# 閱讀時間設置
+words_per_minute: 250
