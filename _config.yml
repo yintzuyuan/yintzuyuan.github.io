@@ -67,3 +67,8 @@ kramdown:
 
 # 閱讀時間設置
 words_per_minute: 250
+
+# RSS Feed 設置
+feed:
+  path: feed.xml
+  posts_limit: 20
