@@ -343,31 +343,31 @@ body, h1, h2, h3, h4, h5, h6, p, span, a, input, textarea, select, li {
   }
 
 // 加入新的目錄樣式
-.toc-toggle {
-    background-color: transparent;
-    color: var(--text-color);
-    border: 1px solid var(--text-color);
-    padding: 0.5em 1em;
-    cursor: pointer;
-    font-size: 0.9em;
-    transition: all 0.3s ease;
+// .toc-toggle {
+//     background-color: transparent;
+//     color: var(--text-color);
+//     border: 1px solid var(--text-color);
+//     padding: 0.5em 1em;
+//     cursor: pointer;
+//     font-size: 0.9em;
+//     transition: all 0.3s ease;
   
-    &.toc-hover, &:focus {
-      background-color: var(--text-color);
-      color: var(--bg-color);
-      outline: none;
-    }
+//     &.toc-hover, &:focus {
+//       background-color: var(--text-color);
+//       color: var(--bg-color);
+//       outline: none;
+//     }
   
-    &.toc-toggle-active {
-      background-color: var(--text-color);
-      color: var(--bg-color);
+//     &.toc-toggle-active {
+//       background-color: var(--text-color);
+//       color: var(--bg-color);
   
-      &.toc-hover, &:focus {
-        background-color: transparent;
-        color: var(--text-color);
-      }
-    }
-  }
+//       &.toc-hover, &:focus {
+//         background-color: transparent;
+//         color: var(--text-color);
+//       }
+//     }
+//   }
   
   .toc {
     margin-top: 1em;
@@ -463,4 +463,50 @@ body, h1, h2, h3, h4, h5, h6, p, span, a, input, textarea, select, li {
         border-bottom: none;
       }
     }
+  }
+
+  // 目錄樣式
+  .toc {
+    display: none; // 預設隱藏目錄
+    margin-top: 1em;
+    padding: 0 1em;
+    transition: all 0.3s ease;
+
+    &.toc-visible {
+        display: block; // 當添加 toc-visible 類時顯示目錄
+    }
+  
+    .toc-list {
+      list-style-type: none;
+      padding-left: 0;
+  
+      ul {
+        padding-left: 1.5em;
+      }
+  
+      li {
+        margin-bottom: 0.5em;
+      }
+  
+      a {
+        color: var(--text-color);
+        text-decoration: none;
+        transition: all 0.3s ease;
+  
+        &:hover {
+          opacity: 0.7;
+        }
+  
+        &::after {
+          display: none;
+        }
+      }
+    }
+  }
+  
+  .toc-separator {
+    border: none;
+    border-top: 1px solid var(--text-color);
+    margin: 1em 0;
+    opacity: 0.3;
   }

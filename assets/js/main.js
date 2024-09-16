@@ -28,6 +28,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // 設置主題和表單
     handleThemeAndForm();
+
+    // 初始化目錄功能
+    initializeTOC();
 });
 
 // 初始化頁面滾動位置
@@ -348,3 +351,43 @@ document.addEventListener('DOMContentLoaded', function() {
       fuzzy: false
     });
   });
+
+  function initializeTOC() {
+    const tocToggle = document.querySelector('.toc-toggle');
+    const toc = document.querySelector('.toc');
+
+    if (tocToggle && toc) {
+        tocToggle.addEventListener('click', function(e) {
+            e.preventDefault();
+            tocToggle.classList.toggle('toc-toggle-active');
+            toc.classList.toggle('toc-visible');
+        });
+
+        // 確保 TOC 內容被正確加載
+        if (typeof jekyllToc === 'function') {
+            jekyllToc();
+        }
+    }
+}
+
+// 如果使用 Jekyll TOC 插件，確保它在 DOM 加載後執行
+function jekyllToc() {
+    const tocContainer = document.getElementById('toc');
+    if (tocContainer && tocContainer.innerHTML.trim() === '') {
+        const headings = document.querySelectorAll('h1, h2, h3, h4, h5, h6');
+        const tocList = document.createElement('ul');
+
+        headings.forEach(heading => {
+            if (heading.id) {
+                const listItem = document.createElement('li');
+                const link = document.createElement('a');
+                link.href = `#${heading.id}`;
+                link.textContent = heading.textContent;
+                listItem.appendChild(link);
+                tocList.appendChild(listItem);
+            }
+        });
+
+        tocContainer.appendChild(tocList);
+    }
+}
