@@ -2,8 +2,8 @@
 {% assign min_read = words | divided_by: 250 | plus: 1 %}
 <span class="reading-time" title="預估閱讀時間">
   {% if min_read > 1 %}
-    {{ min_read }} 分鐘
+    {{ min_read }} min
   {% else %}
-    1 分鐘
+    1 min
   {% endif %}
 </span>

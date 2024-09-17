@@ -1,55 +1,60 @@
 ---
 layout: default
 ---
+
 <article class="post">
   <header class="post-header">
-    <h1 class="post-title">{{ page.title }}</h1>
-    <p class="post-meta">
-        <span>📅</span><span>{{ page.date | date: "%Y-%m-%d" }}</span>
-        <span>⏱️</span><span>{% include reading-time.html %}</span>
-      </p>
+    <h1 id="{{ page.title | slugify }}" class="post-title">{{ page.title }}</h1>
+    <div class="post-meta">
+      <span class="post-date"><span class="icon">📅</span>{{ page.date | date: "%Y-%m-%d" }}</span>
+      <span class="read-time"><span class="icon">| ⏱️</span>{% include reading-time.html %}</span>
+      
+      {% if page.categories.size > 0 %}
+        <span class="post-categories">
+          <span class="icon">| 🗂️</span>
+          {% for category in page.categories %}
+            <a href="{{ site.baseurl }}/categories/{{ category | slugify }}/" class="post-category">{{ category }}</a>
+          {% endfor %}
+        </span>
+      {% endif %}
+      
+      {% if page.tags.size > 0 %}
+        <span class="post-tags">
+          <span class="icon">| 🏷️</span>
+          {% for tag in page.tags %}
+            <a href="{{ site.baseurl }}/tags/{{ tag | slugify }}/" class="post-tag">{{ tag }}</a>
+          {% endfor %}
+        </span>
+      {% endif %}
+    </div>
   </header>
 
   <div class="post-content">
     {% assign headers = content | split: '<h' %}
     {% assign header_count = headers | size %}
     {% if header_count > 1 %}
-    <div class="toc-container">
-      <button id="toc-toggle" class="share">目錄</button>
-      <div id="toc" class="toc">
-        {% include toc.html html=content h_min=2 h_max=3 class="toc-list" %}
+      <div class="toc-container">
+        <button id="toc-toggle" class="share">📋 🔼</button>
+        <div id="toc" class="toc">
+          {% include toc.html html=content h_min=2 h_max=3 class="toc-list" %}
+        </div>
+        <hr class="toc-separator">
       </div>
-      <hr class="toc-separator">
-    </div>
     {% endif %}
     {{ content }}
   </div>
-
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      var tocToggle = document.getElementById('toc-toggle');
-      var toc = document.getElementById('toc');
-      
-      if (tocToggle && toc) {
-        tocToggle.addEventListener('click', function() {
-          var isHidden = toc.style.display === 'none' || toc.style.display === '';
-          toc.style.display = isHidden ? 'block' : 'none';
-          tocToggle.classList.toggle('toc-toggle-active', isHidden);
-          tocToggle.setAttribute('aria-expanded', isHidden);
-        });
-
-        // 新增：處理滑鼠離開按鈕的事件
-        tocToggle.addEventListener('mouseleave', function() {
-          if (!tocToggle.classList.contains('toc-toggle-active')) {
-            tocToggle.classList.remove('toc-hover');
-          }
-        });
-
-        // 新增：處理滑鼠進入按鈕的事件
-        tocToggle.addEventListener('mouseenter', function() {
-          tocToggle.classList.add('toc-hover');
-        });
-      }
-    });
-  </script>
 </article>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    var tocToggle = document.getElementById('toc-toggle');
+    var toc = document.getElementById('toc');
+  
+    if (tocToggle && toc) {
+      tocToggle.addEventListener('click', function() {
+        toc.classList.toggle('show');
+        tocToggle.textContent = toc.classList.contains('show') ? '📋 🔽' : '📋 🔼';
+      });
+    }
+  });
+</script>
