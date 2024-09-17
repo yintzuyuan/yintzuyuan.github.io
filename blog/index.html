@@ -8,29 +8,53 @@ body_class: home-page
 
 <h1>📝</h1>
 
+<div class="search-container">
+    <input type="text" id="search-input" placeholder="搜尋文章...">
+    <ul id="results-container"></ul>
+</div>
+
+<!-- 文章列表 -->
 {% for post in paginator.posts %}
-  <article class="post-preview">
-    <h2><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
+  <article class="blog-content">
+
+    <!-- 文章標題 -->
+    <h2 ><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
+
+    <!-- 文章資訊 -->
     <p class="post-meta">
-        <span>📅</span>
-        <span class="event-text">{{ post.date | date: "%Y-%m-%d" }}
+        <!-- 日期 -->
+        <span>Ａ📅</span>
+        <span>{{ post.date | date: "%Y-%m-%d" }}
         {% capture words %}
           {{ post.content | strip_html | strip_newlines | remove: " " | size }}
         {% endcapture %}
         {% assign read_time = words | plus: 250 | divided_by: 250 | at_least: 1 %}
         </span>
-        <span>• ⏱️</span>
-        <span>{{ read_time }} 分鐘</span>
+        <!-- 閱讀時間 -->
+        <span>| ⏱️</span>
+        <span class="number">{{ read_time }} 分鐘</span>
     </p>
+
+    <!-- 文章概要 -->
     <div class="post-excerpt">
-      {{ post.excerpt }}
-    </div>
-    <a href="{{ post.url | relative_url }}" class="read-more">繼續閱讀...</a>
+        {% if post.excerpt %}
+          {{ post.excerpt | strip_html | truncate: 50, '...' }}
+        {% else %}
+          {{ post.content | strip_html | truncate: 50, '...' }}
+        {% endif %}
+      </div>
+
+    <!-- 繼續閱讀 -->
+    <a  class="read-more" href="{{ post.url | relative_url }}" class="read-more">繼續閱讀...</a>
+    <hr/>
   </article>
 {% else %}
-  <p>目前還沒有文章</p>
+
+<!-- 沒文章顯示 -->
+    <p>目前還沒有文章...</p>
 {% endfor %}
 
+<!-- 分頁 -->
 {% if paginator.total_pages > 1 %}
   <div class="pagination">
     {% if paginator.previous_page %}

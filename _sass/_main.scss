@@ -16,9 +16,12 @@
 @import 'components/footer';       // 頁尾樣式
 @import 'components/newsletter';   // 電子報樣式
 @import 'components/social-icons'; // 社交圖標樣式
-@import 'components/buttons';      // 按鈕樣式 (移動到這裡)
+@import 'components/buttons';      // 按鈕樣式
 @import 'components/timeline';     // 時間軸樣式
 @import 'components/projects';     // 作品集樣式
+@import 'components/post';     // 部落格文章樣式
+@import 'components/pagination';     // 部落格分頁樣式
+@import 'components/blog-typography'; // 部落格文字樣式 
 
 // 導入佈局樣式
 // @import 'layouts/home';         // 首頁佈局
