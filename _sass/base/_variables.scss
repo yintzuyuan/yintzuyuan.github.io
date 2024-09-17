@@ -3,12 +3,14 @@
     --color-1: rgb(40, 38, 44); //bg-color #28262C
     --color-2: rgb(245, 240, 229); //text-color #F5F0E5
     --color-3: rgb(69, 66, 74); //accent-color #45424A
+    --color-4: rgb(190, 185, 180);  // --2nd-accent-color #BEB9B4
     --white: rgb(255, 255, 255);
 
     // 新增 RGB 值，方便使用 rgba()
     --color-1-rgb: 40, 38, 44; //bg-color #28262C
     --color-2-rgb: 245, 240, 229; //text-color #F5F0E5
     --color-3-rgb: 69, 66, 74; //accent-color #45424A
+    --color-4-rgb: 190, 185, 180;  // --2nd-accent-color ##BEB9B4
     --white-rgb: 255, 255, 255; //白色
     
     // 字體變量
@@ -61,12 +63,14 @@
     --bg-color: var(--color-1);
     --text-color: var(--color-2);
     --accent-color: var(--color-3);
+    --2nd-accent-color: var(--color-4);
     --logo-color: var(--color-2);
 
     // 新增 RGB 值，方便使用 rgba()
     --bg-color-rgb: var(--color-1-rgb);
     --text-color-rgb: var(--color-2-rgb);
     --accent-color-rgb: var(--color-3-rgb);
+    --2nd-accent-color-rgb: var(--color-4-rgb);
     --logo-color-rgb: var(--color-2-rgb);
 
     font-weight: calc(var(--font-weight-base) + var(--font-weight-light-mode-adjustment));
@@ -82,8 +86,9 @@
     // 當 body 有 light-theme 類時切換到亮色主題
 [data-theme="light"] {
     --bg-color: var(--color-2);
-    --text-color: var(--color-3);
-    --accent-color: var(--color-1);
+    --text-color: var(--color-1);
+    --accent-color: var(--color-4);
+    --2nd-accent-color: var(--color-3);
     --logo-color: var(--color-3);
     --selection-bg-color: var(--text-color);
     --selection-text-color: var(--bg-color);
@@ -91,10 +96,15 @@
     // 新增 RGB 值，方便使用 rgba()
     --bg-color-rgb: var(--color-2-rgb);
     --text-color-rgb: var(--color-1-rgb);
-    --accent-color-rgb: var(--color-3-rgb);
+    --accent-color-rgb: var(--color-4-rgb);
+    --2nd-accent-color-rgb: var(--color-3-rgb);
     --logo-color-rgb: var(--color-1-rgb);
     
     font-weight: calc(var(--font-weight-base) + var(--font-weight-light-mode-adjustment));
+
+    // 新增選取文字的顏色變量
+    --selection-bg-color: var(--text-color);
+    --selection-text-color: var(--bg-color);
 }
     
 body {

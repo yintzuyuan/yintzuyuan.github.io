@@ -24,20 +24,20 @@ body_class: blog-page
     <p class="post-meta">
         <!-- 日期 -->
         <span class="icon">📅</span>
-        <span class="number">{{ post.date | date: "%Y-%m-%d" }}
+        <span class="data">{{ post.date | date: "%Y-%m-%d" }}
         {% capture words %}
           {{ post.content | strip_html | strip_newlines | remove: " " | size }}
         {% endcapture %}
         {% assign read_time = words | plus: 250 | divided_by: 250 | at_least: 1 %}
         </span>
         <!-- 閱讀時間 -->
-        <span>| ⏱️</span>
-        <span class="number">{{ read_time }} min</span>
+        <span class="icon">| ⏱️</span>
+        <span class="data">{{ read_time }} min</span>
         {% if post.categories.size > 0 %}
         <span class="post-categories">
         <span class="icon">| 🗂️</span>
         {% for category in post.categories %}
-            <a href="{{ site.baseurl }}/categories/{{ category | slugify }}/" class="post-category">{{ category }}</a>
+            <a href="{{ site.baseurl }}/categories/{{ category | slugify }}/" class="data">{{ category }}</a>
         {% endfor %}
         </span>
     {% endif %}
@@ -46,7 +46,7 @@ body_class: blog-page
         <span class="post-tags">
         <span class="icon">| 🏷️</span>
         {% for tag in post.tags %}
-            <a href="{{ site.baseurl }}/tags/{{ tag | slugify }}/" class="post-tag">{{ tag }}</a>
+            <a href="{{ site.baseurl }}/tags/{{ tag | slugify }}/" class="data">{{ tag }}</a>
         {% endfor %}
         </span>
     {% endif %}

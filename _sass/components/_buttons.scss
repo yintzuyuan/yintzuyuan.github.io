@@ -45,7 +45,7 @@ button.focus {
     letter-spacing: 0.5px;
     text-decoration: none;
     color: var(--bg-color);
-    background-color: var(--text-color);
+    background-color: var(--2nd-accent-color);
     border: none;
     border-radius: var(--border-radius);
     transition: all var(--transition-duration) ease;
@@ -53,14 +53,14 @@ button.focus {
     cursor: pointer;
     height: 3em;
 
-    [data-theme="light"] & {
-        background-color: var(--text-color);
-    }
+    // [data-theme="light"] & {
+    //     background-color: var(--2nd-accent-color);
+    // }
 
     &:hover, &:focus {
         font-weight: var(--font-weight-bold);
-        background-color: var(--accent-color);
-        color: var(--bg-color);
+        background-color: var(--text-color);
+        // color: var(--bg-color);
     }
 }
 

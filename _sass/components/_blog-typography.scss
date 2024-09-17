@@ -28,14 +28,15 @@
       font-family: var(--font-emoji);
       margin-right: 0.25em;
       font-size: 0.95em;
-      color: var(--accent-color);
+      color: var(--2nd-accent-color);
     }
   
-    .number {
+    .data {
       font-family: var(--font-mono), var(--font-sans);
       font-feature-settings: "tnum" on, "lnum" on;
       font-size: 0.95em;
-      color: var(--accent-color);
+      color: var(--2nd-accent-color);
+      @include no-underline;
     }
   
     .post-excerpt {
