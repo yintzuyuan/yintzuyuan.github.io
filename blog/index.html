@@ -3,7 +3,7 @@ layout: default
 title: 字碼筆記
 header_title: 📝
 hide_first_title: true
-body_class: home-page
+body_class: blog-page
 ---
 
 <h1>📝</h1>
@@ -15,7 +15,7 @@ body_class: home-page
 
 <!-- 文章列表 -->
 {% for post in paginator.posts %}
-  <article class="blog-content">
+  <article class="post-list">
 
     <!-- 文章標題 -->
     <h2 ><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
@@ -23,8 +23,8 @@ body_class: home-page
     <!-- 文章資訊 -->
     <p class="post-meta">
         <!-- 日期 -->
-        <span>Ａ📅</span>
-        <span>{{ post.date | date: "%Y-%m-%d" }}
+        <span class="icon">📅</span>
+        <span class="number">{{ post.date | date: "%Y-%m-%d" }}
         {% capture words %}
           {{ post.content | strip_html | strip_newlines | remove: " " | size }}
         {% endcapture %}
@@ -32,7 +32,24 @@ body_class: home-page
         </span>
         <!-- 閱讀時間 -->
         <span>| ⏱️</span>
-        <span class="number">{{ read_time }} 分鐘</span>
+        <span class="number">{{ read_time }} min</span>
+        {% if post.categories.size > 0 %}
+        <span class="post-categories">
+        <span class="icon">| 🗂️</span>
+        {% for category in post.categories %}
+            <a href="{{ site.baseurl }}/categories/{{ category | slugify }}/" class="post-category">{{ category }}</a>
+        {% endfor %}
+        </span>
+    {% endif %}
+    
+    {% if post.tags.size > 0 %}
+        <span class="post-tags">
+        <span class="icon">| 🏷️</span>
+        {% for tag in post.tags %}
+            <a href="{{ site.baseurl }}/tags/{{ tag | slugify }}/" class="post-tag">{{ tag }}</a>
+        {% endfor %}
+        </span>
+    {% endif %}
     </p>
 
     <!-- 文章概要 -->
