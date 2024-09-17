@@ -4,6 +4,7 @@ header_title: "殷慈遠"  # 預設頁首標題
 description: 創意字型設計與作品展示
 url: "https://erikyin.net"
 baseurl: ""
+encoding: utf-8
 
 sass:
   sass_dir: _sass
@@ -46,6 +47,7 @@ defaults:
 plugins:
   - jekyll-archives # 分類和標籤設置
   - jekyll-paginate # 分頁設置
+  - jekyll-target-blank # 自動轉換連結
 
 jekyll-archives:
   enabled:
@@ -64,6 +66,10 @@ paginate_path: "/blog/page:num/"
 markdown: kramdown
 kramdown:
   toc_levels: 2..3
+  input: GFM
+  auto_ids: true
+  hard_wrap: false
+  syntax_highlighter: rouge
 
 # 閱讀時間設置
 words_per_minute: 250

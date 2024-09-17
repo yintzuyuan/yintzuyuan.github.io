@@ -1,6 +1,6 @@
 source "https://rubygems.org"
 
-gem "jekyll", "~> 4.3.3"
+gem "jekyll", "~> 4.3.4"
 gem "webrick", "~> 1.7"
 gem "csv"
 gem "base64"
@@ -9,6 +9,7 @@ group :jekyll_plugins do
   gem "jekyll-feed", "~> 0.12"
   gem "jekyll-archives"
   gem "jekyll-paginate"
+  gem 'jekyll-target-blank'
   # 添加其他你可能使用的 Jekyll 插件
 end
 
