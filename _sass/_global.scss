@@ -12,7 +12,7 @@ body {
   
   main {
     width: 100%;
-    max-width: var(--content-max-width);
+    max-width: var(--content-max-width); 
     margin: var(--header-height, 70px) auto 0;
     flex-grow: 1;
     display: flex;
