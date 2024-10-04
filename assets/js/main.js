@@ -220,6 +220,9 @@ function initializeVariableWeightText() {
     }
     console.log("Variable weight text element found:", text);
 
+    // 設定字距
+    text.style.letterSpacing = '0.1em'; // 你可以根據需要調整這個值
+
     const minAxis1 = 0, maxAxis1 = 100, minAxis2 = 0, maxAxis2 = 100;
     const defaultAxis1 = 100, defaultAxis2 = 0;
     let currentAxis1 = defaultAxis1, currentAxis2 = defaultAxis2;
@@ -227,24 +230,55 @@ function initializeVariableWeightText() {
     let lastUpdateTime = 0;
     const updateInterval = 100;
     let animationFrameId = null;
-
+    const idleTimeLimit = 5000; // 自定義秒數，這裡設定為5秒
+    let idleTimeoutId = null;
+    let lastExtremeIndex = -1;
+    
     function updateTargetValues(e) {
         const now = Date.now();
         if (now - lastUpdateTime < updateInterval) return;
         lastUpdateTime = now;
-
+    
         const width = window.innerWidth;
         const height = window.innerHeight;
         
         const relativeX = Math.max(0, Math.min(1, e.clientX / width));
         const relativeY = Math.max(0, Math.min(1, e.clientY / height));
         
-        targetAxis1 = minAxis1 + relativeX * (maxAxis1 - minAxis1);
-        targetAxis2 = minAxis2 + relativeY * (maxAxis2 - minAxis2);
+        // 調整計算方式使兩個軸交叉
+        targetAxis1 = minAxis1 + relativeY * (maxAxis1 - minAxis1);
+        targetAxis2 = minAxis2 + relativeX * (maxAxis2 - minAxis2);
         
         console.log("Target values updated:", targetAxis1, targetAxis2);
+    
+        // 重置閒置計時器
+        clearTimeout(idleTimeoutId);
+        idleTimeoutId = setTimeout(switchToExtremeValues, idleTimeLimit);
     }
-
+    
+    function switchToExtremeValues() {
+        const extremes = [
+            { axis1: minAxis1, axis2: minAxis2 },
+            { axis1: minAxis1, axis2: maxAxis2 },
+            { axis1: maxAxis1, axis2: minAxis2 },
+            { axis1: maxAxis1, axis2: maxAxis2 }
+        ];
+        let randomExtremeIndex;
+        do {
+            randomExtremeIndex = Math.floor(Math.random() * extremes.length);
+        } while (randomExtremeIndex === lastExtremeIndex);
+        
+        lastExtremeIndex = randomExtremeIndex;
+        const randomExtreme = extremes[randomExtremeIndex];
+        targetAxis1 = randomExtreme.axis1;
+        targetAxis2 = randomExtreme.axis2;
+        console.log("Idle timeout reached. Switching to extreme values:", targetAxis1, targetAxis2);
+        if (!animationFrameId) {
+            animationFrameId = requestAnimationFrame(updateValues);
+        }
+        idleTimeoutId = setTimeout(switchToExtremeValues, idleTimeLimit);
+    }
+    
     function updateValues() {
         currentAxis1 += (targetAxis1 - currentAxis1) * 0.1;
         currentAxis2 += (targetAxis2 - currentAxis2) * 0.1;
@@ -262,7 +296,10 @@ function initializeVariableWeightText() {
             debugInfo.textContent = `AXS1: ${Math.round(currentAxis1)}, AXS2: ${Math.round(currentAxis2)}`;
         }
     }
-
+    
+    // 初始化閒置計時器
+    idleTimeoutId = setTimeout(switchToExtremeValues, idleTimeLimit);
+    
     function startAnimation() {
         if (!animationFrameId) {
             console.log("Starting animation");
