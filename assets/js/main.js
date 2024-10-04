@@ -190,22 +190,45 @@ function initializeMailerLite() {
     }
 }
 
+function throttle(func, limit) {
+    let inThrottle;
+    return function() {
+        const args = arguments;
+        const context = this;
+        if (!inThrottle) {
+            func.apply(context, args);
+            inThrottle = true;
+            setTimeout(() => inThrottle = false, limit);
+        }
+    }
+}
+
+/*
+確保在 CSS 中正確設置了字體的可變軸範圍：
+.variable-weight-text {
+    font-variation-settings: "AXS1" 100, "AXS2" 0;
+    transition: font-variation-settings 0.3s ease;
+}
+*/
 // 初始化可變字重文字
 function initializeVariableWeightText() {
+    console.log("Initializing variable weight text");
     const text = document.querySelector('.variable-weight-text');
+    if (!text) {
+        console.log("Variable weight text element not found");
+        return;
+    }
+    console.log("Variable weight text element found:", text);
 
-    if (!text) return;
-
-    const minWeight = 200;
-    const maxWeight = 600;
-    const defaultWeight = 600;
-    let currentWeight = defaultWeight;
-    let targetWeight = defaultWeight;
+    const minAxis1 = 0, maxAxis1 = 100, minAxis2 = 0, maxAxis2 = 100;
+    const defaultAxis1 = 100, defaultAxis2 = 0;
+    let currentAxis1 = defaultAxis1, currentAxis2 = defaultAxis2;
+    let targetAxis1 = defaultAxis1, targetAxis2 = defaultAxis2;
     let lastUpdateTime = 0;
-    const updateInterval = 100; // 每 100 毫秒更新一次目標值
+    const updateInterval = 100;
     let animationFrameId = null;
 
-    function updateTargetWeight(e) {
+    function updateTargetValues(e) {
         const now = Date.now();
         if (now - lastUpdateTime < updateInterval) return;
         lastUpdateTime = now;
@@ -213,76 +236,73 @@ function initializeVariableWeightText() {
         const width = window.innerWidth;
         const height = window.innerHeight;
         
-        const mouseX = e.clientX;
-        const mouseY = e.clientY;
+        const relativeX = Math.max(0, Math.min(1, e.clientX / width));
+        const relativeY = Math.max(0, Math.min(1, e.clientY / height));
         
-        // 計算相對位置（0到1之間）
-        const relativeX = mouseX / width;
-        const relativeY = mouseY / height;
+        targetAxis1 = minAxis1 + relativeX * (maxAxis1 - minAxis1);
+        targetAxis2 = minAxis2 + relativeY * (maxAxis2 - minAxis2);
         
-        // 更新目標字重，從左上（200）到右下（600）
-        targetWeight = minWeight + (relativeX + relativeY) / 2 * (maxWeight - minWeight);
+        console.log("Target values updated:", targetAxis1, targetAxis2);
     }
 
-    function updateWeight() {
-        currentWeight += (targetWeight - currentWeight) * 0.1;
+    function updateValues() {
+        currentAxis1 += (targetAxis1 - currentAxis1) * 0.1;
+        currentAxis2 += (targetAxis2 - currentAxis2) * 0.1;
         
-        // 設置字重
-        text.style.fontVariationSettings = `"wght" ${Math.round(currentWeight)}`;
+        text.style.fontVariationSettings = `"AXS1" ${Math.round(currentAxis1)}, "AXS2" ${Math.round(currentAxis2)}`;
+        console.log("Font variation settings updated:", text.style.fontVariationSettings);
         
-        // 如果還沒有達到目標字重，繼續動畫
-        if (Math.abs(currentWeight - targetWeight) > 0.5) {
-            animationFrameId = requestAnimationFrame(updateWeight);
+        if (Math.abs(currentAxis1 - targetAxis1) > 0.5 || Math.abs(currentAxis2 - targetAxis2) > 0.5) {
+            animationFrameId = requestAnimationFrame(updateValues);
         } else {
             animationFrameId = null;
+        }
+        const debugInfo = document.getElementById('debug-info');
+        if (debugInfo) {
+            debugInfo.textContent = `AXS1: ${Math.round(currentAxis1)}, AXS2: ${Math.round(currentAxis2)}`;
         }
     }
 
     function startAnimation() {
         if (!animationFrameId) {
-            animationFrameId = requestAnimationFrame(updateWeight);
+            console.log("Starting animation");
+            animationFrameId = requestAnimationFrame(updateValues);
         }
     }
 
-    function resetWeight() {
-        targetWeight = defaultWeight;
+    function resetValues() {
+        console.log("Resetting values");
+        targetAxis1 = defaultAxis1;
+        targetAxis2 = defaultAxis2;
         if (!animationFrameId) {
-            animationFrameId = requestAnimationFrame(updateWeight);
+            animationFrameId = requestAnimationFrame(updateValues);
         }
     }
 
-    // 使用 throttle 函數來限制目標值更新頻率
-    function throttle(func, limit) {
-        let inThrottle;
-        return function(e) {
-            if (!inThrottle) {
-                func(e);
-                inThrottle = true;
-                setTimeout(() => inThrottle = false, limit);
-            }
-        }
-    }
-
-    const throttledUpdateTargetWeight = throttle(updateTargetWeight, updateInterval);
+    const throttledUpdateTargetValues = throttle(updateTargetValues, updateInterval);
 
     window.addEventListener('mousemove', function(e) {
-        throttledUpdateTargetWeight(e);
+        throttledUpdateTargetValues(e);
         startAnimation();
     });
 
-    window.addEventListener('mouseleave', resetWeight);
+    window.addEventListener('mouseleave', resetValues);
 
-    // 初始化字重
-    resetWeight();
-
-    // 觸摸設備支持
+    // 觸摸設備支援
     window.addEventListener('touchmove', function(e) {
         e.preventDefault();
-        throttledUpdateTargetWeight(e.touches[0]);
+        const touch = e.touches[0];
+        const mouseEvent = new MouseEvent('mousemove', {
+            clientX: touch.clientX,
+            clientY: touch.clientY
+        });
+        throttledUpdateTargetValues(mouseEvent);
         startAnimation();
     }, { passive: false });
 
-    window.addEventListener('touchend', resetWeight);
+    window.addEventListener('touchend', resetValues);
+
+    resetValues();
 }
 
 // 初始化導航鏈接
