@@ -10,7 +10,7 @@
         </svg>
     </a>
       
-      <h1 class="site-title">
+      <h1 class="site-title desktop-nav-title">
         {% if page.header_title %}
           {{ page.header_title }}
         {% elsif site.header_title %}
@@ -19,6 +19,9 @@
           {{ site.title }}
         {% endif %}
       </h1>
+      {% if page.layout == "post" %}
+        <h1 class="site-title mobile-nav-title">📝</h1>
+      {% endif %}
 
       <button id="menu-toggle" class="menu-toggle" aria-label="Toggle menu">
         <span></span>
