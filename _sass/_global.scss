@@ -28,6 +28,7 @@ body {
   // 可變字重文字效果
 .animated-title {
     display: inline-block;
+
     padding: 20px; // 增加點擊區域
     cursor: default; // 防止顯示文字選擇游標
   
@@ -84,8 +85,8 @@ body {
     h1.animated-title {
         .variable-weight-text {
           font-size: inherit;
-        //   letter-spacing: 0.05em;
-        color: var(--text-color);
+            //   letter-spacing: 0.05em;
+            color: var(--text-color);
         }
       }
 
@@ -204,10 +205,10 @@ body {
     padding: 0.5em 0; // 增加上下內邊距來擴大互動區域
   }
   
-  .variable-weight-text {
-    font-variation-settings: "wght" 700;
-    text-align: center; // 確保文字居中
-  }
+//   .variable-weight-text {
+//     font-variation-settings: "AXS1" 50, "AXS2" 50;
+//     text-align: center; // 確保文字居中
+//   }
   
   // 為標題添加特殊樣式
   .content,
