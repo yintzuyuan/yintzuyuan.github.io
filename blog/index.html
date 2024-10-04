@@ -36,7 +36,8 @@ body_class: blog-page
         {% if post.categories.size > 0 %}
         <span class="post-categories">
         <span class="icon">| 🗂️</span>
-        {% for category in post.categories %}
+        {% assign filtered_categories = post.categories | where_exp: "category", "category != 'blog'" %}
+        {% for category in filtered_categories %}
             <a href="{{ site.baseurl }}/categories/{{ category | slugify }}/" class="data">{{ category }}</a>
         {% endfor %}
         </span>

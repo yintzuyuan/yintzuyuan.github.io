@@ -4,6 +4,10 @@ _site/
 .jekyll-cache/
 .jekyll-metadata
 
+# 虛擬環境
+.env/
+.venv/
+
 # 捆綁套件
 .bundle/
 vendor/

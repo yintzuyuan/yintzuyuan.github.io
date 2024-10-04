@@ -13,12 +13,13 @@ body_class: blog-page
       
       {% if page.categories.size > 0 %}
         <span class="post-categories">
-          <span class="icon">| 🗂️</span>
-          {% for category in page.categories %}
+            <span class="icon">| 🗂️</span>
+            {% assign filtered_categories = page.categories | where_exp: "category", "category != 'blog'" %}
+            {% for category in filtered_categories %}
             <a href="{{ site.baseurl }}/categories/{{ category | slugify }}/" class="post-category">{{ category }}</a>
-          {% endfor %}
+            {% endfor %}
         </span>
-      {% endif %}
+        {% endif %}
       
       {% if page.tags.size > 0 %}
         <span class="post-tags">
