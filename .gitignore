@@ -4,6 +4,7 @@
 /*.tmp
 
 # 忽略環境設定檔
+.venv/
 .env
 .env.local
 .env.*.local
