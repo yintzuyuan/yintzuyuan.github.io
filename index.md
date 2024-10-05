@@ -2,6 +2,7 @@
 layout: default
 title: 首頁
 header_title: ""
+class: other-page
 ---
 
 <div class="variable-weight-container">

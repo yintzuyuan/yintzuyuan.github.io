@@ -38,7 +38,7 @@ body_class: blog-page
         <span class="icon">| 🗂️</span>
         {% assign filtered_categories = post.categories | where_exp: "category", "category != 'blog'" %}
         {% for category in filtered_categories %}
-            <a href="{{ site.baseurl }}/categories/{{ category | slugify }}/" class="data">{{ category }}</a>
+            <a href="{{ site.baseurl }}/blog/category/{{ category | slugify }}/" class="data">{{ category }}</a>
         {% endfor %}
         </span>
     {% endif %}
@@ -47,7 +47,7 @@ body_class: blog-page
         <span class="post-tags">
         <span class="icon">| 🏷️</span>
         {% for tag in post.tags %}
-            <a href="{{ site.baseurl }}/tags/{{ tag | slugify }}/" class="data">{{ tag }}</a>
+            <a href="{{ site.baseurl }}/blog/tag/{{ tag | slugify }}/" class="data">{{ tag }}</a>
         {% endfor %}
         </span>
     {% endif %}

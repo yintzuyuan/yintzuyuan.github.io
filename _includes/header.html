@@ -1,7 +1,13 @@
 <!-- header.html -->
 <header id="site-header">
     <div class="header-content">
-      <a href="{{ '/' | relative_url }}" class="logo-link">
+        {% if page.url contains 'blog' %}
+        <!-- 部落格LOGO內容 -->
+            <a href="{{ '/blog/' | relative_url }}" class="logo-link">
+        {% else %}
+        <!-- 其他頁面LOGO內容 -->
+            <a href="{{ '/' | relative_url }}" class="logo-link">
+        {% endif %}
         <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="logo-svg" x="0px" y="0px" width="100%" height="100%" viewBox="0 0 1000 1000" style="enable-background:new 0 0 1000 1000;" xml:space="preserve">
             <style type="text/css">
                 .st0{fill:currentColor;}
@@ -31,13 +37,25 @@
   
       <div class="nav-and-button" id="nav-and-button">
         <nav>
-            <a href="{{ '/works/' | relative_url }}" {% if page.url contains 'works' %}class="current"{% endif %}>作品</a>
-            <a href="{{ '/about/' | relative_url }}" {% if page.url contains 'about' %}class="current"{% endif %}>關於</a>
-            <a href="{{ '/contact/' | relative_url }}" {% if page.url contains 'contact' %}class="current"{% endif %}>聯繫</a>
-            <a href="{{ '/boost/' | relative_url }}" {% if page.url contains 'boost' %}class="current"{% endif %}>支持</a>
-            <a href="{{ '/blog/' | relative_url }}" {% if page.url contains 'blog' %}class="current"{% endif %}>字碼筆記</a>
-                <!-- <button class="button focus">字碼筆記</button>
-            </a> -->
+            {% if page.url contains 'blog' %}
+            <!-- 部落格導航欄內容 -->
+                <a href="{{ '/blog/category/' | relative_url }}" {% if page.url contains 'category' %}class="current"{% endif %}>分類</a>
+                <a href="{{ '/blog/tag/' | relative_url }}" {% if page.url contains 'tag' %}class="current"{% endif %}>標籤</a>
+                <!-- <a href="{{ '/blog/' | relative_url }}" {% if page.url contains 'blog' %}class="current"{% endif %}>字碼筆記</a> -->
+                <a href="{{ '/' | relative_url }}" class="nounderline" rel="noopener noreferrer">
+                    <button class="button focus">個人網站</button>
+                </a>
+            {% else %}
+            <!-- 其他頁面導航欄內容 -->
+                <a href="{{ '/works/' | relative_url }}" {% if page.url contains 'works' %}class="current"{% endif %}>作品</a>
+                <a href="{{ '/about/' | relative_url }}" {% if page.url contains 'about' %}class="current"{% endif %}>關於</a>
+                <a href="{{ '/contact/' | relative_url }}" {% if page.url contains 'contact' %}class="current"{% endif %}>聯繫</a>
+                <a href="{{ '/boost/' | relative_url }}" {% if page.url contains 'boost' %}class="current"{% endif %}>支持</a>
+                <!-- <a href="{{ '/blog/' | relative_url }}" {% if page.url contains 'blog' %}class="current"{% endif %}>字碼筆記</a> -->
+                <a href="{{ '/blog/' | relative_url }}" class="nounderline" rel="noopener noreferrer">
+                    <button class="button focus">字碼筆記</button>
+                </a>
+            {% endif %}
             <button id="theme-toggle" aria-label="切換主題">
                 <span class="theme-toggle-dark">🌙</span>
                 <span class="theme-toggle-light">☀️</span>

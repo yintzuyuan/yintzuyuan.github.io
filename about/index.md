@@ -5,6 +5,7 @@ permalink: /about/
 header_title: 🏛️
 hide_first_title: true
 body_class: home-page
+class: other-page
 ---
 
 # 🏛️
