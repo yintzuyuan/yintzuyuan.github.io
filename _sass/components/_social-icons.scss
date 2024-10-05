@@ -39,7 +39,7 @@
   }
   
   // 響應式設計
-  @media (max-width: var(--breakpoint-tablet)) {
+  @media (max-width: 768px) {
     .social-icons {
       flex-wrap: wrap;
       margin-bottom: 10px; // 縮小行動版上的底部間距

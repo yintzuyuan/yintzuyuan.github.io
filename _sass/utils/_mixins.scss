@@ -26,5 +26,5 @@
 
   // 手機設備的媒體查詢
 @mixin for-phone-only {
-    @media (max-width: 767px) { @content; }
+    @media (max-width: 768px) { @content; }
   }

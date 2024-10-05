@@ -39,7 +39,7 @@ body {
     .vw-char {
       display: inline-block;
       transition: font-variation-settings 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-      font-variation-settings: "wght" 700; // 起始字重設為 700
+      font-variation-settings: "AXS1" 50, "AXS2" 50; // 起始字重設為 50
     }
   }
   
@@ -226,7 +226,7 @@ body {
   
       @media (max-width: 480px) {
         font-size: 4em;
-        margin-top: 2vh;
+        margin-top: -2vh;
         margin-bottom: 10px;
       }
     }

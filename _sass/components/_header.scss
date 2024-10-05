@@ -98,7 +98,7 @@ header#site-header {
           }
     }
   
-    @media (max-width: 767px) {
+    @media (max-width: 768px) {
       display: block; // 在小螢幕上顯示
     }
   }
@@ -107,7 +107,7 @@ header#site-header {
 .nav-and-button {
     @include flex-center;
     
-    @media (max-width: 767px) {
+    @media (max-width: 768px) {
         display: none; // 在小螢幕上默認隱藏
         flex-direction: column;
         position: absolute; // 改回絕對定位
@@ -137,7 +137,7 @@ header#site-header {
     margin-top: -5px;
     @include flex-center;
 
-    @media (max-width: 767px) {
+    @media (max-width: 768px) {
       flex-direction: column;
       width: 100%;
     }
@@ -157,7 +157,7 @@ header#site-header {
         font-size: 1.2em; // 在平板及以上設備恢復原來的字體大小
         margin-left: 20px; // 恢復原來的左邊距
       }
-      @media (max-width: 767px) {
+      @media (max-width: 768px) {
         margin: 10px 0;
         font-size: 1.2em;
       }
@@ -255,7 +255,7 @@ header#site-header {
     letter-spacing: var(--letter-spacing-header-title, normal);
     text-transform: var(--text-transform-header-title, none);
   
-    @media (max-width: 767px) {
+    @media (max-width: 768px) {
       display: block; // 在行動裝置上顯示
       position: absolute;
       left: 50%;
@@ -266,7 +266,7 @@ header#site-header {
   }
   
   // 調整 logo 在行動裝置上的樣式
-  @media (max-width: 767px) {
+  @media (max-width: 768px) {
     .logo-link {
       position: absolute;
       left: 20px; // 調整左邊距
@@ -276,7 +276,7 @@ header#site-header {
   }
   
   // 調整導航按鈕在行動裝置上的樣式
-  @media (max-width: 767px) {
+  @media (max-width: 768px) {
     .menu-toggle {
       position: absolute;
       right: 20px; // 調整右邊距

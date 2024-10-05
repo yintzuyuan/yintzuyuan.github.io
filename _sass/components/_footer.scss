@@ -31,9 +31,9 @@ footer {
   }
   
   // 響應式設計
-  @media (max-width: var(--breakpoint-tablet)) {
+  @media (max-width: 768px) {
     footer {
-      font-size: 0.8em;
+      font-size: 0.75em;
       padding: 5px 0;
   
       .social-icons {
@@ -43,8 +43,8 @@ footer {
           margin: 0 8px; // 稍微縮小圖標之間的間距
   
           svg {
-            width: 15px; // 縮小圖標大小
-            height: 15px;
+            width: 24px; // 縮小圖標大小
+            height: 24px;
             
           }
   
