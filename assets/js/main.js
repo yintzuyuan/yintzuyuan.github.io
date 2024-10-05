@@ -316,30 +316,47 @@ function initializeVariableWeightText() {
         }
     }
 
-    const throttledUpdateTargetValues = throttle(updateTargetValues, updateInterval);
+    // 檢查是否為觸摸裝置
+    function isTouchDevice() {
+        return 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+    }
 
-    window.addEventListener('mousemove', function(e) {
-        throttledUpdateTargetValues(e);
-        startAnimation();
-    });
+    // 關閉可變字型軸的偵測功能
+    function disableVariableFontAxisDetection() {
+        window.removeEventListener('mousemove', throttledUpdateTargetValues);
+        window.removeEventListener('mouseleave', resetValues);
+        window.removeEventListener('touchmove', throttledUpdateTargetValues);
+        window.removeEventListener('touchend', resetValues);
+    }
 
-    window.addEventListener('mouseleave', resetValues);
+    if (isTouchDevice()) {
+        disableVariableFontAxisDetection();
+    } else {
+        const throttledUpdateTargetValues = throttle(updateTargetValues, updateInterval);
 
-    // 觸摸設備支援
-    window.addEventListener('touchmove', function(e) {
-        e.preventDefault();
-        const touch = e.touches[0];
-        const mouseEvent = new MouseEvent('mousemove', {
-            clientX: touch.clientX,
-            clientY: touch.clientY
+        window.addEventListener('mousemove', function(e) {
+            throttledUpdateTargetValues(e);
+            startAnimation();
         });
-        throttledUpdateTargetValues(mouseEvent);
-        startAnimation();
-    }, { passive: false });
 
-    window.addEventListener('touchend', resetValues);
+        window.addEventListener('mouseleave', resetValues);
 
-    resetValues();
+        // 觸摸設備支援
+        window.addEventListener('touchmove', function(e) {
+            e.preventDefault();
+            const touch = e.touches[0];
+            const mouseEvent = new MouseEvent('mousemove', {
+                clientX: touch.clientX,
+                clientY: touch.clientY
+            });
+            throttledUpdateTargetValues(mouseEvent);
+            startAnimation();
+        }, { passive: false });
+
+        window.addEventListener('touchend', resetValues);
+
+        resetValues();
+    }
 }
 
 // 初始化導航鏈接
