@@ -304,8 +304,8 @@ body, h1, h2, h3, h4, h5, h6, p, span, a, input, textarea, select, li {
     left: 0;
     right: 0;
     z-index: 999;
-    background: var(--bg-color);
-    border: 1px solid var(--text-color);
+    background: var(--2nd-accent-color);
+    border: 1px solid var(--bg-color);
     border-top: none;
     list-style-type: none;
     padding: 0;
@@ -315,7 +315,7 @@ body, h1, h2, h3, h4, h5, h6, p, span, a, input, textarea, select, li {
     
     li {
       padding: 10px 15px;
-      border-bottom: 1px solid var(--text-color);
+      border-bottom: 1px solid var(--bg-color);
       transition: background-color 0.3s ease;
       
       &:last-child {
@@ -323,12 +323,12 @@ body, h1, h2, h3, h4, h5, h6, p, span, a, input, textarea, select, li {
       }
       
       &:hover {
-        background-color: rgba(var(--text-color-rgb), 0.1);
+        background: var(--text-color);
       }
     }
     
     a {
-      color: var(--text-color);
+      color: var(--bg-color);
       text-decoration: none;
       display: block;
       

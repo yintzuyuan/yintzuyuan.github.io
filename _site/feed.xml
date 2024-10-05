@@ -1,4 +1,92 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2024-10-05T17:40:44+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">殷慈遠的設計工作室</title><subtitle>創意字型設計與作品展示</subtitle><entry><title type="html">我如何成為 Glyphs 教學系列的創作者</title><link href="http://localhost:4000/blog/%E6%88%91%E5%A6%82%E4%BD%95%E6%88%90%E7%82%BA-Glyphs-%E6%95%99%E5%AD%B8%E7%B3%BB%E5%88%97%E7%9A%84%E5%89%B5%E4%BD%9C%E8%80%85/" rel="alternate" type="text/html" title="我如何成為 Glyphs 教學系列的創作者" /><published>2024-09-12T00:00:00+08:00</published><updated>2024-09-12T00:00:00+08:00</updated><id>http://localhost:4000/blog/%E6%88%91%E5%A6%82%E4%BD%95%E6%88%90%E7%82%BA%20Glyphs%20%E6%95%99%E5%AD%B8%E7%B3%BB%E5%88%97%E7%9A%84%E5%89%B5%E4%BD%9C%E8%80%85</id><content type="html" xml:base="http://localhost:4000/blog/%E6%88%91%E5%A6%82%E4%BD%95%E6%88%90%E7%82%BA-Glyphs-%E6%95%99%E5%AD%B8%E7%B3%BB%E5%88%97%E7%9A%84%E5%89%B5%E4%BD%9C%E8%80%85/"><![CDATA[<p>十年前，我還是個對字型設計和影視特效懷抱熱情的年輕人。那時的網路世界，遠不如現在豐富多彩。在這片資源貧瘠的數位荒漠中，<a href="https://www.videocopilot.net/">Video Copilot</a> 如同一座綠洲，滋潤了無數像我這樣渴望學習的靈魂。</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2024-10-05T18:11:25+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">殷慈遠的設計工作室</title><subtitle>創意字型設計與作品展示</subtitle><entry><title type="html">讓 AI 使用台灣 IT 用語的探索之旅</title><link href="http://localhost:4000/blog/%E8%AE%93-AI-%E4%BD%BF%E7%94%A8%E5%8F%B0%E7%81%A3-IT-%E7%94%A8%E8%AA%9E%E7%9A%84%E6%8E%A2%E7%B4%A2%E4%B9%8B%E6%97%85/" rel="alternate" type="text/html" title="讓 AI 使用台灣 IT 用語的探索之旅" /><published>2024-09-25T00:00:00+08:00</published><updated>2024-09-25T00:00:00+08:00</updated><id>http://localhost:4000/blog/%E8%AE%93%20AI%20%E4%BD%BF%E7%94%A8%E5%8F%B0%E7%81%A3%20IT%20%E7%94%A8%E8%AA%9E%E7%9A%84%E6%8E%A2%E7%B4%A2%E4%B9%8B%E6%97%85</id><content type="html" xml:base="http://localhost:4000/blog/%E8%AE%93-AI-%E4%BD%BF%E7%94%A8%E5%8F%B0%E7%81%A3-IT-%E7%94%A8%E8%AA%9E%E7%9A%84%E6%8E%A2%E7%B4%A2%E4%B9%8B%E6%97%85/"><![CDATA[<p>各位對科技感興趣的朋友們，今天想和大家分享一個關於 AI 使用台灣 IT 用語的有趣探索過程。</p>
+
+<p>作為一個熱愛科技的台灣人（雖然不是專業工程師），我經常使用各種 AI 助手。在這個過程中，我注意到了一個有趣的現象：當要求 AI 使用「台灣用語」時，它在一般對話中確實能使用較為本地化的表達方式。然而，一旦談到 IT 相關話題，AI 就會開始使用一些不太符合台灣習慣的詞彙。</p>
+
+<p>舉例來說，AI 會正確地說「午餐」而不是「午飯」，但在討論程式設計時，它依然會說「創建變量」而不是「建立變數」，或是用「添加功能」而不是「新增功能」。這種不一致的表達方式，讓我們的對話感覺有些彆扭。</p>
+
+<p>為了解決這個問題，我開始了一段有趣的探索之旅，嘗試了幾種不同的方法來讓 AI 學習更道地的台灣 IT 用語。</p>
+
+<h2 id="初步嘗試">初步嘗試</h2>
+
+<h3 id="1-詞彙對照表方法">1. 詞彙對照表方法</h3>
+
+<p>我的第一個嘗試是整理了一份大篇幅的詞彙對照表。這個方法初期看起來很有效，AI 確實能夠按照對照表使用正確的台灣 IT 用語。然而，這個效果只能維持一小段時間。更麻煩的是，這份對照表佔用了大量的上下文空間，限制了 AI 處理其他資訊的能力。</p>
+
+<h3 id="2-腳本檢查和替換方法">2. 腳本檢查和替換方法</h3>
+
+<p>接著，我嘗試使用腳本來檢查 AI 的輸出，並自動替換不正確的詞彙。這個方法的效果相當不錯，能夠有效地將大部分不適當的用語轉換成台灣常用的 IT 術語。然而，這個方法也有其局限性。它偶爾會出現誤判，將一些本來正確的用語錯誤地替換掉。為了提高準確性，我需要不斷地調整規則，這是一個耗時且需要持續關注的過程。</p>
+
+<h2 id="新的方向自學式-ai-指南">新的方向：自學式 AI 指南</h2>
+
+<p>經過這些嘗試後，我決定採取一個新的方向：讓 AI 自己學習並制定台灣 IT 用語指南。</p>
+
+<p>我讓 AI 進行自我反省，並要求它制定一個詳細的台灣 IT 用語指南。經過一些討論和修改，我們得到了這份指南：</p>
+
+<h3 id="台灣-it-與程式設計用語指引">台灣 IT 與程式設計用語指引</h3>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gh"># 台灣 IT 與程式設計用語指引</span>
+
+在回答與資訊科技（IT）和程式設計相關的問題時，請務必使用台灣常用的專業術語和表達方式。以下是一些重要的用語對照和指引：
+
+<span class="gu">## 一般 IT 用語</span>
+<span class="p">
+-</span> 使用「程式碼」而非「代碼」
+<span class="p">-</span> 使用「資料庫」而非「數據庫」
+<span class="p">-</span> 使用「滑鼠」而非「鼠標」
+<span class="p">-</span> 使用「硬碟」而非「硬盤」
+<span class="p">-</span> 使用「記憶體」而非「內存」
+<span class="p">-</span> 使用「資料夾」而非「文件夾」
+<span class="p">-</span> 使用「檔案」而非「文件」（指電腦檔案）
+
+<span class="gu">## 程式設計術語</span>
+<span class="p">
+-</span> 使用「迴圈」而非「循環」
+<span class="p">-</span> 使用「陣列」而非「數組」
+<span class="p">-</span> 使用「物件」而非「對象」
+<span class="p">-</span> 使用「方法」而非「函數」（在物件導向程式設計中）
+<span class="p">-</span> 使用「建構子」而非「構造函數」
+
+<span class="gu">## 常用動詞</span>
+<span class="p">
+-</span> 使用「建立」而非「創建」
+<span class="p">-</span> 使用「目前」而非「當前」
+<span class="p">-</span> 使用「新增」而非「添加」
+<span class="p">-</span> 使用「設定」而非「設置」
+<span class="p">-</span> 使用「執行」而非「運行」（指程式）
+<span class="p">-</span> 使用「儲存」而非「保存」
+
+<span class="gu">## 注意事項</span>
+<span class="p">
+1.</span> 優先使用台灣的本地化用語，避免使用中國大陸的專業術語。
+<span class="p">2.</span> 在解釋概念時，盡量使用台灣的日常用語，以增加易懂性。
+<span class="p">3.</span> 如遇到不確定的術語，可參考台灣的技術文件或主流科技公司的本地化用語。
+
+請依照此指引使用適當的台灣 IT 和程式設計用語，以確保溝通的準確性和在地性。
+</code></pre></div></div>
+
+<p>使用這個指南後，AI 的表現有了明顯的改善。它開始使用「程式碼」而不是「代碼」，說「新增功能」而不是「添加功能」。AI 的回答變得更加符合台灣的 IT 用語習慣。同時我也有問到這些提示詞表列外的詞彙是否會被忽略？它提到了「泛化」的概念，這個概念類似於一個模糊的擴張範圍，只要可能被包含在這個領域的詞彙，就有可能被包括進去。同理可證，如果在其他專業領域中AI用詞不正確，或許也可以嘗試將上面的提示詞主題做替換，也許能達到類似的用語調整效果。</p>
+
+<p>然而，在某些情況下，比如使用 GitHub Copilot 時，由於系統限制，無法輸入這麼長的指南。為了解決這個問題，我將指南濃縮成了一句話的精簡版：</p>
+
+<h3 id="精簡版指南">精簡版指南</h3>
+
+<p><code class="language-plaintext highlighter-rouge">Use Traditional Chinese (Taiwan) IT terms: 程式碼, 資料庫, 建立, 新增, 設定, not mainland terms like 代碼, 數據庫, 創建, 添加, 設置.</code></p>
+
+<p>令人驚喜的是，這個精簡版在 GitHub Copilot 上也能達到很棒的效果。</p>
+
+<h2 id="反思與展望">反思與展望</h2>
+
+<p>這個探索過程不僅讓我們看到了如何讓 AI 更貼近台灣的 IT 用語，也引發了一個更深層的思考：在全球化的數位時代，我們該如何平衡主流語言和本地用語？</p>
+
+<p>就像美式英語相對於英式英語的地位，中國大陸的中文用語在國際上確實佔據了主流地位。這是由於使用人口、經濟影響力等多方面因素造成的現實。然而，這並不意味著我們就該放棄自己的語言特色。</p>
+
+<p>在 AI 迅速發展的今天，我們更應該積極思考如何在這個新的數位時代保留並發揚我們的文化特色。通過上述的方法，我們證明了即使面對強勢的主流用語，我們依然有辦法讓 AI 工具使用更符合台灣習慣的表達方式。這不僅是技術上的嘗試，更是文化保存的一種實踐。</p>
+
+<p>語言是文化的載體，在追求科技進步的同時，我們也不應忽視語言多樣性的重要性。讓 AI 學會使用台灣的 IT 用語，看似是個小小的舉動，卻是我們在數位時代守護本土文化的重要一步。</p>
+
+<h2 id="結語">結語</h2>
+
+<p>你們是否也有類似的經驗？或者有其他讓 AI 更貼近台灣使用習慣的方法想要分享？也歡迎大家分享對於如何在 AI 時代平衡主流用語和本地特色的看法。讓我們一起探索，在這個快速變化的數位世界中，如何既能與國際接軌，又能保持自己的語言和文化特色。</p>]]></content><author><name>殷慈遠</name></author><category term="blog" /><category term="AI" /><category term="文字系統" /><category term="生活駭客" /><summary type="html"><![CDATA[各位對科技感興趣的朋友們，今天想和大家分享一個關於 AI 使用台灣 IT 用語的有趣探索過程。]]></summary></entry><entry><title type="html">我如何成為 Glyphs 教學系列的創作者</title><link href="http://localhost:4000/blog/%E6%88%91%E5%A6%82%E4%BD%95%E6%88%90%E7%82%BA-Glyphs-%E6%95%99%E5%AD%B8%E7%B3%BB%E5%88%97%E7%9A%84%E5%89%B5%E4%BD%9C%E8%80%85/" rel="alternate" type="text/html" title="我如何成為 Glyphs 教學系列的創作者" /><published>2024-09-12T00:00:00+08:00</published><updated>2024-09-12T00:00:00+08:00</updated><id>http://localhost:4000/blog/%E6%88%91%E5%A6%82%E4%BD%95%E6%88%90%E7%82%BA%20Glyphs%20%E6%95%99%E5%AD%B8%E7%B3%BB%E5%88%97%E7%9A%84%E5%89%B5%E4%BD%9C%E8%80%85</id><content type="html" xml:base="http://localhost:4000/blog/%E6%88%91%E5%A6%82%E4%BD%95%E6%88%90%E7%82%BA-Glyphs-%E6%95%99%E5%AD%B8%E7%B3%BB%E5%88%97%E7%9A%84%E5%89%B5%E4%BD%9C%E8%80%85/"><![CDATA[<p>十年前，我還是個對字型設計和影視特效懷抱熱情的年輕人。那時的網路世界，遠不如現在豐富多彩。在這片資源貧瘠的數位荒漠中，<a href="https://www.videocopilot.net/">Video Copilot</a> 如同一座綠洲，滋潤了無數像我這樣渴望學習的靈魂。</p>
 
 <p>VC 是一個專注於 After Effects 影視特效教學的網站，由被譽為「AK 大神」的 Andrew Kramer 創立。起初，我只能靠著蹩腳的英文，一步步跟著教學影片操作。Andrew 輕鬆幽默的講解風格，讓學習過程充滿樂趣。後來我才驚覺，原來這位 AK 大神不僅提供各式各樣的免費教學，還製作了一套十集的初學者系列，完全免費開放。</p>
 
@@ -289,7 +377,7 @@
 複製這串文字到瀏覽器就能直接安裝：<code class="language-plaintext highlighter-rouge">glyphsapp3://showplugin/九宮格預覽</code></li>
 </ul>
 
-<p>用過之後有什麼想法都歡迎告訴我。覺得還不錯的話，在 GitHub 上給一顆⭐️的話我會很開心的！</p>]]></content><author><name>殷慈遠</name></author><category term="blog" /><category term="AI" /><category term="字型設計" /><category term="程式設計" /><summary type="html"><![CDATA[去年，我懷著忐忑又興奮的心情，開始了自學開發 Glyphs 外掛的冒險。那時候，AI 助手還不像現在這麼方便，我只能像個偵探一樣，四處搜尋線索，東拼西湊。經過無數個夜晚的奮戰，我終於成功製作並上架了我的第一個作品。回想起來，那種成就感讓我至今難忘。不過，我也不得不在專案的「已知問題」段落中老實承認：]]></summary></entry><entry><title type="html">用AI加速你的字型設計：Glyphs腳本助手登場</title><link href="http://localhost:4000/blog/%E7%94%A8ai%E5%8A%A0%E9%80%9F%E4%BD%A0%E7%9A%84%E5%AD%97%E5%9E%8B%E8%A8%AD%E8%A8%88-glyphs%E8%85%B3%E6%9C%AC%E5%8A%A9%E6%89%8B%E7%99%BB%E5%A0%B4/" rel="alternate" type="text/html" title="用AI加速你的字型設計：Glyphs腳本助手登場" /><published>2024-07-24T00:00:00+08:00</published><updated>2024-07-24T00:00:00+08:00</updated><id>http://localhost:4000/blog/%E7%94%A8ai%E5%8A%A0%E9%80%9F%E4%BD%A0%E7%9A%84%E5%AD%97%E5%9E%8B%E8%A8%AD%E8%A8%88%EF%BC%9Aglyphs%E8%85%B3%E6%9C%AC%E5%8A%A9%E6%89%8B%E7%99%BB%E5%A0%B4</id><content type="html" xml:base="http://localhost:4000/blog/%E7%94%A8ai%E5%8A%A0%E9%80%9F%E4%BD%A0%E7%9A%84%E5%AD%97%E5%9E%8B%E8%A8%AD%E8%A8%88-glyphs%E8%85%B3%E6%9C%AC%E5%8A%A9%E6%89%8B%E7%99%BB%E5%A0%B4/"><![CDATA[<p><a href="https://youtu.be/uZm4Rh-OegI">YouTube 影片連結</a></p>
+<p>用過之後有什麼想法都歡迎告訴我。覺得還不錯的話，在 GitHub 上給一顆⭐️的話我會很開心的！</p>]]></content><author><name>殷慈遠</name></author><category term="blog" /><category term="AI" /><category term="字型設計" /><category term="程式設計" /><category term="Glyphs" /><summary type="html"><![CDATA[去年，我懷著忐忑又興奮的心情，開始了自學開發 Glyphs 外掛的冒險。那時候，AI 助手還不像現在這麼方便，我只能像個偵探一樣，四處搜尋線索，東拼西湊。經過無數個夜晚的奮戰，我終於成功製作並上架了我的第一個作品。回想起來，那種成就感讓我至今難忘。不過，我也不得不在專案的「已知問題」段落中老實承認：]]></summary></entry><entry><title type="html">用AI加速你的字型設計：Glyphs腳本助手登場</title><link href="http://localhost:4000/blog/%E7%94%A8ai%E5%8A%A0%E9%80%9F%E4%BD%A0%E7%9A%84%E5%AD%97%E5%9E%8B%E8%A8%AD%E8%A8%88-glyphs%E8%85%B3%E6%9C%AC%E5%8A%A9%E6%89%8B%E7%99%BB%E5%A0%B4/" rel="alternate" type="text/html" title="用AI加速你的字型設計：Glyphs腳本助手登場" /><published>2024-07-24T00:00:00+08:00</published><updated>2024-07-24T00:00:00+08:00</updated><id>http://localhost:4000/blog/%E7%94%A8ai%E5%8A%A0%E9%80%9F%E4%BD%A0%E7%9A%84%E5%AD%97%E5%9E%8B%E8%A8%AD%E8%A8%88%EF%BC%9Aglyphs%E8%85%B3%E6%9C%AC%E5%8A%A9%E6%89%8B%E7%99%BB%E5%A0%B4</id><content type="html" xml:base="http://localhost:4000/blog/%E7%94%A8ai%E5%8A%A0%E9%80%9F%E4%BD%A0%E7%9A%84%E5%AD%97%E5%9E%8B%E8%A8%AD%E8%A8%88-glyphs%E8%85%B3%E6%9C%AC%E5%8A%A9%E6%89%8B%E7%99%BB%E5%A0%B4/"><![CDATA[<p><a href="https://youtu.be/uZm4Rh-OegI">YouTube 影片連結</a></p>
 
 <p>嗨，大家好！</p>
 
