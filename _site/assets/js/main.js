@@ -64,32 +64,57 @@ function getDOMElements() {
 }
 
 // 初始化主題
-function initializeTheme(themeToggle) {
+function initializeTheme(themeToggle, blogPages) {
     const prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)");
+    
+    // 判斷當前頁面是否為部落格頁面
+    function isBlogPage() {
+        return window.location.pathname.startsWith('/blog');
+    }
 
+    // 設定主題
     function setTheme(theme) {
-        document.documentElement.setAttribute('data-theme', theme);
+        const blogTheme = theme === "light" ? "dark" : "light";
+        const pageTheme = isBlogPage() ? blogTheme : theme;
+        
+        document.documentElement.setAttribute('data-theme', pageTheme);
         localStorage.setItem("theme", theme);
+        localStorage.setItem("blogTheme", blogTheme);
+        
         setTimeout(() => {
             document.body.style.transition = 'background-color var(--transition-duration) ease, color var(--transition-duration) ease';
         }, 50);
     }
 
+    // 獲取當前主題
     const currentTheme = localStorage.getItem("theme") || (prefersDarkScheme.matches ? "dark" : "light");
     setTheme(currentTheme);
 
+    // 主題切換按鈕事件
     themeToggle.addEventListener("click", function() {
         document.body.style.transition = 'none';
         const newTheme = document.documentElement.getAttribute('data-theme') === "light" ? "dark" : "light";
         setTheme(newTheme);
     });
 
+    // 監聽系統主題偏好變化
     prefersDarkScheme.addListener((e) => {
         if (!localStorage.getItem("theme")) {
             setTheme(e.matches ? "dark" : "light");
         }
     });
+
+    // 監聽頁面變化，確保主題正確應用
+    document.addEventListener('DOMContentLoaded', () => {
+        setTheme(localStorage.getItem("theme") || (prefersDarkScheme.matches ? "dark" : "light"));
+    });
 }
+
+// 使用方式
+initializeTheme(
+    document.getElementById('theme-toggle'),
+    ['/blog', '/blog/'] // 這裡添加所有部落格相關頁面的路徑
+);
 
 // 初始化電子報訂閱
 function initializeNewsletter(elements) {
@@ -129,7 +154,7 @@ function initializeNewsletter(elements) {
         }, 100);
     }
 
-    // 修改這裡：預設為縮小狀態，但仍然檢查 localStorage
+    // 預設為縮小狀態，但仍然檢查 localStorage
     const isMinimized = localStorage.getItem(storageKey) !== 'false';
     setMinimizedState(isMinimized);
 
