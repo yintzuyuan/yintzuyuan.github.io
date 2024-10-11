@@ -1,6 +1,11 @@
 // _sass/_global.scss
 
+:root {
+    --main-font: 'yintzuyuan_title_01-VariableVF', 'yintzuyuan_title_02-VariableVF';
+  }
+
 body {
+    font-family: var(--main-font);
     background-color: var(--bg-color);
     color: var(--text-color);
     display: flex;
@@ -205,11 +210,13 @@ body {
     padding: 0.5em 0; // 增加上下內邊距來擴大互動區域
   }
   
-//   .variable-weight-text {
-//     font-variation-settings: "AXS1" 50, "AXS2" 50;
-//     text-align: center; // 確保文字居中
-//   }
-  
+  .variable-weight-text {
+    font-family: var(--main-font);
+    font-variation-settings: "AXS1" 50, "AXS2" 50;
+    text-align: center;
+    transition: font-variation-settings 0.3s ease;
+  }
+
   // 為標題添加特殊樣式
   .content,
   .container {

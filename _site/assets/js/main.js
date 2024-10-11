@@ -28,6 +28,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // 設置主題和表單
     handleThemeAndForm();
+
+    // 隨機選擇字型並應用到網站上
+    const fonts = ['yintzuyuan_title_01-VariableVF', 'yintzuyuan_title_02-VariableVF'];
+    const randomFont = fonts[Math.floor(Math.random() * fonts.length)];
+    document.documentElement.style.setProperty('--main-font', randomFont);
 });
 
 // 初始化頁面滾動位置
