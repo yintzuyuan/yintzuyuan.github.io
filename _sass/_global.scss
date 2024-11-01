@@ -188,17 +188,6 @@ body {
     }
   }
   
-  .newsletter-floating {
-    visibility: hidden;
-  }
-  
-  body:not(.js-loaded) .newsletter-floating,
-  body:not(.js-loaded) .newsletter-floating * {
-    display: none !important;
-    opacity: 0 !important;
-    visibility: hidden !important;
-  }
-
 // 可變字重文字效果
 .variable-weight-container {
     position: relative;
