@@ -8,14 +8,8 @@ document.addEventListener('DOMContentLoaded', function() {
     // 初始化主題
     initializeTheme(elements.themeToggle);
 
-    // 初始化電子報訂閱
-    initializeNewsletter(elements);
-
     // 初始化菜單
     initializeMenu(elements);
-
-    // 初始化 MailerLite
-    initializeMailerLite();
 
     // 添加 js-loaded 類到 body
     document.body.classList.add('js-loaded');
@@ -46,9 +40,6 @@ function initializeScrollPosition() {
 // 獲取 DOM 元素
 function getDOMElements() {
     const elements = {
-        newsletterFloating: document.getElementById('newsletter-floating'),
-        newsletterToggle: document.getElementById('newsletter-toggle'),
-        newsletterForm: document.getElementById('newsletter-form'),
         header: document.getElementById('site-header'),
         menuToggle: document.querySelector('.menu-toggle'),
         navAndButton: document.querySelector('.nav-and-button'),
@@ -93,59 +84,6 @@ function initializeTheme(themeToggle) {
     });
 }
 
-// 初始化電子報訂閱
-function initializeNewsletter(elements) {
-    const { newsletterFloating, newsletterToggle, newsletterForm } = elements;
-    const storageKey = 'newsletter_minimized';
-    const toggleText = newsletterToggle.querySelector('.toggle-text');
-    const emojiMinimized = newsletterToggle.querySelector('.emoji-minimized');
-    const minimizeIcon = newsletterToggle.querySelector('.minimize-icon');
-    const closeIcon = newsletterToggle.querySelector('.close-icon');
-
-    function setMinimizedState(minimized) {
-        if (minimized) {
-            newsletterForm.classList.add('hidden');
-            toggleText.classList.remove('hidden');
-            emojiMinimized.classList.remove('hidden');
-            minimizeIcon.classList.add('hidden');
-            closeIcon.classList.add('hidden');
-            newsletterFloating.classList.add('minimized');
-        } else {
-            newsletterForm.classList.remove('hidden');
-            toggleText.classList.add('hidden');
-            emojiMinimized.classList.add('hidden');
-            minimizeIcon.classList.remove('hidden');
-            closeIcon.classList.add('hidden');
-            newsletterFloating.classList.remove('minimized');
-        }
-        localStorage.setItem(storageKey, minimized);
-
-        setTimeout(() => {
-            newsletterFloating.classList.remove('initially-hidden');
-            newsletterFloating.offsetHeight;
-            newsletterFloating.style.transition = 'all var(--transition-duration) ease';
-            Array.from(newsletterFloating.getElementsByTagName('*')).forEach(el => {
-                el.style.opacity = '1';
-                el.style.visibility = 'visible';
-            });
-        }, 100);
-    }
-
-    // 修改這裡：預設為縮小狀態，但仍然檢查 localStorage
-    const isMinimized = localStorage.getItem(storageKey) !== 'false';
-    setMinimizedState(isMinimized);
-
-    newsletterToggle.addEventListener('click', function() {
-        const isCurrentlyMinimized = newsletterForm.classList.contains('hidden');
-        setMinimizedState(!isCurrentlyMinimized);
-    });
-
-    closeIcon.addEventListener('click', function(event) {
-        event.stopPropagation();
-        setMinimizedState(true);
-    });
-}
-
 // 初始化菜單
 function initializeMenu(elements) {
     const { menuToggle, navAndButton } = elements;
@@ -176,23 +114,6 @@ function initializeMenu(elements) {
             }
         });
     });
-}
-
-// 初始化 MailerLite
-function initializeMailerLite() {
-    if (window.ml) {
-        window.ml('webforms');
-        window.ml('on', 'pageView', function() {
-            const form = document.querySelector('#newsletter-form form');
-            if (form) {
-                form.style.opacity = '0';
-                form.style.transition = 'opacity 0.3s ease';
-                setTimeout(() => {
-                    form.style.opacity = '1';
-                }, 100);
-            }
-        });
-    }
 }
 
 function throttle(func, limit) {
