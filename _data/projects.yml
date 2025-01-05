@@ -177,3 +177,9 @@
   categories:
     - "藝術創作"
     - "插畫"
+
+- title: "顯示注音"
+  url: "https://github.com/yintzuyuan/ShowBopomofo"
+  categories:
+    - "Glyphs工具"
+    - "工具開發"
