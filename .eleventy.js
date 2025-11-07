@@ -23,15 +23,10 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy("manifest.json");
   eleventyConfig.addPassthroughCopy("robots.txt");
 
-  // 忽略舊的 Jekyll 檔案
-  eleventyConfig.ignores.add("_sass/**");
-  eleventyConfig.ignores.add("_site/**");
-  eleventyConfig.ignores.add("vendor/**");
-  eleventyConfig.ignores.add("boost/**");
-  // 忽略舊的頁面目錄（已改用根目錄的 .md 檔案）
-  eleventyConfig.ignores.add("about/**");
-  eleventyConfig.ignores.add("works/**");
-  eleventyConfig.ignores.add("contact/**");
+  // 忽略文檔和開發檔案
+  eleventyConfig.ignores.add("docs/**");
+  eleventyConfig.ignores.add("node_modules/**");
+  eleventyConfig.ignores.add(".mcp.json");
 
   return {
     dir: {

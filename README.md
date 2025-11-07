@@ -26,6 +26,8 @@ TzuYuan Yin（殷慈遠）的個人作品集網站，展示字體設計與程式
 │   ├── style.css       # 主樣式表
 │   ├── script.js       # JavaScript
 │   └── icons/          # PWA 圖示
+├── docs/               # 文檔
+│   └── REDESIGN_PLAN.md # 重構計劃
 ├── fonts/              # 字體檔案
 ├── *.md                # Markdown 頁面
 ├── .eleventy.js        # 11ty 配置
@@ -122,4 +124,4 @@ npm run build
 
 ---
 
-**技術細節**: 完整的重構計劃請參考 [REDESIGN_PLAN.md](REDESIGN_PLAN.md)
+**技術細節**: 完整的重構計劃請參考 [docs/REDESIGN_PLAN.md](docs/REDESIGN_PLAN.md)
