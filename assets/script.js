@@ -144,30 +144,4 @@ function initVariableWeightEffect() {
   });
 }
 
-// ===== 4. 作品標籤篩選 (25 行) =====
-const tagButtons = document.querySelectorAll('[data-tag]');
-const projectCards = document.querySelectorAll('.project-card');
-
-if (tagButtons.length > 0 && projectCards.length > 0) {
-  tagButtons.forEach(button => {
-    button.addEventListener('click', () => {
-      const tag = button.dataset.tag;
-
-      // 更新按鈕狀態
-      tagButtons.forEach(btn => btn.classList.remove('active'));
-      button.classList.add('active');
-
-      // 篩選作品卡片
-      projectCards.forEach(card => {
-        const cardTags = card.dataset.tags || '';
-        if (tag === 'all' || cardTags.includes(tag)) {
-          card.style.display = 'block';
-        } else {
-          card.style.display = 'none';
-        }
-      });
-    });
-  });
-}
-
-// ===== 總計：約 175 行 =====
+// ===== 總計：約 150 行 =====

@@ -25,8 +25,8 @@ a {
 }
 
 a:hover {
-  color: var(--accent);
-  opacity: 0.9;
+  background: rgba(0, 0, 0, 0.05);
+  font-weight: 600;
 }
 
 ul, ol {
@@ -41,8 +41,8 @@ li {
 code, pre {
   font-family: var(--font-mono);
   font-size: 0.9em;
-  background: rgba(13, 148, 136, 0.1);
-  color: var(--accent);
+  background: rgba(0, 0, 0, 0.05);
+  color: var(--text);
   padding: 0.2em 0.4em;
   border-radius: 3px;
 }
@@ -74,27 +74,15 @@ footer {
   opacity: 0.7;
 }
 
-/* ===== 3. 標籤雲進階效果 ===== */
-.tag {
-  transition: all 0.2s;
-  background: rgba(13, 148, 136, 0.1);
-  color: var(--accent);
-}
-
-.tag:hover {
-  background: var(--accent);
-  color: var(--bg);
-}
-
-/* ===== 4. 作品集卡片進階效果 ===== */
+/* ===== 3. 作品集卡片進階效果 ===== */
 .project-card {
   transition: all 0.2s;
 }
 
 .project-card:hover {
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.15);
-  border-color: var(--link);
+  border-width: 2px;
+  border-color: var(--text);
 }
 
 /* ===== 5. 時間軸（進階效果已在 critical.css）===== */
@@ -193,7 +181,7 @@ button[type="submit"]:hover {
 /* ===== 7. 回到頂部按鈕 hover 效果 ===== */
 #back-to-top:hover {
   transform: translateY(-4px);
-  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+  background: var(--accent);
 }
 
 /* ===== Link button hover 效果 ===== */

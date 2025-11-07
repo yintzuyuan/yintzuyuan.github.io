@@ -1,13 +1,11 @@
 /* ===== 極簡 Critical CSS (< 50 行) ===== */
 
-/* 顏色變數 - 墨韻科技配色方案 */
+/* 顏色變數 - 極簡黑白配色方案 */
 :root {
   /* 基礎顏色定義 */
   --ink-black: #1a1a1a;
   --rice-paper: #f8f6f0;
   --brush-gray: #4a4a4a;
-  --tech-blue: #3b82f6;
-  --code-teal: #0d9488;
 
   /* 間距變數 */
   --space-xs: 0.25rem;
@@ -20,21 +18,23 @@
   --font-base: -apple-system, BlinkMacSystemFont, "Microsoft JhengHei", "PingFang TC", sans-serif;
   --font-mono: "SF Mono", Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 
-  /* 亮色模式（預設） */
+  /* 亮色模式（預設） - 黑白灰階系統 */
   --bg: var(--rice-paper);
   --text: var(--brush-gray);
-  --link: var(--tech-blue);
-  --accent: var(--code-teal);
+  --link: var(--ink-black);       /* 連結用墨黑 */
+  --accent: #6b7280;              /* 互動用中灰 */
   --border: rgba(74, 74, 74, 0.2);
+  --border-light: #d1d5db;        /* 淺灰邊框 */
 }
 
 [data-theme="dark"] {
-  /* 深色模式 - 暗色適應調整 */
+  /* 深色模式 - 黑白灰階系統 */
   --bg: var(--ink-black);
   --text: var(--rice-paper);
-  --link: #60a5fa;        /* 亮藍色（比原本的 #3b82f6 更亮） */
-  --accent: #14b8a6;      /* 亮青色（比原本的 #0d9488 更亮） */
+  --link: #ffffff;                /* 連結用純白 */
+  --accent: #9ca3af;              /* 互動用淺灰 */
   --border: rgba(248, 246, 240, 0.2);
+  --border-light: #374151;        /* 深灰邊框 */
 }
 
 /* 全域樣式 */
