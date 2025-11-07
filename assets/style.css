@@ -204,21 +204,29 @@ button[type="submit"]:hover {
   h2 { font-size: 1.75rem; }
   h3 { font-size: 1.4rem; }
 
-  nav {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: var(--space-sm);
+  /* 行動版導航欄 */
+  .nav-toggle {
+    display: block;
+    background: none;
+    border: 1px solid var(--border);
+    color: var(--text);
+    font-size: 1.5rem;
+    padding: 0.25rem 0.5rem;
+    cursor: pointer;
+    border-radius: 4px;
+    line-height: 1;
   }
 
   .nav-links {
-    display: flex;
+    display: none;
+    width: 100%;
     flex-direction: column;
     gap: var(--space-sm);
-    width: 100%;
+    margin-top: var(--space-sm);
   }
 
-  nav a {
-    margin-right: 0;
+  .nav-links.show {
+    display: flex;
   }
 
   .works-grid {

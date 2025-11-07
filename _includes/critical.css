@@ -65,8 +65,24 @@ header {
   margin-bottom: 2rem;
 }
 
+nav {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.nav-toggle {
+  display: none;
+}
+
+.nav-links {
+  display: flex;
+  gap: 1rem;
+  flex: 1;
+}
+
 nav a {
-  margin-right: 1rem;
   text-decoration: none;
 }
 
