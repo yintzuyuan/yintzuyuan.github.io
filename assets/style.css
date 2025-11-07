@@ -25,9 +25,13 @@ a {
 }
 
 a:hover {
-  background: rgba(0, 0, 0, 0.05);
+  background: rgba(74, 74, 74, 0.1);  /* 亮色模式：黑色半透明 */
   font-weight: 600;
   letter-spacing: 0.05em;  /* 中文字距增加，模擬滑動效果 */
+}
+
+[data-theme="dark"] a:hover {
+  background: rgba(248, 246, 240, 0.1);  /* 暗色模式：白色半透明 */
 }
 
 ul, ol {
@@ -42,10 +46,15 @@ li {
 code, pre {
   font-family: var(--font-mono);
   font-size: 0.9em;
-  background: rgba(0, 0, 0, 0.05);
+  background: rgba(74, 74, 74, 0.1);  /* 亮色模式：黑色半透明 */
   color: var(--text);
   padding: 0.2em 0.4em;
   border-radius: 3px;
+}
+
+[data-theme="dark"] code,
+[data-theme="dark"] pre {
+  background: rgba(248, 246, 240, 0.1);  /* 暗色模式：白色半透明 */
 }
 
 pre {
