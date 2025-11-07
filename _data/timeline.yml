@@ -1,64 +1,64 @@
 - year: 2025
 - icon: outline
-  event: "完成 [AI時代的知識管理革命](https://www.youtube.com/playlist?list=PL79pMEgf-g9lLb-VkX3V0QL6DMxzFyQwA) 系列影片"
+  event: "[AI時代知識管理革命](https://www.youtube.com/playlist?list=PL79pMEgf-g9lLb-VkX3V0QL6DMxzFyQwA) 影片系列"
 - icon: outline
-  event: "更新完成第二版Glyphs外掛 [九宮格預覽](https://github.com/yintzuyuan/NineBoxView)"
+  event: "更新 Glyphs 外掛 [九宮格預覽](https://github.com/yintzuyuan/NineBoxView) 第二版"
 - icon: outline
-  event: "開源發布顯示注音外掛 [ShowBopomofo](https://github.com/yintzuyuan/ShowBopomofo)"
+  event: "開源 Glyphs 外掛 [ShowBopomofo](https://github.com/yintzuyuan/ShowBopomofo)"
 - icon: outline
-  event: "完成 [Glyphs基礎教學系列](https://www.youtube.com/playlist?list=PL79pMEgf-g9n1EPYBnLesyGlMU9kYON1L) 系列影片"
+  event: "[Glyphs 基礎教學系列](https://www.youtube.com/playlist?list=PL79pMEgf-g9n1EPYBnLesyGlMU9kYON1L) 影片"
 - icon: outline
-  event: "[翻譯](https://github.com/yintzuyuan/mekkablue_Glyphs-Scripts-zh-tw)Glyphs腳本集 [mekkablue's Glyphs-Scripts](https://github.com/mekkablue/Glyphs-Scripts)"
+  event: "翻譯 [mekkablue Glyphs 腳本集](https://github.com/yintzuyuan/mekkablue_Glyphs-Scripts-zh-tw)"
 - icon: outline
-  event: "完成GPTs上架ChatGPT商店 [Glyphs腳本助手](https://chatgpt.com/g/g-6VY8cYFqx-glyphs-jiao-ben-zhu-shou)"
+  event: "[Glyphs 腳本助手](https://chatgpt.com/g/g-6VY8cYFqx-glyphs-jiao-ben-zhu-shou) GPTs 上架"
 - icon: filled
-  event: "[個人網站](https://erikyin.net/) 架設開張"
+  event: "[個人網站](https://erikyin.net/) 上線"
 - icon: outline
-  event: "[翻譯](https://github.com/yintzuyuan/SelectionPalette_trans_TW)Glyphs外掛 [SelectionPalette](https://github.com/danielgamage/SelectionPalette)"
+  event: "翻譯 Glyphs 外掛 [SelectionPalette](https://github.com/yintzuyuan/SelectionPalette_trans_TW)"
 - year: 2024
   icon: outline
-  event: "製作Glyphs的 [Python字典檔](https://github.com/yintzuyuan/GlyphsApp-Stubs_zh-tw)"
+  event: "製作 Glyphs [Python 型別提示檔](https://github.com/yintzuyuan/GlyphsApp-Stubs_zh-tw)"
 - icon: outline
-  event: "完成Glyphs [注音含字架構系統製作檔](https://github.com/yintzuyuan/Bopomo_Ligasystem)"
+  event: "Glyphs [注音連字系統製作檔](https://github.com/yintzuyuan/Bopomo_Ligasystem)"
 - icon: outline
-  event: "[翻譯](https://github.com/yintzuyuan/mekkablue_Glyphs-Scripts-zh-tw)Glyphs腳本 [mekkablue腳本集](https://github.com/mekkablue/Glyphs-Scripts) (WIP)"
+  event: "翻譯 [mekkablue Glyphs 腳本集](https://github.com/yintzuyuan/mekkablue_Glyphs-Scripts-zh-tw)"
 - icon: outline
-  event: "完成第一個Glyphs外掛 [九宮格預覽](https://github.com/yintzuyuan/NineBoxView)"
+  event: "首個 Glyphs 外掛 [九宮格預覽](https://github.com/yintzuyuan/NineBoxView)"
 - icon: outline
-  event: "開始撰寫自己的 [Glyphs腳本集](https://github.com/yintzuyuan/Glyphs_Scripts)"
+  event: "開始撰寫 [Glyphs 腳本集](https://github.com/yintzuyuan/Glyphs_Scripts)"
 - icon: filled
-  event: "開始自學程式語言 [Python](https://docs.python.org/zh-tw/3/)"
+  event: "自學 [Python](https://docs.python.org/zh-tw/3/)"
 - year: 2023
-  event: "開始為期12年的字體馬拉松計畫"
+  event: "12年字體馬拉松計畫"
 - icon: filled
-  event: "創立YouTube字型知識頻道 - [殷慈遠 字體&遊戲頻道](https://www.youtube.com/@erikin1205_typogame)"
+  event: "創立 [YouTube 字型知識頻道](https://www.youtube.com/@erikin1205_typogame)"
 - year: 2021
   icon: outline
-  event: "陸續完成拉丁字型[Sisyphus](https://www.behance.net/gallery/116873545/Sisyphus-Font), [Rasterquan](https://www.behance.net/gallery/117754611/Font-Rasterquan), [Bazilikin](https://www.behance.net/gallery/120115315/Font-Bazilikin), [Alugu](https://www.behance.net/gallery/121834739/Font-Alugu), [Electlilywave](https://www.behance.net/gallery/124860047/Font-Electlilywave)和[Kalosgon](https://www.behance.net/gallery/125875695/Font-Kalosgon)"
+  event: "發布 [6款拉丁字型](/works/#typography)"
 - year: 2019
   icon: filled
-  event: "加入[文鼎字型](https://www.arphic.com.tw/)（至今）"
+  event: "加入 [文鼎字型](https://www.arphic.com.tw/)（至今）"
 - year: 2018
   icon: outline
-  event: "以幾何方塊為基礎製作的實驗性質字型[口方體](https://www.behance.net/gallery/61406349/-CubeFarm-Font-%28Chinese%29) (WIP)"
+  event: "[口方體](https://www.behance.net/gallery/61406349/-CubeFarm-Font-%28Chinese%29) 實驗字型"
 - year: 2017
   icon: outline
-  event: "製作了第一個漢字字型[殷泉明](https://www.facebook.com/jftypeclass/posts/pfbid02mSGzkkcjWU72RF4hHyiPGyPcj694Ujvey92e3x7YYA9cF9P3TNjJ5Sm6vtrYZfU1l) (WIP)"
+  event: "首個漢字字型 [殷泉明](https://www.facebook.com/jftypeclass/posts/pfbid02mSGzkkcjWU72RF4hHyiPGyPcj694Ujvey92e3x7YYA9cF9P3TNjJ5Sm6vtrYZfU1l) 實驗字型"
 - year: 2015
   icon: filled
-  event: "開始接觸字型編輯軟體 [Glyphs](https://glyphsapp.com/)"
+  event: "接觸 [Glyphs](https://glyphsapp.com/) 字型編輯軟體"
 - year: 2014
   icon: outline
-  event: "製作了拉丁字型 [Jonah](https://www.behance.net/gallery/16921415/Coward-Prophet-font_Jonah)"
+  event: "拉丁字型 [Jonah](https://www.behance.net/gallery/16921415/Coward-Prophet-font_Jonah)"
 - year: 2013
   icon: filled
-  event: "製作第一套向量襯線字型 [Prism](https://www.behance.net/gallery/6749045/Prism-Font)"
+  event: "首套向量襯線字型 [Prism](https://www.behance.net/gallery/6749045/Prism-Font)"
 - icon: outline
-  event: "自學字型編輯軟體 [FontLab Studio](https://www.fontlab.com/font-editor/fontlab-studio-5/)"
+  event: "自學 [FontLab Studio](https://www.fontlab.com/font-editor/fontlab-studio-5/)"
 - icon: outline
-  event: "從小喜歡[自創文字](https://www.omniglot.com/conscripts/jingbu.htm)和蒐集世界文字知識"
+  event: "[自創文字](https://www.omniglot.com/conscripts/jingbu.htm) 與文字系統研究"
 - icon: outline
-  event: "以及用unipin畫[墨線圖](https://www.behance.net/gallery/6647139/Blank)"
+  event: "Unipin [墨線圖](https://www.behance.net/gallery/6647139/Blank) 創作"
 - year: 1988
   icon: filled
-  event: "來自[台灣高雄](https://maps.app.goo.gl/MWBdNkAt5JNM5DMZ8)人"
+  event: "來自 [台灣高雄](https://maps.app.goo.gl/MWBdNkAt5JNM5DMZ8)"
