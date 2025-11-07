@@ -1,0 +1,295 @@
+/* ===== 完整樣式表 (適度簡約版本) ===== */
+
+/* ===== 1. 基礎排版 (40 行) ===== */
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1.2;
+  margin-bottom: var(--space-md);
+  font-weight: 700;
+}
+
+h1 { font-size: 2.75rem; }
+h2 { font-size: 2.2rem; }
+h3 { font-size: 1.75rem; }
+h4 { font-size: 1.4rem; }
+
+p {
+  margin-bottom: var(--space-md);
+}
+
+a {
+  color: var(--text);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+  transition: opacity 0.2s;
+}
+
+a:hover {
+  opacity: 0.7;
+}
+
+ul, ol {
+  margin-bottom: var(--space-md);
+  padding-left: var(--space-lg);
+}
+
+li {
+  margin-bottom: var(--space-sm);
+}
+
+code, pre {
+  font-family: var(--font-mono);
+  font-size: 0.9em;
+  background: var(--border);
+  padding: 0.2em 0.4em;
+  border-radius: 3px;
+}
+
+pre {
+  padding: var(--space-md);
+  overflow-x: auto;
+  margin-bottom: var(--space-md);
+}
+
+pre code {
+  background: none;
+  padding: 0;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ===== 2. Footer (15 行) ===== */
+footer {
+  margin-top: var(--space-xl);
+  padding: var(--space-lg) var(--space-md);
+  border-top: 1px solid var(--border);
+  text-align: center;
+  font-size: 0.9rem;
+  opacity: 0.7;
+}
+
+/* ===== 3. 作品集網格 (40 行) ===== */
+.works-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: var(--space-lg);
+  margin: var(--space-lg) 0;
+}
+
+.project-card {
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  overflow: hidden;
+  transition: transform 0.2s;
+}
+
+.project-card:hover {
+  transform: translateY(-2px);
+}
+
+.project-card img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.project-card h3 {
+  padding: var(--space-md);
+  font-size: 1.4rem;
+  margin-bottom: 0;
+}
+
+.project-card p {
+  padding: 0 var(--space-md) var(--space-md);
+  font-size: 1rem;
+  opacity: 0.8;
+  margin-bottom: 0;
+}
+
+.project-card .tags {
+  padding: 0 var(--space-md) var(--space-md);
+  font-size: 0.85rem;
+  opacity: 0.6;
+  display: block;
+}
+
+/* ===== 4. 時間軸 (40 行) ===== */
+.timeline {
+  position: relative;
+  padding-left: var(--space-lg);
+  margin: var(--space-lg) 0;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: var(--border);
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: var(--space-lg);
+  padding-left: var(--space-md);
+}
+
+.timeline-item::before {
+  content: attr(data-emoji);
+  position: absolute;
+  left: calc(-1 * var(--space-lg) - 0.5rem);
+  font-size: 1.2rem;
+  background: var(--bg);
+}
+
+.timeline-item strong {
+  font-weight: 700;
+  color: var(--text);
+}
+
+/* ===== 5. 可變字體效果 (20 行) ===== */
+.variable-weight-text {
+  font-family: var(--font-base);
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: var(--space-lg);
+}
+
+/* 當可變字體啟用時 */
+body.variable-font-enabled .variable-weight-text {
+  font-family: 'YinTzuYuan Title', var(--font-base);
+  font-variation-settings: 'AXS1' 0, 'AXS2' 0;
+  transition: font-variation-settings 0.1s ease-out;
+}
+
+/* ===== 6. 表單樣式 (30 行) ===== */
+form {
+  max-width: 32rem;
+}
+
+label {
+  display: block;
+  margin-bottom: var(--space-md);
+  font-weight: 600;
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+  width: 100%;
+  padding: var(--space-sm);
+  font-family: var(--font-base);
+  font-size: 1rem;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  background: var(--bg);
+  color: var(--text);
+  margin-top: var(--space-xs);
+}
+
+textarea {
+  min-height: 8rem;
+  resize: vertical;
+}
+
+button[type="submit"] {
+  background: var(--text);
+  color: var(--bg);
+  border: none;
+  padding: var(--space-sm) var(--space-lg);
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+button[type="submit"]:hover {
+  opacity: 0.8;
+}
+
+/* ===== 7. 字體載入提示 (20 行) ===== */
+.font-prompt {
+  position: fixed;
+  bottom: var(--space-md);
+  right: var(--space-md);
+  padding: var(--space-sm) var(--space-md);
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  z-index: 1000;
+  font-size: 0.9rem;
+}
+
+.font-prompt button {
+  margin-left: var(--space-sm);
+  background: none;
+  border: 1px solid var(--border);
+  padding: var(--space-xs) var(--space-sm);
+  cursor: pointer;
+  border-radius: 3px;
+  font-size: 0.85rem;
+}
+
+.font-prompt button:hover {
+  background: var(--border);
+}
+
+/* ===== 8. 響應式設計 (30 行) ===== */
+@media (max-width: 768px) {
+  :root {
+    --space-lg: 1.5rem;
+  }
+
+  body {
+    font-size: 1rem;
+  }
+
+  h1 { font-size: 2rem; }
+  h2 { font-size: 1.75rem; }
+  h3 { font-size: 1.4rem; }
+
+  nav {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-sm);
+  }
+
+  .nav-links {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+    width: 100%;
+  }
+
+  nav a {
+    margin-right: 0;
+  }
+
+  .works-grid {
+    grid-template-columns: 1fr;
+  }
+
+  main {
+    padding: var(--space-md);
+  }
+
+  .variable-weight-text {
+    font-size: 2rem;
+  }
+
+  .font-prompt {
+    left: var(--space-sm);
+    right: var(--space-sm);
+    bottom: var(--space-sm);
+  }
+}
+
+/* ===== 總計：約 240 行 ===== */

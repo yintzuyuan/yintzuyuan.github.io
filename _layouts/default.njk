@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh-TW" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ title }} - TzuYuan Yin</title>
+
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="{{ description or '字體設計師 × 開發者 - TzuYuan Yin 殷慈遠' }}">
+
+  <!-- 預連接 Google Fonts DNS -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <!-- 內聯關鍵 CSS (首屏樣式) -->
+  <style>{% include "critical.css" %}</style>
+
+  <!-- 延遲載入完整 CSS -->
+  <link rel="preload" href="/assets/style.css" as="style" onload="this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="/assets/style.css"></noscript>
+
+  <!-- 主題初始化腳本 (防止閃爍) -->
+  <script>
+    (function() {
+      const theme = localStorage.getItem('theme') || 'light';
+      document.documentElement.setAttribute('data-theme', theme);
+    })();
+  </script>
+</head>
+<body>
+  <header>
+    <nav>
+      <div class="nav-links">
+        <a href="/">首頁</a>
+        <a href="/works/">作品</a>
+        <a href="/about/">關於</a>
+        <a href="/contact/">聯絡</a>
+      </div>
+      <button data-theme-toggle aria-label="切換主題">🌙</button>
+    </nav>
+  </header>
+
+  <main>
+    {{ content | safe }}
+  </main>
+
+  <footer>
+    <p>© 2025 TzuYuan Yin · 殷慈遠</p>
+  </footer>
+
+  <script src="/assets/script.js"></script>
+</body>
+</html>

@@ -1,21 +1,20 @@
 ---
-layout: default
+layout: default.njk
 title: 首頁
-header_title: ""
-custom_css: /assets/css/home-custom.css
+description: 字體設計師 × 開發者 - TzuYuan Yin 殷慈遠
 ---
 
-<div class="variable-weight-container">
-  <h1 class="variable-weight-text">殷 慈遠</h1>
-</div>
+<div class="variable-weight-text">殷慈遠</div>
 
-|  |  |
-|--:|:--|
-|🙂 |嗨，你好，這是我的名片  |
-|🗃️ |這本[作品集](/works)展示了我的作品  |
-|🏛️ |你可以從[關於](/about)了解我是誰  |
-|📝 |我正在透過[字碼筆記](https://blog.erikyin.net)將知識堆砌成文字  |
-|📮 |如果有任何建議請[和我聯繫](/contact)  |
-|❤ |也歡迎[支持我的創作](/boost)  |
+## 字體設計師 × 開發者
 
-&nbsp;
+嗨，你好！我是殷慈遠（TzuYuan Yin），一位熱愛字體設計與程式開發的創作者。
+
+- 🗃️ 查看我的[作品集](/works/)
+- 🏛️ 從[關於](/about/)了解我是誰
+- 📝 閱讀我的[字碼筆記](https://blog.erikyin.net)
+- 📮 有任何建議請[和我聯繫](/contact/)
+
+---
+
+_目前任職於[文鼎字型](https://www.arphic.com.tw/)擔任字體設計師，主要使用 [Glyphs](https://glyphsapp.com/) 進行字型設計。_
