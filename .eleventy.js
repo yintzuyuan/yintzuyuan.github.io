@@ -17,13 +17,15 @@ module.exports = function(eleventyConfig) {
     return self.renderToken(tokens, idx, options);
   };
 
-  md.renderer.rules.link_open = function(tokens, idx, options, _env, self) {
-    const aIndex = tokens[idx].attrIndex('target');
-    if (aIndex < 0) {
-      tokens[idx].attrPush(['target', '_blank']);
-      tokens[idx].attrPush(['rel', 'noopener noreferrer']);
+  md.renderer.rules.link_open = function(tokens, idx, options, env, self) {
+    const token = tokens[idx];
+    const href = token.attrGet('href');
+    // 只對外部連結（http:// 或 https:// 開頭）添加 target="_blank"
+    if (href && (href.startsWith('http://') || href.startsWith('https://'))) {
+      token.attrPush(['target', '_blank']);
+      token.attrPush(['rel', 'noopener noreferrer']);
     }
-    return defaultRender(tokens, idx, options, _env, self);
+    return defaultRender(tokens, idx, options, env, self);
   };
 
   // 設定 Eleventy 使用自訂的 Markdown 解析器
@@ -38,13 +40,8 @@ module.exports = function(eleventyConfig) {
   // 自訂 filter：收集唯一分類
   eleventyConfig.addFilter("uniqueCategories", function(projects) {
     if (!projects) return [];
-    const categories = new Set();
-    projects.forEach(project => {
-      if (project.categories) {
-        project.categories.forEach(cat => categories.add(cat));
-      }
-    });
-    return Array.from(categories);
+    const allCategories = projects.flatMap(project => project.categories || []);
+    return Array.from(new Set(allCategories));
   });
 
   // 複製靜態資源

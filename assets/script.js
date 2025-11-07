@@ -1,23 +1,7 @@
-// ===== 完整腳本 (165 行) =====
+// ===== 完整腳本 =====
+// 注意：主題切換邏輯已在 default.njk 中實作，避免重複
 
-// ===== 1. 主題切換 (15 行) =====
-const themeToggle = document.querySelector('[data-theme-toggle]');
-const currentTheme = localStorage.getItem('theme') || 'light';
-
-if (themeToggle) {
-  // 更新按鈕顯示
-  themeToggle.textContent = currentTheme === 'dark' ? '☀️' : '🌙';
-
-  themeToggle.addEventListener('click', () => {
-    const newTheme = document.documentElement.getAttribute('data-theme') === 'light'
-      ? 'dark' : 'light';
-    document.documentElement.setAttribute('data-theme', newTheme);
-    localStorage.setItem('theme', newTheme);
-    themeToggle.textContent = newTheme === 'dark' ? '☀️' : '🌙';
-  });
-}
-
-// ===== 2. 字體載入 (35 行) =====
+// ===== 1. 字體載入 (35 行) =====
 function loadGoogleFonts() {
   if (document.body.classList.contains('fonts-loaded')) return;
 

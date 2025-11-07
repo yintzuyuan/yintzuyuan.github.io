@@ -10,7 +10,6 @@
 
 # 依賴檔案
 node_modules/
-package-lock.json
 
 # MCP 配置（本機開發用）
 .mcp.json
