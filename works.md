@@ -4,9 +4,9 @@ title: 作品集
 description: TzuYuan Yin 的字體設計與程式作品集
 ---
 
-# 🗃️ 作品集
+# 作品集
 
-## 🔤 字體設計 · 歐文
+## 字體設計 · 歐文
 
 <ul>
 {% for project in projects %}
@@ -16,7 +16,7 @@ description: TzuYuan Yin 的字體設計與程式作品集
 {% endfor %}
 </ul>
 
-## 🀄 字體設計 · 漢字
+## 字體設計 · 漢字
 
 <ul>
 {% for project in projects %}
@@ -26,7 +26,7 @@ description: TzuYuan Yin 的字體設計與程式作品集
 {% endfor %}
 </ul>
 
-## 🛠️ Glyphs 工具開發
+## Glyphs 工具開發
 
 <ul>
 {% for project in projects %}
@@ -36,7 +36,7 @@ description: TzuYuan Yin 的字體設計與程式作品集
 {% endfor %}
 </ul>
 
-## 🌐 翻譯作品
+## 翻譯作品
 
 <ul>
 {% for project in projects %}
@@ -46,7 +46,7 @@ description: TzuYuan Yin 的字體設計與程式作品集
 {% endfor %}
 </ul>
 
-## 🎨 藝術創作
+## 藝術創作
 
 <ul>
 {% for project in projects %}

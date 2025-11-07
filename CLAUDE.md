@@ -236,3 +236,7 @@ yintzuyuan.github.io-redesign/
 - **作者**: TzuYuan Yin (殷慈遠)
 - **網站**: https://erikyin.net
 - **GitHub**: https://github.com/yintzuyuan
+
+- 這是一個wt，可以到 /Users/yintzuyuan/Code/yintzuyuan.github.io 查看原始版本的網站內容。
+- 減法原則
+- 你是專業的網站設計師、平面設計師、視覺總監

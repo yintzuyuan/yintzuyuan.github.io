@@ -1,25 +1,47 @@
 /* ===== 極簡 Critical CSS (< 50 行) ===== */
 
-/* 顏色變數 */
+/* 顏色變數 - 墨韻科技配色方案 */
 :root {
-  --bg: #ffffff;
-  --text: #1a1a1a;
-  --link: #0066cc;
-  --border: #cccccc;
+  /* 基礎顏色定義 */
+  --ink-black: #1a1a1a;
+  --rice-paper: #f8f6f0;
+  --brush-gray: #4a4a4a;
+  --tech-blue: #3b82f6;
+  --code-teal: #0d9488;
+
+  /* 間距變數 */
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 2rem;
+  --space-xl: 3rem;
+
+  /* 字體變數 */
+  --font-base: -apple-system, BlinkMacSystemFont, "Microsoft JhengHei", "PingFang TC", sans-serif;
+  --font-mono: "SF Mono", Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+
+  /* 亮色模式（預設） */
+  --bg: var(--rice-paper);
+  --text: var(--brush-gray);
+  --link: var(--tech-blue);
+  --accent: var(--code-teal);
+  --border: rgba(74, 74, 74, 0.2);
 }
 
 [data-theme="dark"] {
-  --bg: #1a1a1a;
-  --text: #f5f5f5;
-  --link: #66b3ff;
-  --border: #444444;
+  /* 深色模式 */
+  --bg: var(--ink-black);
+  --text: var(--rice-paper);
+  --link: var(--tech-blue);
+  --accent: var(--code-teal);
+  --border: rgba(248, 246, 240, 0.2);
 }
 
 /* 全域樣式 */
 * { box-sizing: border-box; }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "Microsoft JhengHei", "PingFang TC", sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Microsoft JhengHei", "PingFang TC", "Noto Emoji", sans-serif;
   font-size: 18px;
   line-height: 1.75;
   color: var(--text);
@@ -27,6 +49,11 @@ body {
   max-width: 42rem;
   margin: 0 auto;
   padding: 1rem;
+}
+
+/* 當 Google Fonts 載入後，優先使用 Noto Sans TC + Noto Emoji */
+.fonts-loaded body {
+  font-family: "Noto Sans TC", "Noto Emoji", -apple-system, BlinkMacSystemFont, "Microsoft JhengHei", "PingFang TC", sans-serif;
 }
 
 a { color: var(--link); }
@@ -50,4 +77,42 @@ footer {
   text-align: center;
   opacity: 0.7;
   font-size: 0.9rem;
+}
+
+/* Timeline Icons */
+dd[data-icon]::before {
+  content: '';
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  margin-right: 0.5em;
+  vertical-align: middle;
+  border-radius: 50%;
+}
+
+dd[data-icon="filled"]::before {
+  background: var(--text);
+}
+
+dd[data-icon="outline"]::before {
+  border: 2px solid var(--text);
+  background: transparent;
+}
+
+/* Theme Toggle Button */
+[data-theme-toggle] {
+  transition: opacity 0.2s ease;
+}
+
+[data-theme-toggle]:hover {
+  opacity: 0.7;
+}
+
+[data-theme-toggle] svg {
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+[data-theme-toggle]:active svg {
+  transform: rotate(180deg);
 }
