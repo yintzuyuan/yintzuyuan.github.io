@@ -15,7 +15,7 @@
 | **SCSS** | 2000+ 行，15 個檔案 | 過度模組化，大量重複樣式 |
 | **JavaScript** | 348 行，2 個檔案 | 功能冗餘，可用 CSS 替代部分 |
 | **HTML 組件** | 9 個 includes | 結構過於分散 |
-| **外部依賴** | Google Fonts (3個字體) | 增加載入時間 |
+| **外部依賴** | Google Fonts (3個字體) | 載入方式需優化 |
 | **可變字體** | Base64 內嵌 (17KB) | 首次載入負擔重 |
 | **Jekyll 依賴** | SCSS 編譯、多重模組 | 構建複雜度高 |
 
@@ -52,11 +52,13 @@
 
 | 指標 | 現狀預估 | 目標 |
 |------|----------|------|
-| 首次內容繪製 (FCP) | ~1.5s | **< 0.8s** |
-| 最大內容繪製 (LCP) | ~2.5s | **< 1.5s** |
+| 首次內容繪製 (FCP) | ~1.5s | **< 1.0s** |
+| 最大內容繪製 (LCP) | ~2.5s | **< 1.8s** |
 | 累積佈局偏移 (CLS) | < 0.1 | **< 0.05** |
-| 總頁面大小 | ~150KB | **< 50KB** |
-| HTTP 請求數 | 8-10 | **< 5** |
+| 總頁面大小 | ~150KB | **< 80KB** |
+| HTTP 請求數 | 8-10 | **< 7** |
+
+*註：保留 Google Fonts 以確保精緻排版，透過優化載入策略平衡效能*
 
 ### 2.3 設計原則
 
@@ -77,8 +79,8 @@
 ❌ 捨棄：Jekyll SCSS 編譯系統
 ✅ 採用：純 HTML + 原生 CSS + 原生 JavaScript
 
-❌ 捨棄：Google Fonts
-✅ 採用：系統字體 + 僅保留核心可變字體
+⚡ 保留：Google Fonts（精緻排版必要）
+✅ 優化：預連接 + 字體顯示策略 + 子集化載入
 
 ❌ 捨棄：多重 SCSS 模組
 ✅ 採用：單一 CSS 檔案，使用 CSS 變數統一管理
@@ -92,8 +94,8 @@
 #### **CSS 自訂屬性（變數）**
 ```css
 :root {
-  --font-base: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  --font-mono: ui-monospace, Menlo, Monaco, monospace;
+  --font-base: 'Noto Sans TC', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'Fira Code', ui-monospace, Menlo, Monaco, monospace;
   --color-bg: #28262c;
   --color-text: #f5f0e5;
   --space-unit: 1.5rem;
@@ -147,11 +149,69 @@
 現狀：
 - Google Fonts: Noto Sans TC + Fira Code + Noto Emoji (3 個請求)
 - 可變字體: Base64 內嵌 17KB
+- 未優化的載入方式
 
-新方案：
-- 系統字體堆疊（0KB）
-- 可變字體僅在標題載入（延遲載入）
-- 移除 emoji 字體（使用系統 emoji）
+新方案（保留 Google Fonts，極致優化）：
+✅ Google Fonts 優化載入：
+   - 使用 preconnect 預連接 Google Fonts CDN
+   - 採用 font-display: swap 避免文字閃爍
+   - 僅載入必要字重（300, 400, 700）
+   - 使用 &display=swap 參數
+   - 啟用 text 子集化（僅載入使用的字符）
+
+✅ 可變字體優化：
+   - 移除 Base64 內嵌，改用 WOFF2 格式
+   - 延遲載入（僅首頁標題需要）
+   - 精簡字體軸，僅保留必要變化
+
+✅ Emoji 處理：
+   - 移除 Noto Emoji 字體
+   - 使用系統原生 emoji（0KB）
+```
+
+#### **Google Fonts 優化技術詳解**
+
+```html
+<!-- 步驟 1: 預連接（減少 DNS 查詢和 TLS 握手時間） -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<!-- 步驟 2: 優化的字體 URL -->
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;700&family=Fira+Code:wght@400;700&display=swap" rel="stylesheet">
+
+<!-- 關鍵參數說明：
+  - wght@300;400;700  → 僅載入必要字重（而非全部 100-900）
+  - display=swap      → 在字體載入期間顯示備用字體，避免不可見文字
+  - 移除 Noto Emoji  → 使用系統 emoji，節省 ~30KB
+-->
+```
+
+**優化效果對比**：
+
+| 項目 | 優化前 | 優化後 | 改善 |
+|------|--------|--------|------|
+| DNS 查詢 | 每次請求 | 預連接快取 | -200ms |
+| 字體大小 | ~90KB | ~40KB | -56% |
+| 文字顯示 | 可能不可見 | 立即顯示備用 | FOIT → FOUT |
+| 字重數量 | 9 個 | 3 個 | -67% |
+
+**CSS font-display 策略**：
+```css
+@font-face {
+  font-family: 'Noto Sans TC';
+  font-display: swap; /* 立即顯示備用字體，字體載入後切換 */
+}
+```
+
+**備用字體堆疊**（確保未載入時的可讀性）：
+```css
+body {
+  font-family: 'Noto Sans TC',
+               -apple-system,           /* macOS/iOS */
+               BlinkMacSystemFont,      /* macOS Chrome */
+               'Microsoft JhengHei',    /* Windows 正黑體 */
+               sans-serif;              /* 系統預設 */
+}
 ```
 
 ---
@@ -195,6 +255,12 @@ yintzuyuan.github.io/
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>殷慈遠</title>
+
+  <!-- Google Fonts 優化載入 -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;700&family=Fira+Code:wght@400;700&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="/style.css">
   <meta name="description" content="創意字型設計與作品展示">
 </head>
@@ -451,31 +517,39 @@ toggle.addEventListener('click', () => {
 
 ```html
 <head>
-  <!-- 1. 關鍵 CSS 內聯 -->
+  <!-- 1. Google Fonts 預連接（最優先） -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <!-- 2. 關鍵 CSS 內聯 -->
   <style>
     /* 首屏必要樣式（50-100 行）內聯 */
   </style>
 
-  <!-- 2. 延遲載入完整樣式 -->
+  <!-- 3. Google Fonts 載入（使用 display=swap） -->
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;700&family=Fira+Code:wght@400;700&display=swap" rel="stylesheet">
+
+  <!-- 4. 延遲載入完整樣式 -->
   <link rel="preload" href="/style.css" as="style" onload="this.rel='stylesheet'">
 
-  <!-- 3. 字體延遲載入 -->
-  <link rel="preload" href="/fonts/yintzuyuan.woff2" as="font" crossorigin>
+  <!-- 5. 可變字體預載入（僅首頁） -->
+  <link rel="preload" href="/fonts/yintzuyuan.woff2" as="font" type="font/woff2" crossorigin>
 
-  <!-- 4. JS 延遲執行 -->
+  <!-- 6. JS 延遲執行 -->
   <script src="/script.js" defer></script>
 </head>
 ```
 
 ### 7.2 資源壓縮
 
-| 資源 | 原始 | 壓縮後 | 工具 |
-|------|------|--------|------|
+| 資源 | 原始 | 壓縮後 | 工具/策略 |
+|------|------|--------|----------|
 | CSS | ~400 行 | **< 5KB** | cssnano |
 | JS | ~150 行 | **< 3KB** | terser |
 | HTML | - | **< 2KB/頁** | html-minifier |
 | SVG Logo | 714B | **< 500B** | svgo |
-| 字體 | 17KB | **< 12KB** | 僅保留必要字符 |
+| 可變字體 | 17KB | **< 12KB** | 僅保留必要字符/軸 |
+| Google Fonts | ~60KB | **~40KB** | 僅載入必要字重 + WOFF2 |
 
 ### 7.3 快取策略
 
@@ -540,10 +614,12 @@ if ('serviceWorker' in navigator) {
 
 | 指標 | 重構前 | 重構後 | 改善 |
 |------|--------|--------|------|
-| 首次內容繪製 | ~1.5s | **< 0.8s** | ↑ 47% |
-| 頁面大小 | ~150KB | **< 50KB** | ↓ 67% |
-| HTTP 請求 | 8-10 | **< 5** | ↓ 50% |
-| Lighthouse 分數 | ~85 | **95+** | ↑ 12% |
+| 首次內容繪製 | ~1.5s | **< 1.0s** | ↑ 33% |
+| 頁面大小 | ~150KB | **< 80KB** | ↓ 47% |
+| HTTP 請求 | 8-10 | **< 7** | ↓ 30% |
+| Lighthouse 分數 | ~85 | **93+** | ↑ 9% |
+
+*註：保留 Google Fonts 確保精緻排版，透過預連接和 font-display 策略優化載入*
 
 ### 9.3 維護性改善
 
