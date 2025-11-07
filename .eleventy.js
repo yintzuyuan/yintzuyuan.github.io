@@ -19,6 +19,9 @@ module.exports = function(eleventyConfig) {
   // 複製靜態資源
   eleventyConfig.addPassthroughCopy("assets");
   eleventyConfig.addPassthroughCopy("fonts");
+  eleventyConfig.addPassthroughCopy("favicon.ico");
+  eleventyConfig.addPassthroughCopy("manifest.json");
+  eleventyConfig.addPassthroughCopy("robots.txt");
 
   // 忽略舊的 Jekyll 檔案
   eleventyConfig.ignores.add("_sass/**");
