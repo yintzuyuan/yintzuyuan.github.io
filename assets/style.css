@@ -190,6 +190,12 @@ button[type="submit"]:hover {
   background: var(--border);
 }
 
+/* ===== 7. 回到頂部按鈕 hover 效果 ===== */
+#back-to-top:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+}
+
 /* ===== 8. 響應式設計 (30 行) ===== */
 @media (max-width: 768px) {
   :root {
