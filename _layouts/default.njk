@@ -34,35 +34,23 @@
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
   <link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/apple-touch-icon.png">
 
-  <!-- 預連接 Google Fonts DNS -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-  <!-- 內聯關鍵 CSS (首屏樣式) -->
+  <!-- 內聯極簡 CSS -->
   <style>{% include "critical.css" %}</style>
 
-  <!-- 延遲載入完整 CSS -->
-  <link rel="preload" href="/assets/style.css" as="style" onload="this.rel='stylesheet'">
-  <noscript><link rel="stylesheet" href="/assets/style.css"></noscript>
-
-  <!-- 主題初始化腳本 (防止閃爍) -->
+  <!-- 主題初始化 -->
   <script>
-    (function() {
-      const theme = localStorage.getItem('theme') || 'light';
-      document.documentElement.setAttribute('data-theme', theme);
-    })();
+    const theme = localStorage.getItem('theme') || 'light';
+    document.documentElement.setAttribute('data-theme', theme);
   </script>
 </head>
 <body>
   <header>
     <nav>
-      <div class="nav-links">
-        <a href="/">首頁</a>
-        <a href="/works/">作品</a>
-        <a href="/about/">關於</a>
-        <a href="/contact/">聯絡</a>
-      </div>
-      <button data-theme-toggle aria-label="切換主題">🌙</button>
+      <a href="/">首頁</a>
+      <a href="/works/">作品</a>
+      <a href="/about/">關於</a>
+      <a href="/contact/">聯絡</a>
+      <button data-theme-toggle aria-label="切換主題" style="float:right; background:none; border:1px solid var(--border); color:var(--text); padding:0.25rem 0.5rem; cursor:pointer; font-size:1.2rem; border-radius:4px;">🌙</button>
     </nav>
   </header>
 
@@ -74,6 +62,18 @@
     <p>© 2025 TzuYuan Yin · 殷慈遠</p>
   </footer>
 
-  <script src="/assets/script.js"></script>
+  <!-- 極簡主題切換 (< 20 行) -->
+  <script>
+    const btn = document.querySelector('[data-theme-toggle]');
+    btn.addEventListener('click', () => {
+      const current = document.documentElement.getAttribute('data-theme');
+      const next = current === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
+      btn.textContent = next === 'dark' ? '☀️' : '🌙';
+    });
+    // 初始化按鈕圖示
+    btn.textContent = localStorage.getItem('theme') === 'dark' ? '☀️' : '🌙';
+  </script>
 </body>
 </html>

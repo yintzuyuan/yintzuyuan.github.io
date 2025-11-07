@@ -18,17 +18,13 @@ description: 殷慈遠 - 字體設計師、Python 開發者、YouTube 創作者
 
 ## 🗓️ 時間軸
 
-<div class="timeline">
+<dl>
 {% for item in timeline %}
   {% if item.year %}
-  <div class="timeline-year">
-    <h3>{{ item.year }}</h3>
-  </div>
+  <dt><strong>{{ item.year }}</strong></dt>
   {% endif %}
   {% if item.event %}
-  <div class="timeline-item" data-emoji="{{ item.icon }}">
-    <p>{{ item.event | safe }}</p>
-  </div>
+  <dd>{{ item.icon }} {{ item.event | safe }}</dd>
   {% endif %}
 {% endfor %}
-</div>
+</dl>

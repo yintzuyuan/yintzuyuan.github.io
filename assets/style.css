@@ -72,22 +72,8 @@ footer {
   opacity: 0.7;
 }
 
-/* ===== 3. 標籤雲 (30 行) ===== */
-.tag-cloud {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-sm);
-  margin-bottom: var(--space-lg);
-}
-
+/* ===== 3. 標籤雲進階效果 ===== */
 .tag {
-  background: none;
-  border: 1px solid var(--border);
-  color: var(--text);
-  padding: var(--space-xs) var(--space-md);
-  font-size: 0.9rem;
-  cursor: pointer;
-  border-radius: 20px;
   transition: all 0.2s;
 }
 
@@ -95,27 +81,9 @@ footer {
   background: var(--border);
 }
 
-.tag.active {
-  background: var(--text);
-  color: var(--bg);
-  border-color: var(--text);
-}
-
-/* ===== 4. 作品集網格 (50 行) ===== */
-.works-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: var(--space-lg);
-  margin: var(--space-lg) 0;
-}
-
+/* ===== 4. 作品集卡片進階效果 ===== */
 .project-card {
-  border: 1px solid var(--border);
-  border-radius: 4px;
-  padding: var(--space-lg);
-  text-decoration: none;
   transition: all 0.2s;
-  display: block;
 }
 
 .project-card:hover {
@@ -123,73 +91,7 @@ footer {
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 
-.project-card h3 {
-  font-size: 1.4rem;
-  margin-bottom: var(--space-sm);
-}
-
-.project-card .tags {
-  font-size: 0.85rem;
-  opacity: 0.6;
-  margin-bottom: 0;
-}
-
-/* ===== 5. 時間軸 (55 行) ===== */
-.timeline {
-  position: relative;
-  padding-left: var(--space-lg);
-  margin: var(--space-lg) 0;
-}
-
-.timeline::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 0;
-  bottom: 0;
-  width: 1px;
-  background: var(--border);
-}
-
-.timeline-year {
-  position: relative;
-  margin-bottom: var(--space-lg);
-  padding-left: var(--space-md);
-}
-
-.timeline-year h3 {
-  font-size: 1.75rem;
-  font-weight: 700;
-  margin-bottom: var(--space-md);
-  color: var(--text);
-}
-
-.timeline-year::before {
-  content: '📅';
-  position: absolute;
-  left: calc(-1 * var(--space-lg) - 0.5rem);
-  font-size: 1.2rem;
-  background: var(--bg);
-}
-
-.timeline-item {
-  position: relative;
-  margin-bottom: var(--space-md);
-  padding-left: var(--space-md);
-}
-
-.timeline-item::before {
-  content: attr(data-emoji);
-  position: absolute;
-  left: calc(-1 * var(--space-lg) - 0.5rem);
-  font-size: 1.2rem;
-  background: var(--bg);
-}
-
-.timeline-item p {
-  margin-bottom: 0;
-  line-height: 1.6;
-}
+/* ===== 5. 時間軸（進階效果已在 critical.css）===== */
 
 /* ===== 5. 可變字體效果 (20 行) ===== */
 .variable-weight-text {
