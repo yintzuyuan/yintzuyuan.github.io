@@ -24,9 +24,9 @@ description: 殷慈遠 - 字體設計師、Python 開發者、YouTube 創作者
   <dt><strong>{{ item.year }}</strong></dt>
   {% endif %}
   {% if item.event and item.icon %}
-  <dd data-icon="{{ item.icon }}">{{ item.event | safe }}</dd>
+  <dd data-icon="{{ item.icon }}">{{ item.event | markdownify | safe }}</dd>
   {% elif item.event %}
-  <dd>{{ item.event | safe }}</dd>
+  <dd>{{ item.event | markdownify | safe }}</dd>
   {% endif %}
 {% endfor %}
 </dl>

@@ -29,11 +29,11 @@
 }
 
 [data-theme="dark"] {
-  /* 深色模式 */
+  /* 深色模式 - 暗色適應調整 */
   --bg: var(--ink-black);
   --text: var(--rice-paper);
-  --link: var(--tech-blue);
-  --accent: var(--code-teal);
+  --link: #60a5fa;        /* 亮藍色（比原本的 #3b82f6 更亮） */
+  --accent: #14b8a6;      /* 亮青色（比原本的 #0d9488 更亮） */
   --border: rgba(248, 246, 240, 0.2);
 }
 
