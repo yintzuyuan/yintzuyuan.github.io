@@ -27,6 +27,7 @@ a {
 a:hover {
   background: rgba(0, 0, 0, 0.05);
   font-weight: 600;
+  letter-spacing: 0.05em;  /* 中文字距增加，模擬滑動效果 */
 }
 
 ul, ol {
@@ -83,6 +84,7 @@ footer {
   transform: translateY(-2px);
   border-width: 2px;
   border-color: var(--text);
+  letter-spacing: 0.05em;  /* 卡片標題字距增加 */
 }
 
 /* ===== 5. 時間軸（進階效果已在 critical.css）===== */
@@ -188,6 +190,7 @@ button[type="submit"]:hover {
 .link-buttons a:hover {
   border-color: var(--accent);
   transform: translateY(-1px);
+  letter-spacing: 0.08em;  /* 按鈕文字字距增加（較明顯）*/
 }
 
 .link-buttons a:active {
