@@ -196,6 +196,16 @@ button[type="submit"]:hover {
   box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
 }
 
+/* ===== Link button hover 效果 ===== */
+.link-buttons a:hover {
+  border-color: var(--accent);
+  transform: translateY(-1px);
+}
+
+.link-buttons a:active {
+  transform: translateY(0);
+}
+
 /* ===== 8. 響應式設計 (30 行) ===== */
 @media (max-width: 768px) {
   :root {

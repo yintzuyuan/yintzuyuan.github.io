@@ -37,6 +37,10 @@
   <!-- 內聯極簡 CSS -->
   <style>{% include "critical.css" %}</style>
 
+  <!-- 延遲載入完整 CSS -->
+  <link rel="preload" href="/assets/style.css" as="style" onload="this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="/assets/style.css"></noscript>
+
   <!-- 主題初始化 -->
   <script>
     const theme = localStorage.getItem('theme') || 'light';

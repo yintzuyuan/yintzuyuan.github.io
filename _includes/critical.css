@@ -141,3 +141,26 @@ dd[data-icon="outline"]::before {
 [data-theme-toggle]:active svg {
   transform: rotate(180deg);
 }
+
+/* Linktree-style button links */
+.link-buttons ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.link-buttons li {
+  margin: 0;
+}
+
+.link-buttons a {
+  display: block;
+  padding: var(--space-md);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  text-align: center;
+  text-decoration: none;
+  color: var(--text);
+}
