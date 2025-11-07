@@ -72,7 +72,36 @@ footer {
   opacity: 0.7;
 }
 
-/* ===== 3. 作品集網格 (40 行) ===== */
+/* ===== 3. 標籤雲 (30 行) ===== */
+.tag-cloud {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-lg);
+}
+
+.tag {
+  background: none;
+  border: 1px solid var(--border);
+  color: var(--text);
+  padding: var(--space-xs) var(--space-md);
+  font-size: 0.9rem;
+  cursor: pointer;
+  border-radius: 20px;
+  transition: all 0.2s;
+}
+
+.tag:hover {
+  background: var(--border);
+}
+
+.tag.active {
+  background: var(--text);
+  color: var(--bg);
+  border-color: var(--text);
+}
+
+/* ===== 4. 作品集網格 (50 行) ===== */
 .works-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -83,41 +112,29 @@ footer {
 .project-card {
   border: 1px solid var(--border);
   border-radius: 4px;
-  overflow: hidden;
-  transition: transform 0.2s;
+  padding: var(--space-lg);
+  text-decoration: none;
+  transition: all 0.2s;
+  display: block;
 }
 
 .project-card:hover {
   transform: translateY(-2px);
-}
-
-.project-card img {
-  width: 100%;
-  height: auto;
-  display: block;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 
 .project-card h3 {
-  padding: var(--space-md);
   font-size: 1.4rem;
-  margin-bottom: 0;
-}
-
-.project-card p {
-  padding: 0 var(--space-md) var(--space-md);
-  font-size: 1rem;
-  opacity: 0.8;
-  margin-bottom: 0;
+  margin-bottom: var(--space-sm);
 }
 
 .project-card .tags {
-  padding: 0 var(--space-md) var(--space-md);
   font-size: 0.85rem;
   opacity: 0.6;
-  display: block;
+  margin-bottom: 0;
 }
 
-/* ===== 4. 時間軸 (40 行) ===== */
+/* ===== 5. 時間軸 (55 行) ===== */
 .timeline {
   position: relative;
   padding-left: var(--space-lg);
@@ -134,9 +151,30 @@ footer {
   background: var(--border);
 }
 
-.timeline-item {
+.timeline-year {
   position: relative;
   margin-bottom: var(--space-lg);
+  padding-left: var(--space-md);
+}
+
+.timeline-year h3 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin-bottom: var(--space-md);
+  color: var(--text);
+}
+
+.timeline-year::before {
+  content: '📅';
+  position: absolute;
+  left: calc(-1 * var(--space-lg) - 0.5rem);
+  font-size: 1.2rem;
+  background: var(--bg);
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: var(--space-md);
   padding-left: var(--space-md);
 }
 
@@ -148,9 +186,9 @@ footer {
   background: var(--bg);
 }
 
-.timeline-item strong {
-  font-weight: 700;
-  color: var(--text);
+.timeline-item p {
+  margin-bottom: 0;
+  line-height: 1.6;
 }
 
 /* ===== 5. 可變字體效果 (20 行) ===== */
