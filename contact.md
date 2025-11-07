@@ -4,17 +4,13 @@ title: 聯繫
 description: 聯繫方式、社群連結與贊助管道
 ---
 
-# 聯繫
-
-## 聯絡方式
-
 <div class="link-buttons">
 
 - [電子郵件 — info@erikyin.net](mailto:info@erikyin.net)
 
 </div>
 
-## 社群連結
+---
 
 <div class="link-buttons">
 
@@ -24,7 +20,7 @@ description: 聯繫方式、社群連結與贊助管道
 
 </div>
 
-## 贊助支持
+---
 
 <div class="link-buttons">
 

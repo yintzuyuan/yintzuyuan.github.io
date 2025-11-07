@@ -7,9 +7,9 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 700;
 }
 
-h1 { font-size: 2.75rem; }
-h2 { font-size: 2.2rem; }
-h3 { font-size: 1.75rem; }
+h1 { font-size: 3rem; }    /* 48px - 僅用於首頁 */
+h2 { font-size: 2rem; }    /* 32px - 主要分類標題 */
+h3 { font-size: 1.5rem; }  /* 24px - 次級分類 */
 h4 { font-size: 1.4rem; }
 
 p {
@@ -216,9 +216,9 @@ button[type="submit"]:hover {
     font-size: 1rem;
   }
 
-  h1 { font-size: 2rem; }
-  h2 { font-size: 1.75rem; }
-  h3 { font-size: 1.4rem; }
+  h1 { font-size: 2.5rem; }   /* 40px 手機版 */
+  h2 { font-size: 1.75rem; }  /* 28px 手機版 */
+  h3 { font-size: 1.25rem; }  /* 20px 手機版 */
 
   /* 行動版導航欄 */
   .nav-toggle {
