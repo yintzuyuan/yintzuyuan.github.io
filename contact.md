@@ -6,7 +6,7 @@ description: 聯繫方式、社群連結與贊助管道
 
 <div class="link-buttons">
 
-- [電子郵件 — info@erikyin.net](mailto:info@erikyin.net)
+- [電子郵件 — yintzuyuan@erikyin.net](mailto:yintzuyuan@erikyin.net)
 
 </div>
 
@@ -15,8 +15,9 @@ description: 聯繫方式、社群連結與贊助管道
 <div class="link-buttons">
 
 - [GitHub — 開源專案與程式碼](https://github.com/yintzuyuan)
-- [Twitter — 設計與技術分享](https://twitter.com/yintzuyuan)
-- [LinkedIn — 專業履歷](https://www.linkedin.com/in/yintzuyuan)
+- [Behance — 字體設計與繪畫創作](https://www.behance.net/erikyin)
+- [YouTube — 教學影片與創作紀錄](https://www.youtube.com/c/erikin1205_typogame)
+- [Instagram — 設計日常與創作過程](https://www.instagram.com/erikyin/)
 
 </div>
 
