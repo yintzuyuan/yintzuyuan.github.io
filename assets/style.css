@@ -206,6 +206,18 @@ button[type="submit"]:hover {
   transform: translateY(0);
 }
 
+/* ===== Works Inline hover 效果 ===== */
+.works-inline a:hover {
+  background: rgba(74, 74, 74, 0.1);  /* 亮色模式：黑色半透明 */
+  padding: 0 0.2rem;
+  margin: 0 -0.2rem;
+  font-weight: 600;
+}
+
+[data-theme="dark"] .works-inline a:hover {
+  background: rgba(248, 246, 240, 0.1);  /* 暗色模式：白色半透明 */
+}
+
 /* ===== 8. 響應式設計 (30 行) ===== */
 @media (max-width: 768px) {
   :root {

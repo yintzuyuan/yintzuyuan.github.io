@@ -164,3 +164,13 @@ dd[data-icon="outline"]::before {
   text-decoration: none;
   color: var(--text);
 }
+
+/* Works Inline Layout - Critical CSS for no FOUC */
+.works-inline {
+  line-height: 1.8;
+}
+
+.works-inline a {
+  display: inline;
+  white-space: nowrap;
+}
