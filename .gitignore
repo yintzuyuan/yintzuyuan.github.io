@@ -1,17 +1,19 @@
-# 忽略編譯產物
+# 11ty 編譯產物
 /_site/
 /*.log
 /*.tmp
 
-# 忽略環境設定檔
-.venv/
+# 環境設定檔
 .env
 .env.local
 .env.*.local
 
-# 忽略依賴檔案
-/vendor/
+# 依賴檔案
 node_modules/
+package-lock.json
+
+# MCP 配置（本機開發用）
+.mcp.json
 
 # 忽略 IDE 設定檔
 .idea/
