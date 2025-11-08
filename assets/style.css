@@ -87,6 +87,36 @@ footer {
   opacity: 0.7;
 }
 
+footer .lang-info {
+  font-size: 0.85rem;
+  margin-bottom: 0.5rem;
+}
+
+/* ===== 語言切換器樣式 ===== */
+.lang-switcher {
+  font-size: 0.875rem;
+  font-weight: 500;
+  text-decoration: none;
+  padding: 0.4rem 0.75rem;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  color: var(--text);
+  transition: all 0.2s;
+  display: inline-block;
+}
+
+.lang-switcher:hover {
+  background: rgba(74, 74, 74, 0.05);
+  border-color: var(--text);
+  transform: none;
+  font-weight: 600;
+  letter-spacing: 0;
+}
+
+[data-theme="dark"] .lang-switcher:hover {
+  background: rgba(248, 246, 240, 0.05);
+}
+
 /* ===== 3. 作品集卡片進階效果 ===== */
 .project-card {
   transition: transform 0.2s, border-width 0.2s, border-color 0.2s, letter-spacing 0.2s;
