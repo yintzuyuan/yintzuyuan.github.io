@@ -10,8 +10,8 @@ description: 字體設計師 × 開發者 - TzuYuan Yin 殷慈遠
 
 - [作品集](/works/) — 查看我的字體設計與工具開發
 - [關於我](/about/) — 了解我的創作歷程
-- [字碼筆記](https://blog.erikyin.net) — 閱讀我的技術分享
-- [聯絡](/contact/) — 創意合作與交流
+<!-- - [字碼筆記](https://blog.erikyin.net) — 閱讀我的技術分享 -->
+- [聯繫](/contact/) — 創意合作與交流
 
 ---
 

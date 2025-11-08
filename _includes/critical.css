@@ -15,8 +15,8 @@
   --space-xl: 3rem;
 
   /* 字體變數 */
-  --font-base: -apple-system, BlinkMacSystemFont, "Microsoft JhengHei", "PingFang TC", sans-serif;
-  --font-mono: "SF Mono", Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  --font-base: "IBM Plex Sans", "Noto Sans TC", -apple-system, BlinkMacSystemFont, "Microsoft JhengHei", "PingFang TC", sans-serif;
+  --font-mono: "IBM Plex Mono", "SF Mono", Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 
   /* 亮色模式（預設） - 黑白灰階系統 */
   --bg: var(--rice-paper);
@@ -41,7 +41,7 @@
 * { box-sizing: border-box; }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "Microsoft JhengHei", "PingFang TC", "Noto Emoji", sans-serif;
+  font-family: "IBM Plex Sans", "Noto Sans TC", -apple-system, BlinkMacSystemFont, "Microsoft JhengHei", "PingFang TC", sans-serif;
   font-size: 18px;
   line-height: 1.75;
   color: var(--text);
@@ -50,11 +50,6 @@ body {
   margin: 0 auto;
   padding: 1rem;
   padding-top: 4rem;
-}
-
-/* 當 Google Fonts 載入後，優先使用 Noto Sans TC + Noto Emoji */
-.fonts-loaded body {
-  font-family: "Noto Sans TC", "Noto Emoji", -apple-system, BlinkMacSystemFont, "Microsoft JhengHei", "PingFang TC", sans-serif;
 }
 
 a { color: var(--link); }
@@ -125,21 +120,12 @@ dd[data-icon="outline"]::before {
 }
 
 /* Theme Toggle Button */
-[data-theme-toggle] {
-  transition: opacity 0.2s ease;
-}
-
 [data-theme-toggle]:hover {
   opacity: 0.7;
 }
 
 [data-theme-toggle] svg {
   display: block;
-  transition: transform 0.3s ease;
-}
-
-[data-theme-toggle]:active svg {
-  transform: rotate(180deg);
 }
 
 /* Linktree-style button links */

@@ -68,7 +68,7 @@ npm run build
 - `index.md` - 首頁
 - `works.md` - 作品集
 - `about.md` - 關於我
-- `contact.md` - 聯絡方式
+- `contact.md` - 聯繫方式
 
 ### 資料檔案
 

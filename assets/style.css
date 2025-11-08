@@ -21,7 +21,7 @@ a {
   text-decoration: underline;
   text-decoration-thickness: 1px;
   text-underline-offset: 2px;
-  transition: all 0.2s;
+  transition: background 0.2s, font-weight 0.2s, letter-spacing 0.2s;
 }
 
 a:hover {
@@ -50,6 +50,9 @@ code, pre {
   color: var(--text);
   padding: 0.2em 0.4em;
   border-radius: 3px;
+  /* 啟用 Fira Code 連字功能 */
+  font-variant-ligatures: common-ligatures contextual;
+  font-feature-settings: "liga" 1, "calt" 1;
 }
 
 [data-theme="dark"] code,
@@ -86,7 +89,7 @@ footer {
 
 /* ===== 3. 作品集卡片進階效果 ===== */
 .project-card {
-  transition: all 0.2s;
+  transition: transform 0.2s, border-width 0.2s, border-color 0.2s, letter-spacing 0.2s;
 }
 
 .project-card:hover {
@@ -159,35 +162,8 @@ button[type="submit"]:hover {
   opacity: 0.8;
 }
 
-/* ===== 7. 字體載入提示 (20 行) ===== */
-.font-prompt {
-  position: fixed;
-  bottom: var(--space-md);
-  right: var(--space-md);
-  padding: var(--space-sm) var(--space-md);
-  background: var(--bg);
-  border: 1px solid var(--border);
-  border-radius: 4px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-  z-index: 1000;
-  font-size: 0.9rem;
-}
-
-.font-prompt button {
-  margin-left: var(--space-sm);
-  background: none;
-  border: 1px solid var(--border);
-  padding: var(--space-xs) var(--space-sm);
-  cursor: pointer;
-  border-radius: 3px;
-  font-size: 0.85rem;
-  color: var(--text);
-  transition: all 0.2s;
-}
-
-.font-prompt button:hover {
-  background: var(--border);
-}
+/* ===== 7. 字體載入（已移除提示 UI，改為自動載入）===== */
+/* 字體提示相關樣式已移除，字體現在會自動載入 */
 
 /* ===== 7. 回到頂部按鈕 hover 效果 ===== */
 #back-to-top:hover {
@@ -199,7 +175,7 @@ button[type="submit"]:hover {
 .link-buttons a:hover {
   border-color: var(--accent);
   transform: translateY(-1px);
-  letter-spacing: 0.08em;  /* 按鈕文字字距增加（較明顯）*/
+  letter-spacing: 0.05em;  /* 按鈕文字字距增加（較明顯）*/
 }
 
 .link-buttons a:active {
@@ -269,11 +245,28 @@ button[type="submit"]:hover {
     font-size: 2rem;
   }
 
-  .font-prompt {
-    left: var(--space-sm);
-    right: var(--space-sm);
-    bottom: var(--space-sm);
-  }
+  /* 字體提示樣式已移除 */
 }
 
-/* ===== 總計：約 240 行 ===== */
+/* ===== 9. 暗色模式字重調整 ===== */
+[data-theme="dark"] h1,
+[data-theme="dark"] h2,
+[data-theme="dark"] h3,
+[data-theme="dark"] h4,
+[data-theme="dark"] h5,
+[data-theme="dark"] h6 {
+  font-weight: 650;  /* 亮色模式 700 - 50 */
+}
+
+[data-theme="dark"] .variable-weight-text {
+  font-weight: 650;  /* 亮色模式 700 - 50 */
+}
+
+[data-theme="dark"] a:hover,
+[data-theme="dark"] label,
+[data-theme="dark"] button[type="submit"],
+[data-theme="dark"] .works-inline a:hover {
+  font-weight: 550;  /* 亮色模式 600 - 50 */
+}
+
+/* ===== 總計：約 260 行 ===== */

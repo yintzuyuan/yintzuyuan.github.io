@@ -1,54 +1,8 @@
 // ===== 完整腳本 =====
 // 注意：主題切換邏輯已在 default.njk 中實作，避免重複
+// 字體已在 HTML <head> 直接載入，無需 JavaScript 處理
 
-// ===== 1. 字體載入 (35 行) =====
-function loadGoogleFonts() {
-  if (document.body.classList.contains('fonts-loaded')) return;
-
-  const link = document.createElement('link');
-  link.href = 'https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;700&family=Fira+Code:wght@400;700&family=Noto+Emoji&display=swap';
-  link.rel = 'stylesheet';
-
-  link.onload = () => {
-    document.body.classList.add('fonts-loaded');
-    localStorage.setItem('font-pref', 'google');
-    hideFontPrompt();
-  };
-
-  document.head.appendChild(link);
-}
-
-function showFontPrompt() {
-  const prompt = document.createElement('div');
-  prompt.className = 'font-prompt';
-  prompt.innerHTML = `
-    <p>載入精緻字體以獲得更好的閱讀體驗
-      <button onclick="loadGoogleFonts()">確定</button>
-      <button onclick="dismissFontPrompt()">稍後</button>
-    </p>
-  `;
-  document.body.appendChild(prompt);
-}
-
-function hideFontPrompt() {
-  const prompt = document.querySelector('.font-prompt');
-  if (prompt) prompt.remove();
-}
-
-function dismissFontPrompt() {
-  hideFontPrompt();
-  sessionStorage.setItem('font-prompt-dismissed', 'true');
-}
-
-// 檢查字體偏好
-if (localStorage.getItem('font-pref') === 'google') {
-  loadGoogleFonts();
-} else if (!sessionStorage.getItem('font-prompt-dismissed')) {
-  // 延遲 2 秒顯示提示，避免干擾首次載入
-  setTimeout(showFontPrompt, 2000);
-}
-
-// ===== 3. 可變字體效果（禁用，保留程式碼） (100 行) =====
+// ===== 1. 可變字體效果（禁用，保留程式碼） (100 行) =====
 const VARIABLE_FONT_ENABLED = false; // 🔧 改為 true 即可啟用
 
 if (VARIABLE_FONT_ENABLED && document.querySelector('.variable-weight-text')) {
