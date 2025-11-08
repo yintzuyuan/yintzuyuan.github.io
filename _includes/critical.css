@@ -103,11 +103,12 @@ footer {
 dd[data-icon]::before {
   content: '';
   display: inline-block;
-  width: 6px;
-  height: 6px;
+  width: 10px;
+  height: 10px;
   margin-right: 0.5em;
   vertical-align: middle;
   border-radius: 50%;
+  box-sizing: border-box;
 }
 
 dd[data-icon="filled"]::before {
