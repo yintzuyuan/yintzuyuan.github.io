@@ -1,17 +1,16 @@
 ---
 layout: default.njk
-title: 作品集
-description: TzuYuan Yin 的字體設計與程式作品集
-lang: zh
-locale: zh-TW
+title: Works
+description: Type design and development portfolio of TzuYuan Yin
+permalink: /en/works/
 ---
 
-**字體設計 · 歐文**
+**Type Design · Latin**
 
 <p class="works-inline">
 {%- set comma = joiner(" · ") -%}
 {%- for project in projects -%}
-{%- if "歐文" in project.categories.zh -%}
+{%- if "Latin" in project.categories.en -%}
 {{ comma() }}<a href="{{ project.url }}" target="_blank" rel="noopener noreferrer">{{ project.title }}</a>
 {%- endif -%}
 {%- endfor -%}
@@ -19,12 +18,12 @@ locale: zh-TW
 
 ---
 
-**字體設計 · 漢字**
+**Type Design · CJK**
 
 <p class="works-inline">
 {%- set comma = joiner(" · ") -%}
 {%- for project in projects -%}
-{%- if "漢字" in project.categories.zh -%}
+{%- if "CJK" in project.categories.en -%}
 {{ comma() }}<a href="{{ project.url }}" target="_blank" rel="noopener noreferrer">{{ project.title }}</a>
 {%- endif -%}
 {%- endfor -%}
@@ -32,12 +31,12 @@ locale: zh-TW
 
 ---
 
-**Glyphs 工具開發**
+**Glyphs Plugin Development**
 
 <p class="works-inline">
 {%- set comma = joiner(" · ") -%}
 {%- for project in projects -%}
-{%- if "Glyphs工具" in project.categories.zh -%}
+{%- if "Glyphs Plugins" in project.categories.en -%}
 {{ comma() }}<a href="{{ project.url }}" target="_blank" rel="noopener noreferrer">{{ project.title }}</a>
 {%- endif -%}
 {%- endfor -%}
@@ -45,12 +44,12 @@ locale: zh-TW
 
 ---
 
-**翻譯作品**
+**Translation Projects**
 
 <p class="works-inline">
 {%- set comma = joiner(" · ") -%}
 {%- for project in projects -%}
-{%- if "翻譯" in project.categories.zh -%}
+{%- if "Translation" in project.categories.en -%}
 {{ comma() }}<a href="{{ project.url }}" target="_blank" rel="noopener noreferrer">{{ project.title }}</a>
 {%- endif -%}
 {%- endfor -%}
@@ -58,12 +57,12 @@ locale: zh-TW
 
 ---
 
-**藝術創作**
+**Art Projects**
 
 <p class="works-inline">
 {%- set comma = joiner(" · ") -%}
 {%- for project in projects -%}
-{%- if "藝術創作" in project.categories.zh -%}
+{%- if "Art" in project.categories.en -%}
 {{ comma() }}<a href="{{ project.url }}" target="_blank" rel="noopener noreferrer">{{ project.title }}</a>
 {%- endif -%}
 {%- endfor -%}

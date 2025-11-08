@@ -2,6 +2,8 @@
 layout: default.njk
 title: 聯繫
 description: 聯繫方式、社群連結與贊助管道
+lang: zh
+locale: zh-TW
 ---
 
 <div class="link-buttons">

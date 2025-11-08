@@ -2,6 +2,8 @@
 layout: default.njk
 title: 關於我
 description: 殷慈遠 - 字體設計師、Python 開發者、YouTube 創作者
+lang: zh
+locale: zh-TW
 ---
 
 我是殷慈遠（TzuYuan Yin），字體設計師、Python 開發者、YouTube 創作者。
@@ -15,10 +17,8 @@ description: 殷慈遠 - 字體設計師、Python 開發者、YouTube 創作者
   {% if item.year %}
   <dt><strong>{{ item.year }}</strong></dt>
   {% endif %}
-  {% if item.event and item.icon %}
-  <dd data-icon="{{ item.icon }}">{{ item.event | markdownify | safe }}</dd>
-  {% elif item.event %}
-  <dd>{{ item.event | markdownify | safe }}</dd>
-  {% endif %}
+  {% for event in item.events %}
+  <dd data-icon="{{ event.icon }}">{{ event.text.zh | markdownify | safe }}</dd>
+  {% endfor %}
 {% endfor %}
 </dl>

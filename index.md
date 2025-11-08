@@ -2,6 +2,8 @@
 layout: default.njk
 title: 首頁
 description: 字體設計師 × 開發者 - TzuYuan Yin 殷慈遠
+lang: zh
+locale: zh-TW
 ---
 
 # 殷慈遠
