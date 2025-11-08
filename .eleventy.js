@@ -44,6 +44,28 @@ module.exports = function(eleventyConfig) {
     return Array.from(new Set(allCategories));
   });
 
+  // i18n filter：根據當前語言取得對應 URL
+  eleventyConfig.addFilter("locale_url", function(url) {
+    const lang = this.ctx.lang || this.ctx.page?.lang || 'zh';
+    if (lang === 'zh') return url;
+    // 處理英文版 URL
+    if (url === '/') return '/en/';
+    return '/en' + url;
+  });
+
+  // i18n filter：取得替代語言連結
+  eleventyConfig.addFilter("alt_lang_url", function(url) {
+    const lang = this.ctx.lang || this.ctx.page?.lang || 'zh';
+    if (lang === 'zh') {
+      // 中文 → 英文
+      if (url === '/') return '/en/';
+      return '/en' + url;
+    } else {
+      // 英文 → 中文
+      return url.replace(/^\/en/, '') || '/';
+    }
+  });
+
   // 複製靜態資源
   eleventyConfig.addPassthroughCopy("assets");
   eleventyConfig.addPassthroughCopy("fonts");
