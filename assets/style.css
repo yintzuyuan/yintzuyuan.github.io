@@ -88,6 +88,33 @@ img {
   display: block;
 }
 
+/* ===== 1.5. 個人照片樣式 (關於頁面) ===== */
+.about-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: var(--space-lg);
+  margin-top: var(--space-lg);
+}
+
+.profile-photo {
+  width: 320px;
+  height: 320px;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+  margin-bottom: var(--space-lg);
+  filter: brightness(1.1) contrast(1.05);
+}
+
+[data-theme="dark"] .profile-photo {
+  filter: none;
+}
+
+.about-content {
+  width: 100%;
+}
+
 /* ===== 2. Footer (15 行) ===== */
 footer {
   margin-top: var(--space-xl);
@@ -240,6 +267,11 @@ button[type="submit"]:hover {
   transform: translateY(0);
 }
 
+/* 聯繫頁面第一個按鈕群組的頂部間距 */
+.link-buttons:first-of-type {
+  margin-top: var(--space-lg);
+}
+
 /* ===== Works Inline hover 效果 ===== */
 .works-inline a:hover {
   background: rgba(74, 74, 74, 0.1);  /* 亮色模式：黑色半透明 */
@@ -301,6 +333,12 @@ button[type="submit"]:hover {
 
   .variable-weight-text {
     font-size: 2rem;
+  }
+
+  /* 行動版個人照片樣式 */
+  .profile-photo {
+    width: 220px;
+    height: 220px;
   }
 
   /* 字體提示樣式已移除 */

@@ -5,9 +5,13 @@ description: TzuYuan Yin - Type Designer, Python Developer, YouTube Creator
 permalink: /en/about/
 ---
 
-I'm TzuYuan Yin, a type designer, Python developer, and YouTube creator.
-
-Currently working at [Arphic Types](https://www.arphic.com.tw/), designing fonts with [Glyphs](https://glyphsapp.com/), and sharing design knowledge on [YouTube](https://www.youtube.com/@erikin1205_typogame).
+<div class="about-header">
+  <img src="/assets/images/profile.png" alt="Portrait of TzuYuan Yin" class="profile-photo">
+  <div class="about-content">
+    <p>I'm TzuYuan Yin, a type designer, Python developer, and YouTube creator.</p>
+    <p>Currently working at <a href="https://www.arphic.com.tw/">Arphic Types</a>, designing fonts with <a href="https://glyphsapp.com/">Glyphs</a>, and sharing design knowledge on <a href="https://www.youtube.com/@erikin1205_typogame">YouTube</a>.</p>
+  </div>
+</div>
 
 ---
 
