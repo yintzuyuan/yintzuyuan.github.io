@@ -34,6 +34,17 @@ a:hover {
   background: rgba(248, 246, 240, 0.1);  /* 暗色模式：白色半透明 */
 }
 
+/* 導航欄當前頁面狀態（複用 hover 樣式） */
+nav a[aria-current="page"] {
+  background: rgba(74, 74, 74, 0.1);
+  font-weight: 600;
+  letter-spacing: 0.05em;
+}
+
+[data-theme="dark"] nav a[aria-current="page"] {
+  background: rgba(248, 246, 240, 0.1);
+}
+
 ul, ol {
   margin-bottom: var(--space-md);
   padding-left: var(--space-lg);

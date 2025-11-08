@@ -240,7 +240,7 @@ module.exports = [
     }
   },
   {
-    title: { zh: '顯示注音', en: 'ShowBopomofo' },
+    title: { zh: '顯示漢語發音', en: 'ShowChinesePhonetics' },
     url: 'https://github.com/yintzuyuan/ShowBopomofo',
     categories: {
       zh: ['Glyphs工具', '工具開發'],

@@ -5,6 +5,13 @@ module.exports = [
       {
         icon: 'outline',
         text: {
+          zh: '開源 Glyphs 外掛 [拉至選取範圍](https://github.com/yintzuyuan/zoom-to-selection)',
+          en: 'Released Glyphs Plugin [Zoom to Selection](https://github.com/yintzuyuan/zoom-to-selection)'
+        }
+      },
+      {
+        icon: 'outline',
+        text: {
           zh: '[AI時代知識管理革命](https://www.youtube.com/playlist?list=PL79pMEgf-g9lLb-VkX3V0QL6DMxzFyQwA) 影片系列',
           en: '[AI Era Knowledge Management Revolution](https://www.youtube.com/playlist?list=PL79pMEgf-g9lLb-VkX3V0QL6DMxzFyQwA) Video Series'
         }
@@ -19,8 +26,8 @@ module.exports = [
       {
         icon: 'outline',
         text: {
-          zh: '開源 Glyphs 外掛 [ShowBopomofo](https://github.com/yintzuyuan/ShowBopomofo)',
-          en: 'Released Glyphs Plugin [ShowBopomofo](https://github.com/yintzuyuan/ShowBopomofo)'
+          zh: '開源 Glyphs 外掛 [顯示漢語發音](https://github.com/yintzuyuan/ShowBopomofo)',
+          en: 'Released Glyphs Plugin [ShowChinesePhonetics](https://github.com/yintzuyuan/ShowBopomofo)'
         }
       },
       {

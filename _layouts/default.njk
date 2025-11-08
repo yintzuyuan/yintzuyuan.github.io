@@ -61,10 +61,10 @@
     <nav>
       <button class="nav-toggle" aria-label="{{ languages[lang].ui.nav.home or '選單' }}">☰</button>
       <div class="nav-links">
-        <a href="{{ '/' | locale_url }}">{{ languages[lang].ui.nav.home or '首頁' }}</a>
-        <a href="{{ '/works/' | locale_url }}">{{ languages[lang].ui.nav.works or '作品' }}</a>
-        <a href="{{ '/about/' | locale_url }}">{{ languages[lang].ui.nav.about or '關於' }}</a>
-        <a href="{{ '/contact/' | locale_url }}">{{ languages[lang].ui.nav.contact or '聯繫' }}</a>
+        <a href="{{ '/' | locale_url }}"{% if page.url == ('/' | locale_url) %} aria-current="page"{% endif %}>{{ languages[lang].ui.nav.home or '首頁' }}</a>
+        <a href="{{ '/works/' | locale_url }}"{% if page.url.startsWith('/works/') or page.url.startsWith('/en/works/') %} aria-current="page"{% endif %}>{{ languages[lang].ui.nav.works or '作品' }}</a>
+        <a href="{{ '/about/' | locale_url }}"{% if page.url.startsWith('/about/') or page.url.startsWith('/en/about/') %} aria-current="page"{% endif %}>{{ languages[lang].ui.nav.about or '關於' }}</a>
+        <a href="{{ '/contact/' | locale_url }}"{% if page.url.startsWith('/contact/') or page.url.startsWith('/en/contact/') %} aria-current="page"{% endif %}>{{ languages[lang].ui.nav.contact or '聯繫' }}</a>
       </div>
       <div style="float:right; display:flex; gap:0.5rem; align-items:center;">
         <a href="{{ page.url | alt_lang_url }}" class="lang-switcher" lang="{{ 'en' if lang == 'zh' else 'zh' }}" aria-label="{{ '切換語言' if lang == 'zh' else 'Switch Language' }}">
