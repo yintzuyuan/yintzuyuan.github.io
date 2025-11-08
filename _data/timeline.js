@@ -145,7 +145,7 @@ module.exports = [
         icon: 'filled',
         text: {
           zh: '加入 [文鼎字型](https://www.arphic.com.tw/)（至今）',
-          en: 'Joined [Arphic Technology](https://www.arphic.com.tw/) (Present)'
+          en: 'Joined [Arphic Types](https://www.arphic.com.tw/) (Present)'
         }
       }
     ]

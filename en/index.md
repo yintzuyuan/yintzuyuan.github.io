@@ -16,4 +16,4 @@ permalink: /en/
 
 ---
 
-_Currently working at [Arphic Technology](https://www.arphic.com.tw/) as a type designer, primarily using [Glyphs](https://glyphsapp.com/) for font design._
+_Currently working at [Arphic Types](https://www.arphic.com.tw/) as a type designer, primarily using [Glyphs](https://glyphsapp.com/) for font design._

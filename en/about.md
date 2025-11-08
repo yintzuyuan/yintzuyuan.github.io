@@ -7,7 +7,7 @@ permalink: /en/about/
 
 I'm TzuYuan Yin, a type designer, Python developer, and YouTube creator.
 
-Currently working at [Arphic Technology](https://www.arphic.com.tw/) designing fonts with [Glyphs](https://glyphsapp.com/), and sharing design knowledge on [YouTube](https://www.youtube.com/@erikin1205_typogame).
+Currently working at [Arphic Types](https://www.arphic.com.tw/) designing fonts with [Glyphs](https://glyphsapp.com/), and sharing design knowledge on [YouTube](https://www.youtube.com/@erikin1205_typogame).
 
 ---
 

@@ -12,7 +12,7 @@ locale: zh-TW
 {%- set comma = joiner(" · ") -%}
 {%- for project in projects -%}
 {%- if "歐文" in project.categories.zh -%}
-{{ comma() }}<a href="{{ project.url }}" target="_blank" rel="noopener noreferrer">{{ project.title }}</a>
+{{ comma() }}<a href="{{ project.url }}" target="_blank" rel="noopener noreferrer">{{ project.title.zh }}</a>
 {%- endif -%}
 {%- endfor -%}
 </p>
@@ -25,7 +25,7 @@ locale: zh-TW
 {%- set comma = joiner(" · ") -%}
 {%- for project in projects -%}
 {%- if "漢字" in project.categories.zh -%}
-{{ comma() }}<a href="{{ project.url }}" target="_blank" rel="noopener noreferrer">{{ project.title }}</a>
+{{ comma() }}<a href="{{ project.url }}" target="_blank" rel="noopener noreferrer">{{ project.title.zh }}</a>
 {%- endif -%}
 {%- endfor -%}
 </p>
@@ -38,7 +38,7 @@ locale: zh-TW
 {%- set comma = joiner(" · ") -%}
 {%- for project in projects -%}
 {%- if "Glyphs工具" in project.categories.zh -%}
-{{ comma() }}<a href="{{ project.url }}" target="_blank" rel="noopener noreferrer">{{ project.title }}</a>
+{{ comma() }}<a href="{{ project.url }}" target="_blank" rel="noopener noreferrer">{{ project.title.zh }}</a>
 {%- endif -%}
 {%- endfor -%}
 </p>
@@ -51,7 +51,7 @@ locale: zh-TW
 {%- set comma = joiner(" · ") -%}
 {%- for project in projects -%}
 {%- if "翻譯" in project.categories.zh -%}
-{{ comma() }}<a href="{{ project.url }}" target="_blank" rel="noopener noreferrer">{{ project.title }}</a>
+{{ comma() }}<a href="{{ project.url }}" target="_blank" rel="noopener noreferrer">{{ project.title.zh }}</a>
 {%- endif -%}
 {%- endfor -%}
 </p>
@@ -64,7 +64,7 @@ locale: zh-TW
 {%- set comma = joiner(" · ") -%}
 {%- for project in projects -%}
 {%- if "藝術創作" in project.categories.zh -%}
-{{ comma() }}<a href="{{ project.url }}" target="_blank" rel="noopener noreferrer">{{ project.title }}</a>
+{{ comma() }}<a href="{{ project.url }}" target="_blank" rel="noopener noreferrer">{{ project.title.zh }}</a>
 {%- endif -%}
 {%- endfor -%}
 </p>

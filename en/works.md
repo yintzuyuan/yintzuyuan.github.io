@@ -11,7 +11,7 @@ permalink: /en/works/
 {%- set comma = joiner(" · ") -%}
 {%- for project in projects -%}
 {%- if "Latin" in project.categories.en -%}
-{{ comma() }}<a href="{{ project.url }}" target="_blank" rel="noopener noreferrer">{{ project.title }}</a>
+{{ comma() }}<a href="{{ project.url }}" target="_blank" rel="noopener noreferrer">{{ project.title.en }}</a>
 {%- endif -%}
 {%- endfor -%}
 </p>
@@ -24,7 +24,7 @@ permalink: /en/works/
 {%- set comma = joiner(" · ") -%}
 {%- for project in projects -%}
 {%- if "CJK" in project.categories.en -%}
-{{ comma() }}<a href="{{ project.url }}" target="_blank" rel="noopener noreferrer">{{ project.title }}</a>
+{{ comma() }}<a href="{{ project.url }}" target="_blank" rel="noopener noreferrer">{{ project.title.en }}</a>
 {%- endif -%}
 {%- endfor -%}
 </p>
@@ -37,7 +37,7 @@ permalink: /en/works/
 {%- set comma = joiner(" · ") -%}
 {%- for project in projects -%}
 {%- if "Glyphs Plugins" in project.categories.en -%}
-{{ comma() }}<a href="{{ project.url }}" target="_blank" rel="noopener noreferrer">{{ project.title }}</a>
+{{ comma() }}<a href="{{ project.url }}" target="_blank" rel="noopener noreferrer">{{ project.title.en }}</a>
 {%- endif -%}
 {%- endfor -%}
 </p>
@@ -50,7 +50,7 @@ permalink: /en/works/
 {%- set comma = joiner(" · ") -%}
 {%- for project in projects -%}
 {%- if "Translation" in project.categories.en -%}
-{{ comma() }}<a href="{{ project.url }}" target="_blank" rel="noopener noreferrer">{{ project.title }}</a>
+{{ comma() }}<a href="{{ project.url }}" target="_blank" rel="noopener noreferrer">{{ project.title.en }}</a>
 {%- endif -%}
 {%- endfor -%}
 </p>
@@ -63,7 +63,7 @@ permalink: /en/works/
 {%- set comma = joiner(" · ") -%}
 {%- for project in projects -%}
 {%- if "Art" in project.categories.en -%}
-{{ comma() }}<a href="{{ project.url }}" target="_blank" rel="noopener noreferrer">{{ project.title }}</a>
+{{ comma() }}<a href="{{ project.url }}" target="_blank" rel="noopener noreferrer">{{ project.title.en }}</a>
 {%- endif -%}
 {%- endfor -%}
 </p>
