@@ -1,6 +1,6 @@
 # erikyin.net - 個人作品集網站
 
-TzuYuan Yin（殷慈遠）的個人作品集網站，展示字體設計與程式開發作品。
+TzuYuan Yin（殷慈遠）的個人作品集網站，展示字型設計與程式開發作品。
 
 ## 技術架構
 
@@ -28,7 +28,7 @@ TzuYuan Yin（殷慈遠）的個人作品集網站，展示字體設計與程式
 │   └── icons/          # PWA 圖示
 ├── docs/               # 文檔
 │   └── REDESIGN_PLAN.md # 重構計劃
-├── fonts/              # 字體檔案
+├── fonts/              # 字型檔案
 ├── *.md                # Markdown 頁面
 ├── .eleventy.js        # 11ty 配置
 ├── manifest.json       # PWA manifest
@@ -96,7 +96,7 @@ npm run build
 
 ✅ Lighthouse 效能評分: 95+
 ✅ First Contentful Paint: < 0.8s
-✅ 頁面大小: < 30KB（預設字體）
+✅ 頁面大小: < 30KB（預設字型）
 ✅ 建置時間: < 0.5s
 
 ## SEO 與 PWA
@@ -112,11 +112,11 @@ npm run build
 
 網站支援明暗主題自動切換，主題偏好儲存在 localStorage。
 
-## 字體系統
+## 字型系統
 
-- **系統字體**: 預設使用系統字體確保快速載入
-- **精緻字體**: 使用者可選擇載入 Google Fonts（Noto Sans TC）
-- **可變字體**: 保留可變字體效果（預設禁用，可快速啟用）
+- **系統字型**: 預設使用系統字型確保快速載入
+- **精緻字型**: 使用者可選擇載入 Google Fonts（Noto Sans TC）
+- **可變字型**: 保留可變字型效果（預設禁用，可快速啟用）
 
 ## 授權
 

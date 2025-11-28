@@ -1,12 +1,12 @@
 ---
 layout: default.njk
 title: 作品集
-description: TzuYuan Yin 的字體設計與程式作品集
+description: TzuYuan Yin 的字型設計與程式作品集
 lang: zh
 locale: zh-TW
 ---
 
-**字體設計 · 歐文**
+**字型設計 · 歐文**
 
 <p class="works-inline">
 {%- set comma = joiner(" · ") -%}
@@ -19,7 +19,7 @@ locale: zh-TW
 
 ---
 
-**字體設計 · 漢字**
+**字型設計 · 漢字**
 
 <p class="works-inline">
 {%- set comma = joiner(" · ") -%}

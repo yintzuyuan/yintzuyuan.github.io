@@ -1,8 +1,8 @@
 // ===== 完整腳本 =====
 // 注意：主題切換邏輯已在 default.njk 中實作，避免重複
-// 字體已在 HTML <head> 直接載入，無需 JavaScript 處理
+// 字型已在 HTML <head> 直接載入，無需 JavaScript 處理
 
-// ===== 1. 可變字體效果（禁用，保留程式碼） (100 行) =====
+// ===== 1. 可變字型效果（禁用，保留程式碼） (100 行) =====
 const VARIABLE_FONT_ENABLED = false; // 🔧 改為 true 即可啟用
 
 if (VARIABLE_FONT_ENABLED && document.querySelector('.variable-weight-text')) {
@@ -12,7 +12,7 @@ if (VARIABLE_FONT_ENABLED && document.querySelector('.variable-weight-text')) {
 function loadVariableFont() {
   // 檢查瀏覽器是否支援
   if (!('FontFace' in window)) {
-    console.warn('瀏覽器不支援 FontFace API，無法載入可變字體');
+    console.warn('瀏覽器不支援 FontFace API，無法載入可變字型');
     return;
   }
 
@@ -27,10 +27,10 @@ function loadVariableFont() {
       document.fonts.add(loadedFont);
       document.body.classList.add('variable-font-enabled');
       initVariableWeightEffect();
-      console.log('可變字體載入成功');
+      console.log('可變字型載入成功');
     })
     .catch(err => {
-      console.warn('可變字體載入失敗:', err);
+      console.warn('可變字型載入失敗:', err);
     });
 }
 
@@ -65,7 +65,7 @@ function initVariableWeightEffect() {
     currentAXS1 += (targetAXS1 - currentAXS1) * 0.1;
     currentAXS2 += (targetAXS2 - currentAXS2) * 0.1;
 
-    // 更新字體變化軸
+    // 更新字型變化軸
     titleElement.style.fontVariationSettings =
       `'AXS1' ${currentAXS1.toFixed(2)}, 'AXS2' ${currentAXS2.toFixed(2)}`;
 

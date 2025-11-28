@@ -3,7 +3,7 @@ module.exports = [
     title: { zh: 'Prism', en: 'Prism' },
     url: 'https://www.behance.net/gallery/6749045/Prism-Font',
     categories: {
-      zh: ['歐文', '字體設計'],
+      zh: ['歐文', '字型設計'],
       en: ['Latin', 'Type Design']
     }
   },
@@ -11,7 +11,7 @@ module.exports = [
     title: { zh: 'ERKN', en: 'ERKN' },
     url: 'https://www.behance.net/gallery/7122563/ERKN-font',
     categories: {
-      zh: ['歐文', '字體設計'],
+      zh: ['歐文', '字型設計'],
       en: ['Latin', 'Type Design']
     }
   },
@@ -19,7 +19,7 @@ module.exports = [
     title: { zh: 'Jonah', en: 'Jonah' },
     url: 'https://www.behance.net/gallery/106657379/Coward-Prophet-Font-a-Few-Years-Later_JonahAFYL',
     categories: {
-      zh: ['歐文', '字體設計'],
+      zh: ['歐文', '字型設計'],
       en: ['Latin', 'Type Design']
     }
   },
@@ -27,7 +27,7 @@ module.exports = [
     title: { zh: 'Goalthink', en: 'Goalthink' },
     url: 'https://www.behance.net/gallery/59729821/Goalthink-Font',
     categories: {
-      zh: ['歐文', '字體設計'],
+      zh: ['歐文', '字型設計'],
       en: ['Latin', 'Type Design']
     }
   },
@@ -35,7 +35,7 @@ module.exports = [
     title: { zh: 'Typori', en: 'Typori' },
     url: 'https://www.behance.net/gallery/77648235/Typori-Font',
     categories: {
-      zh: ['歐文', '字體設計'],
+      zh: ['歐文', '字型設計'],
       en: ['Latin', 'Type Design']
     }
   },
@@ -43,7 +43,7 @@ module.exports = [
     title: { zh: 'Sisyphus', en: 'Sisyphus' },
     url: 'https://www.behance.net/gallery/116873545/Sisyphus-Font',
     categories: {
-      zh: ['歐文', '字體設計'],
+      zh: ['歐文', '字型設計'],
       en: ['Latin', 'Type Design']
     }
   },
@@ -51,7 +51,7 @@ module.exports = [
     title: { zh: 'Rasterquan', en: 'Rasterquan' },
     url: 'https://www.behance.net/gallery/117754611/Font-Rasterquan',
     categories: {
-      zh: ['歐文', '字體設計'],
+      zh: ['歐文', '字型設計'],
       en: ['Latin', 'Type Design']
     }
   },
@@ -59,7 +59,7 @@ module.exports = [
     title: { zh: 'Bazilikin', en: 'Bazilikin' },
     url: 'https://www.behance.net/gallery/120115315/Font-Bazilikin',
     categories: {
-      zh: ['歐文', '字體設計'],
+      zh: ['歐文', '字型設計'],
       en: ['Latin', 'Type Design']
     }
   },
@@ -67,7 +67,7 @@ module.exports = [
     title: { zh: 'Alugu', en: 'Alugu' },
     url: 'https://www.behance.net/gallery/121834739/Font-Alugu',
     categories: {
-      zh: ['歐文', '字體設計'],
+      zh: ['歐文', '字型設計'],
       en: ['Latin', 'Type Design']
     }
   },
@@ -75,7 +75,7 @@ module.exports = [
     title: { zh: 'Electlilywave', en: 'Electlilywave' },
     url: 'https://www.behance.net/gallery/124860047/Font-Electlilywave',
     categories: {
-      zh: ['歐文', '字體設計'],
+      zh: ['歐文', '字型設計'],
       en: ['Latin', 'Type Design']
     }
   },
@@ -83,7 +83,7 @@ module.exports = [
     title: { zh: 'Kalosgon', en: 'Kalosgon' },
     url: 'https://www.behance.net/gallery/125875695/Font-Kalosgon',
     categories: {
-      zh: ['歐文', '字體設計'],
+      zh: ['歐文', '字型設計'],
       en: ['Latin', 'Type Design']
     }
   },
@@ -91,7 +91,7 @@ module.exports = [
     title: { zh: '殷泉明', en: 'Yin Quan Ming' },
     url: 'https://www.facebook.com/jftypeclass/posts/pfbid02mSGzkkcjWU72RF4hHyiPGyPcj694Ujvey92e3x7YYA9cF9P3TNjJ5Sm6vtrYZfU1l',
     categories: {
-      zh: ['漢字', '字體設計'],
+      zh: ['漢字', '字型設計'],
       en: ['CJK', 'Type Design']
     }
   },
@@ -99,7 +99,7 @@ module.exports = [
     title: { zh: '口方體', en: 'CubeFarm' },
     url: 'https://www.behance.net/gallery/61406349/-CubeFarm-Font-(Chinese)',
     categories: {
-      zh: ['漢字', '字體設計'],
+      zh: ['漢字', '字型設計'],
       en: ['CJK', 'Type Design']
     }
   },

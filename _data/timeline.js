@@ -120,7 +120,7 @@ module.exports = [
       {
         icon: 'outline',
         text: {
-          zh: '12年字體馬拉松計畫',
+          zh: '12年字型馬拉松計畫',
           en: '12-Year Type Design Marathon Project'
         }
       },

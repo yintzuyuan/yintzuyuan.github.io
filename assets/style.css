@@ -202,7 +202,7 @@ header button[data-theme-toggle]:hover {
 
 /* ===== 5. 時間軸（進階效果已在 critical.css）===== */
 
-/* ===== 5. 可變字體效果 (20 行) ===== */
+/* ===== 5. 可變字型效果 (20 行) ===== */
 .variable-weight-text {
   font-family: var(--font-base);
   font-size: 3rem;
@@ -210,7 +210,7 @@ header button[data-theme-toggle]:hover {
   margin-bottom: var(--space-lg);
 }
 
-/* 當可變字體啟用時 */
+/* 當可變字型啟用時 */
 body.variable-font-enabled .variable-weight-text {
   font-family: 'YinTzuYuan Title', var(--font-base);
   font-variation-settings: 'AXS1' 0, 'AXS2' 0;
@@ -263,8 +263,8 @@ button[type="submit"]:hover {
   opacity: 0.8;
 }
 
-/* ===== 7. 字體載入（已移除提示 UI，改為自動載入）===== */
-/* 字體提示相關樣式已移除，字體現在會自動載入 */
+/* ===== 7. 字型載入（已移除提示 UI，改為自動載入）===== */
+/* 字型提示相關樣式已移除，字型現在會自動載入 */
 
 /* ===== 7. 回到頂部按鈕 hover 效果 ===== */
 #back-to-top:hover {
@@ -357,7 +357,7 @@ button[type="submit"]:hover {
     height: 220px;
   }
 
-  /* 字體提示樣式已移除 */
+  /* 字型提示樣式已移除 */
 }
 
 /* ===== 9. 暗色模式字重調整 ===== */
