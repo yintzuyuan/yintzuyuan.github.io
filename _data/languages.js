@@ -8,6 +8,7 @@ module.exports = {
       nav: {
         home: '首頁',
         works: '作品集',
+        products: '產品',
         about: '關於',
         contact: '聯繫'
       },
@@ -24,7 +25,7 @@ module.exports = {
         all: '全部',
         '歐文': '歐文',
         '漢字': '漢字',
-        '字體設計': '字體設計',
+        '字型設計': '字型設計',
         'Glyphs工具': 'Glyphs工具',
         '工具開發': '工具開發',
         '翻譯': '翻譯',
@@ -42,6 +43,7 @@ module.exports = {
       nav: {
         home: 'Home',
         works: 'Works',
+        products: 'Products',
         about: 'About',
         contact: 'Contact'
       },
@@ -58,7 +60,7 @@ module.exports = {
         all: 'All',
         '歐文': 'Latin',
         '漢字': 'CJK',
-        '字體設計': 'Type Design',
+        '字型設計': 'Type Design',
         'Glyphs工具': 'Glyphs Plugins',
         '工具開發': 'Development',
         '翻譯': 'Translation',

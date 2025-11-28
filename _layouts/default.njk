@@ -6,21 +6,21 @@
   <title>{{ title }} - TzuYuan Yin</title>
 
   <!-- SEO Meta Tags -->
-  <meta name="description" content="{{ description or '字體設計師 × 開發者 - TzuYuan Yin 殷慈遠' }}">
+  <meta name="description" content="{{ description or '字型設計師 × 開發者 - TzuYuan Yin 殷慈遠' }}">
   <meta name="author" content="TzuYuan Yin">
 
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://erikyin.net{{ page.url }}">
   <meta property="og:title" content="{{ title }} - TzuYuan Yin">
-  <meta property="og:description" content="{{ description or '字體設計師 × 開發者 - TzuYuan Yin 殷慈遠' }}">
+  <meta property="og:description" content="{{ description or '字型設計師 × 開發者 - TzuYuan Yin 殷慈遠' }}">
   <meta property="og:image" content="https://erikyin.net/assets/og-image.jpg">
 
   <!-- Twitter -->
   <meta property="twitter:card" content="summary_large_image">
   <meta property="twitter:url" content="https://erikyin.net{{ page.url }}">
   <meta property="twitter:title" content="{{ title }} - TzuYuan Yin">
-  <meta property="twitter:description" content="{{ description or '字體設計師 × 開發者 - TzuYuan Yin 殷慈遠' }}">
+  <meta property="twitter:description" content="{{ description or '字型設計師 × 開發者 - TzuYuan Yin 殷慈遠' }}">
   <meta property="twitter:image" content="https://erikyin.net/assets/og-image.jpg">
 
   <!-- hreflang SEO -->
@@ -63,6 +63,7 @@
       <div class="nav-links">
         <a href="{{ '/' | locale_url }}"{% if page.url == ('/' | locale_url) %} aria-current="page"{% endif %}>{{ languages[lang].ui.nav.home or '首頁' }}</a>
         <a href="{{ '/works/' | locale_url }}"{% if page.url.startsWith('/works/') or page.url.startsWith('/en/works/') %} aria-current="page"{% endif %}>{{ languages[lang].ui.nav.works or '作品' }}</a>
+        <a href="{{ '/products/' | locale_url }}"{% if page.url.startsWith('/products/') or page.url.startsWith('/en/products/') %} aria-current="page"{% endif %}>{{ languages[lang].ui.nav.products or '產品' }}</a>
         <a href="{{ '/about/' | locale_url }}"{% if page.url.startsWith('/about/') or page.url.startsWith('/en/about/') %} aria-current="page"{% endif %}>{{ languages[lang].ui.nav.about or '關於' }}</a>
         <a href="{{ '/contact/' | locale_url }}"{% if page.url.startsWith('/contact/') or page.url.startsWith('/en/contact/') %} aria-current="page"{% endif %}>{{ languages[lang].ui.nav.contact or '聯繫' }}</a>
       </div>
