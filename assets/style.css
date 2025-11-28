@@ -130,6 +130,22 @@ footer .lang-info {
   margin-bottom: 0.5rem;
 }
 
+footer .legal-links {
+  margin-top: var(--space-sm);
+  font-size: 0.85rem;
+  display: block;
+  text-align: center;
+}
+
+footer .legal-links a {
+  margin: 0 0.5rem;
+  opacity: 0.8;
+}
+
+footer .legal-links a:hover {
+  opacity: 1;
+}
+
 /* ===== 語言切換按鈕 ===== */
 .lang-switcher {
   background: none;

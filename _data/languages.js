@@ -13,7 +13,9 @@ module.exports = {
       },
       footer: {
         availableIn: '此頁面也有其他語言版本：',
-        backToTop: '回到頂部'
+        backToTop: '回到頂部',
+        privacy: '隱私權政策',
+        terms: '服務條款'
       },
       theme: {
         toggle: '切換主題'
@@ -45,7 +47,9 @@ module.exports = {
       },
       footer: {
         availableIn: 'Also available in:',
-        backToTop: 'Back to Top'
+        backToTop: 'Back to Top',
+        privacy: 'Privacy Policy',
+        terms: 'Terms of Service'
       },
       theme: {
         toggle: 'Toggle Theme'
