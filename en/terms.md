@@ -85,11 +85,13 @@ Refunds will be processed through Paddle via the original payment method.
 
 ---
 
-## Product Delivery
+## Product Access and Licensing
 
-- After purchase completion, you will receive a product download link via email
-- Please ensure you provide a correct email address
-- If you do not receive the delivery email, please check your spam folder or contact me
+- Products can be downloaded and trialed for free via the Glyphs Plugin Manager
+- After purchase completion, Paddle will send a purchase receipt via email
+- Your license will be automatically activated, unlocking full product features
+- Please ensure you provide a correct email address when purchasing
+- If your license is not automatically activated, please restart Glyphs or contact me
 
 ---
 
