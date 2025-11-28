@@ -18,7 +18,6 @@ locale: zh-TW
 
 - **「產品」**：指我開發並銷售的 Glyphs 外掛軟體及相關數位產品
 - **「您」**：指購買或使用產品的個人或實體
-- **「賣方」**：指殷慈遠（TzuYuan Yin）
 - **「Paddle」**：指 Paddle.com Market Limited，本網站的 Merchant of Record（交易紀錄商）
 
 ---
