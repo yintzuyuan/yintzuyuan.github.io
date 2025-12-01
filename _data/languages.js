@@ -5,6 +5,7 @@ module.exports = {
     name: '繁體中文',
     dir: 'ltr',
     ui: {
+      siteDescription: '字型設計師 × 開發者 - TzuYuan Yin 殷慈遠',
       nav: {
         home: '首頁',
         works: '作品集',
@@ -40,6 +41,7 @@ module.exports = {
     name: 'English',
     dir: 'ltr',
     ui: {
+      siteDescription: 'Type Designer × Developer - TzuYuan Yin',
       nav: {
         home: 'Home',
         works: 'Works',
