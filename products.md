@@ -12,6 +12,6 @@ locale: zh-TW
 
 **NineBoxView Pro**
 
-Glyphs 九宮格預覽外掛 - 即時預覽漢字字型的九宮格排列效果。
+Glyphs 九宮格預覽外掛 - 即時預覽 CJK 字型的九宮格排列效果。
 
 [了解更多](/products/nineboxviewpro/)
