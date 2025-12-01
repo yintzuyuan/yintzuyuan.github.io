@@ -6,6 +6,14 @@ lang: zh
 locale: zh-TW
 ---
 
+<div class="announcement-banner">
+  <p>
+    <span class="announcement-tag">[新發布]</span>
+    <strong>NineBoxView Pro</strong> - Glyphs 的終極預覽工具。
+    <a href="/NineBoxView-Pro/" class="announcement-link">了解更多與購買 →</a>
+  </p>
+</div>
+
 # 殷慈遠
 
 ## 字型設計師 × 開發者

@@ -200,6 +200,73 @@ header button[data-theme-toggle]:hover {
   letter-spacing: 0.05em;  /* 卡片標題字距增加 */
 }
 
+/* ===== 4. 新發布通知橫幅 ===== */
+.announcement-banner {
+  background: rgba(74, 74, 74, 0.05);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: var(--space-md);
+  margin-bottom: var(--space-lg);
+  text-align: center;
+  transition: border-color 0.2s;
+}
+
+.announcement-banner:hover {
+  border-color: var(--accent);
+}
+
+.announcement-banner p {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.announcement-tag {
+  display: inline-block;
+  background: rgba(26, 26, 26, 0.1);
+  padding: 0.15em 0.5em;
+  border-radius: 4px;
+  font-size: 0.85em;
+  font-weight: 600;
+  margin-right: 0.5em;
+  letter-spacing: 0.02em;
+}
+
+.announcement-banner strong {
+  font-weight: 600;
+}
+
+.announcement-link {
+  display: inline-block;
+  margin-left: 0.5em;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+  white-space: nowrap;
+  transition: background 0.2s, font-weight 0.2s, letter-spacing 0.2s;
+}
+
+.announcement-link:hover {
+  background: rgba(74, 74, 74, 0.1);
+  padding: 0 0.2rem;
+  margin: 0 calc(-0.2rem + 0.5em) 0 calc(-0.2rem);
+  font-weight: 600;
+  letter-spacing: 0.05em;
+}
+
+/* 暗色模式適配 */
+[data-theme="dark"] .announcement-banner {
+  background: rgba(248, 246, 240, 0.05);
+}
+
+[data-theme="dark"] .announcement-tag {
+  background: rgba(248, 246, 240, 0.15);
+}
+
+[data-theme="dark"] .announcement-link:hover {
+  background: rgba(248, 246, 240, 0.1);
+}
+
 /* ===== 5. 時間軸（進階效果已在 critical.css）===== */
 
 /* ===== 5. 可變字型效果 (20 行) ===== */
@@ -358,6 +425,23 @@ button[type="submit"]:hover {
   }
 
   /* 字型提示樣式已移除 */
+
+  /* 新發布通知橫幅 - 手機版 */
+  .announcement-banner {
+    padding: var(--space-sm) var(--space-md);
+    margin-bottom: var(--space-md);
+  }
+
+  .announcement-banner p {
+    font-size: 0.9rem;
+  }
+
+  .announcement-link {
+    display: block;
+    margin-left: 0 !important;
+    margin-top: 0.5em;
+    white-space: normal;
+  }
 }
 
 /* ===== 9. 暗色模式字重調整 ===== */

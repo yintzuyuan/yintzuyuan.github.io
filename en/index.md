@@ -5,6 +5,14 @@ description: Type Designer × Developer - TzuYuan Yin
 permalink: /en/
 ---
 
+<div class="announcement-banner">
+  <p>
+    <span class="announcement-tag">[New Release]</span>
+    <strong>NineBoxView Pro</strong> - The ultimate preview tool for Glyphs.
+    <a href="/NineBoxView-Pro/en/" class="announcement-link">Learn More & Buy →</a>
+  </p>
+</div>
+
 # TzuYuan Yin
 
 ## Type Designer × Developer
