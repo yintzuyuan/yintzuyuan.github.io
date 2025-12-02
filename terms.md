@@ -61,7 +61,7 @@ locale: zh-TW
 
 ---
 
-## 退款政策 {#refund}
+<h2 id="refund">退款政策</h2>
 
 ### 免費試用
 

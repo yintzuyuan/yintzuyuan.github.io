@@ -60,7 +60,7 @@ All purchase transactions are processed by **Paddle.com Market Limited** as the 
 
 ---
 
-## Refund Policy {#refund}
+<h2 id="refund">Refund Policy</h2>
 
 ### Free Trial
 
