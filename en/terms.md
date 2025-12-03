@@ -61,27 +61,14 @@ All purchase transactions are processed by **Paddle.com Market Limited** as the 
 ---
 
 <h2 id="refund">Refund Policy</h2>
-
-### Free Trial
-
-I provide a **14-day full-featured free trial** for all paid products. During the trial period, you can fully experience all product features to ensure the Product meets your needs.
-
-### Refund Conditions
-
-Since we provide an adequate free trial period, **we do not accept refund requests for "change of mind"**.
-
-Refunds are only provided in the following circumstances:
-
-- **Major Technical Failure**: The Product has a significant technical issue, and I cannot provide a fix or solution within **7 business days**
-
-### Requesting a Refund
-
-To request a refund, please contact:
-
-- Email: [yintzuyuan@erikyin.net](mailto:yintzuyuan@erikyin.net)
-- Please provide: Proof of purchase (order number or receipt), detailed description of the issue
-
-Refunds will be processed through Paddle via the original payment method.
+<p>
+  We want you to be completely satisfied with your purchase.
+  In accordance with Paddle's Buyer Terms, we offer a <strong>14-day money-back guarantee</strong>.
+</p>
+<p>
+  If you are not satisfied with the software for any reason, you may request a full refund within 14 days of your purchase.
+  Please contact us at <a href="mailto:yintzuyuan@erikyin.net">yintzuyuan@erikyin.net</a> with your order number to initiate a refund.
+</p>
 
 ---
 
