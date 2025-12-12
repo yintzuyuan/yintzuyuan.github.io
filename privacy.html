@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="zh-TW" data-theme="light" data-lang="zh" data-base-path="./" data-page="privacy.html">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>隱私權政策 - TzuYuan Yin</title>
+
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="本網站及數位產品的隱私權政策">
+  <meta name="author" content="TzuYuan Yin">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://erikyin.net/privacy.html">
+  <meta property="og:title" content="隱私權政策 - TzuYuan Yin">
+  <meta property="og:description" content="本網站及數位產品的隱私權政策">
+  <meta property="og:image" content="https://erikyin.net/assets/og-image.jpg">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://erikyin.net/privacy.html">
+  <meta property="twitter:title" content="隱私權政策 - TzuYuan Yin">
+  <meta property="twitter:description" content="本網站及數位產品的隱私權政策">
+  <meta property="twitter:image" content="https://erikyin.net/assets/og-image.jpg">
+
+  <!-- hreflang SEO -->
+  <link rel="alternate" hreflang="zh" href="https://erikyin.net/privacy.html">
+  <link rel="alternate" hreflang="en" href="https://erikyin.net/en/privacy.html">
+
+  <!-- PWA -->
+  <link rel="manifest" href="./manifest.json">
+  <meta name="theme-color" content="#000000">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="Erik Yin">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="./favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="./assets/icons/apple-touch-icon.png">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;700&family=IBM+Plex+Mono:wght@400;700&family=Noto+Sans+TC:wght@100..900&display=swap" rel="stylesheet">
+
+  <!-- Critical CSS -->
+  <style>
+:root {
+  --ink-black: #1a1a1a;
+  --rice-paper: #f8f6f0;
+  --brush-gray: #4a4a4a;
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 2rem;
+  --space-xl: 3rem;
+  --font-base: "IBM Plex Sans", "Noto Sans TC", -apple-system, BlinkMacSystemFont, "Microsoft JhengHei", "PingFang TC", sans-serif;
+  --bg: var(--rice-paper);
+  --text: var(--brush-gray);
+  --link: var(--ink-black);
+  --border: rgba(74, 74, 74, 0.2);
+}
+[data-theme="dark"] {
+  --bg: var(--ink-black);
+  --text: var(--rice-paper);
+  --link: #ffffff;
+  --border: rgba(248, 246, 240, 0.2);
+}
+* { box-sizing: border-box; }
+body {
+  font-family: var(--font-base);
+  font-size: 18px;
+  line-height: 1.75;
+  color: var(--text);
+  background: var(--bg);
+  max-width: 42rem;
+  margin: 0 auto;
+  padding: 1rem;
+  padding-top: 4rem;
+}
+a { color: var(--link); }
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  padding: 1rem;
+  padding-bottom: 0.5rem;
+  max-width: 42rem;
+  margin: 0 auto;
+}
+nav { display: flex; align-items: center; flex-wrap: wrap; gap: 0.5rem; }
+.nav-toggle { display: none; }
+.nav-links { display: flex; gap: 1rem; flex: 1; }
+nav a { text-decoration: none; }
+footer {
+  border-top: 1px solid var(--border);
+  padding-top: 1rem;
+  margin-top: 3rem;
+  text-align: center;
+  opacity: 0.7;
+  font-size: 0.9rem;
+}
+[data-theme-toggle]:hover { opacity: 0.7; }
+[data-theme-toggle] svg { display: block; }
+/* FOUC 防止閃爍 */
+body { opacity: 0; transition: opacity 0.1s; }
+body.loaded { opacity: 1; }
+  </style>
+
+  <link rel="preload" href="./assets/style.css" as="style" onload="this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="./assets/style.css"></noscript>
+
+  <script>
+    const theme = localStorage.getItem('theme') || 'light';
+    document.documentElement.setAttribute('data-theme', theme);
+  </script>
+</head>
+<body>
+  <!-- 共用 header（由 app.js 動態注入） -->
+  <header id="site-header"></header>
+
+  <!-- ========== 頁面內容（Markdown 格式）========== -->
+  <script id="page-content" type="text/markdown">
+# 隱私權政策
+
+**最後更新日期：2025 年 11 月 28 日**
+
+本隱私權政策說明殷慈遠（以下簡稱「我」）如何收集、使用和保護您在使用本網站（erikyin.net）及購買數位產品時的個人資料。
+
+---
+
+## 資料控制者
+
+**殷慈遠（TzuYuan Yin）**
+電子郵件：[yintzuyuan@erikyin.net](mailto:yintzuyuan@erikyin.net)
+網站：[https://erikyin.net](https://erikyin.net)
+
+---
+
+## 收集的資料類型
+
+### 付款與交易資料
+
+本網站透過 **Paddle.com Market Limited**（以下簡稱「Paddle」）處理所有付款交易。Paddle 作為 Merchant of Record（交易紀錄商），負責收集和處理您的付款資訊，包括：
+
+- 姓名
+- 電子郵件地址
+- 帳單地址
+- 付款方式詳細資訊
+
+我不會直接存取或儲存您的信用卡號碼或其他敏感付款資訊。如需了解 Paddle 如何處理您的資料，請參閱 [Paddle 隱私權政策](https://www.paddle.com/legal/privacy)。
+
+### 網站瀏覽資料
+
+本網站託管於 GitHub Pages，可能會收集標準伺服器日誌資訊，包括：
+
+- IP 位址
+- 瀏覽器類型
+- 存取時間
+- 參照頁面
+
+### Cookie 與追蹤
+
+本網站僅使用必要的本地儲存（localStorage）來記住您的主題偏好設定（明亮/深色模式）。我不使用追蹤 Cookie 或第三方分析工具。
+
+---
+
+## 資料使用目的
+
+收集的資料僅用於以下目的：
+
+1. **處理購買交易** - 完成產品購買和交付授權
+2. **客戶支援** - 回應您的詢問和提供技術支援
+3. **產品更新通知** - 通知您已購買產品的重要更新（如適用）
+
+---
+
+## 第三方服務
+
+本網站使用以下第三方服務：
+
+| 服務 | 用途 | 隱私權政策 |
+|------|------|-----------|
+| Paddle | 付款處理 | [連結](https://www.paddle.com/legal/privacy) |
+| GitHub Pages | 網站託管 | [連結](https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement) |
+
+---
+
+## 資料保留期限
+
+- **交易記錄**：依據 Paddle 政策和相關法律要求保留
+- **客戶支援通訊**：保留至問題解決後 2 年
+- **網站日誌**：依據 GitHub Pages 政策
+
+---
+
+## 您的權利
+
+根據適用的資料保護法律，您可能擁有以下權利：
+
+- **存取權** - 要求取得我們持有的您的個人資料副本
+- **更正權** - 要求更正不正確的個人資料
+- **刪除權** - 要求刪除您的個人資料
+- **反對權** - 反對某些資料處理活動
+
+如需行使上述權利，請透過 [yintzuyuan@erikyin.net](mailto:yintzuyuan@erikyin.net) 與我聯繫。
+
+---
+
+## 資料安全
+
+我採取合理的技術和組織措施來保護您的個人資料，包括使用 HTTPS 加密傳輸和選擇信譽良好的第三方服務提供商。
+
+---
+
+## 政策更新
+
+本隱私權政策可能會不時更新。重大變更將在本頁面公告，並更新「最後更新日期」。建議您定期查閱本政策。
+
+---
+
+## 聯繫方式
+
+如對本隱私權政策有任何疑問，請聯繫：
+
+**殷慈遠（TzuYuan Yin）**
+電子郵件：[yintzuyuan@erikyin.net](mailto:yintzuyuan@erikyin.net)
+  </script>
+  <!-- ========== 頁面內容結束 ========== -->
+
+  <main id="main-content">
+    <!-- 內容由 app.js 渲染 -->
+  </main>
+
+  <button id="back-to-top" aria-label="回到頂部" style="position:fixed;bottom:2rem;right:2rem;width:3rem;height:3rem;background:var(--text);color:var(--bg);border:none;border-radius:50%;font-size:1.5rem;cursor:pointer;opacity:0;visibility:hidden;z-index:99;">↑</button>
+
+  <!-- 共用 footer（由 app.js 動態注入） -->
+  <footer id="site-footer"></footer>
+
+  <script src="./data/ui.js"></script>
+  <script src="./assets/lib/marked.min.js"></script>
+  <script src="./assets/app.js"></script>
+</body>
+</html>

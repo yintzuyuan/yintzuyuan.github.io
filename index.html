@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="zh-TW" data-theme="light" data-lang="zh" data-base-path="./" data-page="index.html">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>首頁 - TzuYuan Yin</title>
+
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="字型設計師 × 開發者 - TzuYuan Yin 殷慈遠">
+  <meta name="author" content="TzuYuan Yin">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://erikyin.net/">
+  <meta property="og:title" content="首頁 - TzuYuan Yin">
+  <meta property="og:description" content="字型設計師 × 開發者 - TzuYuan Yin 殷慈遠">
+  <meta property="og:image" content="https://erikyin.net/assets/og-image.jpg">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://erikyin.net/">
+  <meta property="twitter:title" content="首頁 - TzuYuan Yin">
+  <meta property="twitter:description" content="字型設計師 × 開發者 - TzuYuan Yin 殷慈遠">
+  <meta property="twitter:image" content="https://erikyin.net/assets/og-image.jpg">
+
+  <!-- hreflang SEO -->
+  <link rel="alternate" hreflang="zh" href="https://erikyin.net/">
+  <link rel="alternate" hreflang="en" href="https://erikyin.net/en/">
+
+  <!-- PWA -->
+  <link rel="manifest" href="./manifest.json">
+  <meta name="theme-color" content="#000000">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="Erik Yin">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="./favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="./assets/icons/apple-touch-icon.png">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;700&family=IBM+Plex+Mono:wght@400;700&family=Noto+Sans+TC:wght@100..900&display=swap" rel="stylesheet">
+
+  <!-- Critical CSS -->
+  <style>
+/* ===== Critical CSS ===== */
+
+/* 顏色變數 - 極簡黑白配色方案 */
+:root {
+  --ink-black: #1a1a1a;
+  --rice-paper: #f8f6f0;
+  --brush-gray: #4a4a4a;
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 2rem;
+  --space-xl: 3rem;
+  --font-base: "IBM Plex Sans", "Noto Sans TC", -apple-system, BlinkMacSystemFont, "Microsoft JhengHei", "PingFang TC", sans-serif;
+  --font-mono: "IBM Plex Mono", "SF Mono", Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  --bg: var(--rice-paper);
+  --text: var(--brush-gray);
+  --link: var(--ink-black);
+  --accent: #6b7280;
+  --border: rgba(74, 74, 74, 0.2);
+  --border-light: #d1d5db;
+}
+
+[data-theme="dark"] {
+  --bg: var(--ink-black);
+  --text: var(--rice-paper);
+  --link: #ffffff;
+  --accent: #9ca3af;
+  --border: rgba(248, 246, 240, 0.2);
+  --border-light: #374151;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  font-family: var(--font-base);
+  font-size: 18px;
+  line-height: 1.75;
+  color: var(--text);
+  background: var(--bg);
+  max-width: 42rem;
+  margin: 0 auto;
+  padding: 1rem;
+  padding-top: 4rem;
+}
+
+a { color: var(--link); }
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  padding: 1rem;
+  padding-bottom: 0.5rem;
+  max-width: 42rem;
+  margin: 0 auto;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.nav-toggle { display: none; }
+
+.nav-links {
+  display: flex;
+  gap: 1rem;
+  flex: 1;
+}
+
+nav a { text-decoration: none; }
+
+footer {
+  border-top: 1px solid var(--border);
+  padding-top: 1rem;
+  margin-top: 3rem;
+  text-align: center;
+  opacity: 0.7;
+  font-size: 0.9rem;
+}
+
+[data-theme-toggle]:hover { opacity: 0.7; }
+[data-theme-toggle] svg { display: block; }
+
+/* FOUC 防止閃爍 */
+body { opacity: 0; transition: opacity 0.1s; }
+body.loaded { opacity: 1; }
+
+/* Announcement Banner */
+.announcement-banner {
+  background: var(--link);
+  color: var(--bg);
+  padding: var(--space-sm) var(--space-md);
+  border-radius: 6px;
+  margin-bottom: var(--space-lg);
+  font-size: 0.9rem;
+}
+
+.announcement-banner p { margin: 0; }
+
+.announcement-banner a {
+  color: var(--bg);
+  font-weight: 700;
+}
+
+.announcement-tag {
+  opacity: 0.8;
+  margin-right: 0.25em;
+}
+  </style>
+
+  <!-- 延遲載入完整 CSS -->
+  <link rel="preload" href="./assets/style.css" as="style" onload="this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="./assets/style.css"></noscript>
+
+  <!-- 主題初始化 -->
+  <script>
+    const theme = localStorage.getItem('theme') || 'light';
+    document.documentElement.setAttribute('data-theme', theme);
+  </script>
+</head>
+<body>
+  <!-- 共用 header（由 app.js 動態注入） -->
+  <header id="site-header"></header>
+
+  <!-- ========== 頁面內容（Markdown 格式）========== -->
+  <script id="page-content" type="text/markdown">
+<div class="announcement-banner">
+  <p>
+    <span class="announcement-tag">[新發布]</span>
+    <strong>NineBoxView Pro</strong> - Glyphs 的終極預覽工具。
+    <a href="./NineBoxView-Pro/index.html" class="announcement-link">了解更多與購買 →</a>
+  </p>
+</div>
+
+# 殷慈遠
+
+## 字型設計師 × 開發者
+
+- [作品集](./works.html) — 查看我的字型設計與工具開發
+- [關於我](./about.html) — 了解我的創作歷程
+- [聯繫](./contact.html) — 創意合作與交流
+
+---
+
+_目前任職於 [文鼎字型](https://www.arphic.com.tw/) 擔任字型設計師，主要使用 [Glyphs](https://glyphsapp.com/) 進行字型設計。_
+  </script>
+  <!-- ========== 頁面內容結束 ========== -->
+
+  <main id="main-content">
+    <!-- 內容由 app.js 渲染 -->
+  </main>
+
+  <!-- 回到頂部按鈕 -->
+  <button id="back-to-top" aria-label="回到頂部" style="position:fixed;bottom:2rem;right:2rem;width:3rem;height:3rem;background:var(--text);color:var(--bg);border:none;border-radius:50%;font-size:1.5rem;cursor:pointer;opacity:0;visibility:hidden;z-index:99;">↑</button>
+
+  <!-- 共用 footer（由 app.js 動態注入） -->
+  <footer id="site-footer"></footer>
+
+  <!-- 載入資料與腳本 -->
+  <script src="./data/ui.js"></script>
+  <script src="./assets/lib/marked.min.js"></script>
+  <script src="./assets/app.js"></script>
+</body>
+</html>

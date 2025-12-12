@@ -1,4 +1,8 @@
-module.exports = [
+// 個人時間軸資料
+// 編輯此檔案可更新關於頁面的時間軸
+// text 欄位支援行內 Markdown 語法（如連結 [text](url)）
+
+window.TIMELINE_DATA = [
   {
     year: 2025,
     events: [
@@ -139,8 +143,8 @@ module.exports = [
       {
         icon: 'outline',
         text: {
-          zh: '發布 [6款拉丁字型](/works/#typography)',
-          en: 'Released [6 Latin Typefaces](/works/#typography)'
+          zh: '發布 [6款拉丁字型](/works.html#typography)',
+          en: 'Released [6 Latin Typefaces](/en/works.html#typography)'
         }
       }
     ]
