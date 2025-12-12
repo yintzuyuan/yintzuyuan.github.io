@@ -1,19 +1,24 @@
 /**
  * 純 HTML 網站核心腳本
- * 處理 Markdown 渲染、UI 文案填充、動態內容渲染
+ * 處理 Markdown 渲染、UI 文案填充、動態內容渲染、共用元件注入
  */
 
 (function() {
   'use strict';
 
-  // 取得當前語言
+  // 取得當前語言與頁面資訊
   const lang = document.documentElement.dataset.lang || 'zh';
   const ui = window.UI_DATA ? window.UI_DATA[lang] : null;
+  const basePath = document.documentElement.dataset.basePath || './';
+  const currentPage = document.documentElement.dataset.page || 'index.html';
 
   /**
    * 初始化
    */
   function init() {
+    // 0. 注入共用元件（header/footer）
+    injectComponents();
+
     // 1. 渲染 Markdown 內容
     renderMarkdown();
 
@@ -30,6 +35,29 @@
     initThemeToggle();
     initNavToggle();
     initBackToTop();
+
+    // 5. 顯示頁面（消除 FOUC）
+    document.body.classList.add('loaded');
+  }
+
+  /**
+   * 注入共用元件（header/footer）
+   */
+  function injectComponents() {
+    const components = window.UI_COMPONENTS;
+    if (!components) return;
+
+    // 注入 header
+    const header = document.getElementById('site-header');
+    if (header && !header.innerHTML.trim()) {
+      header.innerHTML = components.getHeader(lang, currentPage, basePath);
+    }
+
+    // 注入 footer
+    const footer = document.getElementById('site-footer');
+    if (footer && !footer.innerHTML.trim()) {
+      footer.innerHTML = components.getFooter(lang, currentPage, basePath);
+    }
   }
 
   /**
@@ -150,19 +178,22 @@
     const btn = document.querySelector('[data-theme-toggle]');
     if (!btn) return;
 
-    const sunIcon = '<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>';
-    const moonIcon = '<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"/></svg>';
+    // 使用共用圖示或預設值
+    const icons = window.UI_COMPONENTS?.icons || {
+      sun: '<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>',
+      moon: '<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"/></svg>'
+    };
 
     btn.addEventListener('click', () => {
       const current = document.documentElement.getAttribute('data-theme');
       const next = current === 'dark' ? 'light' : 'dark';
       document.documentElement.setAttribute('data-theme', next);
       localStorage.setItem('theme', next);
-      btn.innerHTML = next === 'dark' ? moonIcon : sunIcon;
+      btn.innerHTML = next === 'dark' ? icons.moon : icons.sun;
     });
 
     // 初始化按鈕圖示
-    btn.innerHTML = localStorage.getItem('theme') === 'dark' ? moonIcon : sunIcon;
+    btn.innerHTML = localStorage.getItem('theme') === 'dark' ? icons.moon : icons.sun;
   }
 
   /**

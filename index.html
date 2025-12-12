@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-TW" data-theme="light" data-lang="zh">
+<html lang="zh-TW" data-theme="light" data-lang="zh" data-base-path="./" data-page="index.html">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -135,6 +135,10 @@ footer {
 [data-theme-toggle]:hover { opacity: 0.7; }
 [data-theme-toggle] svg { display: block; }
 
+/* FOUC 防止閃爍 */
+body { opacity: 0; transition: opacity 0.1s; }
+body.loaded { opacity: 1; }
+
 /* Announcement Banner */
 .announcement-banner {
   background: var(--link);
@@ -169,34 +173,8 @@ footer {
   </script>
 </head>
 <body>
-  <header>
-    <nav>
-      <button class="nav-toggle" aria-label="選單">☰</button>
-      <div class="nav-links">
-        <a href="./index.html" data-nav="home" aria-current="page">首頁</a>
-        <a href="./works.html" data-nav="works">作品集</a>
-        <a href="./products.html" data-nav="products">產品</a>
-        <a href="./about.html" data-nav="about">關於</a>
-        <a href="./contact.html" data-nav="contact">聯繫</a>
-      </div>
-      <div style="float:right; display:flex; gap:0.5rem; align-items:center;">
-        <a href="./en/index.html" class="lang-switcher" lang="en" aria-label="切換語言">EN</a>
-        <button data-theme-toggle aria-label="切換主題" style="background:none; border:1px solid var(--border); color:var(--text); padding:0.5rem; cursor:pointer; border-radius:4px; line-height:0;">
-          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="12" cy="12" r="4" />
-            <path d="M12 2v2" />
-            <path d="M12 20v2" />
-            <path d="m4.93 4.93 1.41 1.41" />
-            <path d="m17.66 17.66 1.41 1.41" />
-            <path d="M2 12h2" />
-            <path d="M20 12h2" />
-            <path d="m6.34 17.66-1.41 1.41" />
-            <path d="m19.07 4.93-1.41 1.41" />
-          </svg>
-        </button>
-      </div>
-    </nav>
-  </header>
+  <!-- 共用 header（由 app.js 動態注入） -->
+  <header id="site-header"></header>
 
   <!-- ========== 頁面內容（Markdown 格式）========== -->
   <script id="page-content" type="text/markdown">
@@ -229,17 +207,8 @@ _目前任職於 [文鼎字型](https://www.arphic.com.tw/) 擔任字型設計�
   <!-- 回到頂部按鈕 -->
   <button id="back-to-top" aria-label="回到頂部" style="position:fixed;bottom:2rem;right:2rem;width:3rem;height:3rem;background:var(--text);color:var(--bg);border:none;border-radius:50%;font-size:1.5rem;cursor:pointer;opacity:0;visibility:hidden;z-index:99;">↑</button>
 
-  <footer>
-    <p class="lang-info">
-      <span data-footer="availableIn">此頁面也有其他語言版本：</span>
-      <a href="./en/index.html" lang="en">English</a>
-    </p>
-    <p>© 2025 YTY Digital TypeFoundry · TzuYuan Yin 殷慈遠</p>
-    <nav class="legal-links">
-      <a href="./privacy.html" data-footer="privacy">隱私權政策</a>
-      <a href="./terms.html" data-footer="terms">服務條款</a>
-    </nav>
-  </footer>
+  <!-- 共用 footer（由 app.js 動態注入） -->
+  <footer id="site-footer"></footer>
 
   <!-- 載入資料與腳本 -->
   <script src="./data/ui.js"></script>
