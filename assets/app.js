@@ -143,18 +143,17 @@
     if (!container || !window.PROJECTS_DATA) return;
 
     const categoryGroups = [
-      { key: '歐文', title: { zh: '字型設計 · 歐文', en: 'Type Design · Latin' } },
-      { key: '漢字', title: { zh: '字型設計 · 漢字', en: 'Type Design · CJK' } },
-      { key: 'Glyphs工具', title: { zh: 'Glyphs 工具開發', en: 'Glyphs Plugin Development' } },
-      { key: '翻譯', title: { zh: '翻譯作品', en: 'Translation Projects' } },
-      { key: '藝術創作', title: { zh: '藝術創作', en: 'Art Projects' } }
+      { key: 'latin', title: { zh: '字型設計 · 歐文', en: 'Type Design · Latin' } },
+      { key: 'cjk', title: { zh: '字型設計 · 漢字', en: 'Type Design · CJK' } },
+      { key: 'glyphs', title: { zh: 'Glyphs 工具開發', en: 'Glyphs Plugin Development' } },
+      { key: 'translation', title: { zh: '翻譯作品', en: 'Translation Projects' } },
+      { key: 'art', title: { zh: '藝術創作', en: 'Art Projects' } }
     ];
 
     let html = '';
     for (const group of categoryGroups) {
       const filtered = window.PROJECTS_DATA.filter(p =>
-        p.categories[lang].includes(group.key) ||
-        p.categories.zh.includes(group.key)
+        p.categories.includes(group.key)
       );
 
       if (filtered.length === 0) continue;
@@ -178,11 +177,8 @@
     const btn = document.querySelector('[data-theme-toggle]');
     if (!btn) return;
 
-    // 使用共用圖示或預設值
-    const icons = window.UI_COMPONENTS?.icons || {
-      sun: '<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>',
-      moon: '<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"/></svg>'
-    };
+    // 使用集中定義的圖示（來自 data/ui.js）
+    const icons = window.UI_COMPONENTS.icons;
 
     btn.addEventListener('click', () => {
       const current = document.documentElement.getAttribute('data-theme');
