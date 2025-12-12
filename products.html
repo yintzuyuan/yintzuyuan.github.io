@@ -43,6 +43,10 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;700&family=IBM+Plex+Mono:wght@400;700&family=Noto+Sans+TC:wght@100..900&display=swap" rel="stylesheet">
 
+  <!-- Phosphor Icons -->
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.2/src/regular/style.css">
+
   <!-- Critical CSS -->
   <style>
 :root {
@@ -105,7 +109,7 @@ footer {
   font-size: 0.9rem;
 }
 [data-theme-toggle]:hover { opacity: 0.7; }
-[data-theme-toggle] svg { display: block; }
+[data-theme-toggle] svg, [data-theme-toggle] .ph { display: block; font-size: 18px; }
 /* FOUC 防止閃爍 */
 body { opacity: 0; transition: opacity 0.1s; }
 body.loaded { opacity: 1; }

@@ -1,5 +1,11 @@
 /* ===== 完整樣式表 (適度簡約版本) ===== */
 
+/* ===== Phosphor Icons 基礎樣式 ===== */
+.ph {
+  color: currentColor;
+  vertical-align: -0.125em;
+}
+
 /* ===== 1. 基礎排版 (40 行) ===== */
 h1, h2, h3, h4, h5, h6 {
   line-height: 1.2;
