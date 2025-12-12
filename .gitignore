@@ -1,15 +1,7 @@
-# 11ty 編譯產物
-/_site/
-/*.log
-/*.tmp
-
 # 環境設定檔
 .env
 .env.local
 .env.*.local
-
-# 依賴檔案
-node_modules/
 
 # MCP 配置（本機開發用）
 .mcp.json
