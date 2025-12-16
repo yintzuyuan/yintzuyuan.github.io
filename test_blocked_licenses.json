@@ -2,9 +2,9 @@
   "version": 1,
   "updated_at": "2025-12-16T00:00:00Z",
   "blocked_keys": [
-    "TEST-BLOCKED-KEY-12345"
+    "GBCQE-IDVQ5-6IWEW-7ZSJH-66UHU-SAWJZ-TVZM4-VX3KC-IXQAF-FRU4O-5LDAQ-KAYBC-CAHSE-MJL2Z-FY73G-FJG6B-B6CBF-3RI5Y-NUB54-5NEKR-JN74X-T3JGD-VF34"
   ],
   "blocked_emails": [
-    "test-blocked@example.com"
+    "_test-blocked@example.com"
   ]
 }
