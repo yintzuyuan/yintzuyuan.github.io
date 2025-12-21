@@ -2,338 +2,365 @@
 
 /* ===== Phosphor Icons 基礎樣式 ===== */
 .ph {
-  color: currentColor;
-  vertical-align: -0.125em;
+    color: currentColor;
+    vertical-align: -0.125em;
 }
 
 /* ===== 1. 基礎排版 (40 行) ===== */
-h1, h2, h3, h4, h5, h6 {
-  line-height: 1.2;
-  margin-bottom: var(--space-md);
-  font-weight: 700;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    line-height: 1.2;
+    margin-bottom: var(--space-md);
+    font-weight: 700;
 }
 
-h1 { font-size: 3rem; }    /* 48px - 僅用於首頁 */
-h2 { font-size: 2rem; }    /* 32px - 主要分類標題 */
-h3 { font-size: 1.5rem; }  /* 24px - 次級分類 */
-h4 { font-size: 1.4rem; }
+h1 {
+    font-size: 3rem;
+}
+
+/* 48px - 僅用於首頁 */
+h2 {
+    font-size: 2rem;
+}
+
+/* 32px - 主要分類標題 */
+h3 {
+    font-size: 1.5rem;
+}
+
+/* 24px - 次級分類 */
+h4 {
+    font-size: 1.4rem;
+}
 
 p {
-  margin-bottom: var(--space-md);
+    margin-bottom: var(--space-md);
 }
 
 a {
-  color: var(--link);
-  text-decoration: underline;
-  text-decoration-thickness: 1px;
-  text-underline-offset: 2px;
-  transition: background 0.2s, font-weight 0.2s, letter-spacing 0.2s;
+    color: var(--link);
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 2px;
+    transition: background 0.2s, font-weight 0.2s, letter-spacing 0.2s;
 }
 
 a:hover {
-  background: rgba(74, 74, 74, 0.1);  /* 亮色模式：黑色半透明 */
-  font-weight: 600;
-  letter-spacing: 0.05em;  /* 中文字距增加，模擬滑動效果 */
+    background: rgba(74, 74, 74, 0.1);
+    /* 亮色模式：黑色半透明 */
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    /* 中文字距增加，模擬滑動效果 */
 }
 
 [data-theme="dark"] a:hover {
-  background: rgba(248, 246, 240, 0.1);  /* 暗色模式：白色半透明 */
+    background: rgba(248, 246, 240, 0.1);
+    /* 暗色模式：白色半透明 */
 }
 
 /* 導航欄當前頁面狀態（複用 hover 樣式） */
 nav a[aria-current="page"] {
-  background: rgba(74, 74, 74, 0.1);
-  font-weight: 600;
-  letter-spacing: 0.05em;
+    background: rgba(74, 74, 74, 0.1);
+    font-weight: 600;
+    letter-spacing: 0.05em;
 }
 
 [data-theme="dark"] nav a[aria-current="page"] {
-  background: rgba(248, 246, 240, 0.1);
+    background: rgba(248, 246, 240, 0.1);
 }
 
-ul, ol {
-  margin-bottom: var(--space-md);
-  padding-left: var(--space-lg);
+ul,
+ol {
+    margin-bottom: var(--space-md);
+    padding-left: var(--space-lg);
 }
 
 li {
-  margin-bottom: var(--space-sm);
+    margin-bottom: var(--space-sm);
 }
 
-code, pre {
-  font-family: var(--font-mono);
-  font-size: 0.9em;
-  background: rgba(74, 74, 74, 0.1);  /* 亮色模式：黑色半透明 */
-  color: var(--text);
-  padding: 0.2em 0.4em;
-  border-radius: 3px;
-  /* 啟用 Fira Code 連字功能 */
-  font-variant-ligatures: common-ligatures contextual;
-  font-feature-settings: "liga" 1, "calt" 1;
+code,
+pre {
+    font-family: var(--font-mono);
+    font-size: 0.9em;
+    background: rgba(74, 74, 74, 0.1);
+    /* 亮色模式：黑色半透明 */
+    color: var(--text);
+    padding: 0.2em 0.4em;
+    border-radius: 3px;
+    /* 啟用 Fira Code 連字功能 */
+    font-variant-ligatures: common-ligatures contextual;
+    font-feature-settings: "liga" 1, "calt" 1;
 }
 
 [data-theme="dark"] code,
 [data-theme="dark"] pre {
-  background: rgba(248, 246, 240, 0.1);  /* 暗色模式：白色半透明 */
+    background: rgba(248, 246, 240, 0.1);
+    /* 暗色模式：白色半透明 */
 }
 
 pre {
-  padding: var(--space-md);
-  overflow-x: auto;
-  margin-bottom: var(--space-md);
+    padding: var(--space-md);
+    overflow-x: auto;
+    margin-bottom: var(--space-md);
 }
 
 pre code {
-  background: none;
-  padding: 0;
+    background: none;
+    padding: 0;
 }
 
 img {
-  max-width: 100%;
-  height: auto;
-  display: block;
+    max-width: 100%;
+    height: auto;
+    display: block;
 }
 
 /* ===== 1.5. 個人照片樣式 (關於頁面) ===== */
 .about-header {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-bottom: var(--space-lg);
-  margin-top: var(--space-lg);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: var(--space-lg);
+    margin-top: var(--space-lg);
 }
 
 .profile-photo {
-  width: 320px;
-  height: 320px;
-  border-radius: 50%;
-  object-fit: cover;
-  display: block;
-  margin-bottom: var(--space-lg);
-  filter: brightness(1.1) contrast(1.05);
+    width: 320px;
+    height: 320px;
+    border-radius: 50%;
+    object-fit: cover;
+    display: block;
+    margin-bottom: var(--space-lg);
+    filter: brightness(1.1) contrast(1.05);
 }
 
 [data-theme="dark"] .profile-photo {
-  filter: none;
+    filter: none;
 }
 
 .about-content {
-  width: 100%;
+    width: 100%;
 }
 
 /* ===== 2. Footer (15 行) ===== */
 footer {
-  margin-top: var(--space-xl);
-  padding: var(--space-lg) var(--space-md);
-  border-top: 1px solid var(--border);
-  text-align: center;
-  font-size: 0.9rem;
-  opacity: 0.7;
+    margin-top: var(--space-xl);
+    padding: var(--space-lg) var(--space-md);
+    border-top: 1px solid var(--border);
+    text-align: center;
+    font-size: 0.9rem;
+    opacity: 0.7;
 }
 
 footer .lang-info {
-  font-size: 0.85rem;
-  margin-bottom: 0.5rem;
+    font-size: 0.85rem;
+    margin-bottom: 0.5rem;
 }
 
 footer .legal-links {
-  margin-top: var(--space-sm);
-  font-size: 0.85rem;
-  display: block;
-  text-align: center;
+    margin-top: var(--space-sm);
+    font-size: 0.85rem;
+    display: block;
+    text-align: center;
 }
 
 footer .legal-links a {
-  margin: 0 0.5rem;
-  opacity: 0.8;
+    margin: 0 0.5rem;
+    opacity: 0.8;
 }
 
 footer .legal-links a:hover {
-  opacity: 1;
+    opacity: 1;
 }
 
 /* ===== 語言切換按鈕 ===== */
 .lang-switcher {
-  background: none;
-  border: 1px solid var(--border);
-  color: var(--text);
-  padding: 0.5rem;
-  cursor: pointer;
-  border-radius: 4px;
-  text-decoration: none;
-  display: inline-block;
-  line-height: 1;
-  opacity: 0.7;
-  transition: none;
-  font-weight: normal;
-  letter-spacing: normal;
+    background: none;
+    border: 1px solid var(--border);
+    color: var(--text);
+    padding: 0.5rem;
+    cursor: pointer;
+    border-radius: 4px;
+    text-decoration: none;
+    display: inline-block;
+    line-height: 1;
+    opacity: 0.7;
+    transition: none;
+    font-weight: normal;
+    letter-spacing: normal;
 }
 
 .lang-switcher:hover {
-  opacity: 1;
-  background: rgba(74, 74, 74, 0.05);
-  font-weight: normal;
-  letter-spacing: normal;
+    opacity: 1;
+    background: rgba(74, 74, 74, 0.05);
+    font-weight: normal;
+    letter-spacing: normal;
 }
 
 [data-theme="dark"] .lang-switcher:hover {
-  background: rgba(248, 246, 240, 0.05);
+    background: rgba(248, 246, 240, 0.05);
 }
 
 /* ===== Header 按鈕 hover 效果（主題切換）===== */
 header button[data-theme-toggle] {
-  opacity: 0.7;
+    opacity: 0.7;
 }
 
 header button[data-theme-toggle]:hover {
-  opacity: 1;
-  background: rgba(74, 74, 74, 0.05) !important;
+    opacity: 1;
+    background: rgba(74, 74, 74, 0.05) !important;
 }
 
 [data-theme="dark"] header button[data-theme-toggle]:hover {
-  background: rgba(248, 246, 240, 0.05) !important;
+    background: rgba(248, 246, 240, 0.05) !important;
 }
 
 /* ===== 3. 作品集卡片進階效果 ===== */
 .project-card {
-  transition: transform 0.2s, border-width 0.2s, border-color 0.2s, letter-spacing 0.2s;
+    transition: transform 0.2s, border-width 0.2s, border-color 0.2s, letter-spacing 0.2s;
 }
 
 .project-card:hover {
-  transform: translateY(-2px);
-  border-width: 2px;
-  border-color: var(--text);
-  letter-spacing: 0.05em;  /* 卡片標題字距增加 */
+    transform: translateY(-2px);
+    border-width: 2px;
+    border-color: var(--text);
+    letter-spacing: 0.05em;
+    /* 卡片標題字距增加 */
 }
 
 /* ===== 4. 新發布通知橫幅 ===== */
 .announcement-banner {
-  background: rgba(74, 74, 74, 0.05);
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  padding: var(--space-md);
-  margin-bottom: var(--space-lg);
-  text-align: center;
-  transition: border-color 0.2s;
+    background: rgba(74, 74, 74, 0.05);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: var(--space-md);
+    margin-bottom: var(--space-lg);
+    text-align: center;
+    transition: border-color 0.2s;
 }
 
 .announcement-banner:hover {
-  border-color: var(--accent);
+    border-color: var(--accent);
 }
 
 .announcement-banner p {
-  margin: 0;
-  font-size: 0.95rem;
-  line-height: 1.6;
+    margin: 0;
+    font-size: 0.95rem;
+    line-height: 1.6;
 }
 
 .announcement-tag {
-  display: inline-block;
-  background: rgba(26, 26, 26, 0.1);
-  padding: 0.15em 0.5em;
-  border-radius: 4px;
-  font-size: 0.85em;
-  font-weight: 600;
-  margin-right: 0.5em;
-  letter-spacing: 0.02em;
+    display: inline-block;
+    background: rgba(26, 26, 26, 0.1);
+    padding: 0.15em 0.5em;
+    border-radius: 4px;
+    font-size: 0.85em;
+    font-weight: 600;
+    margin-right: 0.5em;
+    letter-spacing: 0.02em;
 }
 
 .announcement-banner strong {
-  font-weight: 600;
+    font-weight: 600;
 }
 
 .announcement-link {
-  display: inline-block;
-  margin-left: 0.5em;
-  text-decoration: underline;
-  text-decoration-thickness: 1px;
-  text-underline-offset: 2px;
-  white-space: nowrap;
-  transition: background 0.2s, font-weight 0.2s, letter-spacing 0.2s;
+    display: inline-block;
+    margin-left: 0.5em;
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 2px;
+    white-space: nowrap;
+    transition: background 0.2s, font-weight 0.2s, letter-spacing 0.2s;
 }
 
 .announcement-link:hover {
-  background: rgba(74, 74, 74, 0.1);
-  padding: 0 0.2rem;
-  margin: 0 calc(-0.2rem + 0.5em) 0 calc(-0.2rem);
-  font-weight: 600;
-  letter-spacing: 0.05em;
+    background: rgba(74, 74, 74, 0.1);
+    padding: 0 0.2rem;
+    margin: 0 calc(-0.2rem + 0.5em) 0 calc(-0.2rem);
+    font-weight: 600;
+    letter-spacing: 0.05em;
 }
 
 /* 暗色模式適配 */
 [data-theme="dark"] .announcement-banner {
-  background: rgba(248, 246, 240, 0.05);
+    background: rgba(248, 246, 240, 0.05);
 }
 
 [data-theme="dark"] .announcement-tag {
-  background: rgba(248, 246, 240, 0.15);
+    background: rgba(248, 246, 240, 0.15);
 }
 
 [data-theme="dark"] .announcement-link:hover {
-  background: rgba(248, 246, 240, 0.1);
+    background: rgba(248, 246, 240, 0.1);
 }
 
 /* ===== 5. 時間軸（進階效果已在 critical.css）===== */
 
 /* ===== 5. 可變字型效果 (20 行) ===== */
 .variable-weight-text {
-  font-family: var(--font-base);
-  font-size: 3rem;
-  font-weight: 700;
-  margin-bottom: var(--space-lg);
+    font-family: var(--font-base);
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: var(--space-lg);
 }
 
 /* 當可變字型啟用時 */
 body.variable-font-enabled .variable-weight-text {
-  font-family: 'YinTzuYuan Title', var(--font-base);
-  font-variation-settings: 'AXS1' 0, 'AXS2' 0;
-  transition: font-variation-settings 0.1s ease-out;
+    font-family: 'YinTzuYuan Title', var(--font-base);
+    font-variation-settings: 'AXS1' 0, 'AXS2' 0;
+    transition: font-variation-settings 0.1s ease-out;
 }
 
 /* ===== 6. 表單樣式 (30 行) ===== */
 form {
-  max-width: 32rem;
+    max-width: 32rem;
 }
 
 label {
-  display: block;
-  margin-bottom: var(--space-md);
-  font-weight: 600;
+    display: block;
+    margin-bottom: var(--space-md);
+    font-weight: 600;
 }
 
 input[type="text"],
 input[type="email"],
 textarea {
-  width: 100%;
-  padding: var(--space-sm);
-  font-family: var(--font-base);
-  font-size: 1rem;
-  border: 1px solid var(--border);
-  border-radius: 4px;
-  background: var(--bg);
-  color: var(--text);
-  margin-top: var(--space-xs);
+    width: 100%;
+    padding: var(--space-sm);
+    font-family: var(--font-base);
+    font-size: 1rem;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    background: var(--bg);
+    color: var(--text);
+    margin-top: var(--space-xs);
 }
 
 textarea {
-  min-height: 8rem;
-  resize: vertical;
+    min-height: 8rem;
+    resize: vertical;
 }
 
 button[type="submit"] {
-  background: var(--text);
-  color: var(--bg);
-  border: none;
-  padding: var(--space-sm) var(--space-lg);
-  font-size: 1rem;
-  font-weight: 600;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: opacity 0.2s;
+    background: var(--text);
+    color: var(--bg);
+    border: none;
+    padding: var(--space-sm) var(--space-lg);
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: opacity 0.2s;
 }
 
 button[type="submit"]:hover {
-  opacity: 0.8;
+    opacity: 0.8;
 }
 
 /* ===== 7. 字型載入（已移除提示 UI，改為自動載入）===== */
@@ -341,113 +368,185 @@ button[type="submit"]:hover {
 
 /* ===== 7. 回到頂部按鈕 hover 效果 ===== */
 #back-to-top:hover {
-  transform: translateY(-4px);
-  background: var(--accent);
+    transform: translateY(-4px);
+    background: var(--accent);
 }
 
 /* ===== Link button hover 效果 ===== */
 .link-buttons a:hover {
-  border-color: var(--accent);
-  transform: translateY(-1px);
-  letter-spacing: 0.05em;  /* 按鈕文字字距增加（較明顯）*/
+    border-color: var(--accent);
+    transform: translateY(-1px);
+    letter-spacing: 0.05em;
+    /* 按鈕文字字距增加（較明顯）*/
 }
 
 .link-buttons a:active {
-  transform: translateY(0);
+    transform: translateY(0);
+}
+
+/* ===== 社群連結 - 水平圖標排列 ===== */
+.social-links {
+    display: flex;
+    flex-direction: row;
+    gap: var(--space-sm);
+    justify-content: center;
+    margin: var(--space-lg) 0;
+}
+
+.social-links a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    width: 48px;
+    height: 48px;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    font-size: 20px;
+    color: var(--text);
+    text-decoration: none;
+    transition: border-color 0.2s, transform 0.2s, background 0.2s;
+}
+
+/* 圖標 hover 變粗效果 */
+.social-links a .ph {
+    transition: opacity 0.2s;
+}
+
+.social-links a .ph-bold {
+    position: absolute;
+    opacity: 0;
+    transition: opacity 0.2s;
+}
+
+.social-links a:hover .ph {
+    opacity: 0;
+}
+
+.social-links a:hover .ph-bold {
+    opacity: 1;
+}
+
+.social-links a:hover {
+    border-color: var(--accent);
+    transform: translateY(-2px);
+    background: rgba(74, 74, 74, 0.1);
+}
+
+[data-theme="dark"] .social-links a:hover {
+    background: rgba(248, 246, 240, 0.1);
+}
+
+.social-links a:active {
+    transform: translateY(0);
 }
 
 /* 聯繫頁面第一個按鈕群組的頂部間距 */
 .link-buttons:first-of-type {
-  margin-top: var(--space-lg);
+    margin-top: var(--space-lg);
 }
 
 /* ===== Works Inline hover 效果 ===== */
 .works-inline a:hover {
-  background: rgba(74, 74, 74, 0.1);  /* 亮色模式：黑色半透明 */
-  padding: 0 0.2rem;
-  margin: 0 -0.2rem;
-  font-weight: 600;
+    background: rgba(74, 74, 74, 0.1);
+    /* 亮色模式：黑色半透明 */
+    padding: 0 0.2rem;
+    margin: 0 -0.2rem;
+    font-weight: 600;
 }
 
 [data-theme="dark"] .works-inline a:hover {
-  background: rgba(248, 246, 240, 0.1);  /* 暗色模式：白色半透明 */
+    background: rgba(248, 246, 240, 0.1);
+    /* 暗色模式：白色半透明 */
 }
 
 /* ===== 8. 響應式設計 (30 行) ===== */
 @media (max-width: 768px) {
-  :root {
-    --space-lg: 1.5rem;
-  }
+    :root {
+        --space-lg: 1.5rem;
+    }
 
-  body {
-    font-size: 1rem;
-  }
+    body {
+        font-size: 1rem;
+    }
 
-  h1 { font-size: 2.5rem; }   /* 40px 手機版 */
-  h2 { font-size: 1.75rem; }  /* 28px 手機版 */
-  h3 { font-size: 1.25rem; }  /* 20px 手機版 */
+    h1 {
+        font-size: 2.5rem;
+    }
 
-  /* 行動版導航欄 */
-  .nav-toggle {
-    display: block;
-    background: none;
-    border: 1px solid var(--border);
-    color: var(--text);
-    font-size: 1.5rem;
-    padding: 0.25rem 0.5rem;
-    cursor: pointer;
-    border-radius: 4px;
-    line-height: 1;
-  }
+    /* 40px 手機版 */
+    h2 {
+        font-size: 1.75rem;
+    }
 
-  .nav-links {
-    display: none;
-    width: 100%;
-    flex-direction: column;
-    gap: var(--space-sm);
-    margin-top: var(--space-sm);
-  }
+    /* 28px 手機版 */
+    h3 {
+        font-size: 1.25rem;
+    }
 
-  .nav-links.show {
-    display: flex;
-  }
+    /* 20px 手機版 */
 
-  .works-grid {
-    grid-template-columns: 1fr;
-  }
+    /* 行動版導航欄 */
+    .nav-toggle {
+        display: block;
+        background: none;
+        border: 1px solid var(--border);
+        color: var(--text);
+        font-size: 1.5rem;
+        padding: 0.25rem 0.5rem;
+        cursor: pointer;
+        border-radius: 4px;
+        line-height: 1;
+    }
 
-  main {
-    padding: var(--space-md);
-  }
+    .nav-links {
+        display: none;
+        width: 100%;
+        flex-direction: column;
+        gap: var(--space-sm);
+        margin-top: var(--space-sm);
+    }
 
-  .variable-weight-text {
-    font-size: 2rem;
-  }
+    .nav-links.show {
+        display: flex;
+    }
 
-  /* 行動版個人照片樣式 */
-  .profile-photo {
-    width: 220px;
-    height: 220px;
-  }
+    .works-grid {
+        grid-template-columns: 1fr;
+    }
 
-  /* 字型提示樣式已移除 */
+    main {
+        padding: var(--space-md);
+    }
 
-  /* 新發布通知橫幅 - 手機版 */
-  .announcement-banner {
-    padding: var(--space-sm) var(--space-md);
-    margin-bottom: var(--space-md);
-  }
+    .variable-weight-text {
+        font-size: 2rem;
+    }
 
-  .announcement-banner p {
-    font-size: 0.9rem;
-  }
+    /* 行動版個人照片樣式 */
+    .profile-photo {
+        width: 220px;
+        height: 220px;
+    }
 
-  .announcement-link {
-    display: block;
-    margin-left: 0 !important;
-    margin-top: 0.5em;
-    white-space: normal;
-  }
+    /* 字型提示樣式已移除 */
+
+    /* 新發布通知橫幅 - 手機版 */
+    .announcement-banner {
+        padding: var(--space-sm) var(--space-md);
+        margin-bottom: var(--space-md);
+    }
+
+    .announcement-banner p {
+        font-size: 0.9rem;
+    }
+
+    .announcement-link {
+        display: block;
+        margin-left: 0 !important;
+        margin-top: 0.5em;
+        white-space: normal;
+    }
 }
 
 /* ===== 9. 暗色模式字重調整 ===== */
@@ -457,18 +556,21 @@ button[type="submit"]:hover {
 [data-theme="dark"] h4,
 [data-theme="dark"] h5,
 [data-theme="dark"] h6 {
-  font-weight: 650;  /* 亮色模式 700 - 50 */
+    font-weight: 650;
+    /* 亮色模式 700 - 50 */
 }
 
 [data-theme="dark"] .variable-weight-text {
-  font-weight: 650;  /* 亮色模式 700 - 50 */
+    font-weight: 650;
+    /* 亮色模式 700 - 50 */
 }
 
 [data-theme="dark"] a:hover:not(.lang-switcher),
 [data-theme="dark"] label,
 [data-theme="dark"] button[type="submit"],
 [data-theme="dark"] .works-inline a:hover {
-  font-weight: 550;  /* 亮色模式 600 - 50 */
+    font-weight: 550;
+    /* 亮色模式 600 - 50 */
 }
 
 /* ===== 總計：約 260 行 ===== */

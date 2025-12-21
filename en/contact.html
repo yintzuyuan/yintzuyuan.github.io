@@ -43,9 +43,10 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;700&family=IBM+Plex+Mono:wght@400;700&family=Noto+Sans+TC:wght@100..900&display=swap" rel="stylesheet">
 
-  <!-- Phosphor Icons -->
+  <!-- Phosphor Icons (Regular + Bold for hover effect) -->
   <link rel="preconnect" href="https://cdn.jsdelivr.net">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.2/src/regular/style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.2/src/bold/style.css">
 
   <!-- Critical CSS -->
   <style>
@@ -145,46 +146,39 @@ body.loaded { opacity: 1; }
 
   <!-- ========== Page Content (Markdown Format) ========== -->
   <script id="page-content" type="text/markdown">
-<div class="link-buttons">
-  <a href="mailto:yintzuyuan@erikyin.net">
+<div class="social-links">
+  <a href="#" id="email-link" title="Email">
     <i class="ph ph-envelope-simple"></i>
-    <span>yintzuyuan@erikyin.net</span>
+    <i class="ph-bold ph-envelope-simple"></i>
   </a>
-</div>
-
----
-
-<div class="link-buttons">
-  <a href="https://github.com/yintzuyuan">
+  <a href="https://github.com/yintzuyuan" title="GitHub" target="_blank" rel="noopener">
     <i class="ph ph-github-logo"></i>
-    <span>GitHub</span>
+    <i class="ph-bold ph-github-logo"></i>
   </a>
-  <a href="https://www.behance.net/erikyin">
+  <a href="https://www.behance.net/erikyin" title="Behance" target="_blank" rel="noopener">
     <i class="ph ph-behance-logo"></i>
-    <span>Behance</span>
+    <i class="ph-bold ph-behance-logo"></i>
   </a>
-  <a href="https://www.youtube.com/c/erikin1205_typogame">
+  <a href="https://www.youtube.com/c/erikin1205_typogame" title="YouTube" target="_blank" rel="noopener">
     <i class="ph ph-youtube-logo"></i>
-    <span>YouTube</span>
+    <i class="ph-bold ph-youtube-logo"></i>
   </a>
-  <a href="https://www.instagram.com/erikyin/">
+  <a href="https://www.instagram.com/erikyin/" title="Instagram" target="_blank" rel="noopener">
     <i class="ph ph-instagram-logo"></i>
-    <span>Instagram</span>
+    <i class="ph-bold ph-instagram-logo"></i>
   </a>
 </div>
 
----
-
 <div class="link-buttons">
-  <a href="https://p.ecpay.com.tw/120048C">
+  <a href="https://p.ecpay.com.tw/120048C" target="_blank" rel="noopener">
     <i class="ph ph-credit-card"></i>
     <span>ECPay</span>
   </a>
-  <a href="https://www.buymeacoffee.com/erikyin">
+  <a href="https://www.buymeacoffee.com/erikyin" target="_blank" rel="noopener">
     <i class="ph ph-coffee"></i>
     <span>Buy Me a Coffee</span>
   </a>
-  <a href="https://paypal.me/erikyin">
+  <a href="https://paypal.me/erikyin" target="_blank" rel="noopener">
     <i class="ph ph-paypal-logo"></i>
     <span>PayPal</span>
   </a>
@@ -204,5 +198,20 @@ body.loaded { opacity: 1; }
   <script src="../data/ui.js"></script>
   <script src="../assets/lib/marked.min.js"></script>
   <script src="../assets/app.js"></script>
+
+  <!-- Email obfuscation -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const emailLink = document.getElementById('email-link');
+      if (emailLink) {
+        emailLink.addEventListener('click', function(e) {
+          e.preventDefault();
+          const user = 'yintzuyuan';
+          const domain = 'erikyin.net';
+          window.location.href = 'mailto:' + user + '@' + domain;
+        });
+      }
+    });
+  </script>
 </body>
 </html>
