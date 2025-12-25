@@ -13,23 +13,22 @@ h3,
 h4,
 h5,
 h6 {
-    line-height: 1.2;
+    line-height: 1.4;
     margin-bottom: var(--space-md);
-    font-weight: 700;
+    font-weight: 400;
+    letter-spacing: 0.04em;
 }
 
 h1 {
-    font-size: 3rem;
+    font-size: 2.5rem;
 }
 
-/* 48px - 僅用於首頁 */
 h2 {
-    font-size: 2rem;
+    font-size: 1.5rem;
 }
 
-/* 32px - 主要分類標題 */
 h3 {
-    font-size: 1.5rem;
+    font-size: 1.125rem;
 }
 
 /* 24px - 次級分類 */
@@ -45,24 +44,18 @@ a {
     color: var(--link);
     text-decoration: underline;
     text-decoration-thickness: 1px;
-    text-underline-offset: 2px;
-    transition: background 0.2s, font-weight 0.2s, letter-spacing 0.2s;
+    text-underline-offset: 0.2em;
+    transition: opacity 0.15s ease;
 }
 
 a:hover {
-    background: rgba(74, 74, 74, 0.1);
-    /* 亮色模式：黑色半透明 */
-    font-weight: 600;
-    letter-spacing: 0.05em;
-    /* 中文字距增加，模擬滑動效果 */
+    opacity: 0.7;
 }
 
 
-/* 導航欄當前頁面狀態（複用 hover 樣式） */
+/* 導航欄當前頁面狀態 */
 nav a[aria-current="page"] {
-    background: rgba(74, 74, 74, 0.1);
-    font-weight: 600;
-    letter-spacing: 0.05em;
+    opacity: 0.7;
 }
 
 
@@ -80,7 +73,7 @@ code,
 pre {
     font-family: var(--font-mono);
     font-size: 0.9em;
-    background: rgba(74, 74, 74, 0.1);
+    background: rgba(0, 0, 0, 0.08);
     /* 亮色模式：黑色半透明 */
     color: var(--text);
     padding: 0.2em 0.4em;
@@ -138,7 +131,7 @@ footer {
     padding: var(--space-lg) var(--space-md);
     border-top: 1px solid var(--border);
     text-align: center;
-    font-size: 0.9rem;
+    font-size: 0.75rem;
     opacity: 0.7;
 }
 
@@ -181,7 +174,7 @@ footer .legal-links a:hover {
 
 .lang-switcher:hover {
     opacity: 1;
-    background: rgba(74, 74, 74, 0.05);
+    background: rgba(0, 0, 0, 0.05);
     font-weight: normal;
     letter-spacing: normal;
 }
@@ -203,7 +196,7 @@ footer .legal-links a:hover {
 
 /* ===== 4. 新發布通知橫幅 ===== */
 .announcement-banner {
-    background: rgba(74, 74, 74, 0.05);
+    background: rgba(0, 0, 0, 0.05);
     border: 1px solid var(--border);
     border-radius: 8px;
     padding: var(--space-md);
@@ -248,7 +241,7 @@ footer .legal-links a:hover {
 }
 
 .announcement-link:hover {
-    background: rgba(74, 74, 74, 0.1);
+    background: rgba(0, 0, 0, 0.1);
     padding: 0 0.2rem;
     margin: 0 calc(-0.2rem + 0.5em) 0 calc(-0.2rem);
     font-weight: 600;
@@ -386,7 +379,7 @@ button[type="submit"]:hover {
 .social-links a:hover {
     border-color: var(--accent);
     transform: translateY(-2px);
-    background: rgba(74, 74, 74, 0.1);
+    background: rgba(0, 0, 0, 0.1);
 }
 
 
@@ -401,7 +394,7 @@ button[type="submit"]:hover {
 
 /* ===== Works Inline hover 效果 ===== */
 .works-inline a:hover {
-    background: rgba(74, 74, 74, 0.1);
+    background: rgba(0, 0, 0, 0.1);
     /* 亮色模式：黑色半透明 */
     padding: 0 0.2rem;
     margin: 0 -0.2rem;
@@ -420,20 +413,8 @@ button[type="submit"]:hover {
     }
 
     h1 {
-        font-size: 2.5rem;
+        font-size: 2rem;
     }
-
-    /* 40px 手機版 */
-    h2 {
-        font-size: 1.75rem;
-    }
-
-    /* 28px 手機版 */
-    h3 {
-        font-size: 1.25rem;
-    }
-
-    /* 20px 手機版 */
 
     /* 行動版導航欄 */
     .nav-toggle {
@@ -567,5 +548,37 @@ button[type="submit"]:hover {
     button[type="submit"],
     .works-inline a:hover {
         font-weight: 550;
+    }
+}
+
+/* ===== 深色模式背景色覆蓋 ===== */
+@media (prefers-color-scheme: dark) {
+    code,
+    pre {
+        background: rgba(255, 255, 255, 0.1);
+    }
+
+    pre code {
+        background: none;
+    }
+
+    .lang-switcher:hover {
+        background: rgba(255, 255, 255, 0.1);
+    }
+
+    .announcement-banner {
+        background: rgba(255, 255, 255, 0.05);
+    }
+
+    .announcement-link:hover {
+        background: rgba(255, 255, 255, 0.1);
+    }
+
+    .social-links a:hover {
+        background: rgba(255, 255, 255, 0.1);
+    }
+
+    .works-inline a:hover {
+        background: rgba(255, 255, 255, 0.1);
     }
 }
