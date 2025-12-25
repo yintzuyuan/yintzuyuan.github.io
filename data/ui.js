@@ -21,9 +21,6 @@ window.UI_DATA = {
       privacy: '隱私權政策',
       terms: '服務條款'
     },
-    theme: {
-      toggle: '切換主題'
-    },
     categories: {
       all: '全部',
       '歐文': '歐文',
@@ -55,9 +52,6 @@ window.UI_DATA = {
       privacy: 'Privacy Policy',
       terms: 'Terms of Service'
     },
-    theme: {
-      toggle: 'Toggle Theme'
-    },
     categories: {
       all: 'All',
       '歐文': 'Latin',
@@ -74,12 +68,6 @@ window.UI_DATA = {
 
 // 共用元件 HTML 模板
 window.UI_COMPONENTS = {
-  // 主題切換圖示 (Phosphor Icons)
-  icons: {
-    sun: '<i class="ph ph-sun"></i>',
-    moon: '<i class="ph ph-moon"></i>'
-  },
-
   // 產生 header HTML
   getHeader: function(lang, currentPage, basePath) {
     const ui = window.UI_DATA[lang];
@@ -106,9 +94,6 @@ window.UI_COMPONENTS = {
       </div>
       <div style="float:right; display:flex; gap:0.5rem; align-items:center;">
         <a href="${langSwitchPath}" class="lang-switcher" lang="${otherLang}" aria-label="${lang === 'zh' ? '切換語言' : 'Switch Language'}">${otherLangName}</a>
-        <button data-theme-toggle aria-label="${ui.theme.toggle}" style="background:none; border:1px solid var(--border); color:var(--text); padding:0.5rem; cursor:pointer; border-radius:4px; line-height:0;">
-          ${this.icons.sun}
-        </button>
       </div>
     </nav>`;
   },

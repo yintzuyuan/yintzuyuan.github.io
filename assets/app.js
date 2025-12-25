@@ -32,7 +32,6 @@
     renderWorks();
 
     // 4. 初始化互動功能
-    initThemeToggle();
     initNavToggle();
     initBackToTop();
 
@@ -168,28 +167,6 @@
     }
 
     container.innerHTML = html;
-  }
-
-  /**
-   * 主題切換
-   */
-  function initThemeToggle() {
-    const btn = document.querySelector('[data-theme-toggle]');
-    if (!btn) return;
-
-    // 使用集中定義的圖示（來自 data/ui.js）
-    const icons = window.UI_COMPONENTS.icons;
-
-    btn.addEventListener('click', () => {
-      const current = document.documentElement.getAttribute('data-theme');
-      const next = current === 'dark' ? 'light' : 'dark';
-      document.documentElement.setAttribute('data-theme', next);
-      localStorage.setItem('theme', next);
-      btn.innerHTML = next === 'dark' ? icons.moon : icons.sun;
-    });
-
-    // 初始化按鈕圖示
-    btn.innerHTML = localStorage.getItem('theme') === 'dark' ? icons.moon : icons.sun;
   }
 
   /**

@@ -57,10 +57,6 @@ a:hover {
     /* 中文字距增加，模擬滑動效果 */
 }
 
-[data-theme="dark"] a:hover {
-    background: rgba(248, 246, 240, 0.1);
-    /* 暗色模式：白色半透明 */
-}
 
 /* 導航欄當前頁面狀態（複用 hover 樣式） */
 nav a[aria-current="page"] {
@@ -69,9 +65,6 @@ nav a[aria-current="page"] {
     letter-spacing: 0.05em;
 }
 
-[data-theme="dark"] nav a[aria-current="page"] {
-    background: rgba(248, 246, 240, 0.1);
-}
 
 ul,
 ol {
@@ -97,11 +90,6 @@ pre {
     font-feature-settings: "liga" 1, "calt" 1;
 }
 
-[data-theme="dark"] code,
-[data-theme="dark"] pre {
-    background: rgba(248, 246, 240, 0.1);
-    /* 暗色模式：白色半透明 */
-}
 
 pre {
     padding: var(--space-md);
@@ -139,9 +127,6 @@ img {
     filter: brightness(1.1) contrast(1.05);
 }
 
-[data-theme="dark"] .profile-photo {
-    filter: none;
-}
 
 .about-content {
     width: 100%;
@@ -202,23 +187,7 @@ footer .legal-links a:hover {
     letter-spacing: normal;
 }
 
-[data-theme="dark"] .lang-switcher:hover {
-    background: rgba(248, 246, 240, 0.05);
-}
 
-/* ===== Header 按鈕 hover 效果（主題切換）===== */
-header button[data-theme-toggle] {
-    opacity: 0.7;
-}
-
-header button[data-theme-toggle]:hover {
-    opacity: 1;
-    background: rgba(74, 74, 74, 0.05) !important;
-}
-
-[data-theme="dark"] header button[data-theme-toggle]:hover {
-    background: rgba(248, 246, 240, 0.05) !important;
-}
 
 /* ===== 3. 作品集卡片進階效果 ===== */
 .project-card {
@@ -287,18 +256,6 @@ header button[data-theme-toggle]:hover {
     letter-spacing: 0.05em;
 }
 
-/* 暗色模式適配 */
-[data-theme="dark"] .announcement-banner {
-    background: rgba(248, 246, 240, 0.05);
-}
-
-[data-theme="dark"] .announcement-tag {
-    background: rgba(248, 246, 240, 0.15);
-}
-
-[data-theme="dark"] .announcement-link:hover {
-    background: rgba(248, 246, 240, 0.1);
-}
 
 /* ===== 5. 時間軸（進階效果已在 critical.css）===== */
 
@@ -433,9 +390,6 @@ button[type="submit"]:hover {
     background: rgba(74, 74, 74, 0.1);
 }
 
-[data-theme="dark"] .social-links a:hover {
-    background: rgba(248, 246, 240, 0.1);
-}
 
 .social-links a:active {
     transform: translateY(0);
@@ -455,10 +409,6 @@ button[type="submit"]:hover {
     font-weight: 600;
 }
 
-[data-theme="dark"] .works-inline a:hover {
-    background: rgba(248, 246, 240, 0.1);
-    /* 暗色模式：白色半透明 */
-}
 
 /* ===== 8. 響應式設計 (30 行) ===== */
 @media (max-width: 768px) {
@@ -549,28 +499,74 @@ button[type="submit"]:hover {
     }
 }
 
-/* ===== 9. 暗色模式字重調整 ===== */
-[data-theme="dark"] h1,
-[data-theme="dark"] h2,
-[data-theme="dark"] h3,
-[data-theme="dark"] h4,
-[data-theme="dark"] h5,
-[data-theme="dark"] h6 {
-    font-weight: 650;
-    /* 亮色模式 700 - 50 */
-}
+/* ===== 9. 暗色模式樣式 ===== */
+@media (prefers-color-scheme: dark) {
+    /* 連結與導航 hover 效果 */
+    a:hover {
+        background: rgba(248, 246, 240, 0.1);
+    }
 
-[data-theme="dark"] .variable-weight-text {
-    font-weight: 650;
-    /* 亮色模式 700 - 50 */
-}
+    nav a[aria-current="page"] {
+        background: rgba(248, 246, 240, 0.1);
+    }
 
-[data-theme="dark"] a:hover:not(.lang-switcher),
-[data-theme="dark"] label,
-[data-theme="dark"] button[type="submit"],
-[data-theme="dark"] .works-inline a:hover {
-    font-weight: 550;
-    /* 亮色模式 600 - 50 */
-}
+    /* 程式碼區塊 */
+    code,
+    pre {
+        background: rgba(248, 246, 240, 0.1);
+    }
 
-/* ===== 總計：約 260 行 ===== */
+    /* 個人照片 */
+    .profile-photo {
+        filter: none;
+    }
+
+    /* 語言切換按鈕 */
+    .lang-switcher:hover {
+        background: rgba(248, 246, 240, 0.05);
+    }
+
+    /* 公告橫幅 */
+    .announcement-banner {
+        background: rgba(248, 246, 240, 0.05);
+    }
+
+    .announcement-tag {
+        background: rgba(248, 246, 240, 0.15);
+    }
+
+    .announcement-link:hover {
+        background: rgba(248, 246, 240, 0.1);
+    }
+
+    /* 社群連結 */
+    .social-links a:hover {
+        background: rgba(248, 246, 240, 0.1);
+    }
+
+    /* 作品集連結 */
+    .works-inline a:hover {
+        background: rgba(248, 246, 240, 0.1);
+    }
+
+    /* 字重調整（補償暗色背景視覺較輕問題） */
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        font-weight: 650;
+    }
+
+    .variable-weight-text {
+        font-weight: 650;
+    }
+
+    a:hover:not(.lang-switcher),
+    label,
+    button[type="submit"],
+    .works-inline a:hover {
+        font-weight: 550;
+    }
+}
