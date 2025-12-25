@@ -76,7 +76,7 @@ window.UI_COMPONENTS = {
       ? basePath + 'en/' + currentPage
       : basePath + currentPage;
 
-    const navItems = ['home', 'works', 'products', 'about', 'contact'];
+    const navItems = ['home', 'works', 'products', 'about'];
     const navLinks = navItems.map(item => {
       const href = item === 'home' ? './index.html' : './' + item + '.html';
       const isCurrent = (currentPage === 'index.html' && item === 'home') ||
@@ -100,10 +100,44 @@ window.UI_COMPONENTS = {
   getFooter: function(lang) {
     const ui = window.UI_DATA[lang];
 
-    return `<p>© 2025 YTY Digital TypeFoundry · TzuYuan Yin 殷慈遠</p>
+    return `<div class="social-links">
+      <a href="#" class="email-link" title="Email">
+        <i class="ph ph-envelope-simple"></i>
+        <i class="ph-bold ph-envelope-simple"></i>
+      </a>
+      <a href="https://github.com/yintzuyuan" title="GitHub" target="_blank" rel="noopener">
+        <i class="ph ph-github-logo"></i>
+        <i class="ph-bold ph-github-logo"></i>
+      </a>
+      <a href="https://www.behance.net/erikyin" title="Behance" target="_blank" rel="noopener">
+        <i class="ph ph-behance-logo"></i>
+        <i class="ph-bold ph-behance-logo"></i>
+      </a>
+      <a href="https://www.youtube.com/c/erikin1205_typogame" title="YouTube" target="_blank" rel="noopener">
+        <i class="ph ph-youtube-logo"></i>
+        <i class="ph-bold ph-youtube-logo"></i>
+      </a>
+      <a href="https://www.instagram.com/erikyin/" title="Instagram" target="_blank" rel="noopener">
+        <i class="ph ph-instagram-logo"></i>
+        <i class="ph-bold ph-instagram-logo"></i>
+      </a>
+    </div>
+    <p>© 2025 YTY Digital TypeFoundry · TzuYuan Yin 殷慈遠</p>
     <nav class="legal-links">
       <a href="./privacy.html" data-footer="privacy">${ui.footer.privacy}</a>
       <a href="./terms.html" data-footer="terms">${ui.footer.terms}</a>
     </nav>`;
+  },
+
+  // Email 混淆保護初始化
+  initEmailProtection: function() {
+    document.querySelectorAll('.email-link').forEach(link => {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        const user = 'yintzuyuan';
+        const domain = 'erikyin.net';
+        window.location.href = 'mailto:' + user + '@' + domain;
+      });
+    });
   }
 };

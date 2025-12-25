@@ -35,7 +35,12 @@
     initNavToggle();
     initBackToTop();
 
-    // 5. 顯示頁面（消除 FOUC）
+    // 5. 初始化 Email 混淆保護
+    if (window.UI_COMPONENTS && window.UI_COMPONENTS.initEmailProtection) {
+      window.UI_COMPONENTS.initEmailProtection();
+    }
+
+    // 6. 顯示頁面（消除 FOUC）
     document.body.classList.add('loaded');
   }
 

@@ -260,6 +260,28 @@ img {
     width: 100%;
 }
 
+/* ===== 關於頁面 - 支持區塊 ===== */
+.support-section {
+    margin-top: var(--space-xl);
+    padding-top: var(--space-lg);
+    border-top: 1px solid var(--border);
+}
+
+.support-section h2 {
+    font-size: 1.125rem;
+    margin-bottom: var(--space-md);
+    opacity: 0.8;
+}
+
+.support-section .link-buttons {
+    max-width: 320px;
+}
+
+.support-section .link-buttons a {
+    padding: var(--space-sm) var(--space-md);
+    font-size: 0.9rem;
+}
+
 /* ===== 2. Footer ===== */
 footer {
     border-top: 1px solid var(--border);
@@ -267,6 +289,41 @@ footer {
     text-align: center;
     font-size: 0.75rem;
     opacity: 0.7;
+}
+
+/* Footer 社群連結 */
+footer .social-links {
+    margin: var(--space-sm) 0;
+    gap: var(--space-sm);
+}
+
+footer .social-links a {
+    width: 2rem;
+    height: 2rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: 50%;
+    opacity: 0.8;
+    transition: opacity 0.15s ease, background-color 0.15s ease;
+}
+
+/* Footer 社群連結：移除 hover 變粗效果，保持圖標可見 */
+footer .social-links a .ph-bold {
+    display: none;
+}
+
+footer .social-links a .ph {
+    opacity: 1;
+}
+
+footer .social-links a:hover .ph {
+    opacity: 1;
+}
+
+footer .social-links a:hover {
+    opacity: 1;
+    background: rgba(0, 0, 0, 0.08);
+    transform: none;
 }
 
 footer .legal-links {
@@ -279,10 +336,14 @@ footer .legal-links {
 footer .legal-links a {
     margin: 0 0.5rem;
     opacity: 0.8;
+    padding: 0.1em 0.3em;
+    border-radius: 3px;
+    transition: opacity 0.15s ease, background-color 0.15s ease;
 }
 
 footer .legal-links a:hover {
     opacity: 1;
+    background: rgba(0, 0, 0, 0.08);
 }
 
 /* ===== 語言切換按鈕 ===== */
@@ -636,6 +697,18 @@ button[type="submit"]:hover {
         height: 220px;
     }
 
+    /* Footer 社群連結行動版 */
+    footer .social-links a {
+        width: 2.25rem;
+        height: 2.25rem;
+        font-size: 1.125rem;
+    }
+
+    /* 贊助區塊行動版 */
+    .support-section .link-buttons {
+        max-width: 100%;
+    }
+
     /* 字型提示樣式已移除 */
 
     /* 新發布通知橫幅 - 手機版 */
@@ -752,6 +825,14 @@ button[type="submit"]:hover {
     }
 
     .social-links a:hover {
+        background: rgba(255, 255, 255, 0.1);
+    }
+
+    footer .social-links a:hover {
+        background: rgba(255, 255, 255, 0.1);
+    }
+
+    footer .legal-links a:hover {
         background: rgba(255, 255, 255, 0.1);
     }
 
