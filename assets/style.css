@@ -53,6 +53,15 @@ a:hover {
 }
 
 
+/* 導航連結樣式 */
+nav a {
+    font-size: 0.875rem;
+}
+
+nav a:hover {
+    opacity: 0.7;
+}
+
 /* 導航欄當前頁面狀態 */
 nav a[aria-current="page"] {
     opacity: 0.7;
