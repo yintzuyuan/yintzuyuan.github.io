@@ -195,7 +195,7 @@ nav a {
 
 nav a:hover {
     opacity: 1;
-    background-color: rgba(0, 0, 0, 0.08);
+    background-color: rgba(0, 0, 0, 0.04);
 }
 
 /* Footer 連結樣式 */
@@ -206,6 +206,7 @@ footer a {
 /* 導航欄當前頁面狀態 */
 nav a[aria-current="page"] {
     background-color: rgba(0, 0, 0, 0.08);
+    opacity: 1;
 }
 
 
@@ -755,11 +756,12 @@ button[type="submit"]:hover {
     }
 
     nav a:hover {
-        background-color: rgba(255, 255, 255, 0.1);
+        background-color: rgba(255, 255, 255, 0.05);
     }
 
     nav a[aria-current="page"] {
         background-color: rgba(255, 255, 255, 0.1);
+        opacity: 1;
     }
 
     /* 程式碼區塊 */
