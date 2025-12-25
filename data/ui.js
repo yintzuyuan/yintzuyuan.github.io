@@ -16,7 +16,6 @@ window.UI_DATA = {
       contact: '聯繫'
     },
     footer: {
-      availableIn: '此頁面也有其他語言版本：',
       backToTop: '回到頂部',
       privacy: '隱私權政策',
       terms: '服務條款'
@@ -47,7 +46,6 @@ window.UI_DATA = {
       contact: 'Contact'
     },
     footer: {
-      availableIn: 'Also available in:',
       backToTop: 'Back to Top',
       privacy: 'Privacy Policy',
       terms: 'Terms of Service'
@@ -72,7 +70,7 @@ window.UI_COMPONENTS = {
   getHeader: function(lang, currentPage, basePath) {
     const ui = window.UI_DATA[lang];
     const otherLang = lang === 'zh' ? 'en' : 'zh';
-    const otherLangName = lang === 'zh' ? 'EN' : '中文';
+    const otherLangName = lang === 'zh' ? 'EN' : '中';
     // 中文頁面連到 en/ 子目錄，英文頁面連回上層目錄
     const langSwitchPath = lang === 'zh'
       ? basePath + 'en/' + currentPage
@@ -99,25 +97,13 @@ window.UI_COMPONENTS = {
   },
 
   // 產生 footer HTML
-  getFooter: function(lang, currentPage, basePath) {
+  getFooter: function(lang) {
     const ui = window.UI_DATA[lang];
-    const otherLang = lang === 'zh' ? 'en' : 'zh';
-    const otherLangFullName = lang === 'zh' ? 'English' : '繁體中文';
-    // 中文頁面連到 en/ 子目錄，英文頁面連回上層目錄
-    const langSwitchPath = lang === 'zh'
-      ? basePath + 'en/' + currentPage
-      : basePath + currentPage;
-    const privacyPath = './privacy.html';
-    const termsPath = './terms.html';
 
-    return `<p class="lang-info">
-      <span data-footer="availableIn">${ui.footer.availableIn}</span>
-      <a href="${langSwitchPath}" lang="${otherLang}">${otherLangFullName}</a>
-    </p>
-    <p>© 2025 YTY Digital TypeFoundry · TzuYuan Yin 殷慈遠</p>
+    return `<p>© 2025 YTY Digital TypeFoundry · TzuYuan Yin 殷慈遠</p>
     <nav class="legal-links">
-      <a href="${privacyPath}" data-footer="privacy">${ui.footer.privacy}</a>
-      <a href="${termsPath}" data-footer="terms">${ui.footer.terms}</a>
+      <a href="./privacy.html" data-footer="privacy">${ui.footer.privacy}</a>
+      <a href="./terms.html" data-footer="terms">${ui.footer.terms}</a>
     </nav>`;
   }
 };
