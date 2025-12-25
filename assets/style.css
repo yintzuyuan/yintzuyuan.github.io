@@ -87,6 +87,18 @@ main {
   padding: 0 1rem;
 }
 
+/* 時間軸定義列表 - 區塊置中 */
+#timeline-content dl {
+  display: inline-block;
+  text-align: left;
+  margin: 0;
+}
+
+#timeline-content {
+  text-align: center;
+  padding-bottom: var(--space-xl);
+}
+
 /* 時間軸圖標樣式 */
 dd[data-icon]::before {
   content: '';
