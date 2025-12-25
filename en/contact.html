@@ -48,85 +48,8 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.2/src/regular/style.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.2/src/bold/style.css">
 
-  <!-- Critical CSS -->
-  <style>
-:root {
-  --ink-black: #1a1a1a;
-  --rice-paper: #f8f6f0;
-  --brush-gray: #4a4a4a;
-  --space-xs: 0.25rem;
-  --space-sm: 0.5rem;
-  --space-md: 1rem;
-  --space-lg: 2rem;
-  --space-xl: 3rem;
-  --font-base: "IBM Plex Sans", "Noto Sans TC", -apple-system, BlinkMacSystemFont, "Microsoft JhengHei", "PingFang TC", sans-serif;
-  --bg: var(--rice-paper);
-  --text: var(--brush-gray);
-  --link: var(--ink-black);
-  --border: rgba(74, 74, 74, 0.2);
-}
-@media (prefers-color-scheme: dark) {
-  :root {
-    --bg: var(--ink-black);
-    --text: #e8e6e0;
-    --link: #ffffff;
-    --border: rgba(248, 246, 240, 0.2);
-  }
-}
-* { box-sizing: border-box; }
-body {
-  font-family: var(--font-base);
-  font-size: 1rem;
-  line-height: 1.75;
-  color: var(--text);
-  background: var(--bg);
-  margin: 0;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-a { color: var(--link); }
-header {
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  background: var(--bg);
-  border-bottom: 1px solid var(--border);
-}
-nav { display: flex; align-items: center; flex-wrap: wrap; gap: 0.5rem; max-width: 42rem; margin: 0 auto; padding: 0.5rem 1rem; }
-.nav-toggle { display: none; }
-.nav-links { display: flex; gap: 1rem; flex: 1; }
-nav a { text-decoration: none; font-size: 0.875rem; }
-main { max-width: 42rem; margin: 0 auto; padding: 1rem; padding-top: 2rem; }
-footer {
-  border-top: 1px solid var(--border);
-  padding: 1rem;
-  text-align: center;
-  opacity: 0.7;
-  font-size: 0.75rem;
-}
-.link-buttons { display: flex; flex-direction: column; gap: var(--space-sm); }
-.link-buttons ul { list-style: none; padding: 0; display: flex; flex-direction: column; gap: var(--space-sm); }
-.link-buttons li { margin: 0; }
-.link-buttons a {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5em;
-  padding: var(--space-md);
-  border: 1px solid var(--border);
-  border-radius: 6px;
-  text-decoration: none;
-  color: var(--text);
-}
-.link-buttons a svg, .link-buttons a .ph { flex-shrink: 0; opacity: 0.7; font-size: 18px; }
-.link-buttons a:hover svg, .link-buttons a:hover .ph { opacity: 1; }
-/* FOUC 防止閃爍 */
-body { opacity: 0; transition: opacity 0.1s; }
-body.loaded { opacity: 1; }
-  </style>
-
-  <link rel="preload" href="../assets/style.css" as="style" onload="this.rel='stylesheet'">
-  <noscript><link rel="stylesheet" href="../assets/style.css"></noscript>
+  <!-- 主樣式表 -->
+  <link rel="stylesheet" href="../assets/style.css">
 
 </head>
 <body>

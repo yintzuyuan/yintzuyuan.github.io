@@ -1,4 +1,122 @@
-/* ===== 完整樣式表 (適度簡約版本) ===== */
+/* ===== 完整樣式表 ===== */
+
+/* ===== 0. 基礎變數與佈局 (原 Critical CSS) ===== */
+:root {
+  --ink-black: #1a1a1a;
+  --rice-paper: #f8f6f0;
+  --brush-gray: #4a4a4a;
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 2rem;
+  --space-xl: 3rem;
+  --font-base: "IBM Plex Sans", "Noto Sans TC", -apple-system, BlinkMacSystemFont, "Microsoft JhengHei", "PingFang TC", sans-serif;
+  --font-mono: "IBM Plex Mono", "SF Mono", Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  --bg: var(--rice-paper);
+  --text: var(--brush-gray);
+  --link: var(--ink-black);
+  --accent: #6b7280;
+  --border: rgba(74, 74, 74, 0.2);
+  --border-light: #d1d5db;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: var(--ink-black);
+    --text: #e8e6e0;
+    --link: #ffffff;
+    --accent: #9ca3af;
+    --border: rgba(248, 246, 240, 0.2);
+    --border-light: #374151;
+  }
+}
+
+* { box-sizing: border-box; }
+
+body {
+  font-family: var(--font-base);
+  font-size: 1rem;
+  line-height: 1.75;
+  color: var(--text);
+  background: var(--bg);
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* FOUC 防止閃爍 */
+body { opacity: 0; transition: opacity 0.1s; }
+body.loaded { opacity: 1; }
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  max-width: 42rem;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.nav-toggle { display: none; }
+
+.nav-links {
+  display: flex;
+  gap: 0.5rem;
+  flex: 1;
+}
+
+main {
+  max-width: 42rem;
+  margin: 0 auto;
+  padding: 1rem;
+  padding-top: 2rem;
+}
+
+#timeline-content {
+  max-width: 42rem;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* 時間軸圖標樣式 */
+dd[data-icon]::before {
+  content: '';
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  margin-right: 0.5em;
+  vertical-align: middle;
+  border-radius: 50%;
+  box-sizing: border-box;
+}
+
+dd[data-icon="filled"]::before {
+  background: var(--text);
+}
+
+dd[data-icon="outline"]::before {
+  border: 2px solid var(--text);
+  background: transparent;
+}
+
+/* 作品集內嵌連結樣式 */
+.works-inline {
+  line-height: 1.8;
+}
+
+.works-inline a {
+  display: inline;
+  white-space: nowrap;
+}
 
 /* ===== Phosphor Icons 基礎樣式 ===== */
 .ph {
@@ -56,15 +174,23 @@ a:hover {
 /* 導航連結樣式 */
 nav a {
     font-size: 0.875rem;
+    text-decoration: none;
+    padding: 4px 8px;
+    border-radius: 4px;
 }
 
 nav a:hover {
     opacity: 0.7;
 }
 
+/* Footer 連結樣式 */
+footer a {
+    text-decoration: none;
+}
+
 /* 導航欄當前頁面狀態 */
 nav a[aria-current="page"] {
-    opacity: 0.7;
+    background-color: rgba(0, 0, 0, 0.08);
 }
 
 
@@ -134,11 +260,10 @@ img {
     width: 100%;
 }
 
-/* ===== 2. Footer (15 行) ===== */
+/* ===== 2. Footer ===== */
 footer {
-    margin-top: var(--space-xl);
-    padding: var(--space-lg) var(--space-md);
     border-top: 1px solid var(--border);
+    padding: 1rem;
     text-align: center;
     font-size: 0.75rem;
     opacity: 0.7;
@@ -330,12 +455,55 @@ button[type="submit"]:hover {
     background: var(--accent);
 }
 
-/* ===== Link button hover 效果 ===== */
+/* ===== Link Buttons 樣式 ===== */
+.link-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+}
+
+.link-buttons ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+}
+
+.link-buttons li {
+    margin: 0;
+}
+
+.link-buttons a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5em;
+    padding: var(--space-md);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    text-decoration: none;
+    color: var(--text);
+    transition: border-color 0.2s, transform 0.2s, letter-spacing 0.2s, background 0.2s;
+}
+
+.link-buttons a svg,
+.link-buttons a .ph {
+    flex-shrink: 0;
+    opacity: 0.7;
+    font-size: 18px;
+}
+
+.link-buttons a:hover svg,
+.link-buttons a:hover .ph {
+    opacity: 1;
+}
+
 .link-buttons a:hover {
     border-color: var(--accent);
     transform: translateY(-1px);
     letter-spacing: 0.05em;
-    /* 按鈕文字字距增加（較明顯）*/
+    background: rgba(0, 0, 0, 0.05);
 }
 
 .link-buttons a:active {
@@ -496,7 +664,7 @@ button[type="submit"]:hover {
     }
 
     nav a[aria-current="page"] {
-        background: rgba(248, 246, 240, 0.1);
+        background-color: rgba(255, 255, 255, 0.1);
     }
 
     /* 程式碼區塊 */
@@ -552,7 +720,7 @@ button[type="submit"]:hover {
         font-weight: 650;
     }
 
-    a:hover:not(.lang-switcher),
+    a:hover:not(.lang-switcher):not(nav a),
     label,
     button[type="submit"],
     .works-inline a:hover {
@@ -588,6 +756,10 @@ button[type="submit"]:hover {
     }
 
     .works-inline a:hover {
+        background: rgba(255, 255, 255, 0.1);
+    }
+
+    .link-buttons a:hover {
         background: rgba(255, 255, 255, 0.1);
     }
 }

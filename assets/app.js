@@ -149,13 +149,16 @@
       { key: 'art', title: { zh: '藝術創作', en: 'Art Projects' } }
     ];
 
+    // 先過濾出有作品的分類
+    const groupsWithContent = categoryGroups.filter(group =>
+      window.PROJECTS_DATA.some(p => p.categories.includes(group.key))
+    );
+
     let html = '';
-    for (const group of categoryGroups) {
+    groupsWithContent.forEach((group, index) => {
       const filtered = window.PROJECTS_DATA.filter(p =>
         p.categories.includes(group.key)
       );
-
-      if (filtered.length === 0) continue;
 
       const links = filtered.map(p =>
         `<a href="${p.url}" target="_blank" rel="noopener noreferrer">${p.title[lang]}</a>`
@@ -163,8 +166,11 @@
 
       html += `<p><strong>${group.title[lang]}</strong></p>`;
       html += `<p class="works-inline">${links}</p>`;
-      html += '<hr>';
-    }
+      // 最後一個分類不加分隔線
+      if (index < groupsWithContent.length - 1) {
+        html += '<hr>';
+      }
+    });
 
     container.innerHTML = html;
   }
