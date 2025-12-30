@@ -71,10 +71,10 @@ window.UI_COMPONENTS = {
     const ui = window.UI_DATA[lang];
     const otherLang = lang === 'zh' ? 'en' : 'zh';
     const otherLangName = lang === 'zh' ? 'EN' : '中';
-    // 中文頁面連到 en/ 子目錄，英文頁面連回上層目錄
+    // 兩個語言版本都在子目錄，使用相對路徑切換
     const langSwitchPath = lang === 'zh'
-      ? basePath + 'en/' + currentPage
-      : basePath + currentPage;
+      ? '../en/' + currentPage
+      : '../zh-Hant/' + currentPage;
 
     const navItems = ['home', 'works', 'products', 'about'];
     const navLinks = navItems.map(item => {

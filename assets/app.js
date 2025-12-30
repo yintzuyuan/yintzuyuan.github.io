@@ -40,8 +40,30 @@
       window.UI_COMPONENTS.initEmailProtection();
     }
 
-    // 6. 顯示頁面（消除 FOUC）
+    // 6. 初始化語言偏好儲存
+    initLangPreference();
+
+    // 7. 顯示頁面（消除 FOUC）
     document.body.classList.add('loaded');
+  }
+
+  /**
+   * 語言切換時儲存偏好到 localStorage
+   */
+  function initLangPreference() {
+    var LANG_KEY = 'erikyin-lang';
+
+    document.querySelectorAll('.lang-switcher').forEach(function(link) {
+      link.addEventListener('click', function() {
+        var targetLang = this.getAttribute('lang');
+        var langCode = targetLang === 'zh' ? 'zh-Hant' : 'en';
+        try {
+          localStorage.setItem(LANG_KEY, langCode);
+        } catch (e) {
+          // localStorage 不可用
+        }
+      });
+    });
   }
 
   /**

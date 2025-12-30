@@ -1,99 +1,86 @@
 <!DOCTYPE html>
-<html lang="zh-TW" data-lang="zh" data-base-path="./" data-page="index.html">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>首頁 - TzuYuan Yin</title>
+  <title>TzuYuan Yin - Redirecting...</title>
 
   <!-- SEO Meta Tags -->
-  <meta name="description" content="字型設計師 × 開發者 - TzuYuan Yin 殷慈遠">
+  <meta name="description" content="Type Designer and Developer - TzuYuan Yin">
   <meta name="author" content="TzuYuan Yin">
 
-  <!-- Open Graph / Facebook -->
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://erikyin.net/">
-  <meta property="og:title" content="首頁 - TzuYuan Yin">
-  <meta property="og:description" content="字型設計師 × 開發者 - TzuYuan Yin 殷慈遠">
-  <meta property="og:image" content="https://erikyin.net/assets/og-image.jpg">
-
-  <!-- Twitter -->
-  <meta property="twitter:card" content="summary_large_image">
-  <meta property="twitter:url" content="https://erikyin.net/">
-  <meta property="twitter:title" content="首頁 - TzuYuan Yin">
-  <meta property="twitter:description" content="字型設計師 × 開發者 - TzuYuan Yin 殷慈遠">
-  <meta property="twitter:image" content="https://erikyin.net/assets/og-image.jpg">
-
   <!-- hreflang SEO -->
-  <link rel="alternate" hreflang="zh" href="https://erikyin.net/">
+  <link rel="alternate" hreflang="zh-Hant" href="https://erikyin.net/zh-Hant/">
   <link rel="alternate" hreflang="en" href="https://erikyin.net/en/">
-
-  <!-- PWA -->
-  <link rel="manifest" href="./manifest.json">
-  <meta name="theme-color" content="#000000">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
-  <meta name="apple-mobile-web-app-title" content="Erik Yin">
+  <link rel="alternate" hreflang="x-default" href="https://erikyin.net/">
 
   <!-- Favicon -->
   <link rel="icon" type="image/x-icon" href="./favicon.ico">
-  <link rel="apple-touch-icon" sizes="180x180" href="./assets/icons/apple-touch-icon.png">
 
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@100..700&family=IBM+Plex+Mono:wght@100..700&family=Noto+Sans+TC:wght@100..900&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      text-align: center;
+      padding: 2rem;
+      background: #fff;
+      color: #333;
+    }
+    @media (prefers-color-scheme: dark) {
+      body { background: #1a1a1a; color: #e0e0e0; }
+      a { color: #6db3f2; }
+    }
+    h1 { font-weight: 400; }
+    a { margin: 0 1rem; color: #0066cc; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+  </style>
 
-  <!-- Phosphor Icons -->
-  <link rel="preconnect" href="https://cdn.jsdelivr.net">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.2/src/regular/style.css">
+  <script>
+    (function() {
+      'use strict';
 
-  <!-- 主樣式表 -->
-  <link rel="stylesheet" href="./assets/style.css">
+      var LANG_KEY = 'erikyin-lang';
 
+      function isChinese(lang) {
+        return lang && lang.toLowerCase().startsWith('zh');
+      }
+
+      function detectLanguage() {
+        // 1. 檢查 localStorage 儲存的偏好
+        try {
+          var saved = localStorage.getItem(LANG_KEY);
+          if (saved === 'zh-Hant' || saved === 'en') {
+            return saved;
+          }
+        } catch (e) {
+          // localStorage 不可用
+        }
+
+        // 2. 檢查瀏覽器語言設定
+        var languages = navigator.languages || [navigator.language || navigator.userLanguage];
+        for (var i = 0; i < languages.length; i++) {
+          if (isChinese(languages[i])) {
+            return 'zh-Hant';
+          }
+        }
+
+        // 3. 預設英文
+        return 'en';
+      }
+
+      // 執行重導向
+      var targetLang = detectLanguage();
+      window.location.replace('/' + targetLang + '/');
+    })();
+  </script>
 </head>
 <body>
-  <!-- 共用 header（由 app.js 動態注入） -->
-  <header id="site-header"></header>
-
-  <!-- ========== 頁面內容（Markdown 格式）========== -->
-  <script id="page-content" type="text/markdown">
-<!-- [暫時隱藏] NineBoxView Pro 公告橫幅
-<div class="announcement-banner">
-  <p>
-    <span class="announcement-tag">[新發布]</span>
-    <strong>NineBoxView Pro</strong> - Glyphs 的終極預覽工具。
-    <a href="./NineBoxView-Pro/index.html" class="announcement-link">了解更多與購買 →</a>
-  </p>
-</div>
--->
-
-# 殷慈遠
-
-## 字型設計師 × 開發者
-
-- [作品集](./works.html) — 查看我的字型設計與工具開發
-- [關於我](./about.html) — 了解我的創作歷程
-- [聯繫](./contact.html) — 創意合作與交流
-
----
-
-_主要使用 [Glyphs](https://glyphsapp.com/) 進行字型設計。_
-  </script>
-  <!-- ========== 頁面內容結束 ========== -->
-
-  <main id="main-content">
-    <!-- 內容由 app.js 渲染 -->
-  </main>
-
-  <!-- 回到頂部按鈕 -->
-  <button id="back-to-top" aria-label="回到頂部" style="position:fixed;bottom:2rem;right:2rem;width:3rem;height:3rem;background:var(--text);color:var(--bg);border:none;border-radius:50%;font-size:1.5rem;cursor:pointer;opacity:0;visibility:hidden;z-index:99;">↑</button>
-
-  <!-- 共用 footer（由 app.js 動態注入） -->
-  <footer id="site-footer"></footer>
-
-  <!-- 載入資料與腳本 -->
-  <script src="./data/ui.js"></script>
-  <script src="./assets/lib/marked.min.js"></script>
-  <script src="./assets/app.js"></script>
+  <noscript>
+    <h1>TzuYuan Yin</h1>
+    <p>Please select your language / 請選擇語言：</p>
+    <p>
+      <a href="/en/">English</a> |
+      <a href="/zh-Hant/">繁體中文</a>
+    </p>
+  </noscript>
 </body>
 </html>
