@@ -167,6 +167,7 @@ window.UI_COMPONENTS = {
         '<button class="nav-toggle" aria-label="\u958B\u555F\u9078\u55AE" onclick="document.querySelector(\'.nav-links\').classList.toggle(\'show\')"><i class="ph ph-list"></i></button>' +
         '<nav class="nav-links">' + navLinksHTML + '</nav>' +
         '<div class="header-actions">' +
+          '<a href="about.html#support" class="header-btn header-btn-support" aria-label="Support" title="Support"><i class="ph ph-heart"></i></a>' +
           '<button class="header-btn lang-btn" onclick="toggleLang()" aria-label="\u5207\u63DB\u8A9E\u8A00"><span class="lang-label">EN</span></button>' +
           '<button class="header-btn" onclick="toggleTheme()" aria-label="\u5207\u63DB\u6DF1\u6DFA\u8272\u6A21\u5F0F"><i class="ph ph-moon theme-icon"></i></button>' +
         '</div>' +

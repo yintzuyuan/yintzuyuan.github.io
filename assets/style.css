@@ -80,7 +80,7 @@ body {
 .nav-links a { font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-secondary); text-decoration: none; padding: 0.4rem 0.75rem; border-radius: 4px; transition: color 0.2s, background 0.2s; letter-spacing: 0.02em; }
 .nav-links a:hover, .nav-links a.active { color: var(--text); background: color-mix(in srgb, var(--text) 6%, transparent); }
 .header-actions { display: flex; align-items: center; gap: 0.35rem; }
-.header-btn { background: none; border: 1px solid var(--border); color: var(--text-secondary); width: 2.25rem; height: 2.25rem; border-radius: 6px; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; transition: color 0.2s, border-color 0.2s; }
+.header-btn { background: none; border: 1px solid var(--border); color: var(--text-secondary); width: 2.25rem; height: 2.25rem; border-radius: 6px; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; transition: color 0.2s, border-color 0.2s; text-decoration: none; }
 .header-btn:hover { color: var(--text); border-color: var(--text-secondary); }
 .lang-btn { font-family: var(--font-mono); font-size: 0.7rem; font-weight: 500; width: 2.25rem; padding: 0; }
 .nav-toggle { display: none; background: none; border: 1px solid var(--border); color: var(--text); width: 2.25rem; height: 2.25rem; border-radius: 6px; cursor: pointer; font-size: 1.1rem; align-items: center; justify-content: center; }
@@ -169,10 +169,21 @@ body::after { content: ''; position: fixed; top: 0; left: 0; width: 100%; height
 .timeline-item:last-child .timeline-desc { border-bottom: none; }
 
 /* ===== 10. Support ===== */
+.support-section { background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 12px; padding: var(--space-lg); }
 .support-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-sm); }
-.support-card { display: flex; align-items: center; justify-content: center; gap: 0.6em; padding: var(--space-md); border: 1px solid var(--border-light); border-radius: 8px; text-decoration: none; color: var(--text); font-size: 0.9rem; transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s; }
-.support-card:hover { border-color: var(--border); transform: translateY(-2px); box-shadow: var(--shadow-md); }
-.support-card .ph { font-size: 1.2rem; color: var(--text-secondary); }
+.support-card { display: flex; align-items: center; justify-content: center; gap: 0.6em; padding: var(--space-md); background: var(--bg); border: 1px solid var(--border-light); border-radius: 8px; text-decoration: none; color: var(--text); font-size: 0.9rem; transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s; }
+.support-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); }
+.support-card-ecpay:hover { border-color: color-mix(in srgb, #00AF54 60%, var(--text-secondary)); }
+.support-card-ecpay:hover .ph { color: color-mix(in srgb, #00AF54 80%, var(--text-secondary)); }
+.support-card-bmc:hover { border-color: color-mix(in srgb, #D4A017 60%, var(--text-secondary)); }
+.support-card-bmc:hover .ph { color: color-mix(in srgb, #D4A017 80%, var(--text-secondary)); }
+.support-card-paypal:hover { border-color: color-mix(in srgb, #0070BA 60%, var(--text-secondary)); }
+.support-card-paypal:hover .ph { color: color-mix(in srgb, #0070BA 80%, var(--text-secondary)); }
+.support-card .ph { font-size: 1.4rem; }
+.support-card-ecpay .ph { color: color-mix(in srgb, #00AF54 60%, var(--text-secondary)); }
+.support-card-bmc .ph { color: color-mix(in srgb, #D4A017 60%, var(--text-secondary)); }
+.support-card-paypal .ph { color: color-mix(in srgb, #0070BA 60%, var(--text-secondary)); }
+.header-btn-support:hover { color: var(--ink-red); }
 
 /* ===== 11. Tools — Product Card ===== */
 .product-card { background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 8px; padding: var(--space-lg); display: grid; grid-template-columns: 1fr auto; gap: var(--space-lg); align-items: center; transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s; position: relative; overflow: hidden; }
