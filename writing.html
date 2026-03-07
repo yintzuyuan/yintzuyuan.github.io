@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="zh-TW" data-lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>隨筆 — 殷慈遠</title>
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600&family=Noto+Serif+TC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script defer src="https://unpkg.com/@phosphor-icons/web@2.1.1"></script>
+  <link rel="stylesheet" href="assets/style.css">
+  <script defer src="https://analytics.erikyin.net/script.js" data-website-id="9c15a939-c76d-4f2e-9c9d-93a7db9ab13c" data-domains="erikyin.net"></script>
+</head>
+<body>
+
+  <div id="site-header"></div>
+
+  <div class="container">
+    <div class="page-header fade-in">
+      <h1 data-i18n="writing.page.title">隨筆</h1>
+      <p class="page-header-desc" data-i18n="writing.page.desc">關於字型設計、工具開發，以及創作過程中的思考。</p>
+    </div>
+
+    <div class="lang-notice">
+      Articles are written in Chinese. You may use your browser's built-in translation.
+    </div>
+
+    <div class="essays-list" id="essays-list"></div>
+
+
+  </div>
+
+  <div id="site-footer"></div>
+
+  <script src="data/ui.js"></script>
+  <script src="data/essays.js"></script>
+  <script src="assets/app.js"></script>
+  <script>
+    function renderEssays() {
+      var container = document.getElementById('essays-list');
+      container.replaceChildren();
+      if (!window.ESSAYS_DATA || window.ESSAYS_DATA.length === 0) {
+        var emptyMsg = document.createElement('p');
+        emptyMsg.className = 'fade-in';
+        emptyMsg.style.color = 'var(--text-secondary)';
+        emptyMsg.textContent = currentLang === 'en' ? 'No articles yet. Stay tuned.' : '文章準備中，敬請期待。';
+        container.appendChild(emptyMsg);
+        return;
+      }
+
+      for (var i = 0; i < window.ESSAYS_DATA.length; i++) {
+        var essay = window.ESSAYS_DATA[i];
+        var a = document.createElement('a');
+        a.href = 'writing-post.html?slug=' + essay.slug;
+        a.className = 'essay-item fade-in';
+
+        var dateSpan = document.createElement('span');
+        dateSpan.className = 'essay-date';
+        dateSpan.textContent = essay.date;
+
+        var content = document.createElement('div');
+
+        var title = document.createElement('div');
+        title.className = 'essay-title';
+        title.textContent = essay.title[currentLang];
+
+        var excerpt = document.createElement('div');
+        excerpt.className = 'essay-excerpt';
+        excerpt.textContent = essay.excerpt[currentLang];
+
+        var tags = document.createElement('div');
+        tags.className = 'essay-tags';
+        for (var t = 0; t < essay.tags.length; t++) {
+          var tagSpan = document.createElement('span');
+          tagSpan.className = 'essay-tag';
+          tagSpan.textContent = essay.tags[t];
+          tags.appendChild(tagSpan);
+        }
+
+        content.appendChild(title);
+        content.appendChild(excerpt);
+        content.appendChild(tags);
+        a.appendChild(dateSpan);
+        a.appendChild(content);
+        container.appendChild(a);
+      }
+
+      container.querySelectorAll('.fade-in').forEach(function(el, i) {
+        setTimeout(function() { el.classList.add('visible'); }, i * 80);
+      });
+    }
+
+    renderEssays();
+    document.addEventListener('langchange', renderEssays);
+  </script>
+</body>
+</html>

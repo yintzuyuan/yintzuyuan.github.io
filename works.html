@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="zh-TW" data-lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>作品集 — 殷慈遠</title>
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600&family=Noto+Serif+TC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script defer src="https://unpkg.com/@phosphor-icons/web@2.1.1"></script>
+  <link rel="stylesheet" href="assets/style.css">
+  <script defer src="https://analytics.erikyin.net/script.js" data-website-id="9c15a939-c76d-4f2e-9c9d-93a7db9ab13c" data-domains="erikyin.net"></script>
+</head>
+<body>
+
+  <div id="site-header"></div>
+
+  <div class="container">
+    <div class="page-header fade-in">
+      <h1 data-i18n="works.page.title">作品集</h1>
+      <p class="page-header-desc" data-i18n="works.page.desc">字型設計、翻譯貢獻與視覺藝術。開發工具請見工具頁。</p>
+    </div>
+
+    <div class="filter-tabs fade-in" id="filter-tabs"></div>
+    <div class="works-grid" id="works-grid"></div>
+  </div>
+
+  <div id="site-footer"></div>
+
+  <script src="data/ui.js"></script>
+  <script src="data/projects.js"></script>
+  <script src="assets/app.js"></script>
+  <script>
+    var categoryMeta = {
+      latin:       { zh: '拉丁字型', en: 'Latin Typefaces',   icon: 'ph-text-aa' },
+      cjk:         { zh: '漢字字型', en: 'CJK Typefaces',     icon: 'ph-translate' },
+      translation: { zh: '翻譯貢獻', en: 'Translations',      icon: 'ph-globe' },
+      art:         { zh: '視覺藝術', en: 'Visual Art',         icon: 'ph-paint-brush' }
+    };
+
+    var hostIcons = {
+      'behance.net': 'ph-behance-logo',
+      'github.com': 'ph-github-logo',
+      'facebook.com': 'ph-facebook-logo',
+      'chatgpt.com': 'ph-chat-circle-dots'
+    };
+
+    var categoryOrder = ['latin', 'cjk', 'translation', 'art'];
+    var currentFilter = 'all';
+
+    function getHostIcon(url) {
+      for (var host in hostIcons) {
+        if (url.indexOf(host) !== -1) return hostIcons[host];
+      }
+      return 'ph-arrow-square-out';
+    }
+
+    function createCard(project, category) {
+      var meta = categoryMeta[category];
+      var a = document.createElement('a');
+      a.href = project.url;
+      a.target = '_blank';
+      a.rel = 'noopener';
+      a.className = 'work-card fade-in';
+
+      var catDiv = document.createElement('div');
+      catDiv.className = 'work-card-category';
+      var catIcon = document.createElement('i');
+      catIcon.className = 'ph ' + meta.icon;
+      catDiv.appendChild(catIcon);
+      catDiv.appendChild(document.createTextNode(' ' + meta[currentLang]));
+
+      var h3 = document.createElement('h3');
+      h3.textContent = project.title[currentLang];
+
+      var footer = document.createElement('div');
+      footer.className = 'work-card-footer';
+      var spacer = document.createElement('span');
+      var linkSpan = document.createElement('span');
+      linkSpan.className = 'work-card-link';
+      var hostIcon = document.createElement('i');
+      hostIcon.className = 'ph ' + getHostIcon(project.url);
+      var arrowIcon = document.createElement('i');
+      arrowIcon.className = 'ph ph-arrow-right';
+      linkSpan.appendChild(hostIcon);
+      linkSpan.appendChild(arrowIcon);
+      footer.appendChild(spacer);
+      footer.appendChild(linkSpan);
+
+      a.appendChild(catDiv);
+      a.appendChild(h3);
+      a.appendChild(footer);
+      return a;
+    }
+
+    function createCategoryHeader(category) {
+      var meta = categoryMeta[category];
+      var div = document.createElement('div');
+      div.className = 'category-header';
+      var icon = document.createElement('i');
+      icon.className = 'ph ' + meta.icon;
+      div.appendChild(icon);
+      div.appendChild(document.createTextNode(' ' + meta[currentLang]));
+      return div;
+    }
+
+    function renderWorks() {
+      if (!window.PROJECTS_DATA) return;
+      var grid = document.getElementById('works-grid');
+      grid.replaceChildren();
+
+      if (currentFilter === 'all') {
+        for (var c = 0; c < categoryOrder.length; c++) {
+          var cat = categoryOrder[c];
+          var items = window.PROJECTS_DATA.filter(function(p) { return p.categories.indexOf(cat) !== -1; });
+          if (items.length === 0) continue;
+          grid.appendChild(createCategoryHeader(cat));
+          for (var i = 0; i < items.length; i++) grid.appendChild(createCard(items[i], cat));
+        }
+      } else {
+        var filtered = window.PROJECTS_DATA.filter(function(p) { return p.categories.indexOf(currentFilter) !== -1; });
+        for (var j = 0; j < filtered.length; j++) grid.appendChild(createCard(filtered[j], currentFilter));
+      }
+
+      grid.querySelectorAll('.fade-in').forEach(function(el, i) {
+        setTimeout(function() { el.classList.add('visible'); }, i * 50);
+      });
+    }
+
+    function renderFilterTabs() {
+      var container = document.getElementById('filter-tabs');
+      container.replaceChildren();
+      var labels = {
+        zh: { all: '全部', latin: '拉丁字型', cjk: '漢字字型', translation: '翻譯', art: '視覺藝術' },
+        en: { all: 'All', latin: 'Latin', cjk: 'CJK', translation: 'Translations', art: 'Visual Art' }
+      };
+      var filters = [{ key: 'all', count: window.PROJECTS_DATA.length }];
+      for (var c = 0; c < categoryOrder.length; c++) {
+        var cat = categoryOrder[c];
+        filters.push({ key: cat, count: window.PROJECTS_DATA.filter(function(p) { return p.categories.indexOf(cat) !== -1; }).length });
+      }
+      for (var f = 0; f < filters.length; f++) {
+        (function(filter) {
+          var btn = document.createElement('button');
+          btn.className = 'filter-tab' + (filter.key === currentFilter ? ' active' : '');
+          btn.textContent = labels[currentLang][filter.key] + ' ';
+          var countSpan = document.createElement('span');
+          countSpan.className = 'filter-count';
+          countSpan.textContent = '(' + filter.count + ')';
+          btn.appendChild(countSpan);
+          btn.addEventListener('click', function() {
+            currentFilter = filter.key;
+            renderFilterTabs();
+            renderWorks();
+          });
+          container.appendChild(btn);
+        })(filters[f]);
+      }
+    }
+
+    function updateWorksPage() {
+      renderFilterTabs();
+      renderWorks();
+    }
+
+    updateWorksPage();
+    document.addEventListener('langchange', updateWorksPage);
+  </script>
+</body>
+</html>

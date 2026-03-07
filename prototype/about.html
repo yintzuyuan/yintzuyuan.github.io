@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="zh-TW" data-lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>關於 — 殷慈遠</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600&family=Noto+Serif+TC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/@phosphor-icons/web@2.1.1"></script>
+  <style>
+    :root {
+      --bg: #f4f0e8;
+      --bg-card: #faf8f3;
+      --text: #2c2825;
+      --text-secondary: #8a8078;
+      --border: #d5cec4;
+      --border-light: #e8e2d8;
+      --ink-brown: #b09a85;
+      --ink-blue: #859ab0;
+      --ink-purple: #9a85b0;
+      --ink-red: #b0859a;
+      --ink-teal: #85b09a;
+      --space-xs: 0.5rem;
+      --space-sm: 1rem;
+      --space-md: 1.5rem;
+      --space-lg: 2.5rem;
+      --space-xl: 4rem;
+      --space-2xl: 6rem;
+      --font-serif: "Noto Serif TC", "Source Han Serif TC", "PMingLiU", serif;
+      --font-mono: "JetBrains Mono", "SF Mono", "Fira Code", monospace;
+      --max-width: 64rem;
+      --shadow-sm: 0 1px 3px rgba(44, 40, 37, 0.06);
+      --shadow-md: 0 4px 12px rgba(44, 40, 37, 0.08);
+      --shadow-hover: 0 8px 24px rgba(176, 154, 133, 0.18);
+    }
+
+    [data-theme="dark"] {
+      --bg: #1a1816;
+      --bg-card: #242120;
+      --text: #e8e2d8;
+      --text-secondary: #8a8078;
+      --border: #3a3530;
+      --border-light: #2e2a26;
+      --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.2);
+      --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.3);
+      --shadow-hover: 0 8px 24px rgba(0, 0, 0, 0.4);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+
+    body {
+      font-family: var(--font-serif);
+      font-size: 1rem;
+      line-height: 1.8;
+      color: var(--text);
+      background: var(--bg);
+      overflow-x: hidden;
+      animation: page-enter 0.4s ease;
+    }
+
+    @keyframes page-enter { from { opacity: 0; } to { opacity: 1; } }
+    .ph { vertical-align: -0.125em; }
+    .container { max-width: var(--max-width); margin: 0 auto; padding: 0 var(--space-md); }
+    .content-narrow { max-width: 42rem; margin: 0 auto; }
+
+    /* ===== Header ===== */
+    .site-header { position: sticky; top: 0; z-index: 100; border-bottom: 1px solid var(--border-light); backdrop-filter: blur(12px); background: color-mix(in srgb, var(--bg) 85%, transparent); }
+    .header-inner { max-width: var(--max-width); margin: 0 auto; padding: 0 var(--space-md); display: flex; align-items: center; justify-content: space-between; height: 3.5rem; }
+    .site-logo { font-family: var(--font-serif); font-size: 1.125rem; font-weight: 600; color: var(--text); text-decoration: none; letter-spacing: 0.08em; }
+    .nav-links { display: flex; align-items: center; gap: 0.25rem; }
+    .nav-links a { font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-secondary); text-decoration: none; padding: 0.4rem 0.75rem; border-radius: 4px; transition: color 0.2s, background 0.2s; letter-spacing: 0.02em; }
+    .nav-links a:hover, .nav-links a.active { color: var(--text); background: color-mix(in srgb, var(--text) 6%, transparent); }
+    .header-actions { display: flex; align-items: center; gap: 0.35rem; }
+    .header-btn { background: none; border: 1px solid var(--border); color: var(--text-secondary); width: 2.25rem; height: 2.25rem; border-radius: 6px; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; transition: color 0.2s, border-color 0.2s; }
+    .header-btn:hover { color: var(--text); border-color: var(--text-secondary); }
+    .lang-btn { font-family: var(--font-mono); font-size: 0.7rem; font-weight: 500; width: 2.25rem; padding: 0; }
+    .nav-toggle { display: none; background: none; border: 1px solid var(--border); color: var(--text); width: 2.25rem; height: 2.25rem; border-radius: 6px; cursor: pointer; font-size: 1.1rem; align-items: center; justify-content: center; }
+
+    /* ===== About Hero ===== */
+    .about-hero {
+      padding: var(--space-2xl) 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .about-photo {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid var(--border-light);
+      margin-bottom: var(--space-lg);
+      filter: brightness(1.05) contrast(1.02);
+    }
+
+    [data-theme="dark"] .about-photo { filter: none; }
+
+    .about-hero h1 {
+      font-family: var(--font-serif);
+      font-size: 2.5rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      margin-bottom: var(--space-xs);
+    }
+
+    .about-hero-subtitle {
+      font-family: var(--font-mono);
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      letter-spacing: 0.05em;
+      margin-bottom: var(--space-md);
+    }
+
+    .about-accent {
+      height: 3px;
+      width: 6rem;
+      border-radius: 2px;
+      background: linear-gradient(135deg, var(--ink-brown), var(--ink-blue), var(--ink-purple), var(--ink-red));
+      margin-bottom: var(--space-lg);
+    }
+
+    .about-bio {
+      max-width: 32rem;
+      font-size: 1.05rem;
+      line-height: 2;
+      color: var(--text);
+    }
+
+    .about-bio a {
+      color: var(--text);
+      text-decoration: underline;
+      text-decoration-thickness: 1px;
+      text-underline-offset: 0.2em;
+      transition: color 0.2s;
+    }
+
+    .about-bio a:hover { color: var(--text); text-decoration-thickness: 2px; text-decoration-color: var(--text); }
+
+    /* ===== Section shared ===== */
+    .section { padding: var(--space-2xl) 0; }
+    .section + .section { border-top: 1px solid var(--border-light); }
+
+    .section-label {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--text-secondary);
+      margin-bottom: var(--space-lg);
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .section-label::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+
+    /* ===== Timeline ===== */
+    .timeline {
+      display: grid;
+      grid-template-columns: 5rem 1fr;
+      gap: 0;
+    }
+
+    .timeline-item {
+      display: contents;
+    }
+
+    .timeline-year {
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text-secondary);
+      letter-spacing: 0.05em;
+      padding: 0.75rem 0;
+      text-align: right;
+      padding-right: var(--space-md);
+      position: relative;
+    }
+
+    /* Vertical accent line between year and content */
+    .timeline-year::after {
+      content: '';
+      position: absolute;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: var(--border);
+    }
+
+    /* Gradient dot on the line */
+    .timeline-year::before {
+      content: '';
+      position: absolute;
+      right: -3.5px;
+      top: 1.1rem;
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--ink-brown), var(--ink-blue));
+      z-index: 1;
+    }
+
+    /* First item: line starts from dot */
+    .timeline-item:first-child .timeline-year::after {
+      top: 1.1rem;
+    }
+
+    /* Last item: line ends at dot */
+    .timeline-item:last-child .timeline-year::after {
+      bottom: calc(100% - 1.1rem - 9px);
+    }
+
+    .timeline-desc {
+      padding: 0.75rem 0;
+      padding-left: var(--space-md);
+      font-size: 0.95rem;
+      color: var(--text);
+      line-height: 1.7;
+      border-bottom: 1px solid var(--border-light);
+    }
+
+    .timeline-item:last-child .timeline-desc {
+      border-bottom: none;
+    }
+
+    /* ===== Support Section ===== */
+    .support-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-sm);
+    }
+
+    .support-card {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.6em;
+      padding: var(--space-md);
+      border: 1px solid var(--border-light);
+      border-radius: 8px;
+      text-decoration: none;
+      color: var(--text);
+      font-size: 0.9rem;
+      transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+    }
+
+    .support-card:hover {
+      border-color: var(--border);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .support-card .ph { font-size: 1.2rem; color: var(--text-secondary); }
+
+    /* ===== Gradient divider ===== */
+    .gradient-divider {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--ink-brown), var(--ink-blue), var(--ink-purple), var(--ink-red), transparent);
+      opacity: 0.4;
+    }
+
+    /* ===== Fade-in ===== */
+    .fade-in { opacity: 0; transform: translateY(16px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+    /* ===== Footer ===== */
+    .site-footer { border-top: 1px solid var(--border-light); padding: var(--space-xl) 0 var(--space-lg); }
+    .footer-inner { max-width: var(--max-width); margin: 0 auto; padding: 0 var(--space-md); display: flex; justify-content: space-between; align-items: flex-start; gap: var(--space-lg); }
+    .footer-brand { font-family: var(--font-serif); font-size: 1rem; font-weight: 500; letter-spacing: 0.06em; margin-bottom: var(--space-xs); }
+    .footer-tagline { font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-secondary); }
+    .footer-links { display: flex; gap: var(--space-lg); }
+    .footer-col h4 { font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-secondary); margin-bottom: var(--space-sm); }
+    .footer-col a { display: block; font-size: 0.85rem; color: var(--text); text-decoration: none; padding: 0.2rem 0; transition: color 0.2s; }
+    .footer-col a:hover { color: var(--text); text-decoration: underline; text-underline-offset: 0.2em; }
+    .footer-bottom { max-width: var(--max-width); margin: var(--space-lg) auto 0; padding: var(--space-sm) var(--space-md) 0; border-top: 1px solid var(--border-light); display: flex; justify-content: space-between; align-items: center; }
+    .footer-copyright { font-family: var(--font-mono); font-size: 0.7rem; color: var(--text-secondary); }
+    .footer-social { display: flex; gap: 0.35rem; }
+    .footer-social a { display: flex; align-items: center; justify-content: center; width: 2.25rem; height: 2.25rem; border-radius: 6px; color: var(--text-secondary); text-decoration: none; font-size: 1.15rem; transition: color 0.2s, background 0.2s; }
+    .footer-social a:hover { color: var(--text); background: color-mix(in srgb, var(--text) 6%, transparent); }
+
+    /* ===== Paper texture ===== */
+    body::after { content: ''; position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 9999; opacity: 0.025; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E"); background-repeat: repeat; background-size: 256px 256px; }
+    [data-theme="dark"] body::after { opacity: 0.04; }
+
+    /* ===== Responsive ===== */
+    @media (max-width: 768px) {
+      .about-hero h1 { font-size: 2rem; }
+      .about-photo { width: 160px; height: 160px; }
+      .support-grid { grid-template-columns: 1fr; }
+      .footer-inner { flex-direction: column; }
+      .footer-links { flex-direction: column; gap: var(--space-md); }
+      .footer-bottom { flex-direction: column; gap: var(--space-sm); text-align: center; }
+      .nav-toggle { display: flex; }
+      .nav-links { display: none; position: absolute; top: 3.5rem; left: 0; right: 0; background: var(--bg); border-bottom: 1px solid var(--border-light); flex-direction: column; padding: var(--space-sm) var(--space-md); }
+      .nav-links.show { display: flex; }
+      .header-inner { position: relative; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="site-logo">殷慈遠</a>
+      <button class="nav-toggle" aria-label="開啟選單" onclick="document.querySelector('.nav-links').classList.toggle('show')"><i class="ph ph-list"></i></button>
+      <nav class="nav-links">
+        <a href="tools.html" data-i18n="nav.tools">工具</a>
+        <a href="works.html" data-i18n="nav.works">作品</a>
+        <a href="writing.html" data-i18n="nav.writing">隨筆</a>
+        <a href="about.html" class="active" data-i18n="nav.about">關於</a>
+      </nav>
+      <div class="header-actions">
+        <button class="header-btn lang-btn" onclick="toggleLang()" aria-label="切換語言"><span class="lang-label">EN</span></button>
+        <button class="header-btn" onclick="toggleTheme()" aria-label="切換深淺色模式"><i class="ph ph-moon theme-icon"></i></button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===== About Hero ===== -->
+  <div class="container">
+    <div class="about-hero fade-in">
+      <img src="../assets/images/profile.png" alt="殷慈遠" class="about-photo">
+      <h1 data-i18n="about.name">殷慈遠</h1>
+      <div class="about-hero-subtitle" data-i18n="about.subtitle">Type Designer & Developer</div>
+      <div class="about-accent"></div>
+      <p class="about-bio" data-i18n-html="about.bio">我是殷慈遠（TzuYuan Yin），字型設計師、工具開發者、YouTube 創作者。使用 <a href="https://glyphsapp.com/" target="_blank" rel="noopener">Glyphs</a> 設計字型，並在 <a href="https://www.youtube.com/c/erikin1205_typogame" target="_blank" rel="noopener">YouTube</a> 分享設計知識。目前任職於<a href="https://www.arphic.com/" target="_blank" rel="noopener">文鼎字型</a>，專注於漢字字型設計與 Glyphs 工具開發。</p>
+    </div>
+  </div>
+
+  <div class="gradient-divider"></div>
+
+  <!-- ===== Timeline ===== -->
+  <section class="section">
+    <div class="container">
+      <div class="content-narrow">
+        <div class="section-label fade-in"><i class="ph ph-clock-counter-clockwise"></i> Timeline</div>
+        <div class="timeline" id="timeline">
+          <!-- rendered by JS -->
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="gradient-divider"></div>
+
+  <!-- ===== Support ===== -->
+  <section class="section">
+    <div class="container">
+      <div class="content-narrow">
+        <div class="section-label fade-in"><i class="ph ph-heart"></i> <span data-i18n="support.label">Support</span></div>
+        <p class="fade-in" style="color: var(--text-secondary); margin-bottom: var(--space-lg);" data-i18n="support.desc">如果我的作品或工具對你有幫助，歡迎支持我的創作。</p>
+        <div class="support-grid fade-in">
+          <a href="https://p.ecpay.com.tw/120048C" target="_blank" rel="noopener" class="support-card">
+            <i class="ph ph-credit-card"></i>
+            <span data-i18n="support.ecpay">綠界 ECPay</span>
+          </a>
+          <a href="https://www.buymeacoffee.com/erikyin" target="_blank" rel="noopener" class="support-card">
+            <i class="ph ph-coffee"></i>
+            <span>Buy Me a Coffee</span>
+          </a>
+          <a href="https://paypal.me/erikyin" target="_blank" rel="noopener" class="support-card">
+            <i class="ph ph-paypal-logo"></i>
+            <span>PayPal</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Footer ===== -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div>
+        <div class="footer-brand">殷慈遠</div>
+        <div class="footer-tagline">Type Designer & Developer</div>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col"><h4 data-i18n="footer.tools">工具</h4><a href="tools.html">NineBoxView Pro</a><a href="tools.html" data-i18n="footer.allTools">所有工具</a></div>
+        <div class="footer-col"><h4 data-i18n="footer.works">作品</h4><a href="works.html" data-i18n="footer.typeDesign">字型設計</a></div>
+        <div class="footer-col"><h4 data-i18n="footer.more">更多</h4><a href="about.html" data-i18n="footer.about">關於</a><a href="writing.html" data-i18n="footer.writing">隨筆</a><a href="#" data-i18n="footer.privacy">隱私政策</a><a href="#" data-i18n="footer.terms">服務條款</a></div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copyright">&copy; 2026 TzuYuan Yin. All rights reserved.</span>
+      <div class="footer-social">
+        <a href="https://www.youtube.com/c/erikin1205_typogame" aria-label="YouTube" title="YouTube" target="_blank" rel="noopener"><i class="ph ph-youtube-logo"></i></a>
+        <a href="#" aria-label="Instagram" title="Instagram"><i class="ph ph-instagram-logo"></i></a>
+        <a href="#" aria-label="Facebook" title="Facebook"><i class="ph ph-facebook-logo"></i></a>
+        <a href="https://github.com/yintzuyuan" aria-label="GitHub" title="GitHub" target="_blank" rel="noopener"><i class="ph ph-github-logo"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // ===== Timeline Data =====
+    const timeline = [
+      { year: 2025, events: [
+        { zh: '個人網站上線、多款 Glyphs 外掛發布', en: 'Personal website launched, multiple Glyphs plugins released' },
+      ]},
+      { year: 2024, events: [
+        { zh: '自學 Python，開始開發 Glyphs 外掛與腳本', en: 'Self-taught Python, started developing Glyphs plugins & scripts' },
+      ]},
+      { year: 2023, events: [
+        { zh: '創立 YouTube 字型知識頻道', en: 'Founded YouTube type design channel' },
+      ]},
+      { year: 2019, events: [
+        { zh: '加入文鼎字型（至今）', en: 'Joined Arphic Types (present)' },
+      ]},
+      { year: 2017, events: [
+        { zh: '首個漢字字型 殷泉明', en: 'First CJK typeface Yin Quan Ming' },
+      ]},
+      { year: 2015, events: [
+        { zh: '接觸 Glyphs 字型編輯軟體', en: 'Discovered Glyphs font editor' },
+      ]},
+      { year: 2013, events: [
+        { zh: '首個拉丁字型 Prism、自學 FontLab', en: 'First Latin typeface Prism, self-taught FontLab' },
+      ]},
+      { year: 1988, events: [
+        { zh: '來自台灣高雄', en: 'Born in Kaohsiung, Taiwan' },
+      ]},
+    ];
+
+    let currentLang = 'zh';
+
+    function renderTimeline() {
+      const container = document.getElementById('timeline');
+      container.replaceChildren();
+
+      for (const group of timeline) {
+        for (const event of group.events) {
+          const item = document.createElement('div');
+          item.className = 'timeline-item';
+
+          const yearDiv = document.createElement('div');
+          yearDiv.className = 'timeline-year';
+          yearDiv.textContent = group.year;
+
+          const descDiv = document.createElement('div');
+          descDiv.className = 'timeline-desc';
+          descDiv.textContent = event[currentLang];
+
+          item.appendChild(yearDiv);
+          item.appendChild(descDiv);
+          container.appendChild(item);
+        }
+      }
+
+      // Staggered fade-in (apply to year + desc pairs)
+      container.querySelectorAll('.timeline-year, .timeline-desc').forEach((el, i) => {
+        el.classList.add('fade-in');
+        setTimeout(() => el.classList.add('visible'), Math.floor(i / 2) * 80);
+      });
+    }
+
+    // ===== i18n =====
+    const i18n = {
+      zh: {
+        'nav.home': '\u9996\u9801', 'nav.works': '\u4F5C\u54C1', 'nav.tools': '\u5DE5\u5177', 'nav.writing': '\u96A8\u7B46', 'nav.about': '\u95DC\u65BC',
+        'about.name': '\u6BB7\u6148\u9060',
+        'about.subtitle': 'Type Designer & Developer',
+        'about.bio': [
+          '我是殷慈遠（TzuYuan Yin），字型設計師、工具開發者、YouTube 創作者。使用 ',
+          { text: 'Glyphs', href: 'https://glyphsapp.com/' },
+          ' 設計字型，並在 ',
+          { text: 'YouTube', href: 'https://www.youtube.com/c/erikin1205_typogame' },
+          ' 分享設計知識。目前任職於',
+          { text: '文鼎字型', href: 'https://www.arphic.com/' },
+          '，專注於漢字字型設計與 Glyphs 工具開發。',
+        ],
+        'support.label': 'Support',
+        'support.desc': '\u5982\u679C\u6211\u7684\u4F5C\u54C1\u6216\u5DE5\u5177\u5C0D\u4F60\u6709\u5E6B\u52A9\uFF0C\u6B61\u8FCE\u652F\u6301\u6211\u7684\u5275\u4F5C\u3002',
+        'support.ecpay': '\u7DA0\u754C ECPay',
+        'footer.tools': '工具', 'footer.works': '作品', 'footer.more': '更多', 'footer.about': '關於', 'footer.writing': '隨筆', 'footer.privacy': '隱私政策', 'footer.terms': '服務條款', 'footer.allTools': '所有工具', 'footer.typeDesign': '字型設計',
+      },
+      en: {
+        'nav.home': 'Home', 'nav.works': 'Works', 'nav.tools': 'Tools', 'nav.writing': 'Writing', 'nav.about': 'About',
+        'about.name': 'TzuYuan Yin',
+        'about.subtitle': 'Type Designer & Developer',
+        'about.bio': [
+          "I'm TzuYuan Yin, a type designer, tool developer, and YouTube creator. I design typefaces with ",
+          { text: 'Glyphs', href: 'https://glyphsapp.com/' },
+          ' and share design knowledge on ',
+          { text: 'YouTube', href: 'https://www.youtube.com/c/erikin1205_typogame' },
+          '. Currently at ',
+          { text: 'Arphic Types', href: 'https://www.arphic.com/' },
+          ', focusing on CJK type design and Glyphs tool development.',
+        ],
+        'support.label': 'Support',
+        'support.desc': 'If my work or tools have been helpful, consider supporting my creative journey.',
+        'support.ecpay': 'ECPay',
+        'footer.tools': 'Tools', 'footer.works': 'Works', 'footer.more': 'More', 'footer.about': 'About', 'footer.writing': 'Writing', 'footer.privacy': 'Privacy Policy', 'footer.terms': 'Terms of Service', 'footer.allTools': 'All Tools', 'footer.typeDesign': 'Type Design',
+      }
+    };
+
+    function renderRichText(el, segments) {
+      el.replaceChildren();
+      for (const seg of segments) {
+        if (typeof seg === 'string') {
+          el.appendChild(document.createTextNode(seg));
+        } else {
+          const a = document.createElement('a');
+          a.href = seg.href;
+          a.target = '_blank';
+          a.rel = 'noopener';
+          a.textContent = seg.text;
+          el.appendChild(a);
+        }
+      }
+    }
+
+    function setLang(lang) {
+      currentLang = lang;
+      document.documentElement.setAttribute('data-lang', lang);
+      document.documentElement.setAttribute('lang', lang === 'zh' ? 'zh-TW' : 'en');
+      document.querySelector('.lang-label').textContent = lang === 'zh' ? 'EN' : '中';
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const text = i18n[lang][el.getAttribute('data-i18n')];
+        if (text) el.textContent = text;
+      });
+      document.querySelectorAll('[data-i18n-html]').forEach(el => {
+        const segments = i18n[lang][el.getAttribute('data-i18n-html')];
+        if (segments) renderRichText(el, segments);
+      });
+      renderTimeline();
+      localStorage.setItem('lang', lang);
+    }
+    function toggleLang() { setLang(currentLang === 'zh' ? 'en' : 'zh'); }
+
+    // ===== Theme =====
+    function toggleTheme() {
+      const next = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
+      document.querySelector('.theme-icon').className = next === 'dark' ? 'ph ph-sun theme-icon' : 'ph ph-moon theme-icon';
+    }
+
+    // ===== Init =====
+    (function() {
+      const t = localStorage.getItem('theme');
+      if (t) { document.documentElement.setAttribute('data-theme', t); document.querySelector('.theme-icon').className = t === 'dark' ? 'ph ph-sun theme-icon' : 'ph ph-moon theme-icon'; }
+      else if (window.matchMedia('(prefers-color-scheme: dark)').matches) { document.documentElement.setAttribute('data-theme', 'dark'); document.querySelector('.theme-icon').className = 'ph ph-sun theme-icon'; }
+      const l = localStorage.getItem('lang');
+      if (l) { currentLang = l; setLang(l); } else { renderTimeline(); }
+    })();
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>

@@ -1,0 +1,1314 @@
+<!DOCTYPE html>
+<html lang="zh-TW" data-lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>殷慈遠 — 字型設計師 × 開發者</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600&family=Noto+Serif+TC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Phosphor Icons -->
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <script src="https://unpkg.com/@phosphor-icons/web@2.1.1"></script>
+
+  <style>
+    /* ===== CSS Variables ===== */
+    :root {
+      /* Light mode */
+      --bg: #f4f0e8;
+      --bg-card: #faf8f3;
+      --text: #2c2825;
+      --text-secondary: #8a8078;
+      --border: #d5cec4;
+      --border-light: #e8e2d8;
+
+      /* Muted rainbow palette — brightened */
+      --ink-brown: #b09a85;
+      --ink-blue: #859ab0;
+      --ink-purple: #9a85b0;
+      --ink-red: #b0859a;
+      --ink-teal: #85b09a;
+
+      /* Spacing */
+      --space-xs: 0.5rem;
+      --space-sm: 1rem;
+      --space-md: 1.5rem;
+      --space-lg: 2.5rem;
+      --space-xl: 4rem;
+      --space-2xl: 6rem;
+
+      /* Typography */
+      --font-serif: "Noto Serif TC", "Source Han Serif TC", "PMingLiU", serif;
+      --font-mono: "JetBrains Mono", "SF Mono", "Fira Code", monospace;
+
+      /* Layout */
+      --max-width: 64rem;
+
+      /* Shadows */
+      --shadow-sm: 0 1px 3px rgba(44, 40, 37, 0.06);
+      --shadow-md: 0 4px 12px rgba(44, 40, 37, 0.08);
+      --shadow-hover: 0 8px 24px rgba(176, 154, 133, 0.18);
+    }
+
+    [data-theme="dark"] {
+      --bg: #1a1816;
+      --bg-card: #242120;
+      --text: #e8e2d8;
+      --text-secondary: #8a8078;
+      --border: #3a3530;
+      --border-light: #2e2a26;
+
+      --ink-brown: #b09a85;
+      --ink-blue: #859ab0;
+      --ink-purple: #9a85b0;
+      --ink-red: #b0859a;
+      --ink-teal: #85b09a;
+
+      --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.2);
+      --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.3);
+      --shadow-hover: 0 8px 24px rgba(0, 0, 0, 0.4);
+    }
+
+    /* ===== Reset & Base ===== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html {
+      scroll-behavior: smooth;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    body {
+      font-family: var(--font-serif);
+      font-size: 1rem;
+      line-height: 1.8;
+      color: var(--text);
+      background: var(--bg);
+      overflow-x: hidden;
+      animation: page-enter 0.4s ease;
+    }
+
+    @keyframes page-enter { from { opacity: 0; } to { opacity: 1; } }
+
+    /* ===== Phosphor Icons base ===== */
+    .ph { vertical-align: -0.125em; }
+
+    /* ===== Utility ===== */
+    .container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 var(--space-md);
+    }
+
+    .section-label {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--text-secondary);
+      margin-bottom: var(--space-md);
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .section-label::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+
+    /* ===== Staggered fade-in ===== */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(16px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ===== Header ===== */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 1px solid var(--border-light);
+      backdrop-filter: blur(12px);
+      background: color-mix(in srgb, var(--bg) 85%, transparent);
+    }
+
+    .header-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 var(--space-md);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 3.5rem;
+    }
+
+    .site-logo {
+      font-family: var(--font-serif);
+      font-size: 1.125rem;
+      font-weight: 600;
+      color: var(--text);
+      text-decoration: none;
+      letter-spacing: 0.08em;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+    }
+
+    .nav-links a {
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      color: var(--text-secondary);
+      text-decoration: none;
+      padding: 0.4rem 0.75rem;
+      border-radius: 4px;
+      transition: color 0.2s, background 0.2s;
+      letter-spacing: 0.02em;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--text);
+      background: color-mix(in srgb, var(--text) 6%, transparent);
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    .header-btn {
+      background: none;
+      border: 1px solid var(--border);
+      color: var(--text-secondary);
+      width: 2.25rem;
+      height: 2.25rem;
+      border-radius: 6px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      transition: color 0.2s, border-color 0.2s;
+    }
+
+    .header-btn:hover {
+      color: var(--text);
+      border-color: var(--text-secondary);
+    }
+
+    .lang-btn {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      width: 2.25rem;
+      padding: 0;
+    }
+
+    /* ===== Hero ===== */
+    .hero {
+      padding: var(--space-2xl) 0;
+    }
+
+    .hero-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 var(--space-md);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-xl);
+      align-items: center;
+    }
+
+    .hero-text h1 {
+      font-family: var(--font-serif);
+      font-size: 4rem;
+      font-weight: 700;
+      line-height: 1.2;
+      letter-spacing: 0.06em;
+      margin-bottom: var(--space-sm);
+    }
+
+    .hero-subtitle {
+      font-family: var(--font-mono);
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      letter-spacing: 0.05em;
+      margin-bottom: var(--space-lg);
+    }
+
+    .hero-description {
+      font-size: 1.05rem;
+      color: var(--text);
+      line-height: 2;
+      max-width: 28rem;
+    }
+
+    .hero-accent {
+      height: 3px;
+      width: 8rem;
+      margin: var(--space-md) 0 var(--space-lg);
+      border-radius: 2px;
+      background: linear-gradient(135deg, var(--ink-brown), var(--ink-blue), var(--ink-purple), var(--ink-red));
+    }
+
+    .hero-visual {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .glyph-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+      width: 280px;
+      height: 280px;
+      opacity: 0.15;
+    }
+
+    .glyph-cell {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-serif);
+      font-size: 2.5rem;
+      font-weight: 300;
+      color: var(--text);
+      border: 1px solid var(--border);
+    }
+
+    /* ===== Sections ===== */
+    .section {
+      padding: var(--space-2xl) 0;
+    }
+
+    .section + .section {
+      border-top: 1px solid var(--border-light);
+    }
+
+    /* ===== Works cards ===== */
+    .works-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--space-md);
+    }
+
+    .work-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-light);
+      border-radius: 8px;
+      padding: var(--space-lg);
+      transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+      text-decoration: none;
+      color: var(--text);
+      display: block;
+    }
+
+    .work-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--ink-brown), var(--ink-blue), var(--ink-purple), var(--ink-red));
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .work-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-hover);
+      border-color: var(--border);
+    }
+
+    .work-card:hover::before { opacity: 1; }
+
+    .work-card-tag {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-secondary);
+      margin-bottom: var(--space-xs);
+    }
+
+    .work-card h3 {
+      font-family: var(--font-serif);
+      font-size: 1.2rem;
+      font-weight: 500;
+      margin-bottom: var(--space-xs);
+      letter-spacing: 0.03em;
+    }
+
+    .work-card p {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      line-height: 1.7;
+    }
+
+    .work-card-arrow {
+      position: absolute;
+      bottom: var(--space-md);
+      right: var(--space-md);
+      color: var(--text-secondary);
+      opacity: 0;
+      transform: translateX(-8px);
+      transition: opacity 0.3s ease, transform 0.3s ease;
+      font-size: 1.1rem;
+    }
+
+    .work-card:hover .work-card-arrow {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    /* ===== Product card ===== */
+    .product-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-light);
+      border-radius: 8px;
+      padding: var(--space-lg);
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: var(--space-lg);
+      align-items: center;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .product-card:hover {
+      border-color: var(--border);
+      box-shadow: var(--shadow-md);
+    }
+
+    .product-info h3 {
+      font-family: var(--font-serif);
+      font-size: 1.3rem;
+      font-weight: 500;
+      margin-bottom: 0.25rem;
+    }
+
+    .product-badge {
+      display: inline-block;
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.2em 0.6em;
+      border-radius: 3px;
+      background: linear-gradient(135deg, var(--ink-brown), var(--ink-blue));
+      color: #f4f0e8;
+      margin-left: 0.5rem;
+      vertical-align: middle;
+    }
+
+    [data-theme="dark"] .product-badge { color: #e8e2d8; }
+
+    .product-description {
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+      margin-top: var(--space-xs);
+      line-height: 1.8;
+    }
+
+    .product-features {
+      list-style: none;
+      margin-top: var(--space-sm);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .product-features li {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--text-secondary);
+      padding: 0.3em 0.8em;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      letter-spacing: 0.02em;
+      display: flex;
+      align-items: center;
+      gap: 0.4em;
+    }
+
+    .product-features li .ph {
+      font-size: 0.85rem;
+      opacity: 0.7;
+    }
+
+    .product-action {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .btn-primary {
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      letter-spacing: 0.05em;
+      padding: 0.75rem 1.5rem;
+      background: var(--text);
+      color: var(--bg);
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: opacity 0.2s, transform 0.2s;
+      white-space: nowrap;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4em;
+    }
+
+    .btn-primary:hover {
+      background: color-mix(in srgb, var(--text) 80%, var(--ink-blue));
+      transform: translateY(-1px);
+    }
+
+    .product-price {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--text-secondary);
+    }
+
+    /* ===== Essays ===== */
+    .essays-list {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .essay-item {
+      display: grid;
+      grid-template-columns: 7rem 1fr;
+      gap: var(--space-md);
+      padding: var(--space-md) 0;
+      border-bottom: 1px solid var(--border-light);
+      text-decoration: none;
+      color: var(--text);
+      transition: background 0.2s;
+      align-items: baseline;
+    }
+
+    .essay-item:last-child { border-bottom: none; }
+
+    .essay-item:hover {
+      background: color-mix(in srgb, var(--text) 3%, transparent);
+      margin: 0 calc(-1 * var(--space-sm));
+      padding-left: var(--space-sm);
+      padding-right: var(--space-sm);
+      border-radius: 6px;
+    }
+
+    .essay-date {
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      color: var(--text-secondary);
+      letter-spacing: 0.02em;
+      white-space: nowrap;
+    }
+
+    .essay-title {
+      font-family: var(--font-serif);
+      font-size: 1.05rem;
+      font-weight: 400;
+    }
+
+    .essay-excerpt {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      margin-top: 0.2rem;
+      line-height: 1.6;
+    }
+
+    /* ===== Newsletter ===== */
+    .newsletter-section {
+      background: var(--bg-card);
+      border: 1px solid var(--border-light);
+      border-radius: 12px;
+      padding: var(--space-xl);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .newsletter-section::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--ink-brown), var(--ink-teal), var(--ink-blue), var(--ink-purple), var(--ink-red), var(--ink-brown));
+    }
+
+    .newsletter-title {
+      font-family: var(--font-serif);
+      font-size: 1.4rem;
+      font-weight: 500;
+      margin-bottom: var(--space-xs);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+    }
+
+    .newsletter-title .ph {
+      font-size: 1.3rem;
+      color: var(--ink-brown);
+    }
+
+    .newsletter-desc {
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+      margin-bottom: var(--space-lg);
+      max-width: 28rem;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .newsletter-form {
+      display: flex;
+      gap: 0.5rem;
+      max-width: 24rem;
+      margin: 0 auto;
+    }
+
+    .newsletter-form input[type="email"] {
+      flex: 1;
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      padding: 0.75rem 1rem;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      background: var(--bg);
+      color: var(--text);
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .newsletter-form input[type="email"]:focus {
+      border-color: var(--ink-blue);
+    }
+
+    .newsletter-form input[type="email"]::placeholder {
+      color: var(--text-secondary);
+      opacity: 0.6;
+    }
+
+    .newsletter-form button {
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      letter-spacing: 0.05em;
+      padding: 0.75rem 1.25rem;
+      background: var(--text);
+      color: var(--bg);
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: opacity 0.2s;
+      white-space: nowrap;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4em;
+    }
+
+    .newsletter-form button:hover { background: color-mix(in srgb, var(--text) 80%, var(--ink-blue)); }
+
+    .newsletter-privacy {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      color: var(--text-secondary);
+      margin-top: var(--space-sm);
+      opacity: 0.7;
+    }
+
+    /* ===== Footer ===== */
+    .site-footer {
+      border-top: 1px solid var(--border-light);
+      padding: var(--space-xl) 0 var(--space-lg);
+    }
+
+    .footer-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 var(--space-md);
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: var(--space-lg);
+    }
+
+    .footer-brand {
+      font-family: var(--font-serif);
+      font-size: 1rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      margin-bottom: var(--space-xs);
+    }
+
+    .footer-tagline {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--text-secondary);
+    }
+
+    .footer-links {
+      display: flex;
+      gap: var(--space-lg);
+    }
+
+    .footer-col h4 {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-secondary);
+      margin-bottom: var(--space-sm);
+    }
+
+    .footer-col a {
+      display: block;
+      font-size: 0.85rem;
+      color: var(--text);
+      text-decoration: none;
+      padding: 0.2rem 0;
+      transition: color 0.2s;
+    }
+
+    .footer-col a:hover { color: var(--text); text-decoration: underline; text-underline-offset: 0.2em; }
+
+    .footer-bottom {
+      max-width: var(--max-width);
+      margin: var(--space-lg) auto 0;
+      padding: var(--space-sm) var(--space-md) 0;
+      border-top: 1px solid var(--border-light);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .footer-copyright {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      color: var(--text-secondary);
+    }
+
+    .footer-social {
+      display: flex;
+      gap: 0.35rem;
+    }
+
+    .footer-social a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 2.25rem;
+      height: 2.25rem;
+      border-radius: 6px;
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 1.15rem;
+      transition: color 0.2s, background 0.2s;
+    }
+
+    .footer-social a:hover {
+      color: var(--text);
+      background: color-mix(in srgb, var(--text) 6%, transparent);
+    }
+
+    /* ===== Gradient divider ===== */
+    .gradient-divider {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--ink-brown), var(--ink-blue), var(--ink-purple), var(--ink-red), transparent);
+      opacity: 0.4;
+    }
+
+    /* ===== "See all" link ===== */
+    .see-all {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      color: var(--text-secondary);
+      text-decoration: none;
+      margin-top: var(--space-lg);
+      padding: 0.4rem 0;
+      border-bottom: 1px solid var(--border);
+      transition: color 0.2s, border-color 0.2s;
+      letter-spacing: 0.03em;
+    }
+
+    .see-all:hover {
+      color: var(--text);
+      border-color: var(--text);
+      text-decoration: none;
+    }
+
+    /* ===== Mobile nav ===== */
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: 1px solid var(--border);
+      color: var(--text);
+      width: 2.25rem;
+      height: 2.25rem;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 1.1rem;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* ===== Paper texture ===== */
+    body::after {
+      content: '';
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      pointer-events: none;
+      z-index: 9999;
+      opacity: 0.025;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+      background-repeat: repeat;
+      background-size: 256px 256px;
+    }
+
+    [data-theme="dark"] body::after { opacity: 0.04; }
+
+    /* ===== Responsive ===== */
+    @media (max-width: 768px) {
+      .hero-inner {
+        grid-template-columns: 1fr;
+        gap: var(--space-lg);
+        text-align: center;
+      }
+
+      .hero-text h1 { font-size: 3rem; }
+
+      .hero-accent { margin-left: auto; margin-right: auto; }
+
+      .hero-description { max-width: none; margin: 0 auto; }
+
+      .hero-visual { order: -1; }
+
+      .glyph-grid { width: 200px; height: 200px; }
+      .glyph-cell { font-size: 1.8rem; }
+
+      .works-grid { grid-template-columns: 1fr; }
+
+      .product-card {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      .product-action { margin-top: var(--space-sm); }
+      .product-features { justify-content: center; }
+
+      .essay-item {
+        grid-template-columns: 1fr;
+        gap: 0.25rem;
+      }
+
+      .newsletter-form { flex-direction: column; }
+
+      .footer-inner {
+        flex-direction: column;
+        gap: var(--space-lg);
+      }
+
+      .footer-links {
+        flex-direction: column;
+        gap: var(--space-md);
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+        gap: var(--space-sm);
+        text-align: center;
+      }
+
+      .nav-toggle { display: flex; }
+
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 3.5rem;
+        left: 0; right: 0;
+        background: var(--bg);
+        border-bottom: 1px solid var(--border-light);
+        flex-direction: column;
+        padding: var(--space-sm) var(--space-md);
+      }
+
+      .nav-links.show { display: flex; }
+      .header-inner { position: relative; }
+    }
+
+    @media (max-width: 480px) {
+      .hero-text h1 { font-size: 2.4rem; }
+      .section { padding: var(--space-xl) 0; }
+      .hero { padding: var(--space-xl) 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== Header ===== -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="#" class="site-logo">殷慈遠</a>
+      <button class="nav-toggle" aria-label="開啟選單" onclick="document.querySelector('.nav-links').classList.toggle('show')">
+        <i class="ph ph-list"></i>
+      </button>
+      <nav class="nav-links">
+        <a href="tools.html" data-i18n="nav.tools">工具</a>
+        <a href="works.html" data-i18n="nav.works">作品</a>
+        <a href="writing.html" data-i18n="nav.writing">隨筆</a>
+        <a href="about.html" data-i18n="nav.about">關於</a>
+      </nav>
+      <div class="header-actions">
+        <button class="header-btn lang-btn" onclick="toggleLang()" aria-label="切換語言">
+          <span class="lang-label">EN</span>
+        </button>
+        <button class="header-btn" onclick="toggleTheme()" aria-label="切換深淺色模式">
+          <i class="ph ph-moon theme-icon"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===== Hero ===== -->
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="hero-text fade-in">
+        <h1 data-i18n="hero.name">殷慈遠</h1>
+        <div class="hero-subtitle" data-i18n="hero.subtitle">Type Designer & Developer</div>
+        <div class="hero-accent"></div>
+        <p class="hero-description" data-i18n="hero.description">為字型設計師打造精確的工具，讓創作流程更高效。Glyphs 外掛開發者，同時也是漢字與拉丁字型設計師。</p>
+      </div>
+      <div class="hero-visual fade-in">
+        <div class="glyph-grid">
+          <div class="glyph-cell">永</div>
+          <div class="glyph-cell">字</div>
+          <div class="glyph-cell">型</div>
+          <div class="glyph-cell">設</div>
+          <div class="glyph-cell">計</div>
+          <div class="glyph-cell">師</div>
+          <div class="glyph-cell">開</div>
+          <div class="glyph-cell">發</div>
+          <div class="glyph-cell">者</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="gradient-divider"></div>
+
+  <!-- ===== Tools (primary section) ===== -->
+  <section class="section">
+    <div class="container">
+      <div class="section-label fade-in">Tools</div>
+
+      <!-- Featured: NineBoxView Pro -->
+      <div class="product-card fade-in">
+        <div class="product-info">
+          <h3>NineBoxView Pro <span class="product-badge">Glyphs Plugin</span></h3>
+          <p class="product-description" data-i18n="tools.nbv.desc">Glyphs 字型編輯器的終極預覽工具。九宮格即時預覽字符在不同上下文中的效果，加速字型設計迭代。</p>
+          <ul class="product-features">
+            <li><i class="ph ph-eye"></i> <span data-i18n="tools.nbv.f1">即時預覽</span></li>
+            <li><i class="ph ph-grid-nine"></i> <span data-i18n="tools.nbv.f2">九宮格佈局</span></li>
+            <li><i class="ph ph-sliders-horizontal"></i> <span data-i18n="tools.nbv.f3">自訂上下文</span></li>
+            <li><i class="ph ph-moon-stars"></i> <span data-i18n="tools.nbv.f4">深色模式</span></li>
+          </ul>
+        </div>
+        <div class="product-action">
+          <a href="#" class="btn-primary" data-i18n="tools.nbv.cta">了解更多 <i class="ph ph-arrow-right"></i></a>
+          <span class="product-price" data-i18n="tools.nbv.pricing">依地區自動調整定價</span>
+        </div>
+      </div>
+
+      <!-- Open source tools grid -->
+      <div class="works-grid" style="margin-top: var(--space-lg);">
+        <a href="https://github.com/yintzuyuan/NineBoxView" target="_blank" rel="noopener" class="work-card fade-in">
+          <div class="work-card-tag"><i class="ph ph-github-logo"></i> Open Source</div>
+          <h3 data-i18n="tools.os.1.title">NineBoxView</h3>
+          <p data-i18n="tools.os.1.desc">免費版九宮格預覽外掛，Glyphs 社群最受歡迎的工具之一。</p>
+          <span class="work-card-arrow"><i class="ph ph-arrow-right"></i></span>
+        </a>
+        <a href="https://github.com/yintzuyuan/ShowBopomofo" target="_blank" rel="noopener" class="work-card fade-in">
+          <div class="work-card-tag"><i class="ph ph-github-logo"></i> Open Source</div>
+          <h3 data-i18n="tools.os.2.title">顯示漢語發音</h3>
+          <p data-i18n="tools.os.2.desc">在 Glyphs 編輯器中即時顯示漢字的注音或拼音。</p>
+          <span class="work-card-arrow"><i class="ph ph-arrow-right"></i></span>
+        </a>
+        <a href="https://github.com/yintzuyuan/zoom-to-selection" target="_blank" rel="noopener" class="work-card fade-in">
+          <div class="work-card-tag"><i class="ph ph-github-logo"></i> Open Source</div>
+          <h3 data-i18n="tools.os.3.title">拉至選取範圍</h3>
+          <p data-i18n="tools.os.3.desc">快速縮放至選取的節點或錨點，提升編輯效率。</p>
+          <span class="work-card-arrow"><i class="ph ph-arrow-right"></i></span>
+        </a>
+        <a href="https://github.com/yintzuyuan/Glyphs_Scripts" target="_blank" rel="noopener" class="work-card fade-in">
+          <div class="work-card-tag"><i class="ph ph-github-logo"></i> Open Source</div>
+          <h3 data-i18n="tools.os.4.title">Glyphs 腳本集</h3>
+          <p data-i18n="tools.os.4.desc">實用的 Glyphs 自動化腳本，涵蓋字符管理、路徑處理等。</p>
+          <span class="work-card-arrow"><i class="ph ph-arrow-right"></i></span>
+        </a>
+      </div>
+      <a href="tools.html" class="see-all fade-in" data-i18n="tools.seeAll">查看全部工具 <i class="ph ph-arrow-right"></i></a>
+    </div>
+  </section>
+
+  <div class="gradient-divider"></div>
+
+  <!-- ===== Works (curated highlights) ===== -->
+  <section class="section">
+    <div class="container">
+      <div class="section-label fade-in">Works</div>
+      <div class="works-grid">
+        <a href="#" class="work-card fade-in">
+          <div class="work-card-tag">CJK Typeface</div>
+          <h3 data-i18n="works.1.title">殷泉明</h3>
+          <p data-i18n="works.1.desc">首個漢字字型，探索明體筆形與現代審美的平衡。</p>
+          <span class="work-card-arrow"><i class="ph ph-arrow-right"></i></span>
+        </a>
+        <a href="#" class="work-card fade-in">
+          <div class="work-card-tag">CJK Typeface</div>
+          <h3 data-i18n="works.2.title">口方體</h3>
+          <p data-i18n="works.2.desc">以方塊為結構基礎的實驗性漢字字型。</p>
+          <span class="work-card-arrow"><i class="ph ph-arrow-right"></i></span>
+        </a>
+        <a href="#" class="work-card fade-in">
+          <div class="work-card-tag">Latin Typefaces</div>
+          <h3 data-i18n="works.3.title">11 套拉丁字型</h3>
+          <p data-i18n="works.3.desc">從幾何無襯線到手寫風格，橫跨多年的拉丁字型創作。</p>
+          <span class="work-card-arrow"><i class="ph ph-arrow-right"></i></span>
+        </a>
+        <a href="#" class="work-card fade-in">
+          <div class="work-card-tag">Translation</div>
+          <h3 data-i18n="works.4.title">Glyphs 生態系翻譯</h3>
+          <p data-i18n="works.4.desc">mekkablue 腳本集、SelectionPalette 等工具的繁體中文化。</p>
+          <span class="work-card-arrow"><i class="ph ph-arrow-right"></i></span>
+        </a>
+      </div>
+      <a href="works.html" class="see-all fade-in" data-i18n="works.seeAll">查看全部作品 <i class="ph ph-arrow-right"></i></a>
+    </div>
+  </section>
+
+  <div class="gradient-divider"></div>
+
+  <!-- ===== Writing ===== -->
+  <section class="section">
+    <div class="container">
+      <div class="section-label fade-in">Writing</div>
+      <div class="essays-list">
+        <a href="#" class="essay-item fade-in">
+          <span class="essay-date">2026.03</span>
+          <div>
+            <div class="essay-title" data-i18n="writing.1.title">字型設計中的工程思維</div>
+            <div class="essay-excerpt" data-i18n="writing.1.excerpt">當我們談論「精確」，在字型設計的語境下意味著什麼？</div>
+          </div>
+        </a>
+        <a href="#" class="essay-item fade-in">
+          <span class="essay-date">2026.02</span>
+          <div>
+            <div class="essay-title" data-i18n="writing.2.title">為什麼我用程式碼輔助字型設計</div>
+            <div class="essay-excerpt" data-i18n="writing.2.excerpt">從手動調整到腳本自動化，一個字型設計師的工具演進之路。</div>
+          </div>
+        </a>
+        <a href="#" class="essay-item fade-in">
+          <span class="essay-date">2026.01</span>
+          <div>
+            <div class="essay-title" data-i18n="writing.3.title">Glyphs 外掛開發入門</div>
+            <div class="essay-excerpt" data-i18n="writing.3.excerpt">分享開發 NineBoxView Pro 過程中的技術選擇與設計考量。</div>
+          </div>
+        </a>
+        <a href="#" class="essay-item fade-in">
+          <span class="essay-date">2025.12</span>
+          <div>
+            <div class="essay-title" data-i18n="writing.4.title">漢字結構的數學之美</div>
+            <div class="essay-excerpt" data-i18n="writing.4.excerpt">探索筆畫比例、重心平衡與視覺修正背後的幾何邏輯。</div>
+          </div>
+        </a>
+      </div>
+      <a href="#" class="see-all fade-in" data-i18n="writing.seeAll">閱讀更多 <i class="ph ph-arrow-right"></i></a>
+    </div>
+  </section>
+
+  <div class="gradient-divider"></div>
+
+  <!-- ===== Newsletter ===== -->
+  <section class="section">
+    <div class="container">
+      <div class="newsletter-section fade-in">
+        <h2 class="newsletter-title"><i class="ph ph-envelope-simple"></i> <span data-i18n="newsletter.title">設計筆記</span></h2>
+        <p class="newsletter-desc" data-i18n="newsletter.desc">不定期分享字型設計思考、工具開發心得，以及創作過程中的發現。</p>
+        <form class="newsletter-form" onsubmit="event.preventDefault()">
+          <input type="email" placeholder="your@email.com" required>
+          <button type="submit"><i class="ph ph-paper-plane-tilt"></i> <span data-i18n="newsletter.btn">訂閱</span></button>
+        </form>
+        <p class="newsletter-privacy" data-i18n="newsletter.privacy">無垃圾郵件承諾，隨時取消訂閱。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Footer ===== -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div>
+        <div class="footer-brand">殷慈遠</div>
+        <div class="footer-tagline">Type Designer & Developer</div>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <h4 data-i18n="footer.tools">工具</h4>
+          <a href="tools.html">NineBoxView Pro</a>
+          <a href="tools.html" data-i18n="footer.allTools">所有工具</a>
+        </div>
+        <div class="footer-col">
+          <h4 data-i18n="footer.works">作品</h4>
+          <a href="works.html" data-i18n="footer.typeDesign">字型設計</a>
+        </div>
+        <div class="footer-col">
+          <h4 data-i18n="footer.more">更多</h4>
+          <a href="about.html" data-i18n="footer.about">關於</a>
+          <a href="writing.html" data-i18n="footer.writing">隨筆</a>
+          <a href="#" data-i18n="footer.privacy">隱私政策</a>
+          <a href="#" data-i18n="footer.terms">服務條款</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copyright">&copy; 2026 TzuYuan Yin. All rights reserved.</span>
+      <div class="footer-social">
+        <a href="https://www.youtube.com/c/erikin1205_typogame" aria-label="YouTube" title="YouTube" target="_blank" rel="noopener"><i class="ph ph-youtube-logo"></i></a>
+        <a href="#" aria-label="Instagram" title="Instagram"><i class="ph ph-instagram-logo"></i></a>
+        <a href="#" aria-label="Facebook" title="Facebook"><i class="ph ph-facebook-logo"></i></a>
+        <a href="https://github.com/yintzuyuan" aria-label="GitHub" title="GitHub" target="_blank" rel="noopener"><i class="ph ph-github-logo"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===== Scripts ===== -->
+  <script>
+    // ===== i18n =====
+    const i18n = {
+      zh: {
+        'nav.home': '首頁',
+        'nav.tools': '工具',
+        'nav.works': '作品',
+        'nav.writing': '隨筆',
+        'nav.about': '關於',
+        'hero.name': '殷慈遠',
+        'hero.subtitle': 'Type Designer & Developer',
+        'hero.description': '為字型設計師打造精確的工具，讓創作流程更高效。Glyphs 外掛開發者，同時也是漢字與拉丁字型設計師。',
+        'tools.os.1.title': 'NineBoxView',
+        'tools.os.1.desc': '免費版九宮格預覽外掛，Glyphs 社群最受歡迎的工具之一。',
+        'tools.os.2.title': '顯示漢語發音',
+        'tools.os.2.desc': '在 Glyphs 編輯器中即時顯示漢字的注音或拼音。',
+        'tools.os.3.title': '拉至選取範圍',
+        'tools.os.3.desc': '快速縮放至選取的節點或錨點，提升編輯效率。',
+        'tools.os.4.title': 'Glyphs 腳本集',
+        'tools.os.4.desc': '實用的 Glyphs 自動化腳本，涵蓋字符管理、路徑處理等。',
+        'tools.seeAll': '查看全部工具',
+        'works.1.title': '殷泉明',
+        'works.1.desc': '首個漢字字型，探索明體筆形與現代審美的平衡。',
+        'works.2.title': '口方體',
+        'works.2.desc': '以方塊為結構基礎的實驗性漢字字型。',
+        'works.3.title': '11 套拉丁字型',
+        'works.3.desc': '從幾何無襯線到手寫風格，橫跨多年的拉丁字型創作。',
+        'works.4.title': 'Glyphs 生態系翻譯',
+        'works.4.desc': 'mekkablue 腳本集、SelectionPalette 等工具的繁體中文化。',
+        'works.seeAll': '查看全部作品',
+        'tools.nbv.desc': 'Glyphs 字型編輯器的終極預覽工具。九宮格即時預覽字符在不同上下文中的效果，加速字型設計迭代。',
+        'tools.nbv.f1': '即時預覽',
+        'tools.nbv.f2': '九宮格佈局',
+        'tools.nbv.f3': '自訂上下文',
+        'tools.nbv.f4': '深色模式',
+        'tools.nbv.cta': '了解更多',
+        'tools.nbv.pricing': '依地區自動調整定價',
+        'writing.1.title': '字型設計中的工程思維',
+        'writing.1.excerpt': '當我們談論「精確」，在字型設計的語境下意味著什麼？',
+        'writing.2.title': '為什麼我用程式碼輔助字型設計',
+        'writing.2.excerpt': '從手動調整到腳本自動化，一個字型設計師的工具演進之路。',
+        'writing.3.title': 'Glyphs 外掛開發入門',
+        'writing.3.excerpt': '分享開發 NineBoxView Pro 過程中的技術選擇與設計考量。',
+        'writing.4.title': '漢字結構的數學之美',
+        'writing.4.excerpt': '探索筆畫比例、重心平衡與視覺修正背後的幾何邏輯。',
+        'writing.seeAll': '閱讀更多',
+        'newsletter.title': '設計筆記',
+        'newsletter.desc': '不定期分享字型設計思考、工具開發心得，以及創作過程中的發現。',
+        'newsletter.btn': '訂閱',
+        'newsletter.privacy': '無垃圾郵件承諾，隨時取消訂閱。',
+        'footer.works': '作品',
+        'footer.tools': '工具',
+        'footer.more': '更多',
+        'footer.typeface': '字型設計',
+        'footer.typography': '排版實驗',
+        'footer.lettering': '手寫字',
+        'footer.about': '關於',
+        'footer.blog': '隨筆',
+        'footer.privacy': '隱私政策',
+        'footer.terms': '服務條款',
+      },
+      en: {
+        'nav.home': 'Home',
+        'nav.tools': 'Tools',
+        'nav.works': 'Works',
+        'nav.writing': 'Writing',
+        'nav.about': 'About',
+        'hero.name': 'TzuYuan Yin',
+        'hero.subtitle': 'Type Designer & Developer',
+        'hero.description': 'Building precise tools for type designers to streamline their creative workflow. Glyphs plugin developer, and designer of CJK & Latin typefaces.',
+        'tools.os.1.title': 'NineBoxView',
+        'tools.os.1.desc': 'Free 3\u00d73 grid preview plugin, one of the most popular tools in the Glyphs community.',
+        'tools.os.2.title': 'ShowChinesePhonetics',
+        'tools.os.2.desc': 'Display Bopomofo or Pinyin for CJK characters in the Glyphs editor.',
+        'tools.os.3.title': 'Zoom to Selection',
+        'tools.os.3.desc': 'Quickly zoom to selected nodes or anchors for faster editing.',
+        'tools.os.4.title': 'Glyphs Scripts',
+        'tools.os.4.desc': 'Practical automation scripts for glyph management, path processing, and more.',
+        'tools.seeAll': 'View all tools',
+        'works.1.title': 'Yin Quan Ming',
+        'works.1.desc': 'First CJK typeface, exploring the balance between Ming-style strokes and modern aesthetics.',
+        'works.2.title': 'CubeFarm',
+        'works.2.desc': 'An experimental CJK typeface built on a square-block structure.',
+        'works.3.title': '11 Latin Typefaces',
+        'works.3.desc': 'From geometric sans to handwriting styles, Latin typefaces spanning many years.',
+        'works.4.title': 'Glyphs Ecosystem Translations',
+        'works.4.desc': 'Traditional Chinese localization of mekkablue scripts, SelectionPalette, and more.',
+        'works.seeAll': 'View all works',
+        'tools.nbv.desc': 'The ultimate preview tool for the Glyphs font editor. Preview glyphs in a 3\u00d73 grid with real-time context, accelerating your type design iteration.',
+        'tools.nbv.f1': 'Live Preview',
+        'tools.nbv.f2': '3\u00d73 Grid',
+        'tools.nbv.f3': 'Custom Context',
+        'tools.nbv.f4': 'Dark Mode',
+        'tools.nbv.cta': 'Learn More',
+        'tools.nbv.pricing': 'Regional pricing available',
+        'writing.seeAll': 'Read more',
+        'newsletter.title': 'Design Notes',
+        'newsletter.desc': 'Occasional thoughts on type design, tool development, and the creative process. Newsletter is in Chinese.',
+        'newsletter.btn': 'Subscribe',
+        'newsletter.privacy': 'No spam, ever. Unsubscribe anytime.',
+        'footer.works': 'Works',
+        'footer.tools': 'Tools',
+        'footer.more': 'More',
+        'footer.typeface': 'Typefaces',
+        'footer.typography': 'Typography',
+        'footer.lettering': 'Lettering',
+        'footer.about': 'About',
+        'footer.blog': 'Writing',
+        'footer.privacy': 'Privacy Policy',
+        'footer.terms': 'Terms of Service',
+      }
+    };
+
+    let currentLang = 'zh';
+
+    function setLang(lang) {
+      currentLang = lang;
+      document.documentElement.setAttribute('data-lang', lang);
+      document.documentElement.setAttribute('lang', lang === 'zh' ? 'zh-TW' : 'en');
+      document.querySelector('.lang-label').textContent = lang === 'zh' ? 'EN' : '中';
+
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        const text = i18n[lang][key];
+        if (!text) return;
+
+        // Preserve trailing icons inside the element
+        const icons = el.querySelectorAll('i.ph');
+        if (icons.length > 0) {
+          // Keep icon at end
+          el.childNodes.forEach(node => {
+            if (node.nodeType === Node.TEXT_NODE) node.remove();
+          });
+          // Insert text before first icon or at start
+          const textNode = document.createTextNode(text + ' ');
+          el.insertBefore(textNode, el.firstChild);
+        } else {
+          el.textContent = text;
+        }
+      });
+
+      localStorage.setItem('lang', lang);
+    }
+
+    function toggleLang() {
+      setLang(currentLang === 'zh' ? 'en' : 'zh');
+    }
+
+    // ===== Theme =====
+    function toggleTheme() {
+      const html = document.documentElement;
+      const current = html.getAttribute('data-theme');
+      const next = current === 'dark' ? 'light' : 'dark';
+      html.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
+      updateThemeIcon(next);
+    }
+
+    function updateThemeIcon(theme) {
+      const icon = document.querySelector('.theme-icon');
+      if (theme === 'dark') {
+        icon.className = 'ph ph-sun theme-icon';
+      } else {
+        icon.className = 'ph ph-moon theme-icon';
+      }
+    }
+
+    // ===== Init =====
+    (function() {
+      // Theme
+      const savedTheme = localStorage.getItem('theme');
+      if (savedTheme) {
+        document.documentElement.setAttribute('data-theme', savedTheme);
+        updateThemeIcon(savedTheme);
+      } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+        updateThemeIcon('dark');
+      }
+
+      // Language
+      const savedLang = localStorage.getItem('lang');
+      if (savedLang) {
+        setLang(savedLang);
+      }
+    })();
+
+    // ===== Intersection Observer for fade-in =====
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const siblings = Array.from(entry.target.parentElement.children)
+            .filter(c => c.classList.contains('fade-in'));
+          const delay = siblings.indexOf(entry.target) * 80;
+          setTimeout(() => entry.target.classList.add('visible'), delay);
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+  </script>
+
+</body>
+</html>

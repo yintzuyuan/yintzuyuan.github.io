@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="zh-TW" data-lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>關於 — 殷慈遠</title>
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600&family=Noto+Serif+TC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script defer src="https://unpkg.com/@phosphor-icons/web@2.1.1"></script>
+  <link rel="stylesheet" href="assets/style.css">
+  <script defer src="https://analytics.erikyin.net/script.js" data-website-id="9c15a939-c76d-4f2e-9c9d-93a7db9ab13c" data-domains="erikyin.net"></script>
+</head>
+<body>
+
+  <div id="site-header"></div>
+
+  <div class="container">
+    <div class="about-hero fade-in">
+      <img src="assets/images/profile.png" alt="殷慈遠" class="about-photo">
+      <h1 data-i18n="about.name">殷慈遠</h1>
+      <div class="about-hero-subtitle" data-i18n="about.subtitle">Type Designer & Developer</div>
+      <div class="about-accent"></div>
+      <p class="about-bio" id="about-bio"></p>
+    </div>
+  </div>
+
+  <div class="gradient-divider"></div>
+
+  <section class="section">
+    <div class="container">
+      <div class="content-narrow">
+        <div class="section-label fade-in"><i class="ph ph-clock-counter-clockwise"></i> Timeline</div>
+        <div class="timeline" id="timeline"></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="gradient-divider"></div>
+
+  <section id="support" class="section support-section">
+    <div class="container">
+      <div class="content-narrow">
+        <div class="section-label fade-in"><i class="ph ph-heart"></i> <span data-i18n="support.label">Support</span></div>
+        <p class="fade-in" style="color: var(--text-secondary); margin-bottom: var(--space-lg);" data-i18n="support.desc">如果我的作品或工具對你有幫助，歡迎支持我的創作。</p>
+        <div class="support-grid fade-in">
+          <a href="https://p.ecpay.com.tw/120048C" target="_blank" rel="noopener" class="support-card support-card-ecpay">
+            <i class="ph ph-credit-card"></i>
+            <span data-i18n="support.ecpay">綠界 ECPay</span>
+          </a>
+          <a href="https://www.buymeacoffee.com/erikyin" target="_blank" rel="noopener" class="support-card support-card-bmc">
+            <i class="ph ph-coffee"></i>
+            <span>Buy Me a Coffee</span>
+          </a>
+          <a href="https://paypal.me/erikyin" target="_blank" rel="noopener" class="support-card support-card-paypal">
+            <i class="ph ph-paypal-logo"></i>
+            <span>PayPal</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div id="site-footer"></div>
+
+  <script src="data/ui.js"></script>
+  <script src="data/timeline.js"></script>
+  <script src="assets/app.js"></script>
+  <script>
+    var bioData = {
+      zh: [
+        '我是殷慈遠（TzuYuan Yin），字型設計師、工具開發者、YouTube 創作者。使用 ',
+        { text: 'Glyphs', href: 'https://glyphsapp.com/' },
+        ' 設計字型，並在 ',
+        { text: 'YouTube', href: 'https://www.youtube.com/c/erikin1205_typogame' },
+        ' 分享設計知識。目前任職於',
+        { text: '文鼎字型', href: 'https://www.arphic.com/' },
+        '，專注於漢字字型設計與 Glyphs 工具開發。'
+      ],
+      en: [
+        "I'm TzuYuan Yin, a type designer, tool developer, and YouTube creator. I design typefaces with ",
+        { text: 'Glyphs', href: 'https://glyphsapp.com/' },
+        ' and share design knowledge on ',
+        { text: 'YouTube', href: 'https://www.youtube.com/c/erikin1205_typogame' },
+        '. Currently at ',
+        { text: 'Arphic Types', href: 'https://www.arphic.com/' },
+        ', focusing on CJK type design and Glyphs tool development.'
+      ]
+    };
+
+    function parseInlineLinks(text) {
+      var frag = document.createDocumentFragment();
+      var re = /\[([^\]]+)\]\(([^)]+)\)/g;
+      var lastIndex = 0;
+      var match;
+      while ((match = re.exec(text)) !== null) {
+        if (match.index > lastIndex) {
+          frag.appendChild(document.createTextNode(text.slice(lastIndex, match.index)));
+        }
+        var a = document.createElement('a');
+        a.href = match[2];
+        a.target = '_blank';
+        a.rel = 'noopener';
+        a.textContent = match[1];
+        frag.appendChild(a);
+        lastIndex = re.lastIndex;
+      }
+      if (lastIndex < text.length) {
+        frag.appendChild(document.createTextNode(text.slice(lastIndex)));
+      }
+      return frag;
+    }
+
+    function renderTimeline() {
+      if (!window.TIMELINE_DATA) return;
+      var container = document.getElementById('timeline');
+      container.replaceChildren();
+
+      for (var g = 0; g < window.TIMELINE_DATA.length; g++) {
+        var group = window.TIMELINE_DATA[g];
+        for (var e = 0; e < group.events.length; e++) {
+          var event = group.events[e];
+          var item = document.createElement('div');
+          item.className = 'timeline-item';
+
+          var yearDiv = document.createElement('div');
+          yearDiv.className = 'timeline-year';
+          if (e === group.events.length - 1) {
+            yearDiv.textContent = group.year;
+          } else {
+            yearDiv.classList.add('timeline-year-empty');
+          }
+
+          var descDiv = document.createElement('div');
+          descDiv.className = 'timeline-desc';
+          var rawText = event.text[currentLang] || event.text.zh;
+          descDiv.appendChild(parseInlineLinks(rawText));
+
+          item.appendChild(yearDiv);
+          item.appendChild(descDiv);
+          container.appendChild(item);
+        }
+      }
+
+      container.querySelectorAll('.timeline-year, .timeline-desc').forEach(function(el, i) {
+        el.classList.add('fade-in');
+        setTimeout(function() { el.classList.add('visible'); }, Math.floor(i / 2) * 80);
+      });
+    }
+
+    function updateAboutPage() {
+      var bioEl = document.getElementById('about-bio');
+      if (bioEl) renderRichText(bioEl, bioData[currentLang] || bioData.zh);
+      renderTimeline();
+    }
+
+    updateAboutPage();
+    document.addEventListener('langchange', updateAboutPage);
+  </script>
+</body>
+</html>
