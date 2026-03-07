@@ -68,10 +68,10 @@
     }
 
     function renderArticleHeader(essay) {
-      document.title = essay.title[currentLang] + ' — 殷慈遠';
+      document.title = essay.title + ' — 殷慈遠';
       document.getElementById('article-date').textContent = essay.date;
-      document.getElementById('article-title').textContent = essay.title[currentLang];
-      document.getElementById('article-excerpt').textContent = essay.excerpt[currentLang];
+      document.getElementById('article-title').textContent = essay.title;
+      document.getElementById('article-excerpt').textContent = essay.excerpt;
 
       var tagsContainer = document.getElementById('article-tags');
       tagsContainer.replaceChildren();
@@ -103,7 +103,7 @@
         prevLabel.appendChild(document.createTextNode(' ' + prevLabels[currentLang]));
         var prevTitle = document.createElement('div');
         prevTitle.className = 'article-nav-title';
-        prevTitle.textContent = prev.title[currentLang];
+        prevTitle.textContent = prev.title;
         prevLink.appendChild(prevLabel);
         prevLink.appendChild(prevTitle);
         nav.appendChild(prevLink);
@@ -124,7 +124,7 @@
         nextLabel.appendChild(nextIcon);
         var nextTitle = document.createElement('div');
         nextTitle.className = 'article-nav-title';
-        nextTitle.textContent = next.title[currentLang];
+        nextTitle.textContent = next.title;
         nextLink.appendChild(nextLabel);
         nextLink.appendChild(nextTitle);
         nav.appendChild(nextLink);
@@ -136,10 +136,11 @@
       if (!slug) { window.location.href = 'writing.html'; return; }
 
       var result = findEssay(slug);
-      if (!result) { window.location.href = 'writing.html'; return; }
 
-      renderArticleHeader(result.essay);
-      renderArticleNav(result.index);
+      if (result) {
+        renderArticleHeader(result.essay);
+        renderArticleNav(result.index);
+      }
 
       fetch('content/writing/' + slug + '.md')
         .then(function(res) {
@@ -147,8 +148,28 @@
           return res.text();
         })
         .then(function(md) {
+          // 去除 frontmatter
+          var content = md.replace(/^---\n[\s\S]*?\n---\n*/, '');
+
+          // 草稿預覽：用 frontmatter 填充 header
+          if (!result) {
+            var fmMatch = md.match(/^---\n([\s\S]*?)\n---/);
+            if (fmMatch) {
+              var lines = fmMatch[1].split('\n');
+              var fm = {};
+              for (var li = 0; li < lines.length; li++) {
+                var ci = lines[li].indexOf(':');
+                if (ci > -1) fm[lines[li].slice(0, ci).trim()] = lines[li].slice(ci + 1).trim();
+              }
+              if (fm.title) document.getElementById('article-title').textContent = fm.title;
+              if (fm.date) document.getElementById('article-date').textContent = fm.date;
+              if (fm.excerpt) document.getElementById('article-excerpt').textContent = fm.excerpt;
+              if (fm.title) document.title = fm.title + ' — 殷慈遠';
+            }
+          }
+
           if (window.marked) {
-            var htmlString = marked.parse(md);
+            var htmlString = marked.parse(content);
             var parser = new DOMParser();
             var doc = parser.parseFromString(htmlString, 'text/html');
             var body = document.getElementById('article-body');
@@ -163,6 +184,7 @@
           }
         })
         .catch(function() {
+          if (!result) { window.location.href = 'writing.html'; return; }
           var body = document.getElementById('article-body');
           var p = document.createElement('p');
           p.style.color = 'var(--text-secondary)';
