@@ -138,7 +138,7 @@
       transition: color 0.2s;
     }
 
-    .about-bio a:hover { color: var(--ink-blue); }
+    .about-bio a:hover { color: var(--text); text-decoration-thickness: 2px; text-decoration-color: var(--text); }
 
     /* ===== Section shared ===== */
     .section { padding: var(--space-2xl) 0; }
@@ -160,82 +160,73 @@
 
     /* ===== Timeline ===== */
     .timeline {
-      position: relative;
-      padding-left: 2rem;
+      display: grid;
+      grid-template-columns: 5rem 1fr;
+      gap: 0;
     }
 
-    .timeline::before {
-      content: '';
-      position: absolute;
-      left: 0.45rem;
-      top: 0.5rem;
-      bottom: 0.5rem;
-      width: 1px;
-      background: var(--border);
+    .timeline-item {
+      display: contents;
     }
 
     .timeline-year {
       font-family: var(--font-mono);
-      font-size: 1.1rem;
+      font-size: 0.85rem;
       font-weight: 600;
-      color: var(--text);
-      margin-top: var(--space-lg);
-      margin-bottom: var(--space-sm);
+      color: var(--text-secondary);
+      letter-spacing: 0.05em;
+      padding: 0.75rem 0;
+      text-align: right;
+      padding-right: var(--space-md);
       position: relative;
     }
 
-    .timeline-year:first-child { margin-top: 0; }
+    /* Vertical accent line between year and content */
+    .timeline-year::after {
+      content: '';
+      position: absolute;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: var(--border);
+    }
 
+    /* Gradient dot on the line */
     .timeline-year::before {
       content: '';
       position: absolute;
-      left: -2rem;
-      top: 50%;
-      transform: translate(0.05rem, -50%);
-      width: 10px;
-      height: 10px;
+      right: -3.5px;
+      top: 1.1rem;
+      width: 9px;
+      height: 9px;
       border-radius: 50%;
       background: linear-gradient(135deg, var(--ink-brown), var(--ink-blue));
+      z-index: 1;
     }
 
-    .timeline-event {
-      position: relative;
-      padding: 0.3rem 0;
+    /* First item: line starts from dot */
+    .timeline-item:first-child .timeline-year::after {
+      top: 1.1rem;
+    }
+
+    /* Last item: line ends at dot */
+    .timeline-item:last-child .timeline-year::after {
+      bottom: calc(100% - 1.1rem - 9px);
+    }
+
+    .timeline-desc {
+      padding: 0.75rem 0;
+      padding-left: var(--space-md);
       font-size: 0.95rem;
       color: var(--text);
       line-height: 1.7;
+      border-bottom: 1px solid var(--border-light);
     }
 
-    .timeline-event::before {
-      content: '';
-      position: absolute;
-      left: -2rem;
-      top: 0.75rem;
-      transform: translateX(0.05rem);
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      box-sizing: border-box;
+    .timeline-item:last-child .timeline-desc {
+      border-bottom: none;
     }
-
-    .timeline-event[data-icon="filled"]::before {
-      background: var(--text);
-    }
-
-    .timeline-event[data-icon="outline"]::before {
-      border: 2px solid var(--text-secondary);
-      background: var(--bg);
-    }
-
-    .timeline-event a {
-      color: var(--text);
-      text-decoration: underline;
-      text-decoration-thickness: 1px;
-      text-underline-offset: 0.2em;
-      transition: color 0.2s;
-    }
-
-    .timeline-event a:hover { color: var(--ink-blue); }
 
     /* ===== Support Section ===== */
     .support-grid {
@@ -285,7 +276,7 @@
     .footer-links { display: flex; gap: var(--space-lg); }
     .footer-col h4 { font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-secondary); margin-bottom: var(--space-sm); }
     .footer-col a { display: block; font-size: 0.85rem; color: var(--text); text-decoration: none; padding: 0.2rem 0; transition: color 0.2s; }
-    .footer-col a:hover { color: var(--ink-blue); }
+    .footer-col a:hover { color: var(--text); text-decoration: underline; text-underline-offset: 0.2em; }
     .footer-bottom { max-width: var(--max-width); margin: var(--space-lg) auto 0; padding: var(--space-sm) var(--space-md) 0; border-top: 1px solid var(--border-light); display: flex; justify-content: space-between; align-items: center; }
     .footer-copyright { font-family: var(--font-mono); font-size: 0.7rem; color: var(--text-secondary); }
     .footer-social { display: flex; gap: 0.35rem; }
@@ -319,8 +310,8 @@
       <button class="nav-toggle" aria-label="開啟選單" onclick="document.querySelector('.nav-links').classList.toggle('show')"><i class="ph ph-list"></i></button>
       <nav class="nav-links">
         <a href="index.html" data-i18n="nav.home">首頁</a>
+        <a href="tools.html" data-i18n="nav.tools">工具</a>
         <a href="works.html" data-i18n="nav.works">作品</a>
-        <a href="#" data-i18n="nav.tools">工具</a>
         <a href="#" data-i18n="nav.writing">隨筆</a>
         <a href="about.html" class="active" data-i18n="nav.about">關於</a>
       </nav>
@@ -409,54 +400,28 @@
     // ===== Timeline Data =====
     const timeline = [
       { year: 2025, events: [
-        { icon: 'outline', zh: '開源 Glyphs 外掛 拉至選取範圍', en: 'Released Glyphs Plugin Zoom to Selection' },
-        { icon: 'outline', zh: 'AI時代知識管理革命 影片系列', en: 'AI Era Knowledge Management Revolution Video Series' },
-        { icon: 'outline', zh: '更新 Glyphs 外掛 九宮格預覽 第二版', en: 'Updated Glyphs Plugin NineBoxView Version 2' },
-        { icon: 'outline', zh: '開源 Glyphs 外掛 顯示漢語發音', en: 'Released Glyphs Plugin ShowChinesePhonetics' },
-        { icon: 'outline', zh: 'Glyphs 基礎教學系列 影片', en: 'Glyphs Fundamentals Tutorial Series Videos' },
-        { icon: 'outline', zh: '翻譯 mekkablue Glyphs 腳本集', en: 'Translated mekkablue Glyphs Scripts' },
-        { icon: 'outline', zh: 'Glyphs 腳本助手 GPTs 上架', en: 'Glyphs Script Assistant GPTs Released' },
-        { icon: 'filled', zh: '個人網站上線', en: 'Personal Website Launched' },
-        { icon: 'outline', zh: '翻譯 Glyphs 外掛 SelectionPalette', en: 'Translated Glyphs Plugin SelectionPalette' },
+        { zh: '個人網站上線、多款 Glyphs 外掛發布', en: 'Personal website launched, multiple Glyphs plugins released' },
       ]},
       { year: 2024, events: [
-        { icon: 'outline', zh: '製作 Glyphs Python 型別提示檔', en: 'Created Glyphs Python Type Stubs' },
-        { icon: 'outline', zh: 'Glyphs 注音連字系統製作檔', en: 'Glyphs Bopomofo Ligature System' },
-        { icon: 'outline', zh: '翻譯 mekkablue Glyphs 腳本集', en: 'Translated mekkablue Glyphs Scripts' },
-        { icon: 'outline', zh: '首個 Glyphs 外掛 九宮格預覽', en: 'First Glyphs Plugin NineBoxView' },
-        { icon: 'outline', zh: '開始撰寫 Glyphs 腳本集', en: 'Started Writing Glyphs Scripts' },
-        { icon: 'filled', zh: '自學 Python', en: 'Self-Taught Python' },
+        { zh: '自學 Python，開始開發 Glyphs 外掛與腳本', en: 'Self-taught Python, started developing Glyphs plugins & scripts' },
       ]},
       { year: 2023, events: [
-        { icon: 'outline', zh: '12年字型馬拉松計畫', en: '12-Year Type Design Marathon Project' },
-        { icon: 'filled', zh: '創立 YouTube 字型知識頻道', en: 'Founded YouTube Type Design Channel' },
-      ]},
-      { year: 2021, events: [
-        { icon: 'outline', zh: '發布 6款拉丁字型', en: 'Released 6 Latin Typefaces' },
+        { zh: '創立 YouTube 字型知識頻道', en: 'Founded YouTube type design channel' },
       ]},
       { year: 2019, events: [
-        { icon: 'filled', zh: '加入文鼎字型（至今）', en: 'Joined Arphic Types (Present)' },
-      ]},
-      { year: 2018, events: [
-        { icon: 'outline', zh: '口方體 實驗字型', en: 'CubeFarm Experimental Typeface' },
+        { zh: '加入文鼎字型（至今）', en: 'Joined Arphic Types (present)' },
       ]},
       { year: 2017, events: [
-        { icon: 'outline', zh: '首個漢字字型 殷泉明 實驗字型', en: 'First CJK Typeface Yin Quan Ming Experimental' },
+        { zh: '首個漢字字型 殷泉明', en: 'First CJK typeface Yin Quan Ming' },
       ]},
       { year: 2015, events: [
-        { icon: 'filled', zh: '接觸 Glyphs 字型編輯軟體', en: 'Discovered Glyphs Font Editor' },
-      ]},
-      { year: 2014, events: [
-        { icon: 'outline', zh: '拉丁字型 Jonah', en: 'Latin Typeface Jonah' },
+        { zh: '接觸 Glyphs 字型編輯軟體', en: 'Discovered Glyphs font editor' },
       ]},
       { year: 2013, events: [
-        { icon: 'filled', zh: '首個拉丁字型 Prism', en: 'First Latin Typeface Prism' },
-        { icon: 'outline', zh: '自學 FontLab Studio', en: 'Self-Taught FontLab Studio' },
-        { icon: 'outline', zh: '自創文字與文字系統研究', en: 'Constructed Script and Writing System Research' },
-        { icon: 'outline', zh: 'Unipin 墨線圖創作', en: 'Unipin Ink Drawings Creation' },
+        { zh: '首個拉丁字型 Prism、自學 FontLab', en: 'First Latin typeface Prism, self-taught FontLab' },
       ]},
       { year: 1988, events: [
-        { icon: 'filled', zh: '來自台灣高雄', en: 'Born in Kaohsiung, Taiwan' },
+        { zh: '來自台灣高雄', en: 'Born in Kaohsiung, Taiwan' },
       ]},
     ];
 
@@ -467,23 +432,28 @@
       container.replaceChildren();
 
       for (const group of timeline) {
-        const yearDiv = document.createElement('div');
-        yearDiv.className = 'timeline-year fade-in';
-        yearDiv.textContent = group.year;
-        container.appendChild(yearDiv);
-
         for (const event of group.events) {
-          const eventDiv = document.createElement('div');
-          eventDiv.className = 'timeline-event fade-in';
-          eventDiv.dataset.icon = event.icon;
-          eventDiv.textContent = event[currentLang];
-          container.appendChild(eventDiv);
+          const item = document.createElement('div');
+          item.className = 'timeline-item';
+
+          const yearDiv = document.createElement('div');
+          yearDiv.className = 'timeline-year';
+          yearDiv.textContent = group.year;
+
+          const descDiv = document.createElement('div');
+          descDiv.className = 'timeline-desc';
+          descDiv.textContent = event[currentLang];
+
+          item.appendChild(yearDiv);
+          item.appendChild(descDiv);
+          container.appendChild(item);
         }
       }
 
-      // Observe for fade-in
-      container.querySelectorAll('.fade-in').forEach((el, i) => {
-        setTimeout(() => el.classList.add('visible'), i * 30);
+      // Staggered fade-in (apply to year + desc pairs)
+      container.querySelectorAll('.timeline-year, .timeline-desc').forEach((el, i) => {
+        el.classList.add('fade-in');
+        setTimeout(() => el.classList.add('visible'), Math.floor(i / 2) * 80);
       });
     }
 

@@ -120,7 +120,7 @@
     .footer-links { display: flex; gap: var(--space-lg); }
     .footer-col h4 { font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-secondary); margin-bottom: var(--space-sm); }
     .footer-col a { display: block; font-size: 0.85rem; color: var(--text); text-decoration: none; padding: 0.2rem 0; transition: color 0.2s; }
-    .footer-col a:hover { color: var(--ink-blue); }
+    .footer-col a:hover { color: var(--text); text-decoration: underline; text-underline-offset: 0.2em; }
     .footer-bottom { max-width: var(--max-width); margin: var(--space-lg) auto 0; padding: var(--space-sm) var(--space-md) 0; border-top: 1px solid var(--border-light); display: flex; justify-content: space-between; align-items: center; }
     .footer-copyright { font-family: var(--font-mono); font-size: 0.7rem; color: var(--text-secondary); }
     .footer-social { display: flex; gap: 0.35rem; }
@@ -157,8 +157,8 @@
       <button class="nav-toggle" aria-label="開啟選單" onclick="document.querySelector('.nav-links').classList.toggle('show')"><i class="ph ph-list"></i></button>
       <nav class="nav-links">
         <a href="index.html" data-i18n="nav.home">首頁</a>
+        <a href="tools.html" data-i18n="nav.tools">工具</a>
         <a href="works.html" class="active" data-i18n="nav.works">作品</a>
-        <a href="#" data-i18n="nav.tools">工具</a>
         <a href="#" data-i18n="nav.writing">隨筆</a>
         <a href="about.html" data-i18n="nav.about">關於</a>
       </nav>
@@ -220,35 +220,27 @@
       { title: { zh: 'Alugu', en: 'Alugu' }, url: 'https://www.behance.net/gallery/121834739/Font-Alugu', categories: ['latin'] },
       { title: { zh: 'Electlilywave', en: 'Electlilywave' }, url: 'https://www.behance.net/gallery/124860047/Font-Electlilywave', categories: ['latin'] },
       { title: { zh: 'Kalosgon', en: 'Kalosgon' }, url: 'https://www.behance.net/gallery/125875695/Font-Kalosgon', categories: ['latin'] },
-      { title: { zh: '\u6BB7\u6CC9\u660E', en: 'Yin Quan Ming' }, url: 'https://www.facebook.com/jftypeclass/posts/pfbid02mSGzkkcjWU72RF4hHyiPGyPcj694Ujvey92e3x7YYA9cF9P3TNjJ5Sm6vtrYZfU1l', categories: ['cjk'] },
-      { title: { zh: '\u53E3\u65B9\u9AD4', en: 'CubeFarm' }, url: 'https://www.behance.net/gallery/61406349/-CubeFarm-Font-(Chinese)', categories: ['cjk'] },
-      { title: { zh: '\u4E5D\u5BAE\u683C\u9810\u89BD', en: 'NineBoxView' }, url: 'https://github.com/yintzuyuan/NineBoxView', categories: ['glyphs'] },
-      { title: { zh: '\u6211\u7684\u8173\u672C\u96C6', en: 'My Glyphs Scripts' }, url: 'https://github.com/yintzuyuan/Glyphs_Scripts', categories: ['glyphs'] },
-      { title: { zh: '\u6CE8\u97F3\u5408\u5B57\u67B6\u69CB\u7CFB\u7D71', en: 'Bopomofo Ligature System' }, url: 'https://github.com/yintzuyuan/Bopomo_Ligasystem', categories: ['glyphs'] },
-      { title: { zh: 'GPTs - Glyphs \u8173\u672C\u52A9\u624B', en: 'GPTs - Glyphs Script Assistant' }, url: 'https://chatgpt.com/g/g-6VY8cYFqx-glyphs-jiao-ben-zhu-shou', categories: ['glyphs'] },
-      { title: { zh: '\u986F\u793A\u6F22\u8A9E\u767C\u97F3', en: 'ShowChinesePhonetics' }, url: 'https://github.com/yintzuyuan/ShowBopomofo', categories: ['glyphs'] },
-      { title: { zh: '\u62C9\u81F3\u9078\u53D6\u7BC4\u570D', en: 'Zoom to Selection' }, url: 'https://github.com/yintzuyuan/zoom-to-selection', categories: ['glyphs'] },
-      { title: { zh: 'mekkablue \u8173\u672C\u96C6\u7FFB\u8B6F', en: 'mekkablue Scripts Translation' }, url: 'https://github.com/yintzuyuan/mekkablue_Glyphs-Scripts-zh-tw', categories: ['translation'] },
-      { title: { zh: 'Glyphs \u67B6\u69CB\u5B57\u5178\u6A94', en: 'Glyphs Type Stubs' }, url: 'https://github.com/yintzuyuan/GlyphsApp-Stubs_zh-tw', categories: ['translation', 'glyphs'] },
-      { title: { zh: 'SelectionPalette \u5916\u639B\u7FFB\u8B6F', en: 'SelectionPalette Plugin Translation' }, url: 'https://github.com/yintzuyuan/SelectionPalette_trans_TW', categories: ['translation'] },
-      { title: { zh: 'redesign \u53F0\u5317\u6377\u904B\u5730\u5716', en: 'Taipei Metro Map Redesign' }, url: 'https://www.behance.net/gallery/23465617/Taipei-Metro-Route-Map-reDesign', categories: ['art'] },
+      { title: { zh: '殷泉明', en: 'Yin Quan Ming' }, url: 'https://www.facebook.com/jftypeclass/posts/pfbid02mSGzkkcjWU72RF4hHyiPGyPcj694Ujvey92e3x7YYA9cF9P3TNjJ5Sm6vtrYZfU1l', categories: ['cjk'] },
+      { title: { zh: '口方體', en: 'CubeFarm' }, url: 'https://www.behance.net/gallery/61406349/-CubeFarm-Font-(Chinese)', categories: ['cjk'] },
+      { title: { zh: 'mekkablue 腳本集翻譯', en: 'mekkablue Scripts Translation' }, url: 'https://github.com/yintzuyuan/mekkablue_Glyphs-Scripts-zh-tw', categories: ['translation'] },
+      { title: { zh: 'SelectionPalette 外掛翻譯', en: 'SelectionPalette Plugin Translation' }, url: 'https://github.com/yintzuyuan/SelectionPalette_trans_TW', categories: ['translation'] },
+      { title: { zh: 'redesign 台北捷運地圖', en: 'Taipei Metro Map Redesign' }, url: 'https://www.behance.net/gallery/23465617/Taipei-Metro-Route-Map-reDesign', categories: ['art'] },
       { title: { zh: 'Good Morning', en: 'Good Morning' }, url: 'https://www.behance.net/gallery/18322553/Good-Morning', categories: ['art'] },
       { title: { zh: 'Sleep in the Water', en: 'Sleep in the Water' }, url: 'https://www.behance.net/gallery/17811591/Sleep-in-the-Water', categories: ['art'] },
-      { title: { zh: '\u5409\u5149\u7247\u7FBD', en: 'Last Remaining Fragments' }, url: 'https://www.behance.net/gallery/17149219/-Last-Remaining-Fragments', categories: ['art'] },
+      { title: { zh: '吉光片羽', en: 'Last Remaining Fragments' }, url: 'https://www.behance.net/gallery/17149219/-Last-Remaining-Fragments', categories: ['art'] },
       { title: { zh: "Robot's Life", en: "Robot's Life" }, url: 'https://www.behance.net/gallery/15105363/Robots-Life', categories: ['art'] },
       { title: { zh: 'The Core', en: 'The Core' }, url: 'https://www.behance.net/gallery/14996839/The-Core', categories: ['art'] },
       { title: { zh: 'Robot Me', en: 'Robot Me' }, url: 'https://www.behance.net/gallery/13483465/Robot-Me', categories: ['art'] },
-      { title: { zh: '\u5FC3\u7D93', en: 'Heart Sutra' }, url: 'https://www.behance.net/gallery/12452595/Heart-Sutra-', categories: ['art'] },
+      { title: { zh: '心經', en: 'Heart Sutra' }, url: 'https://www.behance.net/gallery/12452595/Heart-Sutra-', categories: ['art'] },
       { title: { zh: 'Music of Sense', en: 'Music of Sense' }, url: 'https://www.behance.net/gallery/10575917/Music-of-Sense', categories: ['art'] },
       { title: { zh: 'Blank', en: 'Blank' }, url: 'https://www.behance.net/gallery/6647139/Blank', categories: ['art'] },
     ];
 
     const categoryMeta = {
-      latin:       { zh: '\u62C9\u4E01\u5B57\u578B', en: 'Latin Typefaces',   icon: 'ph-text-aa' },
-      cjk:         { zh: '\u6F22\u5B57\u5B57\u578B', en: 'CJK Typefaces',     icon: 'ph-translate' },
-      glyphs:      { zh: 'Glyphs \u5DE5\u5177',      en: 'Glyphs Tools',      icon: 'ph-wrench' },
-      translation: { zh: '\u7FFB\u8B6F\u8CA2\u737B', en: 'Translations',      icon: 'ph-globe' },
-      art:         { zh: '\u8996\u89BA\u85DD\u8853', en: 'Visual Art',         icon: 'ph-paint-brush' },
+      latin:       { zh: '拉丁字型', en: 'Latin Typefaces',   icon: 'ph-text-aa' },
+      cjk:         { zh: '漢字字型', en: 'CJK Typefaces',     icon: 'ph-translate' },
+      translation: { zh: '翻譯貢獻', en: 'Translations',      icon: 'ph-globe' },
+      art:         { zh: '視覺藝術', en: 'Visual Art',         icon: 'ph-paint-brush' },
     };
 
     const hostIcons = {
@@ -267,7 +259,7 @@
 
     let currentLang = 'zh';
     let currentFilter = 'all';
-    const categoryOrder = ['latin', 'cjk', 'glyphs', 'translation', 'art'];
+    const categoryOrder = ['latin', 'cjk', 'translation', 'art'];
 
     // ===== Safe DOM rendering =====
     function createCard(project, category) {
@@ -351,8 +343,8 @@
       ];
 
       const labels = {
-        zh: { all: '\u5168\u90E8', latin: '\u62C9\u4E01\u5B57\u578B', cjk: '\u6F22\u5B57\u5B57\u578B', glyphs: 'Glyphs \u5DE5\u5177', translation: '\u7FFB\u8B6F', art: '\u8996\u89BA\u85DD\u8853' },
-        en: { all: 'All', latin: 'Latin', cjk: 'CJK', glyphs: 'Glyphs Tools', translation: 'Translations', art: 'Visual Art' }
+        zh: { all: '全部', latin: '拉丁字型', cjk: '漢字字型', translation: '翻譯', art: '視覺藝術' },
+        en: { all: 'All', latin: 'Latin', cjk: 'CJK', translation: 'Translations', art: 'Visual Art' }
       };
 
       for (const f of filters) {
@@ -375,8 +367,8 @@
 
     // ===== i18n =====
     const i18n = {
-      zh: { 'nav.home': '\u9996\u9801', 'nav.works': '\u4F5C\u54C1', 'nav.tools': '\u5DE5\u5177', 'nav.writing': '\u96A8\u7B46', 'nav.about': '\u95DC\u65BC', 'page.title': '\u4F5C\u54C1\u96C6', 'page.desc': '\u5B57\u578B\u8A2D\u8A08\u3001\u958B\u767C\u5DE5\u5177\u3001\u7FFB\u8B6F\u8CA2\u737B\u8207\u8996\u89BA\u85DD\u8853\u3002', 'footer.works': '\u4F5C\u54C1', 'footer.tools': '\u5DE5\u5177', 'footer.more': '\u66F4\u591A', 'footer.about': '\u95DC\u65BC', 'footer.privacy': '\u96B1\u79C1\u653F\u7B56' },
-      en: { 'nav.home': 'Home', 'nav.works': 'Works', 'nav.tools': 'Tools', 'nav.writing': 'Writing', 'nav.about': 'About', 'page.title': 'Works', 'page.desc': 'Type design, development tools, translations, and visual art.', 'footer.works': 'Works', 'footer.tools': 'Tools', 'footer.more': 'More', 'footer.about': 'About', 'footer.privacy': 'Privacy Policy' }
+      zh: { 'nav.home': '首頁', 'nav.works': '作品', 'nav.tools': '工具', 'nav.writing': '隨筆', 'nav.about': '關於', 'page.title': '作品集', 'page.desc': '字型設計、翻譯貢獻與視覺藝術。開發工具請見工具頁。', 'footer.works': '作品', 'footer.tools': '工具', 'footer.more': '更多', 'footer.about': '關於', 'footer.privacy': '隱私政策' },
+      en: { 'nav.home': 'Home', 'nav.works': 'Works', 'nav.tools': 'Tools', 'nav.writing': 'Writing', 'nav.about': 'About', 'page.title': 'Works', 'page.desc': 'Type design, translations, and visual art. For dev tools, see the Tools page.', 'footer.works': 'Works', 'footer.tools': 'Tools', 'footer.more': 'More', 'footer.about': 'About', 'footer.privacy': 'Privacy Policy' }
     };
 
     function setLang(lang) {

@@ -481,7 +481,7 @@
     }
 
     .btn-primary:hover {
-      opacity: 0.85;
+      background: color-mix(in srgb, var(--text) 80%, var(--ink-blue));
       transform: translateY(-1px);
     }
 
@@ -630,7 +630,7 @@
       gap: 0.4em;
     }
 
-    .newsletter-form button:hover { opacity: 0.85; }
+    .newsletter-form button:hover { background: color-mix(in srgb, var(--text) 80%, var(--ink-blue)); }
 
     .newsletter-privacy {
       font-family: var(--font-mono);
@@ -693,7 +693,7 @@
       transition: color 0.2s;
     }
 
-    .footer-col a:hover { color: var(--ink-blue); }
+    .footer-col a:hover { color: var(--text); text-decoration: underline; text-underline-offset: 0.2em; }
 
     .footer-bottom {
       max-width: var(--max-width);
@@ -760,6 +760,7 @@
     .see-all:hover {
       color: var(--text);
       border-color: var(--text);
+      text-decoration: none;
     }
 
     /* ===== Mobile nav ===== */
@@ -879,11 +880,11 @@
         <i class="ph ph-list"></i>
       </button>
       <nav class="nav-links">
-        <a href="#" class="active" data-i18n="nav.home">首頁</a>
-        <a href="#" data-i18n="nav.works">作品</a>
-        <a href="#" data-i18n="nav.tools">工具</a>
+        <a href="index.html" class="active" data-i18n="nav.home">首頁</a>
+        <a href="tools.html" data-i18n="nav.tools">工具</a>
+        <a href="works.html" data-i18n="nav.works">作品</a>
         <a href="#" data-i18n="nav.writing">隨筆</a>
-        <a href="#" data-i18n="nav.about">關於</a>
+        <a href="about.html" data-i18n="nav.about">關於</a>
       </nav>
       <div class="header-actions">
         <button class="header-btn lang-btn" onclick="toggleLang()" aria-label="切換語言">
@@ -903,7 +904,7 @@
         <h1 data-i18n="hero.name">殷慈遠</h1>
         <div class="hero-subtitle" data-i18n="hero.subtitle">Type Designer & Developer</div>
         <div class="hero-accent"></div>
-        <p class="hero-description" data-i18n="hero.description">以工程思維雕琢文字，用設計語言編織工具。在字型設計與軟體開發的交匯處，創造精確而溫暖的作品。</p>
+        <p class="hero-description" data-i18n="hero.description">為字型設計師打造精確的工具，讓創作流程更高效。Glyphs 外掛開發者，同時也是漢字與拉丁字型設計師。</p>
       </div>
       <div class="hero-visual fade-in">
         <div class="glyph-grid">
@@ -923,46 +924,12 @@
 
   <div class="gradient-divider"></div>
 
-  <!-- ===== Works ===== -->
-  <section class="section">
-    <div class="container">
-      <div class="section-label fade-in">Works</div>
-      <div class="works-grid">
-        <a href="#" class="work-card fade-in">
-          <div class="work-card-tag">Typeface</div>
-          <h3 data-i18n="works.1.title">字型設計作品 A</h3>
-          <p data-i18n="works.1.desc">探索漢字結構與書寫韻律的實驗性字型專案，融合傳統書法與現代排版需求。</p>
-          <span class="work-card-arrow"><i class="ph ph-arrow-right"></i></span>
-        </a>
-        <a href="#" class="work-card fade-in">
-          <div class="work-card-tag">Typeface</div>
-          <h3 data-i18n="works.2.title">字型設計作品 B</h3>
-          <p data-i18n="works.2.desc">針對螢幕閱讀優化的中文字型，兼顧清晰度與設計美感。</p>
-          <span class="work-card-arrow"><i class="ph ph-arrow-right"></i></span>
-        </a>
-        <a href="#" class="work-card fade-in">
-          <div class="work-card-tag">Typography</div>
-          <h3 data-i18n="works.3.title">排版實驗</h3>
-          <p data-i18n="works.3.desc">中西文混排的視覺節奏探索，研究不同語系的排版和諧。</p>
-          <span class="work-card-arrow"><i class="ph ph-arrow-right"></i></span>
-        </a>
-        <a href="#" class="work-card fade-in">
-          <div class="work-card-tag">Lettering</div>
-          <h3 data-i18n="works.4.title">手寫字設計</h3>
-          <p data-i18n="works.4.desc">以手寫為起點的字體創作，捕捉書寫時的即興與溫度。</p>
-          <span class="work-card-arrow"><i class="ph ph-arrow-right"></i></span>
-        </a>
-      </div>
-      <a href="#" class="see-all fade-in" data-i18n="works.seeAll">查看全部作品 <i class="ph ph-arrow-right"></i></a>
-    </div>
-  </section>
-
-  <div class="gradient-divider"></div>
-
-  <!-- ===== Tools ===== -->
+  <!-- ===== Tools (primary section) ===== -->
   <section class="section">
     <div class="container">
       <div class="section-label fade-in">Tools</div>
+
+      <!-- Featured: NineBoxView Pro -->
       <div class="product-card fade-in">
         <div class="product-info">
           <h3>NineBoxView Pro <span class="product-badge">Glyphs Plugin</span></h3>
@@ -976,9 +943,74 @@
         </div>
         <div class="product-action">
           <a href="#" class="btn-primary" data-i18n="tools.nbv.cta">了解更多 <i class="ph ph-arrow-right"></i></a>
-          <span class="product-price">USD $29</span>
+          <span class="product-price" data-i18n="tools.nbv.pricing">依地區自動調整定價</span>
         </div>
       </div>
+
+      <!-- Open source tools grid -->
+      <div class="works-grid" style="margin-top: var(--space-lg);">
+        <a href="https://github.com/yintzuyuan/NineBoxView" target="_blank" rel="noopener" class="work-card fade-in">
+          <div class="work-card-tag"><i class="ph ph-github-logo"></i> Open Source</div>
+          <h3 data-i18n="tools.os.1.title">NineBoxView</h3>
+          <p data-i18n="tools.os.1.desc">免費版九宮格預覽外掛，Glyphs 社群最受歡迎的工具之一。</p>
+          <span class="work-card-arrow"><i class="ph ph-arrow-right"></i></span>
+        </a>
+        <a href="https://github.com/yintzuyuan/ShowBopomofo" target="_blank" rel="noopener" class="work-card fade-in">
+          <div class="work-card-tag"><i class="ph ph-github-logo"></i> Open Source</div>
+          <h3 data-i18n="tools.os.2.title">顯示漢語發音</h3>
+          <p data-i18n="tools.os.2.desc">在 Glyphs 編輯器中即時顯示漢字的注音或拼音。</p>
+          <span class="work-card-arrow"><i class="ph ph-arrow-right"></i></span>
+        </a>
+        <a href="https://github.com/yintzuyuan/zoom-to-selection" target="_blank" rel="noopener" class="work-card fade-in">
+          <div class="work-card-tag"><i class="ph ph-github-logo"></i> Open Source</div>
+          <h3 data-i18n="tools.os.3.title">拉至選取範圍</h3>
+          <p data-i18n="tools.os.3.desc">快速縮放至選取的節點或錨點，提升編輯效率。</p>
+          <span class="work-card-arrow"><i class="ph ph-arrow-right"></i></span>
+        </a>
+        <a href="https://github.com/yintzuyuan/Glyphs_Scripts" target="_blank" rel="noopener" class="work-card fade-in">
+          <div class="work-card-tag"><i class="ph ph-github-logo"></i> Open Source</div>
+          <h3 data-i18n="tools.os.4.title">Glyphs 腳本集</h3>
+          <p data-i18n="tools.os.4.desc">實用的 Glyphs 自動化腳本，涵蓋字符管理、路徑處理等。</p>
+          <span class="work-card-arrow"><i class="ph ph-arrow-right"></i></span>
+        </a>
+      </div>
+      <a href="tools.html" class="see-all fade-in" data-i18n="tools.seeAll">查看全部工具 <i class="ph ph-arrow-right"></i></a>
+    </div>
+  </section>
+
+  <div class="gradient-divider"></div>
+
+  <!-- ===== Works (curated highlights) ===== -->
+  <section class="section">
+    <div class="container">
+      <div class="section-label fade-in">Works</div>
+      <div class="works-grid">
+        <a href="#" class="work-card fade-in">
+          <div class="work-card-tag">CJK Typeface</div>
+          <h3 data-i18n="works.1.title">殷泉明</h3>
+          <p data-i18n="works.1.desc">首個漢字字型，探索明體筆形與現代審美的平衡。</p>
+          <span class="work-card-arrow"><i class="ph ph-arrow-right"></i></span>
+        </a>
+        <a href="#" class="work-card fade-in">
+          <div class="work-card-tag">CJK Typeface</div>
+          <h3 data-i18n="works.2.title">口方體</h3>
+          <p data-i18n="works.2.desc">以方塊為結構基礎的實驗性漢字字型。</p>
+          <span class="work-card-arrow"><i class="ph ph-arrow-right"></i></span>
+        </a>
+        <a href="#" class="work-card fade-in">
+          <div class="work-card-tag">Latin Typefaces</div>
+          <h3 data-i18n="works.3.title">11 套拉丁字型</h3>
+          <p data-i18n="works.3.desc">從幾何無襯線到手寫風格，橫跨多年的拉丁字型創作。</p>
+          <span class="work-card-arrow"><i class="ph ph-arrow-right"></i></span>
+        </a>
+        <a href="#" class="work-card fade-in">
+          <div class="work-card-tag">Translation</div>
+          <h3 data-i18n="works.4.title">Glyphs 生態系翻譯</h3>
+          <p data-i18n="works.4.desc">mekkablue 腳本集、SelectionPalette 等工具的繁體中文化。</p>
+          <span class="work-card-arrow"><i class="ph ph-arrow-right"></i></span>
+        </a>
+      </div>
+      <a href="works.html" class="see-all fade-in" data-i18n="works.seeAll">查看全部作品 <i class="ph ph-arrow-right"></i></a>
     </div>
   </section>
 
@@ -1082,21 +1114,30 @@
     const i18n = {
       zh: {
         'nav.home': '首頁',
-        'nav.works': '作品',
         'nav.tools': '工具',
+        'nav.works': '作品',
         'nav.writing': '隨筆',
         'nav.about': '關於',
         'hero.name': '殷慈遠',
         'hero.subtitle': 'Type Designer & Developer',
-        'hero.description': '以工程思維雕琢文字，用設計語言編織工具。在字型設計與軟體開發的交匯處，創造精確而溫暖的作品。',
-        'works.1.title': '字型設計作品 A',
-        'works.1.desc': '探索漢字結構與書寫韻律的實驗性字型專案，融合傳統書法與現代排版需求。',
-        'works.2.title': '字型設計作品 B',
-        'works.2.desc': '針對螢幕閱讀優化的中文字型，兼顧清晰度與設計美感。',
-        'works.3.title': '排版實驗',
-        'works.3.desc': '中西文混排的視覺節奏探索，研究不同語系的排版和諧。',
-        'works.4.title': '手寫字設計',
-        'works.4.desc': '以手寫為起點的字體創作，捕捉書寫時的即興與溫度。',
+        'hero.description': '為字型設計師打造精確的工具，讓創作流程更高效。Glyphs 外掛開發者，同時也是漢字與拉丁字型設計師。',
+        'tools.os.1.title': 'NineBoxView',
+        'tools.os.1.desc': '免費版九宮格預覽外掛，Glyphs 社群最受歡迎的工具之一。',
+        'tools.os.2.title': '顯示漢語發音',
+        'tools.os.2.desc': '在 Glyphs 編輯器中即時顯示漢字的注音或拼音。',
+        'tools.os.3.title': '拉至選取範圍',
+        'tools.os.3.desc': '快速縮放至選取的節點或錨點，提升編輯效率。',
+        'tools.os.4.title': 'Glyphs 腳本集',
+        'tools.os.4.desc': '實用的 Glyphs 自動化腳本，涵蓋字符管理、路徑處理等。',
+        'tools.seeAll': '查看全部工具',
+        'works.1.title': '殷泉明',
+        'works.1.desc': '首個漢字字型，探索明體筆形與現代審美的平衡。',
+        'works.2.title': '口方體',
+        'works.2.desc': '以方塊為結構基礎的實驗性漢字字型。',
+        'works.3.title': '11 套拉丁字型',
+        'works.3.desc': '從幾何無襯線到手寫風格，橫跨多年的拉丁字型創作。',
+        'works.4.title': 'Glyphs 生態系翻譯',
+        'works.4.desc': 'mekkablue 腳本集、SelectionPalette 等工具的繁體中文化。',
         'works.seeAll': '查看全部作品',
         'tools.nbv.desc': 'Glyphs 字型編輯器的終極預覽工具。九宮格即時預覽字符在不同上下文中的效果，加速字型設計迭代。',
         'tools.nbv.f1': '即時預覽',
@@ -1104,6 +1145,7 @@
         'tools.nbv.f3': '自訂上下文',
         'tools.nbv.f4': '深色模式',
         'tools.nbv.cta': '了解更多',
+        'tools.nbv.pricing': '依地區自動調整定價',
         'writing.1.title': '字型設計中的工程思維',
         'writing.1.excerpt': '當我們談論「精確」，在字型設計的語境下意味著什麼？',
         'writing.2.title': '為什麼我用程式碼輔助字型設計',
@@ -1130,21 +1172,30 @@
       },
       en: {
         'nav.home': 'Home',
-        'nav.works': 'Works',
         'nav.tools': 'Tools',
+        'nav.works': 'Works',
         'nav.writing': 'Writing',
         'nav.about': 'About',
         'hero.name': 'TzuYuan Yin',
         'hero.subtitle': 'Type Designer & Developer',
-        'hero.description': 'Crafting letterforms with engineering precision, weaving tools with design sensibility. Creating work that is both precise and warm, at the intersection of type design and software development.',
-        'works.1.title': 'Typeface Project A',
-        'works.1.desc': 'An experimental typeface exploring CJK character structure and writing rhythm, fusing traditional calligraphy with modern typographic needs.',
-        'works.2.title': 'Typeface Project B',
-        'works.2.desc': 'A Chinese typeface optimized for on-screen reading, balancing legibility with aesthetic design.',
-        'works.3.title': 'Typography Experiments',
-        'works.3.desc': 'Exploring visual rhythm in multilingual typesetting, studying typographic harmony across writing systems.',
-        'works.4.title': 'Lettering Design',
-        'works.4.desc': 'Type creation rooted in handwriting, capturing the spontaneity and warmth of the written stroke.',
+        'hero.description': 'Building precise tools for type designers to streamline their creative workflow. Glyphs plugin developer, and designer of CJK & Latin typefaces.',
+        'tools.os.1.title': 'NineBoxView',
+        'tools.os.1.desc': 'Free 3\u00d73 grid preview plugin, one of the most popular tools in the Glyphs community.',
+        'tools.os.2.title': 'ShowChinesePhonetics',
+        'tools.os.2.desc': 'Display Bopomofo or Pinyin for CJK characters in the Glyphs editor.',
+        'tools.os.3.title': 'Zoom to Selection',
+        'tools.os.3.desc': 'Quickly zoom to selected nodes or anchors for faster editing.',
+        'tools.os.4.title': 'Glyphs Scripts',
+        'tools.os.4.desc': 'Practical automation scripts for glyph management, path processing, and more.',
+        'tools.seeAll': 'View all tools',
+        'works.1.title': 'Yin Quan Ming',
+        'works.1.desc': 'First CJK typeface, exploring the balance between Ming-style strokes and modern aesthetics.',
+        'works.2.title': 'CubeFarm',
+        'works.2.desc': 'An experimental CJK typeface built on a square-block structure.',
+        'works.3.title': '11 Latin Typefaces',
+        'works.3.desc': 'From geometric sans to handwriting styles, Latin typefaces spanning many years.',
+        'works.4.title': 'Glyphs Ecosystem Translations',
+        'works.4.desc': 'Traditional Chinese localization of mekkablue scripts, SelectionPalette, and more.',
         'works.seeAll': 'View all works',
         'tools.nbv.desc': 'The ultimate preview tool for the Glyphs font editor. Preview glyphs in a 3\u00d73 grid with real-time context, accelerating your type design iteration.',
         'tools.nbv.f1': 'Live Preview',
@@ -1152,6 +1203,7 @@
         'tools.nbv.f3': 'Custom Context',
         'tools.nbv.f4': 'Dark Mode',
         'tools.nbv.cta': 'Learn More',
+        'tools.nbv.pricing': 'Regional pricing available',
         'writing.1.title': 'Engineering Thinking in Type Design',
         'writing.1.excerpt': 'What does "precision" really mean in the context of type design?',
         'writing.2.title': 'Why I Use Code to Aid Type Design',
