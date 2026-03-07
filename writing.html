@@ -46,9 +46,16 @@
   <script src="assets/app.js"></script>
   <script>
     function renderEssays() {
-      if (!window.ESSAYS_DATA) return;
       var container = document.getElementById('essays-list');
       container.replaceChildren();
+      if (!window.ESSAYS_DATA || window.ESSAYS_DATA.length === 0) {
+        var emptyMsg = document.createElement('p');
+        emptyMsg.className = 'fade-in';
+        emptyMsg.style.color = 'var(--text-secondary)';
+        emptyMsg.textContent = currentLang === 'en' ? 'No articles yet. Stay tuned.' : '文章準備中，敬請期待。';
+        container.appendChild(emptyMsg);
+        return;
+      }
 
       for (var i = 0; i < window.ESSAYS_DATA.length; i++) {
         var essay = window.ESSAYS_DATA[i];

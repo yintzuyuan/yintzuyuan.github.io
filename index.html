@@ -61,7 +61,7 @@
           </ul>
         </div>
         <div class="product-action">
-          <a href="https://nineboxview.pro/" class="btn-primary" data-i18n="tools.nbv.cta">了解更多 <i class="ph ph-arrow-right"></i></a>
+          <a href="https://erikyin.net/NineBoxView-Pro/" class="btn-primary" data-i18n="tools.nbv.cta">了解更多 <i class="ph ph-arrow-right"></i></a>
           <span class="product-price" data-i18n="tools.nbv.pricing">依地區自動調整定價</span>
         </div>
       </div>
@@ -166,7 +166,15 @@
     }
 
     function renderIndexEssays() {
-      if (!window.ESSAYS_DATA) return;
+      if (!window.ESSAYS_DATA || window.ESSAYS_DATA.length === 0) {
+        var writingSection = document.getElementById('index-essays').closest('.section');
+        if (writingSection) {
+          writingSection.style.display = 'none';
+          var divider = writingSection.previousElementSibling;
+          if (divider && divider.classList.contains('gradient-divider')) divider.style.display = 'none';
+        }
+        return;
+      }
       var list = document.getElementById('index-essays');
       list.replaceChildren();
       for (var i = 0; i < window.ESSAYS_DATA.length; i++) {

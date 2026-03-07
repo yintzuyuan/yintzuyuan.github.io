@@ -70,19 +70,19 @@
   <script>
     var bioData = {
       zh: [
-        '我是殷慈遠（TzuYuan Yin），字型設計師、Python 開發者、YouTube 創作者。使用 ',
+        '我是殷慈遠（TzuYuan Yin），字型設計師、工具開發者、YouTube 創作者。使用 ',
         { text: 'Glyphs', href: 'https://glyphsapp.com/' },
         ' 設計字型，並在 ',
-        { text: 'YouTube', href: 'https://www.youtube.com/@erikin1205_typogame' },
+        { text: 'YouTube', href: 'https://www.youtube.com/c/erikin1205_typogame' },
         ' 分享設計知識。目前任職於',
         { text: '文鼎字型', href: 'https://www.arphic.com/' },
         '，專注於漢字字型設計與 Glyphs 工具開發。'
       ],
       en: [
-        "I'm TzuYuan Yin, a type designer, Python developer, and YouTube creator. I design typefaces with ",
+        "I'm TzuYuan Yin, a type designer, tool developer, and YouTube creator. I design typefaces with ",
         { text: 'Glyphs', href: 'https://glyphsapp.com/' },
         ' and share design knowledge on ',
-        { text: 'YouTube', href: 'https://www.youtube.com/@erikin1205_typogame' },
+        { text: 'YouTube', href: 'https://www.youtube.com/c/erikin1205_typogame' },
         '. Currently at ',
         { text: 'Arphic Types', href: 'https://www.arphic.com/' },
         ', focusing on CJK type design and Glyphs tool development.'
@@ -126,7 +126,11 @@
 
           var yearDiv = document.createElement('div');
           yearDiv.className = 'timeline-year';
-          yearDiv.textContent = group.year;
+          if (e === group.events.length - 1) {
+            yearDiv.textContent = group.year;
+          } else {
+            yearDiv.classList.add('timeline-year-empty');
+          }
 
           var descDiv = document.createElement('div');
           descDiv.className = 'timeline-desc';

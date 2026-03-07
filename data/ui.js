@@ -190,7 +190,7 @@ window.UI_COMPONENTS = {
       '<div class="footer-bottom">' +
         '<span class="footer-copyright">&copy; 2026 TzuYuan Yin. All rights reserved.</span>' +
         '<div class="footer-social">' +
-          '<a href="https://www.youtube.com/@erikin1205_typogame" aria-label="YouTube" title="YouTube" target="_blank" rel="noopener"><i class="ph ph-youtube-logo"></i></a>' +
+          '<a href="https://www.youtube.com/c/erikin1205_typogame" aria-label="YouTube" title="YouTube" target="_blank" rel="noopener"><i class="ph ph-youtube-logo"></i></a>' +
           '<a href="https://www.instagram.com/erikyin/" aria-label="Instagram" title="Instagram" target="_blank" rel="noopener"><i class="ph ph-instagram-logo"></i></a>' +
           '<a href="https://www.facebook.com/erikyin" aria-label="Facebook" title="Facebook" target="_blank" rel="noopener"><i class="ph ph-facebook-logo"></i></a>' +
           '<a href="https://github.com/yintzuyuan" aria-label="GitHub" title="GitHub" target="_blank" rel="noopener"><i class="ph ph-github-logo"></i></a>' +

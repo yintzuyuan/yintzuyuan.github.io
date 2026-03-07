@@ -7,59 +7,9 @@ window.TIMELINE_DATA = [
     year: 2025,
     events: [
       {
-        icon: 'outline',
         text: {
-          zh: '開源 Glyphs 外掛 [拉至選取範圍](https://github.com/yintzuyuan/zoom-to-selection)',
-          en: 'Released Glyphs Plugin [Zoom to Selection](https://github.com/yintzuyuan/zoom-to-selection)'
-        }
-      },
-      {
-        icon: 'outline',
-        text: {
-          zh: '[AI時代知識管理革命](https://www.youtube.com/playlist?list=PL79pMEgf-g9lLb-VkX3V0QL6DMxzFyQwA) 影片系列',
-          en: '[AI Era Knowledge Management Revolution](https://www.youtube.com/playlist?list=PL79pMEgf-g9lLb-VkX3V0QL6DMxzFyQwA) Video Series'
-        }
-      },
-      {
-        icon: 'outline',
-        text: {
-          zh: '更新 Glyphs 外掛 [九宮格預覽](https://github.com/yintzuyuan/NineBoxView) 第二版',
-          en: 'Updated Glyphs Plugin [NineBoxView](https://github.com/yintzuyuan/NineBoxView) Version 2'
-        }
-      },
-      {
-        icon: 'outline',
-        text: {
-          zh: '開源 Glyphs 外掛 [顯示漢語發音](https://github.com/yintzuyuan/ShowBopomofo)',
-          en: 'Released Glyphs Plugin [ShowChinesePhonetics](https://github.com/yintzuyuan/ShowBopomofo)'
-        }
-      },
-      {
-        icon: 'outline',
-        text: {
-          zh: '[Glyphs 基礎教學系列](https://www.youtube.com/playlist?list=PL79pMEgf-g9n1EPYBnLesyGlMU9kYON1L) 影片',
-          en: '[Glyphs Fundamentals Tutorial Series](https://www.youtube.com/playlist?list=PL79pMEgf-g9n1EPYBnLesyGlMU9kYON1L) Videos'
-        }
-      },
-      {
-        icon: 'outline',
-        text: {
-          zh: '[Glyphs 腳本助手](https://chatgpt.com/g/g-6VY8cYFqx-glyphs-jiao-ben-zhu-shou) GPTs 上架',
-          en: '[Glyphs Script Assistant](https://chatgpt.com/g/g-6VY8cYFqx-glyphs-jiao-ben-zhu-shou) GPTs Released'
-        }
-      },
-      {
-        icon: 'filled',
-        text: {
-          zh: '[個人網站](https://erikyin.net/) 上線',
-          en: '[Personal Website](https://erikyin.net/) Launched'
-        }
-      },
-      {
-        icon: 'outline',
-        text: {
-          zh: '翻譯 Glyphs 外掛 [SelectionPalette](https://github.com/yintzuyuan/SelectionPalette_trans_TW)',
-          en: 'Translated Glyphs Plugin [SelectionPalette](https://github.com/yintzuyuan/SelectionPalette_trans_TW)'
+          zh: '個人網站上線、多款 Glyphs 外掛發布',
+          en: 'Personal website launched, multiple Glyphs plugins released'
         }
       }
     ]
@@ -68,45 +18,9 @@ window.TIMELINE_DATA = [
     year: 2024,
     events: [
       {
-        icon: 'outline',
         text: {
-          zh: '製作 Glyphs [Python 型別提示檔](https://github.com/yintzuyuan/GlyphsApp-Stubs_zh-tw)',
-          en: 'Created Glyphs [Python Type Stubs](https://github.com/yintzuyuan/GlyphsApp-Stubs_zh-tw)'
-        }
-      },
-      {
-        icon: 'outline',
-        text: {
-          zh: 'Glyphs [注音連字系統製作檔](https://github.com/yintzuyuan/Bopomo_Ligasystem)',
-          en: 'Glyphs [Bopomofo Ligature System](https://github.com/yintzuyuan/Bopomo_Ligasystem)'
-        }
-      },
-      {
-        icon: 'outline',
-        text: {
-          zh: '翻譯 [mekkablue Glyphs 腳本集](https://github.com/yintzuyuan/mekkablue_Glyphs-Scripts-zh-tw)',
-          en: 'Translated [mekkablue Glyphs Scripts](https://github.com/yintzuyuan/mekkablue_Glyphs-Scripts-zh-tw)'
-        }
-      },
-      {
-        icon: 'outline',
-        text: {
-          zh: '首個 Glyphs 外掛 [九宮格預覽](https://github.com/yintzuyuan/NineBoxView)',
-          en: 'First Glyphs Plugin [NineBoxView](https://github.com/yintzuyuan/NineBoxView)'
-        }
-      },
-      {
-        icon: 'outline',
-        text: {
-          zh: '開始撰寫 [Glyphs 腳本集](https://github.com/yintzuyuan/Glyphs_Scripts)',
-          en: 'Started Writing [Glyphs Scripts](https://github.com/yintzuyuan/Glyphs_Scripts)'
-        }
-      },
-      {
-        icon: 'filled',
-        text: {
-          zh: '自學 [Python](https://docs.python.org/zh-tw/3/)',
-          en: 'Self-Taught [Python](https://docs.python.org/3/)'
+          zh: '自學 Python，開始開發 Glyphs 外掛與腳本',
+          en: 'Self-taught Python, started developing Glyphs plugins & scripts'
         }
       }
     ]
@@ -115,17 +29,9 @@ window.TIMELINE_DATA = [
     year: 2023,
     events: [
       {
-        icon: 'outline',
         text: {
-          zh: '12年字型馬拉松計畫',
-          en: '12-Year Type Design Marathon Project'
-        }
-      },
-      {
-        icon: 'filled',
-        text: {
-          zh: '創立 [YouTube 字型知識頻道](https://www.youtube.com/@erikin1205_typogame)',
-          en: 'Founded [YouTube Type Design Channel](https://www.youtube.com/@erikin1205_typogame)'
+          zh: '創立 [YouTube 字型知識頻道](https://www.youtube.com/c/erikin1205_typogame)',
+          en: 'Founded [YouTube Type Design Channel](https://www.youtube.com/c/erikin1205_typogame)'
         }
       }
     ]
@@ -134,7 +40,6 @@ window.TIMELINE_DATA = [
     year: 2021,
     events: [
       {
-        icon: 'outline',
         text: {
           zh: '發布 [6款拉丁字型](/works.html)',
           en: 'Released [6 Latin Typefaces](/works.html)'
@@ -146,10 +51,9 @@ window.TIMELINE_DATA = [
     year: 2019,
     events: [
       {
-        icon: 'filled',
         text: {
           zh: '加入 [文鼎字型](https://www.arphic.com.tw/)（至今）',
-          en: 'Joined [Arphic Types](https://www.arphic.com.tw/) (Present)'
+          en: 'Joined [Arphic Types](https://www.arphic.com.tw/) (present)'
         }
       }
     ]
@@ -158,7 +62,6 @@ window.TIMELINE_DATA = [
     year: 2018,
     events: [
       {
-        icon: 'outline',
         text: {
           zh: '[口方體](https://www.behance.net/gallery/61406349/-CubeFarm-Font-%28Chinese%29) 實驗字型',
           en: '[CubeFarm](https://www.behance.net/gallery/61406349/-CubeFarm-Font-%28Chinese%29) Experimental Typeface'
@@ -170,10 +73,9 @@ window.TIMELINE_DATA = [
     year: 2017,
     events: [
       {
-        icon: 'outline',
         text: {
-          zh: '首個漢字字型 [殷泉明](https://www.facebook.com/jftypeclass/posts/pfbid02mSGzkkcjWU72RF4hHyiPGyPcj694Ujvey92e3x7YYA9cF9P3TNjJ5Sm6vtrYZfU1l) 實驗字型',
-          en: 'First CJK Typeface [Yin Quan Ming](https://www.facebook.com/jftypeclass/posts/pfbid02mSGzkkcjWU72RF4hHyiPGyPcj694Ujvey92e3x7YYA9cF9P3TNjJ5Sm6vtrYZfU1l) Experimental'
+          zh: '首個漢字字型 殷泉明',
+          en: 'First CJK typeface Yin Quan Ming'
         }
       }
     ]
@@ -182,7 +84,6 @@ window.TIMELINE_DATA = [
     year: 2015,
     events: [
       {
-        icon: 'filled',
         text: {
           zh: '接觸 [Glyphs](https://glyphsapp.com/) 字型編輯軟體',
           en: 'Discovered [Glyphs](https://glyphsapp.com/) Font Editor'
@@ -191,46 +92,18 @@ window.TIMELINE_DATA = [
     ]
   },
   {
-    year: 2014,
-    events: [
-      {
-        icon: 'outline',
-        text: {
-          zh: '拉丁字型 [Jonah](https://www.behance.net/gallery/16921415/Coward-Prophet-font_Jonah)',
-          en: 'Latin Typeface [Jonah](https://www.behance.net/gallery/16921415/Coward-Prophet-font_Jonah)'
-        }
-      }
-    ]
-  },
-  {
     year: 2013,
     events: [
       {
-        icon: 'filled',
         text: {
-          zh: '首個拉丁字型 [Prism](https://www.behance.net/gallery/6749045/Prism-Font)',
-          en: 'First Latin Typeface [Prism](https://www.behance.net/gallery/6749045/Prism-Font)'
+          zh: '首個拉丁字型 Prism、自學 FontLab',
+          en: 'First Latin typeface Prism, self-taught FontLab'
         }
       },
       {
-        icon: 'outline',
         text: {
-          zh: '自學 [FontLab Studio](https://www.fontlab.com/font-editor/fontlab-studio-5/)',
-          en: 'Self-Taught [FontLab Studio](https://www.fontlab.com/font-editor/fontlab-studio-5/)'
-        }
-      },
-      {
-        icon: 'outline',
-        text: {
-          zh: '[自創文字](https://www.omniglot.com/conscripts/jingbu.htm) 與文字系統研究',
-          en: '[Constructed Script](https://www.omniglot.com/conscripts/jingbu.htm) and Writing System Research'
-        }
-      },
-      {
-        icon: 'outline',
-        text: {
-          zh: 'Unipin [墨線圖](https://www.behance.net/gallery/6647139/Blank) 創作',
-          en: 'Unipin [Ink Drawings](https://www.behance.net/gallery/6647139/Blank) Creation'
+          zh: '自創文字與墨線圖創作',
+          en: 'Constructed script and ink drawings'
         }
       }
     ]
@@ -239,10 +112,9 @@ window.TIMELINE_DATA = [
     year: 1988,
     events: [
       {
-        icon: 'filled',
         text: {
-          zh: '來自 [台灣高雄](https://maps.app.goo.gl/MWBdNkAt5JNM5DMZ8)',
-          en: 'Born in [Kaohsiung, Taiwan](https://maps.app.goo.gl/MWBdNkAt5JNM5DMZ8)'
+          zh: '來自台灣高雄',
+          en: 'Born in Kaohsiung, Taiwan'
         }
       }
     ]
