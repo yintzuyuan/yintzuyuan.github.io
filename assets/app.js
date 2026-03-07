@@ -41,6 +41,10 @@ function initLang() {
   var l = localStorage.getItem('lang');
   if (l) {
     currentLang = l;
+  } else {
+    var langs = navigator.languages || [navigator.language || ''];
+    var hasZh = langs.some(function(lang) { return /^zh\b/i.test(lang); });
+    currentLang = hasZh ? 'zh' : 'en';
   }
   applyLang(currentLang);
 }
