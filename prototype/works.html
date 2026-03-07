@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="zh-TW" data-lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>作品集 — 殷慈遠</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600&family=Noto+Serif+TC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/@phosphor-icons/web@2.1.1"></script>
+  <style>
+    :root {
+      --bg: #f4f0e8;
+      --bg-card: #faf8f3;
+      --text: #2c2825;
+      --text-secondary: #8a8078;
+      --border: #d5cec4;
+      --border-light: #e8e2d8;
+      --ink-brown: #b09a85;
+      --ink-blue: #859ab0;
+      --ink-purple: #9a85b0;
+      --ink-red: #b0859a;
+      --ink-teal: #85b09a;
+      --space-xs: 0.5rem;
+      --space-sm: 1rem;
+      --space-md: 1.5rem;
+      --space-lg: 2.5rem;
+      --space-xl: 4rem;
+      --space-2xl: 6rem;
+      --font-serif: "Noto Serif TC", "Source Han Serif TC", "PMingLiU", serif;
+      --font-mono: "JetBrains Mono", "SF Mono", "Fira Code", monospace;
+      --max-width: 64rem;
+      --shadow-sm: 0 1px 3px rgba(44, 40, 37, 0.06);
+      --shadow-md: 0 4px 12px rgba(44, 40, 37, 0.08);
+      --shadow-hover: 0 8px 24px rgba(176, 154, 133, 0.18);
+    }
+
+    [data-theme="dark"] {
+      --bg: #1a1816;
+      --bg-card: #242120;
+      --text: #e8e2d8;
+      --text-secondary: #8a8078;
+      --border: #3a3530;
+      --border-light: #2e2a26;
+      --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.2);
+      --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.3);
+      --shadow-hover: 0 8px 24px rgba(0, 0, 0, 0.4);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+
+    body {
+      font-family: var(--font-serif);
+      font-size: 1rem;
+      line-height: 1.8;
+      color: var(--text);
+      background: var(--bg);
+      overflow-x: hidden;
+      animation: page-enter 0.4s ease;
+    }
+
+    @keyframes page-enter { from { opacity: 0; } to { opacity: 1; } }
+    .ph { vertical-align: -0.125em; }
+
+    .container { max-width: var(--max-width); margin: 0 auto; padding: 0 var(--space-md); }
+
+    /* ===== Header ===== */
+    .site-header { position: sticky; top: 0; z-index: 100; border-bottom: 1px solid var(--border-light); backdrop-filter: blur(12px); background: color-mix(in srgb, var(--bg) 85%, transparent); }
+    .header-inner { max-width: var(--max-width); margin: 0 auto; padding: 0 var(--space-md); display: flex; align-items: center; justify-content: space-between; height: 3.5rem; }
+    .site-logo { font-family: var(--font-serif); font-size: 1.125rem; font-weight: 600; color: var(--text); text-decoration: none; letter-spacing: 0.08em; }
+    .nav-links { display: flex; align-items: center; gap: 0.25rem; }
+    .nav-links a { font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-secondary); text-decoration: none; padding: 0.4rem 0.75rem; border-radius: 4px; transition: color 0.2s, background 0.2s; letter-spacing: 0.02em; }
+    .nav-links a:hover, .nav-links a.active { color: var(--text); background: color-mix(in srgb, var(--text) 6%, transparent); }
+    .header-actions { display: flex; align-items: center; gap: 0.35rem; }
+    .header-btn { background: none; border: 1px solid var(--border); color: var(--text-secondary); width: 2.25rem; height: 2.25rem; border-radius: 6px; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; transition: color 0.2s, border-color 0.2s; }
+    .header-btn:hover { color: var(--text); border-color: var(--text-secondary); }
+    .lang-btn { font-family: var(--font-mono); font-size: 0.7rem; font-weight: 500; width: auto; padding: 0 0.6rem; }
+    .nav-toggle { display: none; background: none; border: 1px solid var(--border); color: var(--text); width: 2.25rem; height: 2.25rem; border-radius: 6px; cursor: pointer; font-size: 1.1rem; align-items: center; justify-content: center; }
+
+    /* ===== Page Header ===== */
+    .page-header { padding: var(--space-xl) 0 var(--space-lg); border-bottom: 1px solid var(--border-light); }
+    .page-header h1 { font-family: var(--font-serif); font-size: 2.5rem; font-weight: 600; letter-spacing: 0.06em; margin-bottom: var(--space-xs); }
+    .page-header-desc { font-size: 1rem; color: var(--text-secondary); max-width: 32rem; }
+
+    /* ===== Filter Tabs ===== */
+    .filter-tabs { display: flex; flex-wrap: wrap; gap: 0.5rem; padding: var(--space-lg) 0 var(--space-md); }
+    .filter-tab { font-family: var(--font-mono); font-size: 0.75rem; letter-spacing: 0.05em; padding: 0.4rem 1rem; border: 1px solid var(--border); border-radius: 20px; background: none; color: var(--text-secondary); cursor: pointer; transition: all 0.2s; }
+    .filter-tab:hover { border-color: var(--text-secondary); color: var(--text); }
+    .filter-tab.active { background: var(--text); color: var(--bg); border-color: var(--text); }
+    .filter-count { font-size: 0.65rem; opacity: 0.6; margin-left: 0.3em; }
+
+    /* ===== Works Grid ===== */
+    .works-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-md); padding-bottom: var(--space-2xl); }
+    .work-card { background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 8px; padding: var(--space-lg); transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease; position: relative; overflow: hidden; cursor: pointer; text-decoration: none; color: var(--text); display: flex; flex-direction: column; }
+    .work-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--ink-brown), var(--ink-blue), var(--ink-purple), var(--ink-red)); opacity: 0; transition: opacity 0.3s ease; }
+    .work-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-hover); border-color: var(--border); }
+    .work-card:hover::before { opacity: 1; }
+    .work-card-category { font-family: var(--font-mono); font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-secondary); margin-bottom: var(--space-xs); display: flex; align-items: center; gap: 0.4em; }
+    .work-card-category .ph { font-size: 0.85rem; }
+    .work-card h3 { font-family: var(--font-serif); font-size: 1.15rem; font-weight: 500; letter-spacing: 0.03em; flex: 1; }
+    .work-card-footer { display: flex; align-items: center; justify-content: space-between; margin-top: var(--space-sm); font-family: var(--font-mono); font-size: 0.7rem; color: var(--text-secondary); }
+    .work-card-link { display: flex; align-items: center; gap: 0.3em; opacity: 0; transform: translateX(-6px); transition: opacity 0.3s, transform 0.3s; }
+    .work-card:hover .work-card-link { opacity: 1; transform: translateX(0); }
+
+    /* ===== Category Headers ===== */
+    .category-header { grid-column: 1 / -1; font-family: var(--font-mono); font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-secondary); display: flex; align-items: center; gap: 0.75rem; padding: var(--space-sm) 0; margin-top: var(--space-md); }
+    .category-header:first-child { margin-top: 0; }
+    .category-header::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+
+    /* ===== Fade-in ===== */
+    .fade-in { opacity: 0; transform: translateY(16px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+    /* ===== Footer ===== */
+    .site-footer { border-top: 1px solid var(--border-light); padding: var(--space-xl) 0 var(--space-lg); }
+    .footer-inner { max-width: var(--max-width); margin: 0 auto; padding: 0 var(--space-md); display: flex; justify-content: space-between; align-items: flex-start; gap: var(--space-lg); }
+    .footer-brand { font-family: var(--font-serif); font-size: 1rem; font-weight: 500; letter-spacing: 0.06em; margin-bottom: var(--space-xs); }
+    .footer-tagline { font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-secondary); }
+    .footer-links { display: flex; gap: var(--space-lg); }
+    .footer-col h4 { font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-secondary); margin-bottom: var(--space-sm); }
+    .footer-col a { display: block; font-size: 0.85rem; color: var(--text); text-decoration: none; padding: 0.2rem 0; transition: color 0.2s; }
+    .footer-col a:hover { color: var(--ink-blue); }
+    .footer-bottom { max-width: var(--max-width); margin: var(--space-lg) auto 0; padding: var(--space-sm) var(--space-md) 0; border-top: 1px solid var(--border-light); display: flex; justify-content: space-between; align-items: center; }
+    .footer-copyright { font-family: var(--font-mono); font-size: 0.7rem; color: var(--text-secondary); }
+    .footer-social { display: flex; gap: 0.35rem; }
+    .footer-social a { display: flex; align-items: center; justify-content: center; width: 2.25rem; height: 2.25rem; border-radius: 6px; color: var(--text-secondary); text-decoration: none; font-size: 1.15rem; transition: color 0.2s, background 0.2s; }
+    .footer-social a:hover { color: var(--text); background: color-mix(in srgb, var(--text) 6%, transparent); }
+
+    /* ===== Paper texture ===== */
+    body::after { content: ''; position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 9999; opacity: 0.025; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E"); background-repeat: repeat; background-size: 256px 256px; }
+    [data-theme="dark"] body::after { opacity: 0.04; }
+
+    /* ===== Responsive ===== */
+    @media (max-width: 768px) {
+      .works-grid { grid-template-columns: repeat(2, 1fr); }
+      .page-header h1 { font-size: 2rem; }
+      .footer-inner { flex-direction: column; }
+      .footer-links { flex-direction: column; gap: var(--space-md); }
+      .footer-bottom { flex-direction: column; gap: var(--space-sm); text-align: center; }
+      .nav-toggle { display: flex; }
+      .nav-links { display: none; position: absolute; top: 3.5rem; left: 0; right: 0; background: var(--bg); border-bottom: 1px solid var(--border-light); flex-direction: column; padding: var(--space-sm) var(--space-md); }
+      .nav-links.show { display: flex; }
+      .header-inner { position: relative; }
+    }
+    @media (max-width: 480px) {
+      .works-grid { grid-template-columns: 1fr; }
+      .page-header h1 { font-size: 1.8rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="site-logo">殷慈遠</a>
+      <button class="nav-toggle" aria-label="開啟選單" onclick="document.querySelector('.nav-links').classList.toggle('show')"><i class="ph ph-list"></i></button>
+      <nav class="nav-links">
+        <a href="index.html" data-i18n="nav.home">首頁</a>
+        <a href="works.html" class="active" data-i18n="nav.works">作品</a>
+        <a href="#" data-i18n="nav.tools">工具</a>
+        <a href="#" data-i18n="nav.writing">隨筆</a>
+        <a href="about.html" data-i18n="nav.about">關於</a>
+      </nav>
+      <div class="header-actions">
+        <button class="header-btn lang-btn" onclick="toggleLang()" aria-label="切換語言"><span class="lang-label">EN</span></button>
+        <button class="header-btn" onclick="toggleTheme()" aria-label="切換深淺色模式"><i class="ph ph-moon theme-icon"></i></button>
+      </div>
+    </div>
+  </header>
+
+  <div class="container">
+    <div class="page-header fade-in">
+      <h1 data-i18n="page.title">作品集</h1>
+      <p class="page-header-desc" data-i18n="page.desc">字型設計、開發工具、翻譯貢獻與視覺藝術。</p>
+    </div>
+
+    <div class="filter-tabs fade-in" id="filter-tabs">
+      <!-- rendered by JS -->
+    </div>
+
+    <div class="works-grid" id="works-grid">
+      <!-- rendered by JS using safe DOM methods -->
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div>
+        <div class="footer-brand">殷慈遠</div>
+        <div class="footer-tagline">Type Designer & Developer</div>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col"><h4 data-i18n="footer.works">作品</h4><a href="works.html">字型設計</a></div>
+        <div class="footer-col"><h4 data-i18n="footer.tools">工具</h4><a href="#">NineBoxView Pro</a></div>
+        <div class="footer-col"><h4 data-i18n="footer.more">更多</h4><a href="about.html" data-i18n="footer.about">關於</a><a href="#" data-i18n="footer.privacy">隱私政策</a></div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copyright">&copy; 2026 TzuYuan Yin. All rights reserved.</span>
+      <div class="footer-social">
+        <a href="#" aria-label="Instagram"><i class="ph ph-instagram-logo"></i></a>
+        <a href="#" aria-label="Facebook"><i class="ph ph-facebook-logo"></i></a>
+        <a href="#" aria-label="GitHub"><i class="ph ph-github-logo"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // ===== Projects Data (static, not user input) =====
+    const projects = [
+      { title: { zh: 'Prism', en: 'Prism' }, url: 'https://www.behance.net/gallery/6749045/Prism-Font', categories: ['latin'] },
+      { title: { zh: 'ERKN', en: 'ERKN' }, url: 'https://www.behance.net/gallery/7122563/ERKN-font', categories: ['latin'] },
+      { title: { zh: 'Jonah', en: 'Jonah' }, url: 'https://www.behance.net/gallery/106657379/Coward-Prophet-Font-a-Few-Years-Later_JonahAFYL', categories: ['latin'] },
+      { title: { zh: 'Goalthink', en: 'Goalthink' }, url: 'https://www.behance.net/gallery/59729821/Goalthink-Font', categories: ['latin'] },
+      { title: { zh: 'Typori', en: 'Typori' }, url: 'https://www.behance.net/gallery/77648235/Typori-Font', categories: ['latin'] },
+      { title: { zh: 'Sisyphus', en: 'Sisyphus' }, url: 'https://www.behance.net/gallery/116873545/Sisyphus-Font', categories: ['latin'] },
+      { title: { zh: 'Rasterquan', en: 'Rasterquan' }, url: 'https://www.behance.net/gallery/117754611/Font-Rasterquan', categories: ['latin'] },
+      { title: { zh: 'Bazilikin', en: 'Bazilikin' }, url: 'https://www.behance.net/gallery/120115315/Font-Bazilikin', categories: ['latin'] },
+      { title: { zh: 'Alugu', en: 'Alugu' }, url: 'https://www.behance.net/gallery/121834739/Font-Alugu', categories: ['latin'] },
+      { title: { zh: 'Electlilywave', en: 'Electlilywave' }, url: 'https://www.behance.net/gallery/124860047/Font-Electlilywave', categories: ['latin'] },
+      { title: { zh: 'Kalosgon', en: 'Kalosgon' }, url: 'https://www.behance.net/gallery/125875695/Font-Kalosgon', categories: ['latin'] },
+      { title: { zh: '\u6BB7\u6CC9\u660E', en: 'Yin Quan Ming' }, url: 'https://www.facebook.com/jftypeclass/posts/pfbid02mSGzkkcjWU72RF4hHyiPGyPcj694Ujvey92e3x7YYA9cF9P3TNjJ5Sm6vtrYZfU1l', categories: ['cjk'] },
+      { title: { zh: '\u53E3\u65B9\u9AD4', en: 'CubeFarm' }, url: 'https://www.behance.net/gallery/61406349/-CubeFarm-Font-(Chinese)', categories: ['cjk'] },
+      { title: { zh: '\u4E5D\u5BAE\u683C\u9810\u89BD', en: 'NineBoxView' }, url: 'https://github.com/yintzuyuan/NineBoxView', categories: ['glyphs'] },
+      { title: { zh: '\u6211\u7684\u8173\u672C\u96C6', en: 'My Glyphs Scripts' }, url: 'https://github.com/yintzuyuan/Glyphs_Scripts', categories: ['glyphs'] },
+      { title: { zh: '\u6CE8\u97F3\u5408\u5B57\u67B6\u69CB\u7CFB\u7D71', en: 'Bopomofo Ligature System' }, url: 'https://github.com/yintzuyuan/Bopomo_Ligasystem', categories: ['glyphs'] },
+      { title: { zh: 'GPTs - Glyphs \u8173\u672C\u52A9\u624B', en: 'GPTs - Glyphs Script Assistant' }, url: 'https://chatgpt.com/g/g-6VY8cYFqx-glyphs-jiao-ben-zhu-shou', categories: ['glyphs'] },
+      { title: { zh: '\u986F\u793A\u6F22\u8A9E\u767C\u97F3', en: 'ShowChinesePhonetics' }, url: 'https://github.com/yintzuyuan/ShowBopomofo', categories: ['glyphs'] },
+      { title: { zh: '\u62C9\u81F3\u9078\u53D6\u7BC4\u570D', en: 'Zoom to Selection' }, url: 'https://github.com/yintzuyuan/zoom-to-selection', categories: ['glyphs'] },
+      { title: { zh: 'mekkablue \u8173\u672C\u96C6\u7FFB\u8B6F', en: 'mekkablue Scripts Translation' }, url: 'https://github.com/yintzuyuan/mekkablue_Glyphs-Scripts-zh-tw', categories: ['translation'] },
+      { title: { zh: 'Glyphs \u67B6\u69CB\u5B57\u5178\u6A94', en: 'Glyphs Type Stubs' }, url: 'https://github.com/yintzuyuan/GlyphsApp-Stubs_zh-tw', categories: ['translation', 'glyphs'] },
+      { title: { zh: 'SelectionPalette \u5916\u639B\u7FFB\u8B6F', en: 'SelectionPalette Plugin Translation' }, url: 'https://github.com/yintzuyuan/SelectionPalette_trans_TW', categories: ['translation'] },
+      { title: { zh: 'redesign \u53F0\u5317\u6377\u904B\u5730\u5716', en: 'Taipei Metro Map Redesign' }, url: 'https://www.behance.net/gallery/23465617/Taipei-Metro-Route-Map-reDesign', categories: ['art'] },
+      { title: { zh: 'Good Morning', en: 'Good Morning' }, url: 'https://www.behance.net/gallery/18322553/Good-Morning', categories: ['art'] },
+      { title: { zh: 'Sleep in the Water', en: 'Sleep in the Water' }, url: 'https://www.behance.net/gallery/17811591/Sleep-in-the-Water', categories: ['art'] },
+      { title: { zh: '\u5409\u5149\u7247\u7FBD', en: 'Last Remaining Fragments' }, url: 'https://www.behance.net/gallery/17149219/-Last-Remaining-Fragments', categories: ['art'] },
+      { title: { zh: "Robot's Life", en: "Robot's Life" }, url: 'https://www.behance.net/gallery/15105363/Robots-Life', categories: ['art'] },
+      { title: { zh: 'The Core', en: 'The Core' }, url: 'https://www.behance.net/gallery/14996839/The-Core', categories: ['art'] },
+      { title: { zh: 'Robot Me', en: 'Robot Me' }, url: 'https://www.behance.net/gallery/13483465/Robot-Me', categories: ['art'] },
+      { title: { zh: '\u5FC3\u7D93', en: 'Heart Sutra' }, url: 'https://www.behance.net/gallery/12452595/Heart-Sutra-', categories: ['art'] },
+      { title: { zh: 'Music of Sense', en: 'Music of Sense' }, url: 'https://www.behance.net/gallery/10575917/Music-of-Sense', categories: ['art'] },
+      { title: { zh: 'Blank', en: 'Blank' }, url: 'https://www.behance.net/gallery/6647139/Blank', categories: ['art'] },
+    ];
+
+    const categoryMeta = {
+      latin:       { zh: '\u62C9\u4E01\u5B57\u578B', en: 'Latin Typefaces',   icon: 'ph-text-aa' },
+      cjk:         { zh: '\u6F22\u5B57\u5B57\u578B', en: 'CJK Typefaces',     icon: 'ph-translate' },
+      glyphs:      { zh: 'Glyphs \u5DE5\u5177',      en: 'Glyphs Tools',      icon: 'ph-wrench' },
+      translation: { zh: '\u7FFB\u8B6F\u8CA2\u737B', en: 'Translations',      icon: 'ph-globe' },
+      art:         { zh: '\u8996\u89BA\u85DD\u8853', en: 'Visual Art',         icon: 'ph-paint-brush' },
+    };
+
+    const hostIcons = {
+      'behance.net': 'ph-behance-logo',
+      'github.com': 'ph-github-logo',
+      'facebook.com': 'ph-facebook-logo',
+      'chatgpt.com': 'ph-chat-circle-dots',
+    };
+
+    function getHostIcon(url) {
+      for (const [host, icon] of Object.entries(hostIcons)) {
+        if (url.includes(host)) return icon;
+      }
+      return 'ph-arrow-square-out';
+    }
+
+    let currentLang = 'zh';
+    let currentFilter = 'all';
+    const categoryOrder = ['latin', 'cjk', 'glyphs', 'translation', 'art'];
+
+    // ===== Safe DOM rendering =====
+    function createCard(project, category) {
+      const meta = categoryMeta[category];
+      const a = document.createElement('a');
+      a.href = project.url;
+      a.target = '_blank';
+      a.rel = 'noopener';
+      a.className = 'work-card fade-in';
+
+      const catDiv = document.createElement('div');
+      catDiv.className = 'work-card-category';
+      const catIcon = document.createElement('i');
+      catIcon.className = 'ph ' + meta.icon;
+      catDiv.appendChild(catIcon);
+      catDiv.appendChild(document.createTextNode(' ' + meta[currentLang]));
+
+      const h3 = document.createElement('h3');
+      h3.textContent = project.title[currentLang];
+
+      const footer = document.createElement('div');
+      footer.className = 'work-card-footer';
+      const spacer = document.createElement('span');
+      const linkSpan = document.createElement('span');
+      linkSpan.className = 'work-card-link';
+      const hostIcon = document.createElement('i');
+      hostIcon.className = 'ph ' + getHostIcon(project.url);
+      const arrowIcon = document.createElement('i');
+      arrowIcon.className = 'ph ph-arrow-right';
+      linkSpan.appendChild(hostIcon);
+      linkSpan.appendChild(arrowIcon);
+      footer.appendChild(spacer);
+      footer.appendChild(linkSpan);
+
+      a.appendChild(catDiv);
+      a.appendChild(h3);
+      a.appendChild(footer);
+      return a;
+    }
+
+    function createCategoryHeader(category) {
+      const meta = categoryMeta[category];
+      const div = document.createElement('div');
+      div.className = 'category-header';
+      const icon = document.createElement('i');
+      icon.className = 'ph ' + meta.icon;
+      div.appendChild(icon);
+      div.appendChild(document.createTextNode(' ' + meta[currentLang]));
+      return div;
+    }
+
+    function renderWorks() {
+      const grid = document.getElementById('works-grid');
+      grid.replaceChildren();
+
+      if (currentFilter === 'all') {
+        for (const cat of categoryOrder) {
+          const items = projects.filter(p => p.categories.includes(cat));
+          if (items.length === 0) continue;
+          grid.appendChild(createCategoryHeader(cat));
+          for (const p of items) grid.appendChild(createCard(p, cat));
+        }
+      } else {
+        const filtered = projects.filter(p => p.categories.includes(currentFilter));
+        for (const p of filtered) grid.appendChild(createCard(p, currentFilter));
+      }
+
+      // Staggered fade-in
+      grid.querySelectorAll('.fade-in').forEach((el, i) => {
+        setTimeout(() => el.classList.add('visible'), i * 50);
+      });
+    }
+
+    function renderFilterTabs() {
+      const container = document.getElementById('filter-tabs');
+      container.replaceChildren();
+
+      const filters = [
+        { key: 'all', count: projects.length },
+        ...categoryOrder.map(cat => ({ key: cat, count: projects.filter(p => p.categories.includes(cat)).length }))
+      ];
+
+      const labels = {
+        zh: { all: '\u5168\u90E8', latin: '\u62C9\u4E01\u5B57\u578B', cjk: '\u6F22\u5B57\u5B57\u578B', glyphs: 'Glyphs \u5DE5\u5177', translation: '\u7FFB\u8B6F', art: '\u8996\u89BA\u85DD\u8853' },
+        en: { all: 'All', latin: 'Latin', cjk: 'CJK', glyphs: 'Glyphs Tools', translation: 'Translations', art: 'Visual Art' }
+      };
+
+      for (const f of filters) {
+        const btn = document.createElement('button');
+        btn.className = 'filter-tab' + (f.key === currentFilter ? ' active' : '');
+        btn.dataset.filter = f.key;
+        btn.textContent = labels[currentLang][f.key] + ' ';
+        const countSpan = document.createElement('span');
+        countSpan.className = 'filter-count';
+        countSpan.textContent = '(' + f.count + ')';
+        btn.appendChild(countSpan);
+        btn.addEventListener('click', () => {
+          currentFilter = f.key;
+          renderFilterTabs();
+          renderWorks();
+        });
+        container.appendChild(btn);
+      }
+    }
+
+    // ===== i18n =====
+    const i18n = {
+      zh: { 'nav.home': '\u9996\u9801', 'nav.works': '\u4F5C\u54C1', 'nav.tools': '\u5DE5\u5177', 'nav.writing': '\u96A8\u7B46', 'nav.about': '\u95DC\u65BC', 'page.title': '\u4F5C\u54C1\u96C6', 'page.desc': '\u5B57\u578B\u8A2D\u8A08\u3001\u958B\u767C\u5DE5\u5177\u3001\u7FFB\u8B6F\u8CA2\u737B\u8207\u8996\u89BA\u85DD\u8853\u3002', 'footer.works': '\u4F5C\u54C1', 'footer.tools': '\u5DE5\u5177', 'footer.more': '\u66F4\u591A', 'footer.about': '\u95DC\u65BC', 'footer.privacy': '\u96B1\u79C1\u653F\u7B56' },
+      en: { 'nav.home': 'Home', 'nav.works': 'Works', 'nav.tools': 'Tools', 'nav.writing': 'Writing', 'nav.about': 'About', 'page.title': 'Works', 'page.desc': 'Type design, development tools, translations, and visual art.', 'footer.works': 'Works', 'footer.tools': 'Tools', 'footer.more': 'More', 'footer.about': 'About', 'footer.privacy': 'Privacy Policy' }
+    };
+
+    function setLang(lang) {
+      currentLang = lang;
+      document.documentElement.setAttribute('data-lang', lang);
+      document.documentElement.setAttribute('lang', lang === 'zh' ? 'zh-TW' : 'en');
+      document.querySelector('.lang-label').textContent = lang === 'zh' ? 'EN' : '\u4E2D';
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const text = i18n[lang][el.getAttribute('data-i18n')];
+        if (text) el.textContent = text;
+      });
+      renderFilterTabs();
+      renderWorks();
+      localStorage.setItem('lang', lang);
+    }
+    function toggleLang() { setLang(currentLang === 'zh' ? 'en' : 'zh'); }
+
+    // ===== Theme =====
+    function toggleTheme() {
+      const next = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
+      document.querySelector('.theme-icon').className = next === 'dark' ? 'ph ph-sun theme-icon' : 'ph ph-moon theme-icon';
+    }
+
+    // ===== Init =====
+    (function() {
+      const t = localStorage.getItem('theme');
+      if (t) { document.documentElement.setAttribute('data-theme', t); document.querySelector('.theme-icon').className = t === 'dark' ? 'ph ph-sun theme-icon' : 'ph ph-moon theme-icon'; }
+      else if (window.matchMedia('(prefers-color-scheme: dark)').matches) { document.documentElement.setAttribute('data-theme', 'dark'); document.querySelector('.theme-icon').className = 'ph ph-sun theme-icon'; }
+      const l = localStorage.getItem('lang');
+      if (l) { currentLang = l; setLang(l); } else { renderFilterTabs(); renderWorks(); }
+    })();
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.page-header.fade-in, .filter-tabs.fade-in').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
