@@ -1,88 +1,226 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-TW" data-lang="zh">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>TzuYuan Yin - Redirecting...</title>
-
-  <!-- SEO Meta Tags -->
+  <title>殷慈遠 — 字型設計師 × 開發者</title>
   <meta name="description" content="Type Designer and Developer - TzuYuan Yin">
   <meta name="author" content="TzuYuan Yin">
-
-  <!-- hreflang SEO -->
-  <link rel="alternate" hreflang="zh-Hant" href="https://erikyin.net/zh-Hant/">
-  <link rel="alternate" hreflang="en" href="https://erikyin.net/en/">
-  <link rel="alternate" hreflang="x-default" href="https://erikyin.net/">
-
-  <!-- Favicon -->
-  <link rel="icon" type="image/x-icon" href="./favicon.ico">
-
-  <style>
-    body {
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      text-align: center;
-      padding: 2rem;
-      background: #fff;
-      color: #333;
-    }
-    @media (prefers-color-scheme: dark) {
-      body { background: #1a1a1a; color: #e0e0e0; }
-      a { color: #6db3f2; }
-    }
-    h1 { font-weight: 400; }
-    a { margin: 0 1rem; color: #0066cc; text-decoration: none; }
-    a:hover { text-decoration: underline; }
-  </style>
-
-  <script>
-    (function() {
-      'use strict';
-
-      var LANG_KEY = 'erikyin-lang';
-
-      function isChinese(lang) {
-        return lang && lang.toLowerCase().startsWith('zh');
-      }
-
-      function detectLanguage() {
-        // 1. 檢查 localStorage 儲存的偏好
-        try {
-          var saved = localStorage.getItem(LANG_KEY);
-          if (saved === 'zh-Hant' || saved === 'en') {
-            return saved;
-          }
-        } catch (e) {
-          // localStorage 不可用
-        }
-
-        // 2. 檢查瀏覽器語言設定
-        var languages = navigator.languages || [navigator.language || navigator.userLanguage];
-        for (var i = 0; i < languages.length; i++) {
-          if (isChinese(languages[i])) {
-            return 'zh-Hant';
-          }
-        }
-
-        // 3. 預設英文
-        return 'en';
-      }
-
-      // 執行重導向
-      var targetLang = detectLanguage();
-      window.location.replace('/' + targetLang + '/');
-    })();
-  </script>
-  <!-- Umami Analytics -->
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600&family=Noto+Serif+TC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/@phosphor-icons/web@2.1.1"></script>
+  <link rel="stylesheet" href="assets/style.css">
   <script defer src="https://analytics.erikyin.net/script.js" data-website-id="9c15a939-c76d-4f2e-9c9d-93a7db9ab13c" data-domains="erikyin.net"></script>
 </head>
 <body>
-  <noscript>
-    <h1>TzuYuan Yin</h1>
-    <p>Please select your language / 請選擇語言：</p>
-    <p>
-      <a href="/en/">English</a> |
-      <a href="/zh-Hant/">繁體中文</a>
-    </p>
-  </noscript>
+
+  <div id="site-header"></div>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="hero-text fade-in">
+        <h1 data-i18n="hero.title">殷慈遠</h1>
+        <div class="hero-subtitle" data-i18n="hero.subtitle">Type Designer & Developer</div>
+        <div class="hero-accent"></div>
+        <p class="hero-description" id="hero-desc"></p>
+      </div>
+      <div class="hero-visual fade-in">
+        <div class="glyph-grid">
+          <div class="glyph-cell">永</div>
+          <div class="glyph-cell">字</div>
+          <div class="glyph-cell">型</div>
+          <div class="glyph-cell">設</div>
+          <div class="glyph-cell">計</div>
+          <div class="glyph-cell">師</div>
+          <div class="glyph-cell">開</div>
+          <div class="glyph-cell">發</div>
+          <div class="glyph-cell">者</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="gradient-divider"></div>
+
+  <!-- Tools -->
+  <section class="section">
+    <div class="container">
+      <div class="section-label fade-in">Tools</div>
+      <div class="product-card fade-in">
+        <div class="product-info">
+          <h3>NineBoxView Pro <span class="product-badge">Glyphs Plugin</span></h3>
+          <p class="product-description" data-i18n="tools.nbv.desc">Glyphs 字型編輯器的終極預覽工具。九宮格即時預覽字符在不同上下文中的效果，加速字型設計迭代。</p>
+          <ul class="product-features">
+            <li><i class="ph ph-eye"></i> <span data-i18n="tools.nbv.f1">即時預覽</span></li>
+            <li><i class="ph ph-grid-nine"></i> <span data-i18n="tools.nbv.f2">九宮格佈局</span></li>
+            <li><i class="ph ph-sliders-horizontal"></i> <span data-i18n="tools.nbv.f3">自訂上下文</span></li>
+            <li><i class="ph ph-moon-stars"></i> <span data-i18n="tools.nbv.f4">深色模式</span></li>
+          </ul>
+        </div>
+        <div class="product-action">
+          <a href="https://nineboxview.pro/" class="btn-primary" data-i18n="tools.nbv.cta">了解更多 <i class="ph ph-arrow-right"></i></a>
+          <span class="product-price" data-i18n="tools.nbv.pricing">依地區自動調整定價</span>
+        </div>
+      </div>
+      <a href="tools.html" class="see-all fade-in" id="tools-see-all"></a>
+    </div>
+  </section>
+
+  <div class="gradient-divider"></div>
+
+  <!-- Works -->
+  <section class="section">
+    <div class="container">
+      <div class="section-label fade-in">Works</div>
+      <div class="works-grid" id="index-works"></div>
+      <a href="works.html" class="see-all fade-in" id="works-see-all"></a>
+    </div>
+  </section>
+
+  <div class="gradient-divider"></div>
+
+  <!-- Writing -->
+  <section class="section">
+    <div class="container">
+      <div class="section-label fade-in">Writing</div>
+      <div class="essays-list" id="index-essays"></div>
+      <a href="writing.html" class="see-all fade-in" id="writing-see-all"></a>
+    </div>
+  </section>
+
+  <div class="gradient-divider"></div>
+
+  <!-- Newsletter -->
+  <section class="section">
+    <div class="container">
+      <div class="newsletter-section fade-in">
+        <h2 class="newsletter-title"><i class="ph ph-envelope-simple"></i> <span data-i18n="newsletter.title">設計筆記</span></h2>
+        <p class="newsletter-desc" data-i18n="newsletter.desc">不定期分享字型設計思考、工具開發心得，以及創作過程中的發現。</p>
+        <form class="newsletter-form" onsubmit="event.preventDefault()">
+          <input type="email" placeholder="your@email.com" required>
+          <button type="submit"><i class="ph ph-paper-plane-tilt"></i> <span data-i18n="newsletter.btn">訂閱</span></button>
+        </form>
+        <p class="newsletter-privacy" data-i18n="newsletter.privacy">無垃圾郵件承諾，隨時取消訂閱。</p>
+      </div>
+    </div>
+  </section>
+
+  <div id="site-footer"></div>
+
+  <script src="data/ui.js"></script>
+  <script src="data/essays.js"></script>
+  <script src="assets/app.js"></script>
+  <script>
+    var heroDesc = {
+      zh: '為字型設計師打造精確的工具，讓創作流程更高效。Glyphs 外掛開發者，同時也是漢字與拉丁字型設計師。',
+      en: 'Building precise tools for type designers to streamline their creative workflow. Glyphs plugin developer, and designer of CJK & Latin typefaces.'
+    };
+
+    var indexWorksData = [
+      { title: { zh: '殷泉明', en: 'Yin Quan Ming' }, tag: 'CJK Typeface', desc: { zh: '首個漢字字型，探索明體筆形與現代審美的平衡。', en: 'First CJK typeface, exploring the balance between Ming-style strokes and modern aesthetics.' }, url: 'https://www.facebook.com/jftypeclass/posts/pfbid02mSGzkkcjWU72RF4hHyiPGyPcj694Ujvey92e3x7YYA9cF9P3TNjJ5Sm6vtrYZfU1l' },
+      { title: { zh: '口方體', en: 'CubeFarm' }, tag: 'CJK Typeface', desc: { zh: '以方塊為結構基礎的實驗性漢字字型。', en: 'An experimental CJK typeface built on a square-block structure.' }, url: 'https://www.behance.net/gallery/61406349/-CubeFarm-Font-(Chinese)' },
+      { title: { zh: '11 套拉丁字型', en: '11 Latin Typefaces' }, tag: 'Latin Typefaces', desc: { zh: '從幾何無襯線到手寫風格，橫跨多年的拉丁字型創作。', en: 'From geometric sans to handwriting styles, Latin typefaces spanning many years.' }, url: 'works.html' },
+      { title: { zh: 'Glyphs 生態系翻譯', en: 'Glyphs Ecosystem Translations' }, tag: 'Translation', desc: { zh: 'mekkablue 腳本集、SelectionPalette 等工具的繁體中文化。', en: 'Traditional Chinese localization of mekkablue scripts, SelectionPalette, and more.' }, url: 'works.html' }
+    ];
+
+    var seeAllLabels = {
+      zh: { tools: '查看全部工具', works: '查看全部作品', writing: '閱讀更多' },
+      en: { tools: 'View all tools', works: 'View all works', writing: 'Read more' }
+    };
+
+    function renderIndexWorks() {
+      var grid = document.getElementById('index-works');
+      grid.replaceChildren();
+      for (var i = 0; i < indexWorksData.length; i++) {
+        var w = indexWorksData[i];
+        var a = document.createElement('a');
+        a.href = w.url;
+        if (w.url.indexOf('http') === 0) { a.target = '_blank'; a.rel = 'noopener'; }
+        a.className = 'work-card fade-in';
+
+        var tag = document.createElement('div');
+        tag.className = 'work-card-tag';
+        tag.textContent = w.tag;
+
+        var h3 = document.createElement('h3');
+        h3.textContent = w.title[currentLang];
+
+        var p = document.createElement('p');
+        p.textContent = w.desc[currentLang];
+
+        var arrow = document.createElement('span');
+        arrow.className = 'work-card-arrow';
+        var arrowIcon = document.createElement('i');
+        arrowIcon.className = 'ph ph-arrow-right';
+        arrow.appendChild(arrowIcon);
+
+        a.appendChild(tag);
+        a.appendChild(h3);
+        a.appendChild(p);
+        a.appendChild(arrow);
+        grid.appendChild(a);
+      }
+    }
+
+    function renderIndexEssays() {
+      if (!window.ESSAYS_DATA) return;
+      var list = document.getElementById('index-essays');
+      list.replaceChildren();
+      for (var i = 0; i < window.ESSAYS_DATA.length; i++) {
+        var essay = window.ESSAYS_DATA[i];
+        var a = document.createElement('a');
+        a.href = 'writing-post.html?slug=' + essay.slug;
+        a.className = 'essay-item fade-in';
+
+        var dateSpan = document.createElement('span');
+        dateSpan.className = 'essay-date';
+        dateSpan.textContent = essay.date;
+
+        var content = document.createElement('div');
+        var title = document.createElement('div');
+        title.className = 'essay-title';
+        title.textContent = essay.title[currentLang];
+        var excerpt = document.createElement('div');
+        excerpt.className = 'essay-excerpt';
+        excerpt.textContent = essay.excerpt[currentLang];
+
+        content.appendChild(title);
+        content.appendChild(excerpt);
+        a.appendChild(dateSpan);
+        a.appendChild(content);
+        list.appendChild(a);
+      }
+    }
+
+    function updateSeeAllLinks() {
+      var labels = seeAllLabels[currentLang];
+      var toolsLink = document.getElementById('tools-see-all');
+      var worksLink = document.getElementById('works-see-all');
+      var writingLink = document.getElementById('writing-see-all');
+      toolsLink.replaceChildren();
+      toolsLink.appendChild(document.createTextNode(labels.tools + ' '));
+      var i1 = document.createElement('i'); i1.className = 'ph ph-arrow-right'; toolsLink.appendChild(i1);
+      worksLink.replaceChildren();
+      worksLink.appendChild(document.createTextNode(labels.works + ' '));
+      var i2 = document.createElement('i'); i2.className = 'ph ph-arrow-right'; worksLink.appendChild(i2);
+      writingLink.replaceChildren();
+      writingLink.appendChild(document.createTextNode(labels.writing + ' '));
+      var i3 = document.createElement('i'); i3.className = 'ph ph-arrow-right'; writingLink.appendChild(i3);
+    }
+
+    function updateIndexPage() {
+      var descEl = document.getElementById('hero-desc');
+      descEl.textContent = heroDesc[currentLang];
+      renderIndexWorks();
+      renderIndexEssays();
+      updateSeeAllLinks();
+    }
+
+    updateIndexPage();
+    document.addEventListener('langchange', updateIndexPage);
+  </script>
 </body>
 </html>

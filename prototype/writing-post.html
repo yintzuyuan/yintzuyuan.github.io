@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="zh-TW" data-lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>字型設計中的工程思維 — 殷慈遠</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600&family=Noto+Serif+TC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/@phosphor-icons/web@2.1.1"></script>
+  <style>
+    :root {
+      --bg: #f4f0e8; --bg-card: #faf8f3; --text: #2c2825; --text-secondary: #8a8078;
+      --border: #d5cec4; --border-light: #e8e2d8;
+      --ink-brown: #b09a85; --ink-blue: #859ab0; --ink-purple: #9a85b0; --ink-red: #b0859a; --ink-teal: #85b09a;
+      --space-xs: 0.5rem; --space-sm: 1rem; --space-md: 1.5rem; --space-lg: 2.5rem; --space-xl: 4rem; --space-2xl: 6rem;
+      --font-serif: "Noto Serif TC", "Source Han Serif TC", "PMingLiU", serif;
+      --font-mono: "JetBrains Mono", "SF Mono", "Fira Code", monospace;
+      --max-width: 64rem;
+      --shadow-sm: 0 1px 3px rgba(44, 40, 37, 0.06); --shadow-md: 0 4px 12px rgba(44, 40, 37, 0.08);
+    }
+    [data-theme="dark"] {
+      --bg: #1a1816; --bg-card: #242120; --text: #e8e2d8; --text-secondary: #8a8078;
+      --border: #3a3530; --border-light: #2e2a26;
+      --shadow-sm: 0 1px 3px rgba(0,0,0,0.2); --shadow-md: 0 4px 12px rgba(0,0,0,0.3);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+    body { font-family: var(--font-serif); font-size: 1rem; line-height: 1.8; color: var(--text); background: var(--bg); overflow-x: hidden; animation: page-enter 0.4s ease; }
+    @keyframes page-enter { from { opacity: 0; } to { opacity: 1; } }
+    .ph { vertical-align: -0.125em; }
+    .container { max-width: var(--max-width); margin: 0 auto; padding: 0 var(--space-md); }
+
+    /* Header */
+    .site-header { position: sticky; top: 0; z-index: 100; border-bottom: 1px solid var(--border-light); backdrop-filter: blur(12px); background: color-mix(in srgb, var(--bg) 85%, transparent); }
+    .header-inner { max-width: var(--max-width); margin: 0 auto; padding: 0 var(--space-md); display: flex; align-items: center; justify-content: space-between; height: 3.5rem; }
+    .site-logo { font-family: var(--font-serif); font-size: 1.125rem; font-weight: 600; color: var(--text); text-decoration: none; letter-spacing: 0.08em; }
+    .nav-links { display: flex; align-items: center; gap: 0.25rem; }
+    .nav-links a { font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-secondary); text-decoration: none; padding: 0.4rem 0.75rem; border-radius: 4px; transition: color 0.2s, background 0.2s; }
+    .nav-links a:hover, .nav-links a.active { color: var(--text); background: color-mix(in srgb, var(--text) 6%, transparent); }
+    .header-actions { display: flex; align-items: center; gap: 0.35rem; }
+    .header-btn { background: none; border: 1px solid var(--border); color: var(--text-secondary); width: 2.25rem; height: 2.25rem; border-radius: 6px; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; transition: color 0.2s, border-color 0.2s; }
+    .header-btn:hover { color: var(--text); border-color: var(--text-secondary); }
+    .lang-btn { font-family: var(--font-mono); font-size: 0.7rem; font-weight: 500; width: 2.25rem; padding: 0; }
+    .nav-toggle { display: none; background: none; border: 1px solid var(--border); color: var(--text); width: 2.25rem; height: 2.25rem; border-radius: 6px; cursor: pointer; font-size: 1.1rem; align-items: center; justify-content: center; }
+
+    /* Article Header */
+    .article-header {
+      max-width: 42rem;
+      margin: 0 auto;
+      padding: var(--space-2xl) var(--space-md) var(--space-lg);
+    }
+
+    .article-back {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      color: var(--text-secondary);
+      text-decoration: none;
+      margin-bottom: var(--space-lg);
+      transition: color 0.2s;
+    }
+
+    .article-back:hover { color: var(--text); }
+
+    .article-meta {
+      display: flex;
+      align-items: center;
+      gap: var(--space-sm);
+      margin-bottom: var(--space-sm);
+    }
+
+    .article-date {
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      color: var(--text-secondary);
+      letter-spacing: 0.02em;
+    }
+
+    .article-tags {
+      display: flex;
+      gap: 0.4rem;
+    }
+
+    .article-tag {
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-secondary);
+      padding: 0.15em 0.5em;
+      border: 1px solid var(--border);
+      border-radius: 3px;
+    }
+
+    .article-header h1 {
+      font-family: var(--font-serif);
+      font-size: 2.2rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      line-height: 1.4;
+      margin-bottom: var(--space-sm);
+    }
+
+    .article-header .article-excerpt {
+      font-size: 1.1rem;
+      color: var(--text-secondary);
+      line-height: 1.9;
+    }
+
+    .article-accent {
+      height: 2px;
+      width: 4rem;
+      border-radius: 2px;
+      background: linear-gradient(135deg, var(--ink-brown), var(--ink-blue), var(--ink-purple));
+      margin-top: var(--space-lg);
+    }
+
+    /* Language notice */
+    .lang-notice {
+      display: none;
+      max-width: 42rem;
+      margin: var(--space-xl) auto;
+      padding: var(--space-md) var(--space-lg);
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+      line-height: 1.8;
+      text-align: center;
+    }
+
+    [data-lang="en"] .lang-notice { display: block; }
+    [data-lang="en"] .article-body { display: none; }
+
+    /* Article Body */
+    .article-body {
+      max-width: 42rem;
+      margin: 0 auto;
+      padding: 0 var(--space-md) var(--space-2xl);
+    }
+
+    .article-body h2 {
+      font-family: var(--font-serif);
+      font-size: 1.5rem;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      margin-top: var(--space-xl);
+      margin-bottom: var(--space-sm);
+      padding-bottom: var(--space-xs);
+      border-bottom: 1px solid var(--border-light);
+    }
+
+    .article-body h3 {
+      font-family: var(--font-serif);
+      font-size: 1.2rem;
+      font-weight: 500;
+      margin-top: var(--space-lg);
+      margin-bottom: var(--space-xs);
+    }
+
+    .article-body p {
+      margin-bottom: var(--space-md);
+      line-height: 2;
+      font-size: 1.02rem;
+    }
+
+    .article-body a {
+      color: var(--text);
+      text-decoration: underline;
+      text-decoration-thickness: 1px;
+      text-underline-offset: 0.2em;
+      transition: text-decoration-thickness 0.2s;
+    }
+
+    .article-body a:hover {
+      text-decoration-thickness: 2px;
+    }
+
+    .article-body blockquote {
+      border-left: 3px solid var(--ink-brown);
+      padding: var(--space-sm) var(--space-md);
+      margin: var(--space-lg) 0;
+      background: color-mix(in srgb, var(--bg-card) 60%, transparent);
+      border-radius: 0 6px 6px 0;
+      font-style: italic;
+      color: var(--text-secondary);
+    }
+
+    .article-body blockquote p { margin-bottom: 0; }
+
+    .article-body code {
+      font-family: var(--font-mono);
+      font-size: 0.88em;
+      background: var(--bg-card);
+      border: 1px solid var(--border-light);
+      padding: 0.1em 0.4em;
+      border-radius: 4px;
+    }
+
+    .article-body pre {
+      background: var(--bg-card);
+      border: 1px solid var(--border-light);
+      border-radius: 8px;
+      padding: var(--space-md);
+      margin: var(--space-lg) 0;
+      overflow-x: auto;
+    }
+
+    .article-body pre code {
+      background: none;
+      border: none;
+      padding: 0;
+      font-size: 0.85rem;
+      line-height: 1.6;
+    }
+
+    .article-body ul, .article-body ol {
+      margin: var(--space-sm) 0 var(--space-md);
+      padding-left: 1.5em;
+    }
+
+    .article-body li {
+      margin-bottom: 0.4em;
+      line-height: 1.9;
+    }
+
+    .article-body img {
+      max-width: 100%;
+      border-radius: 8px;
+      border: 1px solid var(--border-light);
+      margin: var(--space-lg) 0;
+    }
+
+    .article-body figure {
+      margin: var(--space-lg) 0;
+    }
+
+    .article-body figcaption {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--text-secondary);
+      text-align: center;
+      margin-top: var(--space-xs);
+    }
+
+    /* Article Footer */
+    .article-end {
+      max-width: 42rem;
+      margin: 0 auto;
+      padding: 0 var(--space-md);
+    }
+
+    .article-divider {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--ink-brown), var(--ink-blue), var(--ink-purple), var(--ink-red), transparent);
+      opacity: 0.4;
+      margin-bottom: var(--space-xl);
+    }
+
+    .article-author {
+      display: flex;
+      align-items: center;
+      gap: var(--space-md);
+      margin-bottom: var(--space-xl);
+    }
+
+    .article-author-photo {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid var(--border-light);
+    }
+
+    .article-author-name {
+      font-family: var(--font-serif);
+      font-size: 1rem;
+      font-weight: 500;
+    }
+
+    .article-author-desc {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+    }
+
+    /* Nav Prev/Next */
+    .article-nav {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-md);
+      padding-bottom: var(--space-2xl);
+    }
+
+    .article-nav-item {
+      text-decoration: none;
+      color: var(--text);
+      padding: var(--space-md);
+      border: 1px solid var(--border-light);
+      border-radius: 8px;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+
+    .article-nav-item:hover {
+      border-color: var(--border);
+      transform: translateY(-2px);
+    }
+
+    .article-nav-label {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-secondary);
+      display: flex;
+      align-items: center;
+      gap: 0.3em;
+      margin-bottom: var(--space-xs);
+    }
+
+    .article-nav-title {
+      font-family: var(--font-serif);
+      font-size: 0.95rem;
+      font-weight: 500;
+    }
+
+    .article-nav-next { text-align: right; }
+    .article-nav-next .article-nav-label { justify-content: flex-end; }
+
+    /* Fade-in */
+    .fade-in { opacity: 0; transform: translateY(16px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+    /* Footer */
+    .site-footer { border-top: 1px solid var(--border-light); padding: var(--space-xl) 0 var(--space-lg); }
+    .footer-inner { max-width: var(--max-width); margin: 0 auto; padding: 0 var(--space-md); display: flex; justify-content: space-between; align-items: flex-start; gap: var(--space-lg); }
+    .footer-brand { font-family: var(--font-serif); font-size: 1rem; font-weight: 500; letter-spacing: 0.06em; margin-bottom: var(--space-xs); }
+    .footer-tagline { font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-secondary); }
+    .footer-links { display: flex; gap: var(--space-lg); }
+    .footer-col h4 { font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-secondary); margin-bottom: var(--space-sm); }
+    .footer-col a { display: block; font-size: 0.85rem; color: var(--text); text-decoration: none; padding: 0.2rem 0; transition: color 0.2s; }
+    .footer-col a:hover { color: var(--text); text-decoration: underline; text-underline-offset: 0.2em; }
+    .footer-bottom { max-width: var(--max-width); margin: var(--space-lg) auto 0; padding: var(--space-sm) var(--space-md) 0; border-top: 1px solid var(--border-light); display: flex; justify-content: space-between; align-items: center; }
+    .footer-copyright { font-family: var(--font-mono); font-size: 0.7rem; color: var(--text-secondary); }
+    .footer-social { display: flex; gap: 0.35rem; }
+    .footer-social a { display: flex; align-items: center; justify-content: center; width: 2.25rem; height: 2.25rem; border-radius: 6px; color: var(--text-secondary); text-decoration: none; font-size: 1.15rem; transition: color 0.2s, background 0.2s; }
+    .footer-social a:hover { color: var(--text); background: color-mix(in srgb, var(--text) 6%, transparent); }
+
+    /* Paper texture */
+    body::after { content: ''; position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 9999; opacity: 0.025; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E"); background-repeat: repeat; background-size: 256px 256px; }
+    [data-theme="dark"] body::after { opacity: 0.04; }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .article-header h1 { font-size: 1.75rem; }
+      .article-nav { grid-template-columns: 1fr; }
+      .article-nav-next { text-align: left; }
+      .article-nav-next .article-nav-label { justify-content: flex-start; }
+      .footer-inner { flex-direction: column; }
+      .footer-links { flex-direction: column; gap: var(--space-md); }
+      .footer-bottom { flex-direction: column; gap: var(--space-sm); text-align: center; }
+      .nav-toggle { display: flex; }
+      .nav-links { display: none; position: absolute; top: 3.5rem; left: 0; right: 0; background: var(--bg); border-bottom: 1px solid var(--border-light); flex-direction: column; padding: var(--space-sm) var(--space-md); }
+      .nav-links.show { display: flex; }
+      .header-inner { position: relative; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="site-logo">殷慈遠</a>
+      <button class="nav-toggle" aria-label="開啟選單" onclick="document.querySelector('.nav-links').classList.toggle('show')"><i class="ph ph-list"></i></button>
+      <nav class="nav-links">
+        <a href="tools.html" data-i18n="nav.tools">工具</a>
+        <a href="works.html" data-i18n="nav.works">作品</a>
+        <a href="writing.html" class="active" data-i18n="nav.writing">隨筆</a>
+        <a href="about.html" data-i18n="nav.about">關於</a>
+      </nav>
+      <div class="header-actions">
+        <button class="header-btn lang-btn" onclick="toggleLang()" aria-label="切換語言"><span class="lang-label">EN</span></button>
+        <button class="header-btn" onclick="toggleTheme()" aria-label="切換深淺色模式"><i class="ph ph-moon theme-icon"></i></button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Article Header -->
+  <div class="article-header fade-in">
+    <a href="writing.html" class="article-back"><i class="ph ph-arrow-left"></i> <span data-i18n="article.back">所有文章</span></a>
+    <div class="article-meta">
+      <span class="article-date">2026.03.01</span>
+      <div class="article-tags">
+        <span class="article-tag">Design</span>
+        <span class="article-tag">Thinking</span>
+      </div>
+    </div>
+    <h1 data-i18n="article.title">字型設計中的工程思維</h1>
+    <p class="article-excerpt" data-i18n="article.excerpt">當我們談論「精確」，在字型設計的語境下意味著什麼？從筆畫粗細的一致性到曲線張力的控制，工程思維如何影響我的設計決策。</p>
+    <div class="article-accent"></div>
+  </div>
+
+  <!-- Language notice (shown when EN) -->
+  <div class="lang-notice">
+    This article is available in Chinese only.<br>
+    You may use your browser's built-in translation to read it.
+  </div>
+
+  <!-- Article Body -->
+  <article class="article-body fade-in">
+    <p data-i18n="article.p1">字型設計經常被歸類為「藝術」，但在實際工作流程中，它更接近一種工程實踐。每一個字符都是一個需要精確控制的系統——筆畫粗細、曲線張力、空間分配，這些都不是憑直覺隨意決定的，而是透過反覆測量和驗證逐步收斂到最佳解。</p>
+
+    <h2 data-i18n="article.h2_1">精確不等於完美對稱</h2>
+
+    <p data-i18n="article.p2">初學者常犯的錯誤是追求數學上的對稱。把圓形的 O 做成完美的正圓、把 H 的橫畫放在精確的中點。但實際上，視覺上「看起來對」的字形往往需要刻意的不對稱——這就是所謂的「視覺修正」（optical correction）。</p>
+
+    <blockquote>
+      <p data-i18n="article.quote">好的字型設計師不是追求數學的精確，而是追求視覺的精確。這兩者之間的差異，正是這門工藝最迷人的地方。</p>
+    </blockquote>
+
+    <p data-i18n="article.p3">舉例來說，圓形字母如 O 需要略微超出基線和頂線（overshoot），否則視覺上會顯得比方形字母 H 更矮。這個超出量通常在 1-2% 之間，但它的存在至關重要。</p>
+
+    <h2 data-i18n="article.h2_2">用程式碼量化設計直覺</h2>
+
+    <p data-i18n="article.p4">工程思維的另一個面向是可量化。在設計漢字時，我經常使用 Python 腳本來分析筆畫粗細的分布。透過自動化測量，可以快速發現那些「看起來還好但其實偏差了」的字符。</p>
+
+    <pre><code># 測量所有字符的橫畫粗細分布
+for glyph in font.glyphs:
+    for layer in glyph.layers:
+        stems = measure_horizontal_stems(layer)
+        if stems and abs(stems[0] - target_stem) > 2:
+            print(f"{glyph.name}: {stems[0]} (target: {target_stem})")</code></pre>
+
+    <p data-i18n="article.p5">這不是要用程式碼取代設計判斷，而是用工具來延伸設計師的感知能力。人眼對單一字符的判斷很敏銳，但要在數千個漢字間保持一致性，就需要系統化的方法。</p>
+
+    <h2 data-i18n="article.h2_3">系統思維：從單字到字型</h2>
+
+    <p data-i18n="article.p6">一個字型不是一堆獨立字符的集合，而是一個需要整體運作的系統。每個設計決策都會產生連鎖反應——加粗了橫畫，就需要調整豎畫的粗細比例；改變了一個部件的寫法，所有包含這個部件的字都需要同步更新。</p>
+
+    <p data-i18n="article.p7">這種系統性的思考方式，和軟體工程中的模組化設計如出一轍。好的字型有清晰的「設計規則」——不是寫在文件裡的規則，而是體現在每一個筆畫、每一個空間分配中的一致邏輯。</p>
+
+    <h3 data-i18n="article.h3_1">一些實用的原則</h3>
+
+    <ul>
+      <li data-i18n="article.li1">先建立明確的筆畫粗細系統，再開始畫字</li>
+      <li data-i18n="article.li2">用部件（component）管理重複出現的結構</li>
+      <li data-i18n="article.li3">定期把字排成文章段落，檢查整體灰度</li>
+      <li data-i18n="article.li4">寫腳本自動化重複性的檢查工作</li>
+    </ul>
+
+    <p data-i18n="article.p8">工程思維不會讓字型設計失去藝術性——恰恰相反，當基礎的精確性被系統化地保障之後，設計師就有更多餘裕去探索那些真正需要創造力的決策。</p>
+  </article>
+
+  <!-- Article End -->
+  <div class="article-end">
+    <div class="article-divider"></div>
+
+    <div class="article-author fade-in">
+      <img src="../assets/images/profile.png" alt="殷慈遠" class="article-author-photo">
+      <div>
+        <div class="article-author-name" data-i18n="author.name">殷慈遠</div>
+        <div class="article-author-desc" data-i18n="author.desc">字型設計師、工具開發者。用工程思維做字，用設計思維寫程式。</div>
+      </div>
+    </div>
+
+    <nav class="article-nav fade-in">
+      <a href="#" class="article-nav-item">
+        <div class="article-nav-label"><i class="ph ph-arrow-left"></i> <span data-i18n="nav.prev">上一篇</span></div>
+        <div class="article-nav-title" data-i18n="nav.prev.title">漢字結構的數學之美</div>
+      </a>
+      <a href="#" class="article-nav-item article-nav-next">
+        <div class="article-nav-label"><span data-i18n="nav.next">下一篇</span> <i class="ph ph-arrow-right"></i></div>
+        <div class="article-nav-title" data-i18n="nav.next.title">為什麼我用程式碼輔助字型設計</div>
+      </a>
+    </nav>
+  </div>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div>
+        <div class="footer-brand">殷慈遠</div>
+        <div class="footer-tagline">Type Designer & Developer</div>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col"><h4 data-i18n="footer.tools">工具</h4><a href="tools.html">NineBoxView Pro</a><a href="tools.html" data-i18n="footer.allTools">所有工具</a></div>
+        <div class="footer-col"><h4 data-i18n="footer.works">作品</h4><a href="works.html" data-i18n="footer.typeDesign">字型設計</a></div>
+        <div class="footer-col"><h4 data-i18n="footer.more">更多</h4><a href="about.html" data-i18n="footer.about">關於</a><a href="writing.html" data-i18n="footer.writing">隨筆</a><a href="#" data-i18n="footer.privacy">隱私政策</a><a href="#" data-i18n="footer.terms">服務條款</a></div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copyright">&copy; 2026 TzuYuan Yin. All rights reserved.</span>
+      <div class="footer-social">
+        <a href="https://www.youtube.com/@erikin1205_typogame" aria-label="YouTube" title="YouTube" target="_blank" rel="noopener"><i class="ph ph-youtube-logo"></i></a>
+        <a href="#" aria-label="Instagram" title="Instagram"><i class="ph ph-instagram-logo"></i></a>
+        <a href="#" aria-label="Facebook" title="Facebook"><i class="ph ph-facebook-logo"></i></a>
+        <a href="https://github.com/yintzuyuan" aria-label="GitHub" title="GitHub" target="_blank" rel="noopener"><i class="ph ph-github-logo"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    let currentLang = 'zh';
+    const i18n = {
+      zh: {
+        'nav.tools': '工具', 'nav.works': '作品', 'nav.writing': '隨筆', 'nav.about': '關於',
+        'article.back': '所有文章',
+        'article.title': '字型設計中的工程思維',
+        'article.excerpt': '當我們談論「精確」，在字型設計的語境下意味著什麼？從筆畫粗細的一致性到曲線張力的控制，工程思維如何影響我的設計決策。',
+        'article.p1': '字型設計經常被歸類為「藝術」，但在實際工作流程中，它更接近一種工程實踐。每一個字符都是一個需要精確控制的系統——筆畫粗細、曲線張力、空間分配，這些都不是憑直覺隨意決定的，而是透過反覆測量和驗證逐步收斂到最佳解。',
+        'article.h2_1': '精確不等於完美對稱',
+        'article.p2': '初學者常犯的錯誤是追求數學上的對稱。把圓形的 O 做成完美的正圓、把 H 的橫畫放在精確的中點。但實際上，視覺上「看起來對」的字形往往需要刻意的不對稱——這就是所謂的「視覺修正」（optical correction）。',
+        'article.quote': '好的字型設計師不是追求數學的精確，而是追求視覺的精確。這兩者之間的差異，正是這門工藝最迷人的地方。',
+        'article.p3': '舉例來說，圓形字母如 O 需要略微超出基線和頂線（overshoot），否則視覺上會顯得比方形字母 H 更矮。這個超出量通常在 1-2% 之間，但它的存在至關重要。',
+        'article.h2_2': '用程式碼量化設計直覺',
+        'article.p4': '工程思維的另一個面向是可量化。在設計漢字時，我經常使用 Python 腳本來分析筆畫粗細的分布。透過自動化測量，可以快速發現那些「看起來還好但其實偏差了」的字符。',
+        'article.p5': '這不是要用程式碼取代設計判斷，而是用工具來延伸設計師的感知能力。人眼對單一字符的判斷很敏銳，但要在數千個漢字間保持一致性，就需要系統化的方法。',
+        'article.h2_3': '系統思維：從單字到字型',
+        'article.p6': '一個字型不是一堆獨立字符的集合，而是一個需要整體運作的系統。每個設計決策都會產生連鎖反應——加粗了橫畫，就需要調整豎畫的粗細比例；改變了一個部件的寫法，所有包含這個部件的字都需要同步更新。',
+        'article.p7': '這種系統性的思考方式，和軟體工程中的模組化設計如出一轍。好的字型有清晰的「設計規則」——不是寫在文件裡的規則，而是體現在每一個筆畫、每一個空間分配中的一致邏輯。',
+        'article.h3_1': '一些實用的原則',
+        'article.li1': '先建立明確的筆畫粗細系統，再開始畫字',
+        'article.li2': '用部件（component）管理重複出現的結構',
+        'article.li3': '定期把字排成文章段落，檢查整體灰度',
+        'article.li4': '寫腳本自動化重複性的檢查工作',
+        'article.p8': '工程思維不會讓字型設計失去藝術性——恰恰相反，當基礎的精確性被系統化地保障之後，設計師就有更多餘裕去探索那些真正需要創造力的決策。',
+        'author.name': '殷慈遠',
+        'author.desc': '字型設計師、工具開發者。用工程思維做字，用設計思維寫程式。',
+        'nav.prev': '上一篇', 'nav.next': '下一篇',
+        'nav.prev.title': '漢字結構的數學之美', 'nav.next.title': '為什麼我用程式碼輔助字型設計',
+        'footer.tools': '工具', 'footer.works': '作品', 'footer.more': '更多', 'footer.about': '關於', 'footer.writing': '隨筆', 'footer.privacy': '隱私政策', 'footer.terms': '服務條款', 'footer.allTools': '所有工具', 'footer.typeDesign': '字型設計',
+      },
+      en: {
+        'nav.tools': 'Tools', 'nav.works': 'Works', 'nav.writing': 'Writing', 'nav.about': 'About',
+        'article.back': 'All posts',
+        'author.name': 'TzuYuan Yin',
+        'author.desc': 'Type designer & tool developer. Engineering thinking for type, design thinking for code.',
+        'nav.prev': 'Previous', 'nav.next': 'Next',
+        'nav.prev.title': 'The Mathematical Beauty of CJK Structure', 'nav.next.title': 'Why I Use Code to Aid Type Design',
+        'footer.tools': 'Tools', 'footer.works': 'Works', 'footer.more': 'More', 'footer.about': 'About', 'footer.writing': 'Writing', 'footer.privacy': 'Privacy Policy', 'footer.terms': 'Terms of Service', 'footer.allTools': 'All Tools', 'footer.typeDesign': 'Type Design',
+      }
+    };
+
+    function setLang(lang) {
+      currentLang = lang;
+      document.documentElement.setAttribute('data-lang', lang);
+      document.documentElement.setAttribute('lang', lang === 'zh' ? 'zh-TW' : 'en');
+      document.querySelector('.lang-label').textContent = lang === 'zh' ? 'EN' : '中';
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const text = i18n[lang][el.getAttribute('data-i18n')];
+        if (text) el.textContent = text;
+      });
+      localStorage.setItem('lang', lang);
+    }
+    function toggleLang() { setLang(currentLang === 'zh' ? 'en' : 'zh'); }
+
+    function toggleTheme() {
+      const next = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
+      document.querySelector('.theme-icon').className = next === 'dark' ? 'ph ph-sun theme-icon' : 'ph ph-moon theme-icon';
+    }
+
+    (function() {
+      const t = localStorage.getItem('theme');
+      if (t) { document.documentElement.setAttribute('data-theme', t); document.querySelector('.theme-icon').className = t === 'dark' ? 'ph ph-sun theme-icon' : 'ph ph-moon theme-icon'; }
+      else if (window.matchMedia('(prefers-color-scheme: dark)').matches) { document.documentElement.setAttribute('data-theme', 'dark'); document.querySelector('.theme-icon').className = 'ph ph-sun theme-icon'; }
+      const l = localStorage.getItem('lang'); if (l) setLang(l);
+    })();
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>

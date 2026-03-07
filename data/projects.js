@@ -1,5 +1,6 @@
 // 作品資料
 // 編輯此檔案可更新作品集頁面的內容
+// Glyphs 工具類項目已移至 tools.html 頁面
 
 window.PROJECTS_DATA = [
   {
@@ -68,34 +69,9 @@ window.PROJECTS_DATA = [
     categories: ['cjk']
   },
   {
-    title: { zh: '九宮格預覽', en: 'NineBoxView' },
-    url: 'https://github.com/yintzuyuan/NineBoxView',
-    categories: ['glyphs']
-  },
-  {
-    title: { zh: '我的腳本集', en: 'My Glyphs Scripts' },
-    url: 'https://github.com/yintzuyuan/Glyphs_Scripts',
-    categories: ['glyphs']
-  },
-  {
-    title: { zh: '注音合字架構系統', en: 'Bopomofo Ligature System' },
-    url: 'https://github.com/yintzuyuan/Bopomo_Ligasystem',
-    categories: ['glyphs']
-  },
-  {
-    title: { zh: 'GPTs - Glyphs 腳本助手', en: 'GPTs - Glyphs Script Assistant' },
-    url: 'https://chatgpt.com/g/g-6VY8cYFqx-glyphs-jiao-ben-zhu-shou',
-    categories: ['glyphs']
-  },
-  {
     title: { zh: 'mekkablue 腳本集翻譯', en: 'mekkablue Scripts Translation' },
     url: 'https://github.com/yintzuyuan/mekkablue_Glyphs-Scripts-zh-tw',
     categories: ['translation']
-  },
-  {
-    title: { zh: 'Glyphs 架構字典檔', en: 'Glyphs Type Stubs' },
-    url: 'https://github.com/yintzuyuan/GlyphsApp-Stubs_zh-tw',
-    categories: ['translation', 'glyphs']
   },
   {
     title: { zh: 'SelectionPalette 外掛翻譯', en: 'SelectionPalette Plugin Translation' },
@@ -151,15 +127,5 @@ window.PROJECTS_DATA = [
     title: { zh: 'Blank', en: 'Blank' },
     url: 'https://www.behance.net/gallery/6647139/Blank',
     categories: ['art']
-  },
-  {
-    title: { zh: '顯示漢語發音', en: 'ShowChinesePhonetics' },
-    url: 'https://github.com/yintzuyuan/ShowBopomofo',
-    categories: ['glyphs']
-  },
-  {
-    title: { zh: '拉至選取範圍', en: 'Zoom to Selection' },
-    url: 'https://github.com/yintzuyuan/zoom-to-selection',
-    categories: ['glyphs']
   }
 ];

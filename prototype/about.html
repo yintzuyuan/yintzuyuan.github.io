@@ -75,7 +75,7 @@
     .header-actions { display: flex; align-items: center; gap: 0.35rem; }
     .header-btn { background: none; border: 1px solid var(--border); color: var(--text-secondary); width: 2.25rem; height: 2.25rem; border-radius: 6px; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; transition: color 0.2s, border-color 0.2s; }
     .header-btn:hover { color: var(--text); border-color: var(--text-secondary); }
-    .lang-btn { font-family: var(--font-mono); font-size: 0.7rem; font-weight: 500; width: auto; padding: 0 0.6rem; }
+    .lang-btn { font-family: var(--font-mono); font-size: 0.7rem; font-weight: 500; width: 2.25rem; padding: 0; }
     .nav-toggle { display: none; background: none; border: 1px solid var(--border); color: var(--text); width: 2.25rem; height: 2.25rem; border-radius: 6px; cursor: pointer; font-size: 1.1rem; align-items: center; justify-content: center; }
 
     /* ===== About Hero ===== */
@@ -309,10 +309,9 @@
       <a href="index.html" class="site-logo">殷慈遠</a>
       <button class="nav-toggle" aria-label="開啟選單" onclick="document.querySelector('.nav-links').classList.toggle('show')"><i class="ph ph-list"></i></button>
       <nav class="nav-links">
-        <a href="index.html" data-i18n="nav.home">首頁</a>
         <a href="tools.html" data-i18n="nav.tools">工具</a>
         <a href="works.html" data-i18n="nav.works">作品</a>
-        <a href="#" data-i18n="nav.writing">隨筆</a>
+        <a href="writing.html" data-i18n="nav.writing">隨筆</a>
         <a href="about.html" class="active" data-i18n="nav.about">關於</a>
       </nav>
       <div class="header-actions">
@@ -329,7 +328,7 @@
       <h1 data-i18n="about.name">殷慈遠</h1>
       <div class="about-hero-subtitle" data-i18n="about.subtitle">Type Designer & Developer</div>
       <div class="about-accent"></div>
-      <p class="about-bio" data-i18n="about.bio">我是殷慈遠（TzuYuan Yin），字型設計師、Python 開發者、YouTube 創作者。使用 Glyphs 設計字型，並在 YouTube 分享設計知識。目前任職於文鼎字型，專注於漢字字型設計與 Glyphs 工具開發。</p>
+      <p class="about-bio" data-i18n-html="about.bio">我是殷慈遠（TzuYuan Yin），字型設計師、Python 開發者、YouTube 創作者。使用 <a href="https://glyphsapp.com/" target="_blank" rel="noopener">Glyphs</a> 設計字型，並在 <a href="https://www.youtube.com/@erikin1205_typogame" target="_blank" rel="noopener">YouTube</a> 分享設計知識。目前任職於<a href="https://www.arphic.com/" target="_blank" rel="noopener">文鼎字型</a>，專注於漢字字型設計與 Glyphs 工具開發。</p>
     </div>
   </div>
 
@@ -381,17 +380,18 @@
         <div class="footer-tagline">Type Designer & Developer</div>
       </div>
       <div class="footer-links">
-        <div class="footer-col"><h4 data-i18n="footer.works">作品</h4><a href="works.html">字型設計</a></div>
-        <div class="footer-col"><h4 data-i18n="footer.tools">工具</h4><a href="#">NineBoxView Pro</a></div>
-        <div class="footer-col"><h4 data-i18n="footer.more">更多</h4><a href="about.html" data-i18n="footer.about">關於</a><a href="#" data-i18n="footer.privacy">隱私政策</a></div>
+        <div class="footer-col"><h4 data-i18n="footer.tools">工具</h4><a href="tools.html">NineBoxView Pro</a><a href="tools.html" data-i18n="footer.allTools">所有工具</a></div>
+        <div class="footer-col"><h4 data-i18n="footer.works">作品</h4><a href="works.html" data-i18n="footer.typeDesign">字型設計</a></div>
+        <div class="footer-col"><h4 data-i18n="footer.more">更多</h4><a href="about.html" data-i18n="footer.about">關於</a><a href="writing.html" data-i18n="footer.writing">隨筆</a><a href="#" data-i18n="footer.privacy">隱私政策</a><a href="#" data-i18n="footer.terms">服務條款</a></div>
       </div>
     </div>
     <div class="footer-bottom">
       <span class="footer-copyright">&copy; 2026 TzuYuan Yin. All rights reserved.</span>
       <div class="footer-social">
-        <a href="#" aria-label="Instagram"><i class="ph ph-instagram-logo"></i></a>
-        <a href="#" aria-label="Facebook"><i class="ph ph-facebook-logo"></i></a>
-        <a href="#" aria-label="GitHub"><i class="ph ph-github-logo"></i></a>
+        <a href="https://www.youtube.com/@erikin1205_typogame" aria-label="YouTube" title="YouTube" target="_blank" rel="noopener"><i class="ph ph-youtube-logo"></i></a>
+        <a href="#" aria-label="Instagram" title="Instagram"><i class="ph ph-instagram-logo"></i></a>
+        <a href="#" aria-label="Facebook" title="Facebook"><i class="ph ph-facebook-logo"></i></a>
+        <a href="https://github.com/yintzuyuan" aria-label="GitHub" title="GitHub" target="_blank" rel="noopener"><i class="ph ph-github-logo"></i></a>
       </div>
     </div>
   </footer>
@@ -463,32 +463,68 @@
         'nav.home': '\u9996\u9801', 'nav.works': '\u4F5C\u54C1', 'nav.tools': '\u5DE5\u5177', 'nav.writing': '\u96A8\u7B46', 'nav.about': '\u95DC\u65BC',
         'about.name': '\u6BB7\u6148\u9060',
         'about.subtitle': 'Type Designer & Developer',
-        'about.bio': '\u6211\u662F\u6BB7\u6148\u9060\uFF08TzuYuan Yin\uFF09\uFF0C\u5B57\u578B\u8A2D\u8A08\u5E2B\u3001Python \u958B\u767C\u8005\u3001YouTube \u5275\u4F5C\u8005\u3002\u4F7F\u7528 Glyphs \u8A2D\u8A08\u5B57\u578B\uFF0C\u4E26\u5728 YouTube \u5206\u4EAB\u8A2D\u8A08\u77E5\u8B58\u3002\u76EE\u524D\u4EFB\u8077\u65BC\u6587\u9F0E\u5B57\u578B\uFF0C\u5C08\u6CE8\u65BC\u6F22\u5B57\u5B57\u578B\u8A2D\u8A08\u8207 Glyphs \u5DE5\u5177\u958B\u767C\u3002',
+        'about.bio': [
+          '我是殷慈遠（TzuYuan Yin），字型設計師、Python 開發者、YouTube 創作者。使用 ',
+          { text: 'Glyphs', href: 'https://glyphsapp.com/' },
+          ' 設計字型，並在 ',
+          { text: 'YouTube', href: 'https://www.youtube.com/@erikin1205_typogame' },
+          ' 分享設計知識。目前任職於',
+          { text: '文鼎字型', href: 'https://www.arphic.com/' },
+          '，專注於漢字字型設計與 Glyphs 工具開發。',
+        ],
         'support.label': 'Support',
         'support.desc': '\u5982\u679C\u6211\u7684\u4F5C\u54C1\u6216\u5DE5\u5177\u5C0D\u4F60\u6709\u5E6B\u52A9\uFF0C\u6B61\u8FCE\u652F\u6301\u6211\u7684\u5275\u4F5C\u3002',
         'support.ecpay': '\u7DA0\u754C ECPay',
-        'footer.works': '\u4F5C\u54C1', 'footer.tools': '\u5DE5\u5177', 'footer.more': '\u66F4\u591A', 'footer.about': '\u95DC\u65BC', 'footer.privacy': '\u96B1\u79C1\u653F\u7B56',
+        'footer.tools': '工具', 'footer.works': '作品', 'footer.more': '更多', 'footer.about': '關於', 'footer.writing': '隨筆', 'footer.privacy': '隱私政策', 'footer.terms': '服務條款', 'footer.allTools': '所有工具', 'footer.typeDesign': '字型設計',
       },
       en: {
         'nav.home': 'Home', 'nav.works': 'Works', 'nav.tools': 'Tools', 'nav.writing': 'Writing', 'nav.about': 'About',
         'about.name': 'TzuYuan Yin',
         'about.subtitle': 'Type Designer & Developer',
-        'about.bio': "I'm TzuYuan Yin, a type designer, Python developer, and YouTube creator. I design typefaces with Glyphs and share design knowledge on YouTube. Currently at Arphic Types, focusing on CJK type design and Glyphs tool development.",
+        'about.bio': [
+          "I'm TzuYuan Yin, a type designer, Python developer, and YouTube creator. I design typefaces with ",
+          { text: 'Glyphs', href: 'https://glyphsapp.com/' },
+          ' and share design knowledge on ',
+          { text: 'YouTube', href: 'https://www.youtube.com/@erikin1205_typogame' },
+          '. Currently at ',
+          { text: 'Arphic Types', href: 'https://www.arphic.com/' },
+          ', focusing on CJK type design and Glyphs tool development.',
+        ],
         'support.label': 'Support',
         'support.desc': 'If my work or tools have been helpful, consider supporting my creative journey.',
         'support.ecpay': 'ECPay',
-        'footer.works': 'Works', 'footer.tools': 'Tools', 'footer.more': 'More', 'footer.about': 'About', 'footer.privacy': 'Privacy Policy',
+        'footer.tools': 'Tools', 'footer.works': 'Works', 'footer.more': 'More', 'footer.about': 'About', 'footer.writing': 'Writing', 'footer.privacy': 'Privacy Policy', 'footer.terms': 'Terms of Service', 'footer.allTools': 'All Tools', 'footer.typeDesign': 'Type Design',
       }
     };
+
+    function renderRichText(el, segments) {
+      el.replaceChildren();
+      for (const seg of segments) {
+        if (typeof seg === 'string') {
+          el.appendChild(document.createTextNode(seg));
+        } else {
+          const a = document.createElement('a');
+          a.href = seg.href;
+          a.target = '_blank';
+          a.rel = 'noopener';
+          a.textContent = seg.text;
+          el.appendChild(a);
+        }
+      }
+    }
 
     function setLang(lang) {
       currentLang = lang;
       document.documentElement.setAttribute('data-lang', lang);
       document.documentElement.setAttribute('lang', lang === 'zh' ? 'zh-TW' : 'en');
-      document.querySelector('.lang-label').textContent = lang === 'zh' ? 'EN' : '\u4E2D';
+      document.querySelector('.lang-label').textContent = lang === 'zh' ? 'EN' : '中';
       document.querySelectorAll('[data-i18n]').forEach(el => {
         const text = i18n[lang][el.getAttribute('data-i18n')];
         if (text) el.textContent = text;
+      });
+      document.querySelectorAll('[data-i18n-html]').forEach(el => {
+        const segments = i18n[lang][el.getAttribute('data-i18n-html')];
+        if (segments) renderRichText(el, segments);
       });
       renderTimeline();
       localStorage.setItem('lang', lang);

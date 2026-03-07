@@ -75,7 +75,7 @@
     .header-actions { display: flex; align-items: center; gap: 0.35rem; }
     .header-btn { background: none; border: 1px solid var(--border); color: var(--text-secondary); width: 2.25rem; height: 2.25rem; border-radius: 6px; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; transition: color 0.2s, border-color 0.2s; }
     .header-btn:hover { color: var(--text); border-color: var(--text-secondary); }
-    .lang-btn { font-family: var(--font-mono); font-size: 0.7rem; font-weight: 500; width: auto; padding: 0 0.6rem; }
+    .lang-btn { font-family: var(--font-mono); font-size: 0.7rem; font-weight: 500; width: 2.25rem; padding: 0; }
     .nav-toggle { display: none; background: none; border: 1px solid var(--border); color: var(--text); width: 2.25rem; height: 2.25rem; border-radius: 6px; cursor: pointer; font-size: 1.1rem; align-items: center; justify-content: center; }
 
     /* ===== Page Header ===== */
@@ -156,10 +156,9 @@
       <a href="index.html" class="site-logo">殷慈遠</a>
       <button class="nav-toggle" aria-label="開啟選單" onclick="document.querySelector('.nav-links').classList.toggle('show')"><i class="ph ph-list"></i></button>
       <nav class="nav-links">
-        <a href="index.html" data-i18n="nav.home">首頁</a>
         <a href="tools.html" data-i18n="nav.tools">工具</a>
         <a href="works.html" class="active" data-i18n="nav.works">作品</a>
-        <a href="#" data-i18n="nav.writing">隨筆</a>
+        <a href="writing.html" data-i18n="nav.writing">隨筆</a>
         <a href="about.html" data-i18n="nav.about">關於</a>
       </nav>
       <div class="header-actions">
@@ -191,17 +190,18 @@
         <div class="footer-tagline">Type Designer & Developer</div>
       </div>
       <div class="footer-links">
-        <div class="footer-col"><h4 data-i18n="footer.works">作品</h4><a href="works.html">字型設計</a></div>
-        <div class="footer-col"><h4 data-i18n="footer.tools">工具</h4><a href="#">NineBoxView Pro</a></div>
-        <div class="footer-col"><h4 data-i18n="footer.more">更多</h4><a href="about.html" data-i18n="footer.about">關於</a><a href="#" data-i18n="footer.privacy">隱私政策</a></div>
+        <div class="footer-col"><h4 data-i18n="footer.tools">工具</h4><a href="tools.html">NineBoxView Pro</a><a href="tools.html" data-i18n="footer.allTools">所有工具</a></div>
+        <div class="footer-col"><h4 data-i18n="footer.works">作品</h4><a href="works.html" data-i18n="footer.typeDesign">字型設計</a></div>
+        <div class="footer-col"><h4 data-i18n="footer.more">更多</h4><a href="about.html" data-i18n="footer.about">關於</a><a href="writing.html" data-i18n="footer.writing">隨筆</a><a href="#" data-i18n="footer.privacy">隱私政策</a><a href="#" data-i18n="footer.terms">服務條款</a></div>
       </div>
     </div>
     <div class="footer-bottom">
       <span class="footer-copyright">&copy; 2026 TzuYuan Yin. All rights reserved.</span>
       <div class="footer-social">
-        <a href="#" aria-label="Instagram"><i class="ph ph-instagram-logo"></i></a>
-        <a href="#" aria-label="Facebook"><i class="ph ph-facebook-logo"></i></a>
-        <a href="#" aria-label="GitHub"><i class="ph ph-github-logo"></i></a>
+        <a href="https://www.youtube.com/@erikin1205_typogame" aria-label="YouTube" title="YouTube" target="_blank" rel="noopener"><i class="ph ph-youtube-logo"></i></a>
+        <a href="#" aria-label="Instagram" title="Instagram"><i class="ph ph-instagram-logo"></i></a>
+        <a href="#" aria-label="Facebook" title="Facebook"><i class="ph ph-facebook-logo"></i></a>
+        <a href="https://github.com/yintzuyuan" aria-label="GitHub" title="GitHub" target="_blank" rel="noopener"><i class="ph ph-github-logo"></i></a>
       </div>
     </div>
   </footer>
@@ -367,8 +367,8 @@
 
     // ===== i18n =====
     const i18n = {
-      zh: { 'nav.home': '首頁', 'nav.works': '作品', 'nav.tools': '工具', 'nav.writing': '隨筆', 'nav.about': '關於', 'page.title': '作品集', 'page.desc': '字型設計、翻譯貢獻與視覺藝術。開發工具請見工具頁。', 'footer.works': '作品', 'footer.tools': '工具', 'footer.more': '更多', 'footer.about': '關於', 'footer.privacy': '隱私政策' },
-      en: { 'nav.home': 'Home', 'nav.works': 'Works', 'nav.tools': 'Tools', 'nav.writing': 'Writing', 'nav.about': 'About', 'page.title': 'Works', 'page.desc': 'Type design, translations, and visual art. For dev tools, see the Tools page.', 'footer.works': 'Works', 'footer.tools': 'Tools', 'footer.more': 'More', 'footer.about': 'About', 'footer.privacy': 'Privacy Policy' }
+      zh: { 'nav.home': '首頁', 'nav.works': '作品', 'nav.tools': '工具', 'nav.writing': '隨筆', 'nav.about': '關於', 'page.title': '作品集', 'page.desc': '字型設計、翻譯貢獻與視覺藝術。開發工具請見工具頁。', 'footer.tools': '工具', 'footer.works': '作品', 'footer.more': '更多', 'footer.about': '關於', 'footer.writing': '隨筆', 'footer.privacy': '隱私政策', 'footer.terms': '服務條款', 'footer.allTools': '所有工具', 'footer.typeDesign': '字型設計' },
+      en: { 'nav.home': 'Home', 'nav.works': 'Works', 'nav.tools': 'Tools', 'nav.writing': 'Writing', 'nav.about': 'About', 'page.title': 'Works', 'page.desc': 'Type design, translations, and visual art. For dev tools, see the Tools page.', 'footer.tools': 'Tools', 'footer.works': 'Works', 'footer.more': 'More', 'footer.about': 'About', 'footer.writing': 'Writing', 'footer.privacy': 'Privacy Policy', 'footer.terms': 'Terms of Service', 'footer.allTools': 'All Tools', 'footer.typeDesign': 'Type Design' }
     };
 
     function setLang(lang) {

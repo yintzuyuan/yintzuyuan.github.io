@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="zh-TW" data-lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>文章 — 殷慈遠</title>
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600&family=Noto+Serif+TC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/@phosphor-icons/web@2.1.1"></script>
+  <link rel="stylesheet" href="assets/style.css">
+  <script defer src="https://analytics.erikyin.net/script.js" data-website-id="9c15a939-c76d-4f2e-9c9d-93a7db9ab13c" data-domains="erikyin.net"></script>
+</head>
+<body>
+
+  <div id="site-header"></div>
+
+  <div class="article-header fade-in" id="article-header">
+    <a href="writing.html" class="article-back"><i class="ph ph-arrow-left"></i> <span data-i18n="article.back">所有文章</span></a>
+    <div class="article-meta">
+      <span class="article-date" id="article-date"></span>
+      <div class="article-tags" id="article-tags"></div>
+    </div>
+    <h1 id="article-title"></h1>
+    <p class="article-excerpt" id="article-excerpt"></p>
+    <div class="article-accent"></div>
+  </div>
+
+  <div class="lang-notice">
+    This article is available in Chinese only.<br>
+    You may use your browser's built-in translation to read it.
+  </div>
+
+  <article class="article-body fade-in" id="article-body"></article>
+
+  <div class="article-end">
+    <div class="article-divider"></div>
+    <div class="article-author fade-in">
+      <img src="assets/images/profile.png" alt="殷慈遠" class="article-author-photo">
+      <div>
+        <div class="article-author-name" data-i18n="author.name">殷慈遠</div>
+        <div class="article-author-desc" data-i18n="author.desc">字型設計師、工具開發者。用工程思維做字，用設計思維寫程式。</div>
+      </div>
+    </div>
+    <nav class="article-nav fade-in" id="article-nav"></nav>
+  </div>
+
+  <div id="site-footer"></div>
+
+  <script src="data/ui.js"></script>
+  <script src="data/essays.js"></script>
+  <script src="assets/lib/marked.min.js"></script>
+  <script src="assets/app.js"></script>
+  <script>
+    function getSlug() {
+      var params = new URLSearchParams(window.location.search);
+      return params.get('slug');
+    }
+
+    function findEssay(slug) {
+      if (!window.ESSAYS_DATA) return null;
+      for (var i = 0; i < window.ESSAYS_DATA.length; i++) {
+        if (window.ESSAYS_DATA[i].slug === slug) return { essay: window.ESSAYS_DATA[i], index: i };
+      }
+      return null;
+    }
+
+    function renderArticleHeader(essay) {
+      document.title = essay.title[currentLang] + ' — 殷慈遠';
+      document.getElementById('article-date').textContent = essay.date;
+      document.getElementById('article-title').textContent = essay.title[currentLang];
+      document.getElementById('article-excerpt').textContent = essay.excerpt[currentLang];
+
+      var tagsContainer = document.getElementById('article-tags');
+      tagsContainer.replaceChildren();
+      for (var t = 0; t < essay.tags.length; t++) {
+        var tagSpan = document.createElement('span');
+        tagSpan.className = 'article-tag';
+        tagSpan.textContent = essay.tags[t];
+        tagsContainer.appendChild(tagSpan);
+      }
+    }
+
+    function renderArticleNav(currentIndex) {
+      var nav = document.getElementById('article-nav');
+      nav.replaceChildren();
+      var essays = window.ESSAYS_DATA;
+      var prevLabels = { zh: '上一篇', en: 'Previous' };
+      var nextLabels = { zh: '下一篇', en: 'Next' };
+
+      if (currentIndex < essays.length - 1) {
+        var prev = essays[currentIndex + 1];
+        var prevLink = document.createElement('a');
+        prevLink.href = 'writing-post.html?slug=' + prev.slug;
+        prevLink.className = 'article-nav-item';
+        var prevLabel = document.createElement('div');
+        prevLabel.className = 'article-nav-label';
+        var prevIcon = document.createElement('i');
+        prevIcon.className = 'ph ph-arrow-left';
+        prevLabel.appendChild(prevIcon);
+        prevLabel.appendChild(document.createTextNode(' ' + prevLabels[currentLang]));
+        var prevTitle = document.createElement('div');
+        prevTitle.className = 'article-nav-title';
+        prevTitle.textContent = prev.title[currentLang];
+        prevLink.appendChild(prevLabel);
+        prevLink.appendChild(prevTitle);
+        nav.appendChild(prevLink);
+      } else {
+        nav.appendChild(document.createElement('div'));
+      }
+
+      if (currentIndex > 0) {
+        var next = essays[currentIndex - 1];
+        var nextLink = document.createElement('a');
+        nextLink.href = 'writing-post.html?slug=' + next.slug;
+        nextLink.className = 'article-nav-item article-nav-next';
+        var nextLabel = document.createElement('div');
+        nextLabel.className = 'article-nav-label';
+        nextLabel.appendChild(document.createTextNode(nextLabels[currentLang] + ' '));
+        var nextIcon = document.createElement('i');
+        nextIcon.className = 'ph ph-arrow-right';
+        nextLabel.appendChild(nextIcon);
+        var nextTitle = document.createElement('div');
+        nextTitle.className = 'article-nav-title';
+        nextTitle.textContent = next.title[currentLang];
+        nextLink.appendChild(nextLabel);
+        nextLink.appendChild(nextTitle);
+        nav.appendChild(nextLink);
+      }
+    }
+
+    function loadArticle() {
+      var slug = getSlug();
+      if (!slug) { window.location.href = 'writing.html'; return; }
+
+      var result = findEssay(slug);
+      if (!result) { window.location.href = 'writing.html'; return; }
+
+      renderArticleHeader(result.essay);
+      renderArticleNav(result.index);
+
+      fetch('content/writing/' + slug + '.md')
+        .then(function(res) {
+          if (!res.ok) throw new Error('Not found');
+          return res.text();
+        })
+        .then(function(md) {
+          if (window.marked) {
+            var htmlString = marked.parse(md);
+            var parser = new DOMParser();
+            var doc = parser.parseFromString(htmlString, 'text/html');
+            var body = document.getElementById('article-body');
+            body.replaceChildren();
+            while (doc.body.firstChild) {
+              body.appendChild(doc.body.firstChild);
+            }
+            body.querySelectorAll('a[href^="http"]').forEach(function(link) {
+              link.setAttribute('target', '_blank');
+              link.setAttribute('rel', 'noopener noreferrer');
+            });
+          }
+        })
+        .catch(function() {
+          var body = document.getElementById('article-body');
+          var p = document.createElement('p');
+          p.style.color = 'var(--text-secondary)';
+          p.textContent = '文章內容載入中...';
+          body.replaceChildren(p);
+        });
+    }
+
+    loadArticle();
+
+    document.addEventListener('langchange', function() {
+      var slug = getSlug();
+      var result = findEssay(slug);
+      if (result) {
+        renderArticleHeader(result.essay);
+        renderArticleNav(result.index);
+      }
+    });
+  </script>
+</body>
+</html>

@@ -4,8 +4,8 @@
   "description": "Erik Yin's personal portfolio - Design and Development work",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#ffffff",
-  "theme_color": "#000000",
+  "background_color": "#f4f0e8",
+  "theme_color": "#2c2825",
   "orientation": "portrait-primary",
   "icons": [
     {

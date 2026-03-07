@@ -44,13 +44,6 @@ window.TIMELINE_DATA = [
       {
         icon: 'outline',
         text: {
-          zh: '翻譯 [mekkablue Glyphs 腳本集](https://github.com/yintzuyuan/mekkablue_Glyphs-Scripts-zh-tw)',
-          en: 'Translated [mekkablue Glyphs Scripts](https://github.com/yintzuyuan/mekkablue_Glyphs-Scripts-zh-tw)'
-        }
-      },
-      {
-        icon: 'outline',
-        text: {
           zh: '[Glyphs 腳本助手](https://chatgpt.com/g/g-6VY8cYFqx-glyphs-jiao-ben-zhu-shou) GPTs 上架',
           en: '[Glyphs Script Assistant](https://chatgpt.com/g/g-6VY8cYFqx-glyphs-jiao-ben-zhu-shou) GPTs Released'
         }
@@ -143,8 +136,8 @@ window.TIMELINE_DATA = [
       {
         icon: 'outline',
         text: {
-          zh: '發布 [6款拉丁字型](/works.html#typography)',
-          en: 'Released [6 Latin Typefaces](/en/works.html#typography)'
+          zh: '發布 [6款拉丁字型](/works.html)',
+          en: 'Released [6 Latin Typefaces](/works.html)'
         }
       }
     ]
