@@ -9,7 +9,7 @@
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600&family=Noto+Serif+TC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600&family=Noto+Sans+TC:wght@400&family=Noto+Serif+TC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <script src="https://unpkg.com/@phosphor-icons/web@2.1.1"></script>
   <link rel="stylesheet" href="assets/style.css">
   <script defer src="https://analytics.erikyin.net/script.js" data-website-id="9c15a939-c76d-4f2e-9c9d-93a7db9ab13c" data-domains="erikyin.net"></script>
@@ -28,17 +28,7 @@
         <p class="hero-description" id="hero-desc"></p>
       </div>
       <div class="hero-visual fade-in">
-        <div class="glyph-grid">
-          <div class="glyph-cell">永</div>
-          <div class="glyph-cell">字</div>
-          <div class="glyph-cell">型</div>
-          <div class="glyph-cell">設</div>
-          <div class="glyph-cell">計</div>
-          <div class="glyph-cell">師</div>
-          <div class="glyph-cell">開</div>
-          <div class="glyph-cell">發</div>
-          <div class="glyph-cell">者</div>
-        </div>
+        <div class="glyph-field" id="glyph-field"></div>
       </div>
     </div>
   </section>
@@ -229,6 +219,187 @@
 
     updateIndexPage();
     document.addEventListener('langchange', updateIndexPage);
+
+    /* ===== Glyph Field — 靜謐文字織體 ===== */
+    (function() {
+      /* Step 1: 加權字元分布 — CJK 為主角 */
+      var UNICODE_RANGES = [
+        { range: [0x4E00, 0x9FFF], weight: 45, type: 'cjk' },    // CJK — 主角
+        { range: [0x3040, 0x309F], weight: 8, type: 'cjk' },     // Hiragana
+        { range: [0x30A0, 0x30FF], weight: 8, type: 'cjk' },     // Katakana
+        { range: [0xAC00, 0xD7AF], weight: 8, type: 'cjk' },     // Hangul
+        { range: [0x3100, 0x312F], weight: 5, type: 'cjk' },     // Bopomofo
+        { range: [0x0030, 0x0039], weight: 3, type: 'latin' },   // Digits
+        { range: [0x0041, 0x005A], weight: 4, type: 'latin' },   // A-Z
+        { range: [0x0061, 0x007A], weight: 4, type: 'latin' },   // a-z
+        { range: [0x007B, 0x007E], weight: 3, type: 'latin' },   // { | } ~
+        { range: [0x003C, 0x003E], weight: 3, type: 'latin' },   // < = >
+        { range: [0x0021, 0x002F], weight: 4, type: 'latin' },   // ! " # $ % ...
+        { range: [0x005B, 0x0060], weight: 3, type: 'latin' },   // [ \ ] ^ _ `
+      ];
+      var weightedTotal = 0;
+      for (var i = 0; i < UNICODE_RANGES.length; i++) weightedTotal += UNICODE_RANGES[i].weight;
+
+      /* Step 7: ■ 精煉 — 降至 0.07，混入 □ (3:1) */
+      var SQUARE_CHANCE = 0.07;
+      var SQUARES = ['\u25A0', '\u25A0', '\u25A0', '\u25A1'];
+
+      function pickWeightedRange() {
+        var r = Math.random() * weightedTotal;
+        for (var i = 0; i < UNICODE_RANGES.length; i++) {
+          r -= UNICODE_RANGES[i].weight;
+          if (r <= 0) return UNICODE_RANGES[i];
+        }
+        return UNICODE_RANGES[0];
+      }
+
+      function randomChar() {
+        if (Math.random() < SQUARE_CHANCE) {
+          return { ch: SQUARES[Math.floor(Math.random() * SQUARES.length)], type: 'square' };
+        }
+        var entry = pickWeightedRange();
+        var cp = entry.range[0] + Math.floor(Math.random() * (entry.range[1] - entry.range[0] + 1));
+        return { ch: String.fromCodePoint(cp), type: entry.type };
+      }
+
+      /* Step 5: 字型大小 class 套用 */
+      function applyCharToSpan(span) {
+        var result = randomChar();
+        span.textContent = result.ch;
+        span.className = 'glyph-' + result.type;
+      }
+
+      /* Step 4: 視覺深度 — 中心漸層 */
+      function cellOpacity(row, col, cols) {
+        var cx = (cols - 1) / 2;
+        var cy = cx;
+        var dist = Math.sqrt(Math.pow(row - cy, 2) + Math.pow(col - cx, 2)) / cx;
+        var factor = 1 - Math.min(dist, 1) * 0.4;
+        return (0.06 + Math.random() * 0.06) * factor;
+      }
+
+      var field = document.getElementById('glyph-field');
+      if (!field) return;
+
+      var isMobile = window.matchMedia('(max-width: 768px)').matches;
+      var cols = isMobile ? 12 : 17;
+      var total = cols * cols;
+      var spans = [];
+      var cx = (cols - 1) / 2;
+      var cy = cx;
+
+      for (var i = 0; i < total; i++) {
+        var s = document.createElement('span');
+        applyCharToSpan(s);
+        s.style.opacity = '0';
+        field.appendChild(s);
+        spans.push(s);
+      }
+
+      /* Step 6: 入場掃描 — 左到右，各行速度不一 */
+      var rowOffsets = [];
+      for (var i = 0; i < cols; i++) rowOffsets.push(Math.random() * 600 - 300);
+      for (var i = 0; i < spans.length; i++) {
+        (function(span, idx) {
+          var row = Math.floor(idx / cols);
+          var col = idx % cols;
+          var startDelay = Math.max(0, col * 80 + rowOffsets[row] + Math.random() * 150);
+          var targetOp = cellOpacity(row, col, cols);
+
+          var flips = 3 + Math.floor(Math.random() * 4);
+          var baseInterval = 60 + Math.random() * 20;
+          setTimeout(function() {
+            span.style.transition = 'none';
+            span.style.opacity = '0.20';
+            var done = 0;
+            function doFlip() {
+              done++;
+              if (done < flips) {
+                applyCharToSpan(span);
+                var delay = done >= flips - 2
+                  ? baseInterval + (done - (flips - 2)) * 60
+                  : baseInterval;
+                setTimeout(doFlip, delay);
+              } else {
+                applyCharToSpan(span);
+                span.style.opacity = String(targetOp);
+                span.style.transition = '';
+              }
+            }
+            doFlip();
+          }, startDelay);
+        })(spans[i], i);
+      }
+
+      /* Step 3: 效能優化 — Page Visibility + IntersectionObserver */
+      var isVisible = true;
+      var cycleRunning = false;
+
+      document.addEventListener('visibilitychange', function() {
+        var wasVisible = isVisible;
+        isVisible = !document.hidden && fieldInView;
+        if (isVisible && !wasVisible && !cycleRunning) scheduleNextCycle();
+      });
+
+      var fieldInView = true;
+      var observer = new IntersectionObserver(function(entries) {
+        var wasVisible = isVisible;
+        fieldInView = entries[0].isIntersecting;
+        isVisible = !document.hidden && fieldInView;
+        if (isVisible && !wasVisible && !cycleRunning) scheduleNextCycle();
+      });
+      observer.observe(field);
+
+      /* Step 2: setInterval → 遞迴 setTimeout */
+      function scheduleNextCycle() {
+        if (!isVisible) { cycleRunning = false; return; }
+        cycleRunning = true;
+        setTimeout(function() {
+          if (!isVisible) { cycleRunning = false; return; }
+
+          var count = 3 + Math.floor(Math.random() * 3);
+          for (var j = 0; j < count; j++) {
+            (function() {
+              var idx = Math.floor(Math.random() * spans.length);
+              var span = spans[idx];
+              var row = Math.floor(idx / cols);
+              var col = idx % cols;
+              var flips = 4 + Math.floor(Math.random() * 5);
+              var baseInterval = 60 + Math.random() * 20;
+              var stagger = Math.random() * 500;
+
+              /* Step 4: ~5% 機率亮閃 — 墨跡反光 */
+              var isFlash = Math.random() < 0.05;
+              var flashOp = isFlash ? 0.25 : 0.15;
+
+              setTimeout(function() {
+                span.style.opacity = String(flashOp);
+                var done = 0;
+                function doFlip() {
+                  done++;
+                  if (done < flips) {
+                    applyCharToSpan(span);
+                    var delay = done >= flips - 3
+                      ? baseInterval + (done - (flips - 3)) * 50
+                      : baseInterval;
+                    setTimeout(doFlip, delay);
+                  } else {
+                    applyCharToSpan(span);
+                    span.style.opacity = String(cellOpacity(row, col, cols));
+                  }
+                }
+                doFlip();
+              }, stagger);
+            })();
+          }
+
+          scheduleNextCycle();
+        }, 2000 + Math.random() * 1000);
+      }
+
+      // 入場完成後啟動常態循環
+      setTimeout(function() { scheduleNextCycle(); }, 2000);
+    })();
   </script>
 </body>
 </html>
