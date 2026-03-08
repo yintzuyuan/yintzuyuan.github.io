@@ -104,8 +104,9 @@ body {
 .see-all { display: inline-flex; align-items: center; gap: 0.4rem; font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-secondary); text-decoration: none; margin-top: var(--space-lg); padding: 0.4rem 0; border-bottom: 1px solid var(--border); transition: color 0.2s, border-color 0.2s; letter-spacing: 0.03em; }
 .see-all:hover { color: var(--text); border-color: var(--text); text-decoration: none; }
 
-.js-fade-ready .fade-in { opacity: 0; transform: translateY(16px); transition: opacity 0.6s ease, transform 0.6s ease; }
-.js-fade-ready .fade-in.visible { opacity: 1; transform: translateY(0); }
+@keyframes fadeInUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+.js-fade-ready .fade-in { opacity: 0; transform: translateY(16px); }
+.js-fade-ready .fade-in.visible { animation: fadeInUp 0.6s ease forwards; }
 
 .lang-notice { display: none; padding: var(--space-sm) var(--space-md); margin-top: var(--space-md); background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; color: var(--text-secondary); font-size: 0.9rem; line-height: 1.8; }
 [data-lang="en"] .lang-notice { display: block; }
