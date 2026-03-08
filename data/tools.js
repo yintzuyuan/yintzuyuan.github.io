@@ -127,7 +127,7 @@ window.TOOLS_DATA = {
       zh: '整合 Glyphs 手冊與 API 文件的 MCP 伺服器，為 AI 助手提供即時查詢。',
       en: 'An MCP server integrating Glyphs handbook and API docs for real-time AI assistant queries.'
     },
-    url: 'https://github.com/yintzuyuan/glyphs-info-mcp',
+    url: 'https://erikyin.net/glyphs-info-mcp',
     icon: 'ph-plugs-connected',
     tag: 'Developer Tool'
   }
