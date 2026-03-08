@@ -148,24 +148,33 @@
           return res.text();
         })
         .then(function(md) {
-          // 去除 frontmatter
-          var content = md.replace(/^---\n[\s\S]*?\n---\n*/, '');
+          // 解析並去除 frontmatter（單次 regex）
+          var fmMatch = md.match(/^---\n([\s\S]*?)\n---\n*/);
+          var content = fmMatch ? md.slice(fmMatch[0].length) : md;
 
-          // 草稿預覽：用 frontmatter 填充 header
-          if (!result) {
-            var fmMatch = md.match(/^---\n([\s\S]*?)\n---/);
-            if (fmMatch) {
-              var lines = fmMatch[1].split('\n');
-              var fm = {};
-              for (var li = 0; li < lines.length; li++) {
-                var ci = lines[li].indexOf(':');
-                if (ci > -1) fm[lines[li].slice(0, ci).trim()] = lines[li].slice(ci + 1).trim();
+          // 草稿預覽：從 frontmatter 建構 essay 物件，重用 renderArticleHeader
+          if (!result && fmMatch) {
+            var lines = fmMatch[1].split('\n');
+            var fm = {};
+            for (var li = 0; li < lines.length; li++) {
+              var ci = lines[li].indexOf(':');
+              if (ci > -1) {
+                var key = lines[li].slice(0, ci).trim();
+                var val = lines[li].slice(ci + 1).trim();
+                if (val.startsWith('[') && val.endsWith(']')) {
+                  var inner = val.slice(1, -1).trim();
+                  val = inner ? inner.split(',').map(function(s) { return s.trim(); }) : [];
+                } else if (val === 'true') { val = true; }
+                else if (val === 'false') { val = false; }
+                fm[key] = val;
               }
-              if (fm.title) document.getElementById('article-title').textContent = fm.title;
-              if (fm.date) document.getElementById('article-date').textContent = fm.date;
-              if (fm.excerpt) document.getElementById('article-excerpt').textContent = fm.excerpt;
-              if (fm.title) document.title = fm.title + ' — 殷慈遠';
             }
+            renderArticleHeader({
+              title: fm.title || slug,
+              date: fm.date || '',
+              excerpt: fm.excerpt || '',
+              tags: Array.isArray(fm.tags) ? fm.tags : []
+            });
           }
 
           if (window.marked) {

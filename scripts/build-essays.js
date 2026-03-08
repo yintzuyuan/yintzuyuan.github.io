@@ -27,7 +27,8 @@ function parseFrontmatter(content) {
 
     // Parse arrays: [a, b, c]
     if (value.startsWith('[') && value.endsWith(']')) {
-      value = value.slice(1, -1).split(',').map(s => s.trim());
+      const inner = value.slice(1, -1).trim();
+      value = inner ? inner.split(',').map(s => s.trim()) : [];
     }
     // Parse booleans
     else if (value === 'true') value = true;
