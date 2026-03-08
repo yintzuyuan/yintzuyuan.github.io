@@ -125,6 +125,8 @@ function injectComponents() {
 var fadeObserver = null;
 
 function initFadeIn() {
+  document.documentElement.classList.add('js-fade-ready');
+
   fadeObserver = new IntersectionObserver(function(entries) {
     entries.forEach(function(e) {
       if (e.isIntersecting) {
