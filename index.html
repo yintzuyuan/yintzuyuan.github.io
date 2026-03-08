@@ -216,6 +216,12 @@
       renderIndexWorks();
       renderIndexEssays();
       updateSeeAllLinks();
+
+      // 重建 DOM 後重新觀察新 fade-in 元素
+      var worksGrid = document.getElementById('index-works');
+      var essaysList = document.getElementById('index-essays');
+      if (worksGrid) observeNewFadeIns(worksGrid);
+      if (essaysList) observeNewFadeIns(essaysList);
     }
 
     updateIndexPage();

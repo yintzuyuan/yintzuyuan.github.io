@@ -122,18 +122,27 @@ function injectComponents() {
 
 // ===== Fade-in Animation =====
 
+var fadeObserver = null;
+
 function initFadeIn() {
-  var observer = new IntersectionObserver(function(entries) {
+  fadeObserver = new IntersectionObserver(function(entries) {
     entries.forEach(function(e) {
       if (e.isIntersecting) {
         e.target.classList.add('visible');
-        observer.unobserve(e.target);
+        fadeObserver.unobserve(e.target);
       }
     });
   }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
 
   document.querySelectorAll('.fade-in').forEach(function(el) {
-    observer.observe(el);
+    fadeObserver.observe(el);
+  });
+}
+
+function observeNewFadeIns(container) {
+  if (!fadeObserver) return;
+  container.querySelectorAll('.fade-in:not(.visible)').forEach(function(el) {
+    fadeObserver.observe(el);
   });
 }
 
