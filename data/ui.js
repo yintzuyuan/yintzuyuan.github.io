@@ -33,7 +33,7 @@ window.UI_DATA = {
     'tools.section.featured': 'Featured',
     'tools.section.plugins': 'Plugins',
     'tools.section.scripts': 'Scripts & Resources',
-    'tools.nbv.desc': 'Glyphs 字型編輯器的終極預覽工具。九宮格即時預覽字符在不同上下文中的效果，加速字型設計迭代。',
+    'tools.nbv.desc': 'Glyphs 字型編輯器的預覽工具。九宮格即時預覽字符在不同上下文中的效果，加速字型設計迭代。',
     'tools.nbv.f1': '即時預覽',
     'tools.nbv.f2': '九宮格佈局',
     'tools.nbv.f3': '自訂上下文',
@@ -64,7 +64,7 @@ window.UI_DATA = {
     'newsletter.title': '設計筆記',
     'newsletter.desc': '不定期分享字型設計思考、工具開發心得，以及創作過程中的發現。',
     'newsletter.btn': '訂閱',
-    'newsletter.privacy': '無垃圾郵件承諾，隨時取消訂閱。',
+    'newsletter.privacy': '不會寄垃圾信，隨時可以退訂。',
 
     // Article
     'article.back': '所有文章',
@@ -104,7 +104,7 @@ window.UI_DATA = {
     'tools.section.featured': 'Featured',
     'tools.section.plugins': 'Plugins',
     'tools.section.scripts': 'Scripts & Resources',
-    'tools.nbv.desc': 'The ultimate preview tool for Glyphs. Preview glyphs in a 3\u00d73 grid with real-time context, accelerating type design iteration.',
+    'tools.nbv.desc': 'A preview tool for Glyphs. Preview glyphs in a 3\u00d73 grid with real-time context, accelerating type design iteration.',
     'tools.nbv.f1': 'Live Preview',
     'tools.nbv.f2': '3\u00d73 Grid',
     'tools.nbv.f3': 'Custom Context',
