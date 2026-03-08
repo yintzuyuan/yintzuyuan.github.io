@@ -15,3 +15,6 @@
 # 忽略其他不需要的檔案
 .DS_Store
 Thumbs.db
+
+# CI 自動產生的檔案
+data/essays.js
