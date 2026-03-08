@@ -28,7 +28,7 @@
         <div class="hero-accent"></div>
         <p class="hero-description" id="hero-desc"></p>
       </div>
-      <div class="hero-visual fade-in">
+      <div class="hero-visual">
         <div class="glyph-field" id="glyph-field"></div>
       </div>
     </div>
@@ -217,11 +217,19 @@
       renderIndexEssays();
       updateSeeAllLinks();
 
-      // 重建 DOM 後重新觀察新 fade-in 元素
+      // 重建 DOM 後用交錯 setTimeout 顯示（對齊 works.html / writing.html 做法）
       var worksGrid = document.getElementById('index-works');
+      if (worksGrid) {
+        worksGrid.querySelectorAll('.fade-in').forEach(function(el, i) {
+          setTimeout(function() { el.classList.add('visible'); }, i * 50);
+        });
+      }
       var essaysList = document.getElementById('index-essays');
-      if (worksGrid) observeNewFadeIns(worksGrid);
-      if (essaysList) observeNewFadeIns(essaysList);
+      if (essaysList) {
+        essaysList.querySelectorAll('.fade-in').forEach(function(el, i) {
+          setTimeout(function() { el.classList.add('visible'); }, i * 80);
+        });
+      }
     }
 
     updateIndexPage();
