@@ -337,14 +337,29 @@
       });
       observer.observe(field);
 
-      /* Step 2: setInterval → 遞迴 setTimeout */
+      /* Step 2: 遞迴 setTimeout，burst 節奏感 */
+      var burstCount = 0;
+      var burstLength = 2 + Math.floor(Math.random() * 3); /* 每陣 2-4 次 */
       function scheduleNextCycle() {
         if (!isVisible) { cycleRunning = false; return; }
         cycleRunning = true;
+
+        /* 一陣快節奏後插入較長停頓 */
+        var isBurstEnd = burstCount >= burstLength;
+        var delay = isBurstEnd
+          ? 2500 + Math.random() * 1500   /* 停頓：2.5-4 秒 */
+          : 800 + Math.random() * 600;    /* 陣內：0.8-1.4 秒 */
+
+        if (isBurstEnd) {
+          burstCount = 0;
+          burstLength = 2 + Math.floor(Math.random() * 3);
+        }
+
         setTimeout(function() {
           if (!isVisible) { cycleRunning = false; return; }
+          burstCount++;
 
-          var count = 3 + Math.floor(Math.random() * 3);
+          var count = 4 + Math.floor(Math.random() * 4);
           for (var j = 0; j < count; j++) {
             (function() {
               var idx = Math.floor(Math.random() * spans.length);
@@ -353,14 +368,46 @@
               var col = idx % cols;
               var flips = 4 + Math.floor(Math.random() * 5);
               var baseInterval = 60 + Math.random() * 20;
-              var stagger = Math.random() * 500;
+              var stagger = Math.random() * 350;
 
-              /* Step 4: ~5% 機率亮閃 — 墨跡反光 */
-              var isFlash = Math.random() < 0.05;
-              var flashOp = isFlash ? 0.25 : 0.15;
+              /* Step 4: ~15% 機率亮閃 — 墨跡反光 */
+              var isFlash = Math.random() < 0.15;
+              var flashOp = isFlash ? 0.35 : 0.22;
 
               setTimeout(function() {
                 span.style.opacity = String(flashOp);
+
+                /* Step 5: 亮閃漣漪 — 等高線式區域擴散 */
+                if (isFlash) {
+                  var rippleRadius = 2;
+                  var rows = Math.ceil(spans.length / cols);
+                  for (var dr = -rippleRadius; dr <= rippleRadius; dr++) {
+                    for (var dc = -rippleRadius; dc <= rippleRadius; dc++) {
+                      if (dr === 0 && dc === 0) continue;
+                      var nr = row + dr, nc = col + dc;
+                      if (nr < 0 || nr >= rows || nc < 0 || nc >= cols) continue;
+                      var dist = Math.sqrt(dr * dr + dc * dc);
+                      if (dist > rippleRadius) continue;
+                      var ni = nr * cols + nc;
+                      if (ni >= spans.length) continue;
+                      var nSpan = spans[ni];
+                      var boost = 0.15 * (1 - dist / (rippleRadius + 0.5));
+                      var nBase = cellOpacity(nr, nc, cols);
+                      var rippleDelay = Math.floor(dist * 80 + Math.random() * 40);
+                      (function(s, op, base) {
+                        setTimeout(function() {
+                          s.style.transition = 'opacity 0.15s ease-in';
+                          s.style.opacity = String(Math.min(base + op, 0.35));
+                          setTimeout(function() {
+                            s.style.transition = 'opacity 0.6s ease-out';
+                            s.style.opacity = String(base);
+                          }, 200 + Math.random() * 100);
+                        }, rippleDelay);
+                      })(nSpan, boost, nBase);
+                    }
+                  }
+                }
+
                 var done = 0;
                 function doFlip() {
                   done++;
@@ -381,7 +428,7 @@
           }
 
           scheduleNextCycle();
-        }, 2000 + Math.random() * 1000);
+        }, delay);
       }
 
       // 入場完成後啟動常態循環

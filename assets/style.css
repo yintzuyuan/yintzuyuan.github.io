@@ -141,10 +141,10 @@ body::after { content: ''; position: fixed; top: 0; left: 0; width: 100%; height
 .hero-accent { height: 3px; width: 8rem; margin: var(--space-md) 0 var(--space-lg); border-radius: 2px; background: linear-gradient(135deg, var(--gradient-brand)); }
 .hero-visual { display: flex; justify-content: center; align-items: center; }
 .glyph-field { width: 280px; height: 280px; display: grid; grid-template-columns: repeat(var(--glyph-cols, 17), 1fr); grid-template-rows: repeat(var(--glyph-cols, 17), 1fr); gap: 0; overflow: hidden; }
-.glyph-field span { display: flex; align-items: center; justify-content: center; font-family: "JetBrains Mono", "Noto Sans TC", sans-serif; font-size: 0.7rem; line-height: 1; color: var(--text); opacity: 0.08; transition: opacity 0.6s ease; overflow: hidden; }
-.glyph-field span.glyph-cjk { font-size: 0.6rem; }
-.glyph-field span.glyph-latin { font-size: 0.75rem; }
-.glyph-field span.glyph-square { font-size: 0.5rem; }
+.glyph-field span { display: flex; align-items: center; justify-content: center; font-family: "JetBrains Mono", "Noto Sans TC", sans-serif; font-size: 0.85rem; line-height: 1; color: var(--text); opacity: 0.08; transition: opacity 0.6s ease; overflow: hidden; }
+.glyph-field span.glyph-cjk { font-size: 0.75rem; }
+.glyph-field span.glyph-latin { font-size: 0.9rem; }
+.glyph-field span.glyph-square { font-size: 0.65rem; }
 
 /* ===== 8. About ===== */
 .about-hero { padding: var(--space-2xl) 0; display: flex; flex-direction: column; align-items: center; text-align: center; }
