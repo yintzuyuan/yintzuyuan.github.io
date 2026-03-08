@@ -53,10 +53,16 @@ window.UI_DATA = {
     'tools.stubs.desc': 'Python 型別提示檔，為 Glyphs 腳本開發提供 IDE 自動補全。',
     'tools.gpts.title': 'Glyphs 腳本助手 GPTs',
     'tools.gpts.desc': '基於 ChatGPT 的 Glyphs 腳本撰寫助手。',
+    'tools.hanzi.title': '漢字部件探索器',
+    'tools.hanzi.desc': '利用 IDS（表意文字描述序列）探索漢字部件組成的 Glyphs 外掛。',
+    'tools.scriptmate.title': 'ScriptMate',
+    'tools.scriptmate.desc': 'Glyphs 3 的 AI 腳本工作台，整合智慧輔助的腳本開發環境。',
+    'tools.mcp.title': 'Glyphs Info MCP',
+    'tools.mcp.desc': '整合 Glyphs 手冊與 API 文件的 MCP 伺服器，為 AI 助手提供即時查詢。',
 
     // Works
     'works.page.title': '作品集',
-    'works.page.desc': '字型設計、翻譯貢獻與視覺藝術。開發工具請見工具頁。',
+    'works.page.desc': '字型設計、翻譯貢獻、開源專案與視覺藝術。開發工具請見工具頁。',
 
     // Writing
     'writing.page.title': '隨筆',
@@ -124,9 +130,15 @@ window.UI_DATA = {
     'tools.stubs.desc': 'Python type stubs for IDE autocomplete in Glyphs script development.',
     'tools.gpts.title': 'Glyphs Script Assistant GPTs',
     'tools.gpts.desc': 'ChatGPT-based assistant for writing Glyphs scripts.',
+    'tools.hanzi.title': 'Hanzi IDS Component Explorer',
+    'tools.hanzi.desc': 'A Glyphs plugin for exploring CJK character components using Ideographic Description Sequences (IDS).',
+    'tools.scriptmate.title': 'ScriptMate',
+    'tools.scriptmate.desc': 'An AI-powered scripting workbench for Glyphs 3 with intelligent assistance.',
+    'tools.mcp.title': 'Glyphs Info MCP',
+    'tools.mcp.desc': 'An MCP server integrating Glyphs handbook and API docs for real-time AI assistant queries.',
 
     'works.page.title': 'Works',
-    'works.page.desc': 'Type design, translations, and visual art. For dev tools, see the Tools page.',
+    'works.page.desc': 'Type design, translations, open source projects, and visual art. For dev tools, see the Tools page.',
 
     'writing.page.title': 'Writing',
     'writing.page.desc': 'Thoughts on type design, tool development, and the creative process.',

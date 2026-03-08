@@ -97,5 +97,38 @@ window.TOOLS_DATA = {
     url: 'https://chatgpt.com/g/g-6VY8cYFqx-glyphs-jiao-ben-zhu-shou',
     icon: 'ph-robot',
     tag: 'AI Assistant'
+  },
+  'hanzi-ids-explorer': {
+    title: {
+      zh: '漢字部件探索器',
+      en: 'Hanzi IDS Component Explorer'
+    },
+    desc: {
+      zh: '利用 IDS（表意文字描述序列）探索漢字部件組成的 Glyphs 外掛。',
+      en: 'A Glyphs plugin for exploring CJK character components using Ideographic Description Sequences (IDS).'
+    },
+    url: 'https://github.com/yintzuyuan/HanziIDSComponentExplorer',
+    icon: 'ph-tree-structure',
+    tag: 'Open Source'
+  },
+  'scriptmate': {
+    title: 'ScriptMate',
+    desc: {
+      zh: 'Glyphs 3 的 AI 腳本工作台，整合智慧輔助的腳本開發環境。',
+      en: 'An AI-powered scripting workbench for Glyphs 3 with intelligent assistance.'
+    },
+    url: 'https://github.com/yintzuyuan/ScriptMate',
+    icon: 'ph-code',
+    tag: 'Glyphs Plugin'
+  },
+  'glyphs-info-mcp': {
+    title: 'Glyphs Info MCP',
+    desc: {
+      zh: '整合 Glyphs 手冊與 API 文件的 MCP 伺服器，為 AI 助手提供即時查詢。',
+      en: 'An MCP server integrating Glyphs handbook and API docs for real-time AI assistant queries.'
+    },
+    url: 'https://github.com/yintzuyuan/glyphs-info-mcp',
+    icon: 'ph-plugs-connected',
+    tag: 'Developer Tool'
   }
 };

@@ -20,7 +20,7 @@
   <div class="container">
     <div class="page-header fade-in">
       <h1 data-i18n="works.page.title">作品集</h1>
-      <p class="page-header-desc" data-i18n="works.page.desc">字型設計、翻譯貢獻與視覺藝術。開發工具請見工具頁。</p>
+      <p class="page-header-desc" data-i18n="works.page.desc">字型設計、翻譯貢獻、開源專案與視覺藝術。開發工具請見工具頁。</p>
     </div>
 
     <div class="filter-tabs fade-in" id="filter-tabs"></div>
@@ -37,6 +37,7 @@
       latin:       { zh: '拉丁字型', en: 'Latin Typefaces',   icon: 'ph-text-aa' },
       cjk:         { zh: '漢字字型', en: 'CJK Typefaces',     icon: 'ph-translate' },
       translation: { zh: '翻譯貢獻', en: 'Translations',      icon: 'ph-globe' },
+      opensource:   { zh: '開源專案', en: 'Open Source',        icon: 'ph-github-logo' },
       art:         { zh: '視覺藝術', en: 'Visual Art',         icon: 'ph-paint-brush' }
     };
 
@@ -47,7 +48,7 @@
       'chatgpt.com': 'ph-chat-circle-dots'
     };
 
-    var categoryOrder = ['latin', 'cjk', 'translation', 'art'];
+    var categoryOrder = ['latin', 'cjk', 'translation', 'opensource', 'art'];
     var currentFilter = 'all';
 
     function getHostIcon(url) {
@@ -133,8 +134,8 @@
       var container = document.getElementById('filter-tabs');
       container.replaceChildren();
       var labels = {
-        zh: { all: '全部', latin: '拉丁字型', cjk: '漢字字型', translation: '翻譯', art: '視覺藝術' },
-        en: { all: 'All', latin: 'Latin', cjk: 'CJK', translation: 'Translations', art: 'Visual Art' }
+        zh: { all: '全部', latin: '拉丁字型', cjk: '漢字字型', translation: '翻譯', opensource: '開源專案', art: '視覺藝術' },
+        en: { all: 'All', latin: 'Latin', cjk: 'CJK', translation: 'Translations', opensource: 'Open Source', art: 'Visual Art' }
       };
       var filters = [{ key: 'all', count: window.PROJECTS_DATA.length }];
       for (var c = 0; c < categoryOrder.length; c++) {

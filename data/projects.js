@@ -1,51 +1,12 @@
 // 作品資料
 // 編輯此檔案可更新作品集頁面的內容
 // Glyphs 工具類項目已移至 tools.html 頁面
+// 各分類內依時間從新到舊排列
 
 window.PROJECTS_DATA = [
   {
-    title: { zh: 'Prism', en: 'Prism' },
-    url: 'https://www.behance.net/gallery/6749045/Prism-Font',
-    categories: ['latin']
-  },
-  {
-    title: { zh: 'ERKN', en: 'ERKN' },
-    url: 'https://www.behance.net/gallery/7122563/ERKN-font',
-    categories: ['latin']
-  },
-  {
-    title: { zh: 'Jonah', en: 'Jonah' },
-    url: 'https://www.behance.net/gallery/106657379/Coward-Prophet-Font-a-Few-Years-Later_JonahAFYL',
-    categories: ['latin']
-  },
-  {
-    title: { zh: 'Goalthink', en: 'Goalthink' },
-    url: 'https://www.behance.net/gallery/59729821/Goalthink-Font',
-    categories: ['latin']
-  },
-  {
-    title: { zh: 'Typori', en: 'Typori' },
-    url: 'https://www.behance.net/gallery/77648235/Typori-Font',
-    categories: ['latin']
-  },
-  {
-    title: { zh: 'Sisyphus', en: 'Sisyphus' },
-    url: 'https://www.behance.net/gallery/116873545/Sisyphus-Font',
-    categories: ['latin']
-  },
-  {
-    title: { zh: 'Rasterquan', en: 'Rasterquan' },
-    url: 'https://www.behance.net/gallery/117754611/Font-Rasterquan',
-    categories: ['latin']
-  },
-  {
-    title: { zh: 'Bazilikin', en: 'Bazilikin' },
-    url: 'https://www.behance.net/gallery/120115315/Font-Bazilikin',
-    categories: ['latin']
-  },
-  {
-    title: { zh: 'Alugu', en: 'Alugu' },
-    url: 'https://www.behance.net/gallery/121834739/Font-Alugu',
+    title: { zh: 'Kalosgon', en: 'Kalosgon' },
+    url: 'https://www.behance.net/gallery/125875695/Font-Kalosgon',
     categories: ['latin']
   },
   {
@@ -54,8 +15,48 @@ window.PROJECTS_DATA = [
     categories: ['latin']
   },
   {
-    title: { zh: 'Kalosgon', en: 'Kalosgon' },
-    url: 'https://www.behance.net/gallery/125875695/Font-Kalosgon',
+    title: { zh: 'Alugu', en: 'Alugu' },
+    url: 'https://www.behance.net/gallery/121834739/Font-Alugu',
+    categories: ['latin']
+  },
+  {
+    title: { zh: 'Bazilikin', en: 'Bazilikin' },
+    url: 'https://www.behance.net/gallery/120115315/Font-Bazilikin',
+    categories: ['latin']
+  },
+  {
+    title: { zh: 'Rasterquan', en: 'Rasterquan' },
+    url: 'https://www.behance.net/gallery/117754611/Font-Rasterquan',
+    categories: ['latin']
+  },
+  {
+    title: { zh: 'Sisyphus', en: 'Sisyphus' },
+    url: 'https://www.behance.net/gallery/116873545/Sisyphus-Font',
+    categories: ['latin']
+  },
+  {
+    title: { zh: 'Jonah', en: 'Jonah' },
+    url: 'https://www.behance.net/gallery/106657379/Coward-Prophet-Font-a-Few-Years-Later_JonahAFYL',
+    categories: ['latin']
+  },
+  {
+    title: { zh: 'Typori', en: 'Typori' },
+    url: 'https://www.behance.net/gallery/77648235/Typori-Font',
+    categories: ['latin']
+  },
+  {
+    title: { zh: 'Goalthink', en: 'Goalthink' },
+    url: 'https://www.behance.net/gallery/59729821/Goalthink-Font',
+    categories: ['latin']
+  },
+  {
+    title: { zh: 'ERKN', en: 'ERKN' },
+    url: 'https://www.behance.net/gallery/7122563/ERKN-font',
+    categories: ['latin']
+  },
+  {
+    title: { zh: 'Prism', en: 'Prism' },
+    url: 'https://www.behance.net/gallery/6749045/Prism-Font',
     categories: ['latin']
   },
   {
@@ -69,14 +70,24 @@ window.PROJECTS_DATA = [
     categories: ['cjk']
   },
   {
+    title: { zh: 'SelectionPalette 外掛翻譯', en: 'SelectionPalette Plugin Translation' },
+    url: 'https://github.com/yintzuyuan/SelectionPalette_trans_TW',
+    categories: ['translation']
+  },
+  {
     title: { zh: 'mekkablue 腳本集翻譯', en: 'mekkablue Scripts Translation' },
     url: 'https://github.com/yintzuyuan/mekkablue_Glyphs-Scripts-zh-tw',
     categories: ['translation']
   },
   {
-    title: { zh: 'SelectionPalette 外掛翻譯', en: 'SelectionPalette Plugin Translation' },
-    url: 'https://github.com/yintzuyuan/SelectionPalette_trans_TW',
-    categories: ['translation']
+    title: { zh: 'CNS11643 全字庫開放資料', en: 'CNS11643 Open Data' },
+    url: 'https://github.com/yintzuyuan/CNS11643-OpenData',
+    categories: ['opensource']
+  },
+  {
+    title: { zh: 'What is Git', en: 'What is Git' },
+    url: 'https://github.com/yintzuyuan/what-is-git',
+    categories: ['opensource']
   },
   {
     title: { zh: 'redesign 台北捷運地圖', en: 'Taipei Metro Map Redesign' },
