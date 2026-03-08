@@ -126,7 +126,6 @@ var fadeObserver = null;
 
 function initFadeIn() {
   document.documentElement.classList.add('js-fade-ready');
-  void document.documentElement.offsetHeight; // force reflow to establish opacity:0
 
   fadeObserver = new IntersectionObserver(function(entries) {
     entries.forEach(function(e) {
