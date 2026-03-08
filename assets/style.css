@@ -54,9 +54,6 @@
   --shadow-hover: 0 8px 24px rgba(0, 0, 0, 0.4);
 }
 
-/* ===== View Transitions (cross-document navigation) ===== */
-@view-transition { navigation: auto; }
-
 /* ===== 1. Reset & Base ===== */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; background: var(--bg); }
@@ -76,7 +73,7 @@ body {
 .content-narrow { max-width: 42rem; margin: 0 auto; }
 
 /* ===== 3. Header ===== */
-.site-header { position: sticky; top: 0; z-index: 100; border-bottom: 1px solid var(--border-light); backdrop-filter: blur(12px); background: color-mix(in srgb, var(--bg) 85%, transparent); view-transition-name: site-header; }
+.site-header { position: sticky; top: 0; z-index: 100; border-bottom: 1px solid var(--border-light); backdrop-filter: blur(12px); background: color-mix(in srgb, var(--bg) 85%, transparent); }
 .header-inner { max-width: var(--max-width); margin: 0 auto; padding: 0 var(--space-md); display: flex; align-items: center; justify-content: space-between; height: 3.5rem; }
 .site-logo { font-family: var(--font-serif); font-size: 1.125rem; font-weight: 600; color: var(--text); text-decoration: none; letter-spacing: 0.08em; }
 .nav-links { display: flex; align-items: center; gap: 0.25rem; }
