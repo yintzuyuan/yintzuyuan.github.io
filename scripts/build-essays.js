@@ -69,6 +69,7 @@ function main() {
       title: meta.title || '',
       excerpt: meta.excerpt || '',
       tags: Array.isArray(meta.tags) ? meta.tags : [],
+      tools: Array.isArray(meta.tools) ? meta.tools : [],
     });
   }
 

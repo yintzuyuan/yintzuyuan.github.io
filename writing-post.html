@@ -21,6 +21,7 @@
     <a href="writing.html" class="article-back"><i class="ph ph-arrow-left"></i> <span data-i18n="article.back">所有文章</span></a>
     <div class="article-meta">
       <span class="article-date" id="article-date"></span>
+      <span class="article-reading-time" id="article-reading-time"></span>
       <div class="article-tags" id="article-tags"></div>
     </div>
     <h1 id="article-title"></h1>
@@ -34,6 +35,8 @@
   </div>
 
   <article class="article-body fade-in" id="article-body"></article>
+
+  <div class="article-tools" id="article-tools"></div>
 
   <div class="article-end">
     <div class="article-divider"></div>
@@ -51,6 +54,7 @@
 
   <script src="data/ui.js"></script>
   <script src="data/essays.js"></script>
+  <script src="data/tools.js"></script>
   <script src="assets/lib/marked.min.js"></script>
   <script src="assets/app.js"></script>
   <script>
@@ -191,6 +195,20 @@
               link.setAttribute('rel', 'noopener noreferrer');
             });
           }
+
+          // 計算閱讀時間
+          var plainText = content.replace(/[#*_\[\]()>`~\-|]/g, '');
+          var cjk = (plainText.match(/[\u4e00-\u9fff\u3400-\u4dbf]/g) || []).length;
+          var words = plainText.replace(/[\u4e00-\u9fff\u3400-\u4dbf]/g, ' ').split(/\s+/).filter(Boolean).length;
+          var minutes = Math.max(1, Math.round(cjk / 400 + words / 200));
+          var readingLabels = { zh: ' 分鐘閱讀', en: ' min read' };
+          document.getElementById('article-reading-time').textContent = minutes + readingLabels[currentLang];
+
+          // 渲染相關工具字卡
+          var essay = result ? result.essay : null;
+          if (essay && essay.tools && essay.tools.length > 0 && window.TOOLS_DATA) {
+            renderArticleTools(essay.tools);
+          }
         })
         .catch(function() {
           if (!result) { window.location.href = 'writing.html'; return; }
@@ -200,6 +218,76 @@
           p.textContent = '文章內容載入中...';
           body.replaceChildren(p);
         });
+    }
+
+    function renderArticleTools(toolIds) {
+      var container = document.getElementById('article-tools');
+      if (!container) return;
+
+      var sectionLabels = { zh: '文中提到的工具', en: 'Tools mentioned in this article' };
+
+      var label = document.createElement('div');
+      label.className = 'section-label';
+      var labelIcon = document.createElement('i');
+      labelIcon.className = 'ph ph-wrench';
+      label.appendChild(labelIcon);
+      label.appendChild(document.createTextNode(' ' + sectionLabels[currentLang]));
+
+      var grid = document.createElement('div');
+      grid.className = 'tools-grid';
+
+      for (var i = 0; i < toolIds.length; i++) {
+        var tool = window.TOOLS_DATA[toolIds[i]];
+        if (!tool) continue;
+
+        var title = typeof tool.title === 'object' ? (tool.title[currentLang] || tool.title.zh) : tool.title;
+        var desc = typeof tool.desc === 'object' ? (tool.desc[currentLang] || tool.desc.zh) : tool.desc;
+
+        var card = document.createElement('a');
+        card.href = tool.url;
+        card.target = '_blank';
+        card.rel = 'noopener noreferrer';
+        card.className = 'tool-card fade-in';
+
+        var header = document.createElement('div');
+        header.className = 'tool-card-header';
+        var icon = document.createElement('i');
+        icon.className = 'ph ' + tool.icon + ' tool-card-icon';
+        var tag = document.createElement('span');
+        tag.className = 'tool-card-tag';
+        tag.textContent = tool.tag;
+        header.appendChild(icon);
+        header.appendChild(tag);
+
+        var h3 = document.createElement('h3');
+        h3.textContent = title;
+
+        var p = document.createElement('p');
+        p.textContent = desc;
+
+        var footer = document.createElement('div');
+        footer.className = 'tool-card-footer';
+        footer.appendChild(document.createElement('span'));
+        var linkSpan = document.createElement('span');
+        linkSpan.className = 'tool-card-link';
+        var arrowIcon = document.createElement('i');
+        arrowIcon.className = 'ph ph-arrow-right';
+        linkSpan.appendChild(arrowIcon);
+        footer.appendChild(linkSpan);
+
+        card.appendChild(header);
+        card.appendChild(h3);
+        card.appendChild(p);
+        card.appendChild(footer);
+        grid.appendChild(card);
+      }
+
+      container.replaceChildren(label, grid);
+
+      // 動態插入的 fade-in 元素需要手動觸發可見
+      container.querySelectorAll('.fade-in').forEach(function(el) {
+        el.classList.add('visible');
+      });
     }
 
     loadArticle();
