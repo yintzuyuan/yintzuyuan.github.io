@@ -294,6 +294,11 @@ body::after { content: ''; position: fixed; top: 0; left: 0; width: 100%; height
 .article-body figure { margin: var(--space-lg) 0; }
 .article-body figcaption { font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-secondary); text-align: center; margin-top: var(--space-xs); }
 
+/* Article tools */
+.article-tools { max-width: 42rem; margin: 0 auto; padding: 0 var(--space-md) var(--space-xl); }
+.article-tools .section-label { margin-bottom: var(--space-md); }
+.article-tools .tools-grid { grid-template-columns: 1fr; }
+
 /* Article footer */
 .article-end { max-width: 42rem; margin: 0 auto; padding: 0 var(--space-md); }
 .article-divider { height: 1px; background: linear-gradient(90deg, transparent, var(--gradient-brand), transparent); opacity: 0.4; margin-bottom: var(--space-xl); }
