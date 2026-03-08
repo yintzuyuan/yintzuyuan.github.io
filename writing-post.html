@@ -21,6 +21,7 @@
     <a href="writing.html" class="article-back"><i class="ph ph-arrow-left"></i> <span data-i18n="article.back">所有文章</span></a>
     <div class="article-meta">
       <span class="article-date" id="article-date"></span>
+      <span class="article-reading-time" id="article-reading-time"></span>
       <div class="article-tags" id="article-tags"></div>
     </div>
     <h1 id="article-title"></h1>
@@ -194,6 +195,14 @@
               link.setAttribute('rel', 'noopener noreferrer');
             });
           }
+
+          // 計算閱讀時間
+          var plainText = content.replace(/[#*_\[\]()>`~\-|]/g, '');
+          var cjk = (plainText.match(/[\u4e00-\u9fff\u3400-\u4dbf]/g) || []).length;
+          var words = plainText.replace(/[\u4e00-\u9fff\u3400-\u4dbf]/g, ' ').split(/\s+/).filter(Boolean).length;
+          var minutes = Math.max(1, Math.round(cjk / 400 + words / 200));
+          var readingLabels = { zh: ' 分鐘閱讀', en: ' min read' };
+          document.getElementById('article-reading-time').textContent = minutes + readingLabels[currentLang];
 
           // 渲染相關工具字卡
           var essay = result ? result.essay : null;

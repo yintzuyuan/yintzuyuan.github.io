@@ -266,6 +266,8 @@ body::after { content: ''; position: fixed; top: 0; left: 0; width: 100%; height
 .article-back:hover { color: var(--text); }
 .article-meta { display: flex; align-items: center; gap: var(--space-sm); margin-bottom: var(--space-sm); }
 .article-date { font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-secondary); letter-spacing: 0.02em; }
+.article-reading-time { font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-secondary); letter-spacing: 0.02em; }
+.article-reading-time::before { content: '·'; margin-right: var(--space-sm); }
 .article-tags { display: flex; gap: 0.4rem; }
 .article-header h1 { font-family: var(--font-serif); font-size: 2.2rem; font-weight: 600; letter-spacing: 0.04em; line-height: 1.4; margin-bottom: var(--space-sm); }
 .article-header .article-excerpt { font-size: 1.1rem; color: var(--text-secondary); line-height: 1.9; }
