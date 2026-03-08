@@ -75,9 +75,11 @@ function applyLang(lang) {
     if (text) {
       var icons = el.querySelectorAll('i.ph');
       if (icons.length > 0) {
+        var textNodes = [];
         el.childNodes.forEach(function(n) {
-          if (n.nodeType === Node.TEXT_NODE) n.remove();
+          if (n.nodeType === Node.TEXT_NODE) textNodes.push(n);
         });
+        for (var t = 0; t < textNodes.length; t++) textNodes[t].remove();
         el.insertBefore(document.createTextNode(text + ' '), el.firstChild);
       } else {
         el.textContent = text;
@@ -195,6 +197,16 @@ function renderRichText(el, segments) {
 
 (function() {
   initTheme();
+
+  // 同步偵測語言偏好，確保 inline script 使用正確的 currentLang
+  var savedLang = localStorage.getItem('lang');
+  if (savedLang) {
+    currentLang = savedLang;
+  } else {
+    var langs = navigator.languages || [navigator.language || ''];
+    var hasZh = langs.some(function(lang) { return /^zh\b/i.test(lang); });
+    currentLang = hasZh ? 'zh' : 'en';
+  }
 
   function onReady() {
     injectComponents();

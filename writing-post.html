@@ -309,6 +309,22 @@
         renderArticleHeader(result.essay);
         renderArticleNav(result.index);
       }
+
+      // 更新閱讀時間標籤
+      var readingTimeEl = document.getElementById('article-reading-time');
+      if (readingTimeEl) {
+        var readingLabels = { zh: ' 分鐘閱讀', en: ' min read' };
+        var currentText = readingTimeEl.textContent;
+        var minuteMatch = currentText.match(/^(\d+)/);
+        if (minuteMatch) {
+          readingTimeEl.textContent = minuteMatch[1] + readingLabels[currentLang];
+        }
+      }
+
+      // 更新工具字卡
+      if (result && result.essay.tools && result.essay.tools.length > 0 && window.TOOLS_DATA) {
+        renderArticleTools(result.essay.tools);
+      }
     });
   </script>
 </body>
