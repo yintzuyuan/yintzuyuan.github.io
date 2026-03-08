@@ -283,6 +283,11 @@
       }
 
       container.replaceChildren(label, grid);
+
+      // 動態插入的 fade-in 元素需要手動觸發可見
+      container.querySelectorAll('.fade-in').forEach(function(el) {
+        el.classList.add('visible');
+      });
     }
 
     loadArticle();
