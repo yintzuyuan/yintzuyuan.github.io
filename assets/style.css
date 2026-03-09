@@ -65,7 +65,9 @@ body {
   color: var(--text);
   background: var(--bg);
   overflow-x: hidden;
+  transition: opacity 0.5s ease;
 }
+.js-loading body { opacity: 0; }
 .ph { vertical-align: -0.125em; }
 
 /* ===== 2. Layout ===== */

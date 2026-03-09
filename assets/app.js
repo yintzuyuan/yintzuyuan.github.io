@@ -225,6 +225,12 @@ function renderRichText(el, segments) {
     initFadeIn();
     initMobileNav();
     renderMarkdown();
+    // FOUC prevention fallback: reveal after inline scripts have run
+    requestAnimationFrame(function() {
+      requestAnimationFrame(function() {
+        document.documentElement.classList.remove('js-loading');
+      });
+    });
   }
 
   if (document.readyState === 'loading') {

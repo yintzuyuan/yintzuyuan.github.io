@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600&family=Noto+Serif+TC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <script defer src="https://unpkg.com/@phosphor-icons/web@2.1.1"></script>
-  <script>/* theme flash prevention */(function(){var t=localStorage.getItem('theme');if(t)document.documentElement.setAttribute('data-theme',t);else if(matchMedia('(prefers-color-scheme:dark)').matches)document.documentElement.setAttribute('data-theme','dark')})()</script>
+  <script>/* theme flash prevention + FOUC prevention */(function(){var t=localStorage.getItem('theme');if(t)document.documentElement.setAttribute('data-theme',t);else if(matchMedia('(prefers-color-scheme:dark)').matches)document.documentElement.setAttribute('data-theme','dark');document.documentElement.classList.add('js-loading')})()</script>
   <link rel="stylesheet" href="assets/style.css">
   <script defer src="https://analytics.erikyin.net/script.js" data-website-id="9c15a939-c76d-4f2e-9c9d-93a7db9ab13c" data-domains="erikyin.net"></script>
 </head>
@@ -219,6 +219,7 @@
           if (essay && essay.tools && essay.tools.length > 0 && window.TOOLS_DATA) {
             renderArticleTools(essay.tools);
           }
+          document.documentElement.classList.remove('js-loading');
         })
         .catch(function() {
           if (!result) { window.location.href = 'writing.html'; return; }
@@ -227,6 +228,7 @@
           p.style.color = 'var(--text-secondary)';
           p.textContent = '文章內容載入中...';
           body.replaceChildren(p);
+          document.documentElement.classList.remove('js-loading');
         });
     }
 
@@ -294,10 +296,8 @@
 
       container.replaceChildren(label, grid);
 
-      // 動態插入的 fade-in 元素需要手動觸發可見
-      container.querySelectorAll('.fade-in').forEach(function(el) {
-        el.classList.add('visible');
-      });
+      // 動態插入的 fade-in 元素交給 IntersectionObserver
+      observeNewFadeIns(container);
     }
 
     loadArticle();
