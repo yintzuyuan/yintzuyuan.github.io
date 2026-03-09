@@ -27,12 +27,12 @@ function toggleTheme() {
 }
 
 function updateThemeIcon() {
-  var icon = document.querySelector('.theme-icon');
-  if (icon) {
-    icon.className = document.documentElement.getAttribute('data-theme') === 'dark'
-      ? 'ph ph-sun theme-icon'
-      : 'ph ph-moon theme-icon';
-  }
+  var cls = document.documentElement.getAttribute('data-theme') === 'dark'
+    ? 'ph ph-sun theme-icon'
+    : 'ph ph-moon theme-icon';
+  document.querySelectorAll('.theme-icon').forEach(function(icon) {
+    icon.className = cls;
+  });
 }
 
 // ===== Language =====
@@ -151,12 +151,45 @@ function observeNewFadeIns(container) {
 // ===== Mobile Nav =====
 
 function initMobileNav() {
-  document.querySelectorAll('.nav-links a').forEach(function(a) {
+  var nav = document.querySelector('.nav-links');
+  if (!nav) return;
+
+  // Close dropdown on link click
+  nav.querySelectorAll('a').forEach(function(a) {
     a.addEventListener('click', function() {
-      var nav = document.querySelector('.nav-links');
-      if (nav) nav.classList.remove('show');
+      nav.classList.remove('show');
     });
   });
+
+  // Inject support + theme toggle into mobile dropdown
+  if (window.matchMedia('(max-width: 768px)').matches) {
+    var actions = document.createElement('div');
+    actions.className = 'mobile-actions';
+
+    var supportLink = document.createElement('a');
+    supportLink.href = 'about.html#support';
+    supportLink.className = 'header-btn header-btn-support';
+    supportLink.setAttribute('aria-label', 'Support');
+    supportLink.title = 'Support';
+    var heartIcon = document.createElement('i');
+    heartIcon.className = 'ph ph-heart';
+    supportLink.appendChild(heartIcon);
+
+    var themeBtn = document.createElement('button');
+    themeBtn.className = 'header-btn header-btn-theme';
+    themeBtn.setAttribute('aria-label', '\u5207\u63DB\u6DF1\u6DFA\u8272\u6A21\u5F0F');
+    themeBtn.addEventListener('click', function() { toggleTheme(); });
+    var themeIcon = document.createElement('i');
+    themeIcon.className = 'ph ph-moon theme-icon';
+    themeBtn.appendChild(themeIcon);
+
+    actions.appendChild(supportLink);
+    actions.appendChild(themeBtn);
+    nav.appendChild(actions);
+
+    // Sync icon state with current theme
+    updateThemeIcon();
+  }
 }
 
 // ===== Markdown Rendering (privacy/terms) =====

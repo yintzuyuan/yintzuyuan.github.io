@@ -62,23 +62,23 @@
 
   <div class="gradient-divider"></div>
 
-  <!-- Works -->
-  <section class="section">
-    <div class="container">
-      <div class="section-label fade-in">Works</div>
-      <div class="works-grid" id="index-works"></div>
-      <a href="works.html" class="see-all fade-in" id="works-see-all"></a>
-    </div>
-  </section>
-
-  <div class="gradient-divider"></div>
-
   <!-- Writing -->
   <section class="section">
     <div class="container">
       <div class="section-label fade-in">Writing</div>
       <div class="essays-list" id="index-essays"></div>
       <a href="writing.html" class="see-all fade-in" id="writing-see-all"></a>
+    </div>
+  </section>
+
+  <div class="gradient-divider"></div>
+
+  <!-- Works -->
+  <section class="section">
+    <div class="container">
+      <div class="section-label fade-in">Works</div>
+      <div class="works-grid" id="index-works"></div>
+      <a href="works.html" class="see-all fade-in" id="works-see-all"></a>
     </div>
   </section>
 
@@ -168,7 +168,8 @@
       }
       var list = document.getElementById('index-essays');
       list.replaceChildren();
-      for (var i = 0; i < window.ESSAYS_DATA.length; i++) {
+      var maxEssays = Math.min(window.ESSAYS_DATA.length, 3);
+      for (var i = 0; i < maxEssays; i++) {
         var essay = window.ESSAYS_DATA[i];
         var a = document.createElement('a');
         a.href = 'writing-post.html?slug=' + essay.slug;
@@ -247,9 +248,15 @@
       var weightedTotal = 0;
       for (var i = 0; i < UNICODE_RANGES.length; i++) weightedTotal += UNICODE_RANGES[i].weight;
 
-      /* Step 7: ■ 精煉 — 降至 0.07，混入 □ (3:1) */
+      /* Step 7: ■ 精煉 — 僅實心方塊 */
       var SQUARE_CHANCE = 0.07;
-      var SQUARES = ['\u25A0', '\u25A0', '\u25A0', '\u25A1'];
+      var SQUARES = ['\u25A0'];
+
+      /* 墨色色盤 — flash 帶色用 */
+      var INK_COLORS = [
+        'var(--ink-blue)', 'var(--ink-brown)', 'var(--ink-purple)',
+        'var(--ink-red)', 'var(--ink-teal)'
+      ];
 
       function pickWeightedRange() {
         var r = Math.random() * weightedTotal;
@@ -282,7 +289,7 @@
         var cy = cx;
         var dist = Math.sqrt(Math.pow(row - cy, 2) + Math.pow(col - cx, 2)) / cx;
         var factor = 1 - Math.min(dist, 1) * 0.4;
-        return (0.06 + Math.random() * 0.06) * factor;
+        return (0.12 + Math.random() * 0.08) * factor;
       }
 
       var field = document.getElementById('glyph-field');
@@ -317,7 +324,7 @@
           var baseInterval = 60 + Math.random() * 20;
           setTimeout(function() {
             span.style.transition = 'none';
-            span.style.opacity = '0.20';
+            span.style.opacity = '0.25';
             var done = 0;
             function doFlip() {
               done++;
@@ -390,12 +397,14 @@
               var baseInterval = 60 + Math.random() * 20;
               var stagger = Math.random() * 350;
 
-              /* Step 4: ~15% 機率亮閃 — 墨跡反光 */
+              /* Step 4: ~15% 機率亮閃 — 墨跡反光（帶主題色） */
               var isFlash = Math.random() < 0.15;
-              var flashOp = isFlash ? 0.35 : 0.22;
+              var flashOp = isFlash ? 0.45 : 0.22;
+              var flashColor = isFlash ? INK_COLORS[Math.floor(Math.random() * INK_COLORS.length)] : '';
 
               setTimeout(function() {
                 span.style.opacity = String(flashOp);
+                if (flashColor) span.style.color = flashColor;
 
                 /* Step 5: 亮閃漣漪 — 等高線式區域擴散 */
                 if (isFlash) {
@@ -414,16 +423,18 @@
                       var boost = 0.15 * (1 - dist / (rippleRadius + 0.5));
                       var nBase = cellOpacity(nr, nc, cols);
                       var rippleDelay = Math.floor(dist * 80 + Math.random() * 40);
-                      (function(s, op, base) {
+                      (function(s, op, base, clr) {
                         setTimeout(function() {
-                          s.style.transition = 'opacity 0.15s ease-in';
+                          s.style.transition = 'opacity 0.15s ease-in, color 0.15s ease-in';
                           s.style.opacity = String(Math.min(base + op, 0.35));
+                          if (clr) s.style.color = clr;
                           setTimeout(function() {
-                            s.style.transition = 'opacity 0.6s ease-out';
+                            s.style.transition = 'opacity 0.6s ease-out, color 0.4s ease-out';
                             s.style.opacity = String(base);
+                            s.style.color = '';
                           }, 200 + Math.random() * 100);
                         }, rippleDelay);
-                      })(nSpan, boost, nBase);
+                      })(nSpan, boost, nBase, flashColor);
                     }
                   }
                 }
@@ -440,6 +451,7 @@
                   } else {
                     applyCharToSpan(span);
                     span.style.opacity = String(cellOpacity(row, col, cols));
+                    span.style.color = '';
                   }
                 }
                 doFlip();
