@@ -1,5 +1,5 @@
 ---
-title: CC 洩漏後的直覺驗證
+title: Claude Code 洩漏後的直覺驗證
 date: 2026-04-01
 excerpt: Claude Code 原始碼洩漏後，社群普遍佩服，但我不意外。好用不只是模型，是架構設計加上 dogfooding 飛輪。
 tags: [AI, Claude Code]
