@@ -359,11 +359,17 @@ body::after { content: ''; position: fixed; top: 0; left: 0; width: 100%; height
   .essay-item { grid-template-columns: 1fr; gap: 0.25rem; }
   .newsletter-form { flex-direction: column; }
 
-  /* Article */
+  /* Article — HIG: body text ≥ 17pt */
   .article-header h1 { font-size: 1.75rem; }
+  .article-body { font-size: 1.0625rem; }
+  .article-body p { font-size: 1.0625rem; }
+  .article-body figcaption { font-size: 0.8125rem; }
   .article-nav { grid-template-columns: 1fr; }
   .article-nav-next { text-align: left; }
   .article-nav-next .article-nav-label { justify-content: flex-start; }
+
+  /* Tap targets — HIG: minimum 44×44pt */
+  .header-btn, .nav-toggle { width: 2.75rem; height: 2.75rem; }
 
   /* Footer */
   .footer-inner { flex-direction: column; }
