@@ -20,30 +20,32 @@
   <div class="container">
     <div class="page-header fade-in">
       <h1 data-i18n="tools.page.title">工具</h1>
-      <p class="page-header-desc" data-i18n="tools.page.desc">為 Glyphs 字型設計師打造的外掛、腳本與開發資源。</p>
+      <p class="page-header-desc" data-i18n="tools.page.desc">字型設計師打造的工具——Glyphs 外掛、iOS App、腳本與開發資源。</p>
     </div>
   </div>
 
-  <!-- Featured Product -->
+  <!-- Featured Product (隨機從 FEATURED_POOL 輪換，由 app.js 渲染) -->
   <section class="section">
     <div class="container">
       <div class="section-label fade-in"><i class="ph ph-star"></i> <span data-i18n="tools.section.featured">Featured</span></div>
-      <a href="https://erikyin.net/NineBoxView-Pro/" target="_blank" rel="noopener" class="product-card fade-in">
-        <div class="product-info">
-          <h3>NineBoxView Pro <span class="product-badge">Glyphs Plugin</span></h3>
-          <p class="product-description" data-i18n="tools.nbv.desc">Glyphs 字型編輯器的終極預覽工具。九宮格即時預覽字符在不同上下文中的效果，加速字型設計迭代。</p>
-          <ul class="product-features">
-            <li><i class="ph ph-eye"></i> <span data-i18n="tools.nbv.f1">即時預覽</span></li>
-            <li><i class="ph ph-grid-nine"></i> <span data-i18n="tools.nbv.f2">九宮格佈局</span></li>
-            <li><i class="ph ph-sliders-horizontal"></i> <span data-i18n="tools.nbv.f3">自訂上下文</span></li>
-            <li><i class="ph ph-moon-stars"></i> <span data-i18n="tools.nbv.f4">深色模式</span></li>
-          </ul>
-        </div>
-        <div class="product-footer">
-          <span></span>
-          <span class="product-link" data-i18n="tools.nbv.cta">了解更多 <i class="ph ph-arrow-right"></i></span>
-        </div>
-      </a>
+      <div id="featured-product" class="fade-in"></div>
+    </div>
+  </section>
+
+  <div class="gradient-divider"></div>
+
+  <!-- Apps -->
+  <section class="section">
+    <div class="container">
+      <div class="section-label fade-in"><i class="ph ph-app-window"></i> <span data-i18n="tools.section.apps">Apps</span></div>
+      <div class="tools-grid">
+        <a href="https://erikyin.net/panda-zhuyin/" target="_blank" rel="noopener" class="tool-card fade-in">
+          <div class="tool-card-header"><i class="ph ph-keyboard tool-card-icon"></i><span class="tool-card-tag">iOS App</span></div>
+          <h3 data-i18n="tools.panda.title">胖打注音</h3>
+          <p data-i18n="tools.panda.desc">為粗手指打造的注音輸入法。Layered-Expand 12 鍵佈局、注音語音學分組、候選區情境變體。</p>
+          <div class="tool-card-footer"><span></span><span class="tool-card-link"><i class="ph ph-arrow-right"></i></span></div>
+        </a>
+      </div>
     </div>
   </section>
 
@@ -138,6 +140,7 @@
   <div id="site-footer"></div>
 
   <script src="data/ui.js"></script>
+  <script src="data/tools.js"></script>
   <script src="assets/app.js"></script>
 </body>
 </html>

@@ -8,7 +8,40 @@ window.TOOLS_DATA = {
     },
     url: 'https://erikyin.net/NineBoxView-Pro/',
     icon: 'ph-grid-nine',
-    tag: 'Glyphs Plugin'
+    tag: 'Glyphs Plugin',
+    featured: {
+      descKey: 'tools.nbv.desc',
+      ctaKey: 'tools.nbv.cta',
+      features: [
+        { icon: 'ph-eye', i18nKey: 'tools.nbv.f1' },
+        { icon: 'ph-grid-nine', i18nKey: 'tools.nbv.f2' },
+        { icon: 'ph-sliders-horizontal', i18nKey: 'tools.nbv.f3' },
+        { icon: 'ph-moon-stars', i18nKey: 'tools.nbv.f4' }
+      ]
+    }
+  },
+  'panda-zhuyin': {
+    title: {
+      zh: '胖打注音',
+      en: 'Panda Zhuyin'
+    },
+    desc: {
+      zh: '為粗手指打造的注音輸入法。Layered-Expand 12 鍵佈局、注音語音學分組、候選區情境變體。',
+      en: 'A Bopomofo IME designed for thick fingers. 12-key Layered-Expand layout with phonological grouping and contextual candidate variants.'
+    },
+    url: 'https://erikyin.net/panda-zhuyin/',
+    icon: 'ph-keyboard',
+    tag: 'iOS App',
+    featured: {
+      descKey: 'tools.panda.desc',
+      ctaKey: 'tools.panda.cta',
+      features: [
+        { icon: 'ph-grid-four', i18nKey: 'tools.panda.f1' },
+        { icon: 'ph-tree-structure', i18nKey: 'tools.panda.f2' },
+        { icon: 'ph-arrow-arc-right', i18nKey: 'tools.panda.f3' },
+        { icon: 'ph-cloud-slash', i18nKey: 'tools.panda.f4' }
+      ]
+    }
   },
   'nineboxview': {
     title: 'NineBoxView',

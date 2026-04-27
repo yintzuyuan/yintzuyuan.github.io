@@ -237,6 +237,89 @@ function renderRichText(el, segments) {
   }
 }
 
+// ===== Featured Product (隨機輪換) =====
+// tools.html 與 index.html 共用 #featured-product 容器。
+// 每次載入頁面隨機從 FEATURED_POOL 挑一個產品，langchange 時更新文案但不重挑。
+
+var FEATURED_POOL = ['nineboxview-pro', 'panda-zhuyin'];
+
+function renderFeaturedProduct() {
+  var slot = document.getElementById('featured-product');
+  if (!slot || !window.TOOLS_DATA) return;
+
+  // 第一次渲染才挑；後續 langchange 重渲時保留同一產品
+  if (!slot.dataset.featuredId) {
+    slot.dataset.featuredId = FEATURED_POOL[Math.floor(Math.random() * FEATURED_POOL.length)];
+  }
+  var id = slot.dataset.featuredId;
+  var tool = window.TOOLS_DATA[id];
+  if (!tool || !tool.featured) return;
+
+  var i18n = (window.UI_DATA && window.UI_DATA[currentLang]) || {};
+  var title = typeof tool.title === 'object' ? (tool.title[currentLang] || tool.title.zh) : tool.title;
+  var desc = i18n[tool.featured.descKey] || (typeof tool.desc === 'object' ? (tool.desc[currentLang] || tool.desc.zh) : tool.desc);
+  var cta = i18n[tool.featured.ctaKey] || '';
+
+  var existing = slot.querySelector('.product-card');
+  var wasVisible = existing && existing.classList.contains('visible');
+
+  var card = document.createElement('a');
+  card.href = tool.url;
+  card.target = '_blank';
+  card.rel = 'noopener';
+  card.className = 'product-card fade-in' + (wasVisible ? ' visible' : '');
+
+  var info = document.createElement('div');
+  info.className = 'product-info';
+
+  var h3 = document.createElement('h3');
+  h3.appendChild(document.createTextNode(title + ' '));
+  var badge = document.createElement('span');
+  badge.className = 'product-badge';
+  badge.textContent = tool.tag;
+  h3.appendChild(badge);
+  info.appendChild(h3);
+
+  var p = document.createElement('p');
+  p.className = 'product-description';
+  p.textContent = desc;
+  info.appendChild(p);
+
+  var ul = document.createElement('ul');
+  ul.className = 'product-features';
+  for (var i = 0; i < tool.featured.features.length; i++) {
+    var feat = tool.featured.features[i];
+    var li = document.createElement('li');
+    var fIcon = document.createElement('i');
+    fIcon.className = 'ph ' + feat.icon;
+    li.appendChild(fIcon);
+    li.appendChild(document.createTextNode(' '));
+    var fSpan = document.createElement('span');
+    fSpan.textContent = i18n[feat.i18nKey] || '';
+    li.appendChild(fSpan);
+    ul.appendChild(li);
+  }
+  info.appendChild(ul);
+
+  var footer = document.createElement('div');
+  footer.className = 'product-footer';
+  footer.appendChild(document.createElement('span'));
+  var linkSpan = document.createElement('span');
+  linkSpan.className = 'product-link';
+  linkSpan.appendChild(document.createTextNode(cta + ' '));
+  var arrow = document.createElement('i');
+  arrow.className = 'ph ph-arrow-right';
+  linkSpan.appendChild(arrow);
+  footer.appendChild(linkSpan);
+
+  card.appendChild(info);
+  card.appendChild(footer);
+
+  slot.replaceChildren(card);
+
+  if (!wasVisible) observeNewFadeIns(slot);
+}
+
 // ===== Init =====
 
 (function() {
@@ -258,6 +341,7 @@ function renderRichText(el, segments) {
     initFadeIn();
     initMobileNav();
     renderMarkdown();
+    renderFeaturedProduct();
     // FOUC prevention fallback: reveal after inline scripts have run
     requestAnimationFrame(function() {
       requestAnimationFrame(function() {
@@ -271,4 +355,6 @@ function renderRichText(el, segments) {
   } else {
     onReady();
   }
+
+  document.addEventListener('langchange', renderFeaturedProduct);
 })();
