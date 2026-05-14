@@ -29,7 +29,7 @@
 
     <div class="essays-list" id="essays-list"></div>
 
-    <div class="newsletter-section fade-in">
+    <div class="card-feature newsletter-section">
       <h2 class="newsletter-title"><i class="ph ph-envelope-simple"></i> <span data-i18n="newsletter.title">設計筆記</span></h2>
       <p class="newsletter-desc" data-i18n="newsletter.desc">不定期分享字型設計思考、工具開發心得，以及創作過程中的發現。</p>
       <form class="newsletter-form" action="https://buttondown.com/api/emails/embed-subscribe/erikyin" method="post" target="_blank">
@@ -53,7 +53,6 @@
       container.replaceChildren();
       if (!window.ESSAYS_DATA || window.ESSAYS_DATA.length === 0) {
         var emptyMsg = document.createElement('p');
-        emptyMsg.className = 'fade-in';
         emptyMsg.style.color = 'var(--text-secondary)';
         emptyMsg.textContent = currentLang === 'en' ? 'No articles yet. Stay tuned.' : '文章準備中。';
         container.appendChild(emptyMsg);
@@ -64,7 +63,7 @@
         var essay = window.ESSAYS_DATA[i];
         var a = document.createElement('a');
         a.href = 'writing-post.html?slug=' + essay.slug;
-        a.className = 'essay-item fade-in';
+        a.className = 'essay-item';
 
         var dateSpan = document.createElement('span');
         dateSpan.className = 'essay-date';

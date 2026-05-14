@@ -7,7 +7,7 @@
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600&family=Noto+Serif+TC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600&family=Noto+Sans+TC:wght@400&family=Noto+Serif+TC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <script defer src="https://unpkg.com/@phosphor-icons/web@2.1.1"></script>
   <script>/* theme flash prevention + FOUC prevention */(function(){var t=localStorage.getItem('theme');if(t)document.documentElement.setAttribute('data-theme',t);else if(matchMedia('(prefers-color-scheme:dark)').matches)document.documentElement.setAttribute('data-theme','dark');document.documentElement.classList.add('js-loading')})()</script>
   <link rel="stylesheet" href="assets/style.css">
@@ -40,14 +40,14 @@
 
   <div class="article-end">
     <div class="article-divider"></div>
-    <div class="article-author fade-in">
+    <div class="article-author">
       <img src="assets/images/profile.png" alt="殷慈遠" class="article-author-photo">
       <div>
         <div class="article-author-name" data-i18n="author.name">殷慈遠</div>
         <div class="article-author-desc" data-i18n="author.desc">字型設計師、工具開發者。用工程思維做字，用設計思維寫程式。</div>
       </div>
     </div>
-    <div class="newsletter-section fade-in">
+    <div class="card-feature newsletter-section">
       <h2 class="newsletter-title"><i class="ph ph-envelope-simple"></i> <span data-i18n="newsletter.title">設計筆記</span></h2>
       <p class="newsletter-desc" data-i18n="newsletter.desc">不定期分享字型設計思考、工具開發心得，以及創作過程中的發現。</p>
       <form class="newsletter-form" action="https://buttondown.com/api/emails/embed-subscribe/erikyin" method="post" target="_blank">
@@ -57,7 +57,7 @@
       </form>
       <p class="newsletter-privacy" data-i18n="newsletter.privacy">不會寄垃圾信，隨時可以退訂。</p>
     </div>
-    <nav class="article-nav fade-in" id="article-nav"></nav>
+    <nav class="article-nav" id="article-nav"></nav>
   </div>
 
   <div id="site-footer"></div>
@@ -259,7 +259,7 @@
         card.href = tool.url;
         card.target = '_blank';
         card.rel = 'noopener noreferrer';
-        card.className = 'tool-card fade-in';
+        card.className = 'tool-card';
 
         var header = document.createElement('div');
         header.className = 'tool-card-header';
@@ -295,9 +295,6 @@
       }
 
       container.replaceChildren(label, grid);
-
-      // 動態插入的 fade-in 元素交給 IntersectionObserver
-      observeNewFadeIns(container);
     }
 
     loadArticle();
