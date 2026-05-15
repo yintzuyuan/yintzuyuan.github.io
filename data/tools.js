@@ -163,5 +163,15 @@ window.TOOLS_DATA = {
     url: 'https://erikyin.net/glyphs-info-mcp',
     icon: 'ph-plugs-connected',
     tag: 'Developer Tool'
+  },
+  'glyphs-reference': {
+    title: 'Glyphs Reference',
+    desc: {
+      zh: 'Glyphs.app API 與文件查詢的 Claude Code 技能組，10 個 skills 加 1 個 meta-dispatcher agent，取代舊版 MCP 伺服器。',
+      en: 'A skills-based Glyphs.app API reference for Claude Code: 10 skills plus 1 meta-dispatcher agent. Replaces the legacy MCP server.'
+    },
+    url: 'https://erikyin.net/glyphs-reference',
+    icon: 'ph-stack',
+    tag: 'Claude Code Plugin'
   }
 };
