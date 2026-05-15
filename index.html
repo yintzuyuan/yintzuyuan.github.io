@@ -118,25 +118,28 @@
         if (w.url.indexOf('http') === 0) { a.target = '_blank'; a.rel = 'noopener'; }
         a.className = 'work-card';
 
-        var tag = document.createElement('div');
-        tag.className = 'work-card-tag';
-        tag.textContent = w.tag;
+        var meta = document.createElement('div');
+        meta.className = 'work-card-meta';
+        meta.textContent = w.tag;
 
+        var body = document.createElement('div');
+        body.className = 'work-card-body';
         var h3 = document.createElement('h3');
+        h3.className = 'work-card-title';
         h3.textContent = w.title[currentLang];
-
         var p = document.createElement('p');
         p.textContent = w.desc[currentLang];
+        body.appendChild(h3);
+        body.appendChild(p);
 
-        var arrow = document.createElement('span');
+        var arrow = document.createElement('div');
         arrow.className = 'work-card-arrow';
         var arrowIcon = document.createElement('i');
         arrowIcon.className = 'ph ph-arrow-right';
         arrow.appendChild(arrowIcon);
 
-        a.appendChild(tag);
-        a.appendChild(h3);
-        a.appendChild(p);
+        a.appendChild(meta);
+        a.appendChild(body);
         a.appendChild(arrow);
         grid.appendChild(a);
       }
@@ -282,7 +285,7 @@
       if (!field) return;
 
       var isMobile = window.matchMedia('(max-width: 768px)').matches;
-      var cols = isMobile ? 12 : 17;
+      var cols = isMobile ? 12 : 15;
       var total = cols * cols;
       var spans = [];
       var cx = (cols - 1) / 2;
