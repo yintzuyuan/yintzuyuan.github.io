@@ -40,12 +40,12 @@
 
   <div class="gradient-divider"></div>
 
-  <section id="support" class="section support-section">
+  <section id="support" class="section card-static support-section">
     <div class="container">
       <div class="content-narrow">
-        <div class="section-label fade-in"><i class="ph ph-heart"></i> <span data-i18n="support.label">Support</span></div>
-        <p class="fade-in" style="color: var(--text-secondary); margin-bottom: var(--space-lg);" data-i18n="support.desc">如果我的作品或工具對你有幫助，歡迎支持我的創作。</p>
-        <div class="support-grid fade-in">
+        <div class="section-label"><i class="ph ph-heart"></i> <span data-i18n="support.label">Support</span></div>
+        <p style="color: var(--text-secondary); margin-bottom: var(--space-lg);" data-i18n="support.desc">如果我的作品或工具對你有幫助，歡迎支持我的創作。</p>
+        <div class="support-grid">
           <a href="https://p.ecpay.com.tw/120048C" target="_blank" rel="noopener" class="support-card support-card-ecpay">
             <i class="ph ph-credit-card"></i>
             <span data-i18n="support.ecpay">綠界 ECPay</span>
@@ -144,10 +144,6 @@
         }
       }
 
-      container.querySelectorAll('.timeline-year, .timeline-desc').forEach(function(el) {
-        el.classList.add('fade-in');
-      });
-      observeNewFadeIns(container);
       document.documentElement.classList.remove('js-loading');
     }
 

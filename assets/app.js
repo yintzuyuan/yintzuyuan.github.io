@@ -260,14 +260,11 @@ function renderFeaturedProduct() {
   var desc = i18n[tool.featured.descKey] || (typeof tool.desc === 'object' ? (tool.desc[currentLang] || tool.desc.zh) : tool.desc);
   var cta = i18n[tool.featured.ctaKey] || '';
 
-  var existing = slot.querySelector('.product-card');
-  var wasVisible = existing && existing.classList.contains('visible');
-
   var card = document.createElement('a');
   card.href = tool.url;
   card.target = '_blank';
   card.rel = 'noopener';
-  card.className = 'product-card fade-in' + (wasVisible ? ' visible' : '');
+  card.className = 'product-card';
 
   var info = document.createElement('div');
   info.className = 'product-info';
@@ -316,8 +313,6 @@ function renderFeaturedProduct() {
   card.appendChild(footer);
 
   slot.replaceChildren(card);
-
-  if (!wasVisible) observeNewFadeIns(slot);
 }
 
 // ===== Init =====

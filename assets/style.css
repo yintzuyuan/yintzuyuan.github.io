@@ -190,14 +190,89 @@ body::after { content: ''; position: fixed; top: 0; left: 0; width: 100%; height
 .support-card-paypal .ph { color: color-mix(in srgb, #0070BA 60%, var(--text-secondary)); }
 .header-btn-support:hover { color: var(--ink-red); }
 
-/* ===== 11. Shared Card Patterns ===== */
-.product-card, .tool-card, .work-card { background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 8px; padding: var(--space-lg); text-decoration: none; color: var(--text); display: flex; flex-direction: column; transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s; position: relative; overflow: hidden; }
-.product-card::before, .tool-card::before, .work-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--gradient-brand)); opacity: 0; transition: opacity 0.3s; }
-.product-card:hover, .tool-card:hover, .work-card:hover { transform: translateY(-4px); border-color: var(--border); box-shadow: var(--shadow-hover); }
-.product-card:hover::before, .tool-card:hover::before, .work-card:hover::before { opacity: 1; }
-.product-footer, .tool-card-footer, .work-card-footer { display: flex; align-items: center; justify-content: space-between; margin-top: var(--space-sm); font-family: var(--font-mono); font-size: 0.7rem; color: var(--text-secondary); }
-.product-link, .tool-card-link, .work-card-link { display: flex; align-items: center; gap: 0.3em; opacity: 0; transform: translateX(-6px); transition: opacity 0.3s, transform 0.3s; }
-.product-card:hover .product-link, .tool-card:hover .tool-card-link, .work-card:hover .work-card-link { opacity: 1; transform: translateX(0); }
+/* ===== 11. Card 三變體（component-patterns §4 規範） ===== */
+
+/* 4a. .card-static — 純靜態容器：newsletter、support、article-nav 等 */
+.card-static {
+  background: var(--bg-card);
+  border: 1px solid var(--border-light);
+  border-radius: 8px;
+  padding: var(--space-lg);
+  display: flex;
+  flex-direction: column;
+}
+
+/* 4b. .card.interactive — 整張為 <a>；translateY(-2px) 無 shadow、無頂條、無箭頭滑入 */
+.card.interactive {
+  background: var(--bg-card);
+  border: 1px solid var(--border-light);
+  border-radius: 8px;
+  padding: var(--space-lg);
+  text-decoration: none;
+  color: var(--text);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s, border-color 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+.card.interactive:hover {
+  transform: translateY(-2px);
+  border-color: var(--border);
+}
+
+/* 4c. .card-feature — 漸層頂條永遠顯示，無 hover 動畫 */
+.card-feature {
+  background: var(--bg-card);
+  border: 1px solid var(--border-light);
+  border-radius: 8px;
+  padding: var(--space-lg);
+  position: relative;
+  overflow: hidden;
+}
+.card-feature::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--gradient-brand));
+  opacity: 1;
+}
+
+/* Legacy aliases — 對齊 .card.interactive 規範（無頂條淡入、無箭頭滑入、無 shadow lift） */
+.product-card, .tool-card, .work-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-light);
+  border-radius: 8px;
+  padding: var(--space-lg);
+  text-decoration: none;
+  color: var(--text);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s, border-color 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+.product-card:hover, .tool-card:hover, .work-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--border);
+}
+.product-footer, .tool-card-footer, .work-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: var(--space-sm);
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--text-secondary);
+}
+.product-link, .tool-card-link, .work-card-link {
+  display: flex;
+  align-items: center;
+  gap: 0.3em;
+}
 
 /* ===== 12. Tools — Product Card ===== */
 .product-info h3 { font-family: var(--font-serif); font-size: 1.3rem; font-weight: 500; margin-bottom: 0.25rem; }
@@ -230,8 +305,7 @@ body::after { content: ''; position: fixed; top: 0; left: 0; width: 100%; height
 .work-card h3 { font-family: var(--font-serif); font-size: 1.15rem; font-weight: 500; letter-spacing: 0.03em; flex: 1; }
 .work-card p { font-size: 0.9rem; color: var(--text-secondary); line-height: 1.7; }
 .work-card-tag { font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-secondary); margin-bottom: var(--space-xs); }
-.work-card-arrow { position: absolute; bottom: var(--space-md); right: var(--space-md); color: var(--text-secondary); opacity: 0; transform: translateX(-8px); transition: opacity 0.3s ease, transform 0.3s ease; font-size: 1.1rem; }
-.work-card:hover .work-card-arrow { opacity: 1; transform: translateX(0); }
+.work-card-arrow { position: absolute; bottom: var(--space-md); right: var(--space-md); color: var(--text-secondary); font-size: 1.1rem; }
 
 .category-header { grid-column: 1 / -1; font-family: var(--font-mono); font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-secondary); display: flex; align-items: center; gap: 0.75rem; padding: var(--space-sm) 0; margin-top: var(--space-md); }
 .category-header:first-child { margin-top: 0; }
@@ -280,7 +354,7 @@ body::after { content: ''; position: fixed; top: 0; left: 0; width: 100%; height
 [data-lang="en"] .article-body-lang-notice { display: block; }
 [data-lang="en"] .article-body { display: none; }
 
-/* Article body typography — sans-serif for long-form readability; fluid font-size anchored ~18px */
+/* Article body typography — 使用者實機驗證：CJK 長文 sans (黑體) 比 serif 更易讀，此處例外 Brand DNA #2；fluid clamp ~18px */
 .article-body { max-width: 42rem; margin: 0 auto; padding: 0 var(--space-md) var(--space-2xl); font-family: var(--font-sans); font-size: clamp(1.09375rem, 1rem + 0.3vw, 1.1875rem); line-height: 1.75; }
 .article-body h2 { font-family: var(--font-serif); font-size: 1.5rem; font-weight: 600; letter-spacing: 0.03em; margin-top: var(--space-xl); margin-bottom: var(--space-sm); padding-bottom: var(--space-xs); border-bottom: 1px solid var(--border-light); }
 .article-body h3 { font-family: var(--font-serif); font-size: 1.2rem; font-weight: 500; margin-top: var(--space-lg); margin-bottom: var(--space-xs); }
@@ -311,12 +385,12 @@ body::after { content: ''; position: fixed; top: 0; left: 0; width: 100%; height
 .article-author-name { font-family: var(--font-serif); font-size: 1rem; font-weight: 500; }
 .article-author-desc { font-size: 0.85rem; color: var(--text-secondary); }
 
-/* Article navigation */
-.article-nav { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-md); padding-bottom: var(--space-2xl); }
-.article-nav-item { text-decoration: none; color: var(--text); padding: var(--space-md); border: 1px solid var(--border-light); border-radius: 8px; transition: border-color 0.2s, transform 0.2s; }
-.article-nav-item:hover { border-color: var(--border); transform: translateY(-2px); }
+/* Article navigation — editorial list（per Recipe 5：文末純文字列表，不用 card grid） */
+.article-nav { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-lg); padding: var(--space-lg) 0 var(--space-2xl); border-top: 1px solid var(--border-light); }
+.article-nav-item { text-decoration: none; color: var(--text); display: block; }
+.article-nav-item:hover .article-nav-title { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 0.2em; }
 .article-nav-label { font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-secondary); display: flex; align-items: center; gap: 0.3em; margin-bottom: var(--space-xs); }
-.article-nav-title { font-family: var(--font-serif); font-size: 0.95rem; font-weight: 500; }
+.article-nav-title { font-family: var(--font-serif); font-size: 1rem; font-weight: 500; line-height: 1.5; }
 .article-nav-next { text-align: right; }
 .article-nav-next .article-nav-label { justify-content: flex-end; }
 

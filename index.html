@@ -40,8 +40,8 @@
   <section class="section">
     <div class="container">
       <div class="section-label fade-in">Tools</div>
-      <div id="featured-product" class="fade-in"></div>
-      <a href="tools.html" class="see-all fade-in" id="tools-see-all"></a>
+      <div id="featured-product"></div>
+      <a href="tools.html" class="see-all" id="tools-see-all"></a>
     </div>
   </section>
 
@@ -52,7 +52,7 @@
     <div class="container">
       <div class="section-label fade-in">Writing</div>
       <div class="essays-list" id="index-essays"></div>
-      <a href="writing.html" class="see-all fade-in" id="writing-see-all"></a>
+      <a href="writing.html" class="see-all" id="writing-see-all"></a>
     </div>
   </section>
 
@@ -63,7 +63,7 @@
     <div class="container">
       <div class="section-label fade-in">Works</div>
       <div class="works-grid" id="index-works"></div>
-      <a href="works.html" class="see-all fade-in" id="works-see-all"></a>
+      <a href="works.html" class="see-all" id="works-see-all"></a>
     </div>
   </section>
 
@@ -71,7 +71,7 @@
 
   <section class="section">
     <div class="container">
-      <div class="newsletter-section fade-in">
+      <div class="card-feature newsletter-section fade-in">
         <h2 class="newsletter-title"><i class="ph ph-envelope-simple"></i> <span data-i18n="newsletter.title">設計筆記</span></h2>
         <p class="newsletter-desc" data-i18n="newsletter.desc">不定期分享字型設計思考、工具開發心得，以及創作過程中的發現。</p>
         <form class="newsletter-form" action="https://buttondown.com/api/emails/embed-subscribe/erikyin" method="post" target="_blank">
@@ -116,7 +116,7 @@
         var a = document.createElement('a');
         a.href = w.url;
         if (w.url.indexOf('http') === 0) { a.target = '_blank'; a.rel = 'noopener'; }
-        a.className = 'work-card fade-in';
+        a.className = 'work-card';
 
         var tag = document.createElement('div');
         tag.className = 'work-card-tag';
@@ -159,7 +159,7 @@
         var essay = window.ESSAYS_DATA[i];
         var a = document.createElement('a');
         a.href = 'writing-post.html?slug=' + essay.slug;
-        a.className = 'essay-item fade-in';
+        a.className = 'essay-item';
 
         var dateSpan = document.createElement('span');
         dateSpan.className = 'essay-date';
