@@ -366,6 +366,7 @@ body::after { content: ''; position: fixed; top: 0; left: 0; width: 100%; height
 .essay-item:first-child { padding-top: 0; }
 .essay-item:last-child { border-bottom: none; }
 .essay-item:hover { background: color-mix(in srgb, var(--text) 3%, transparent); }
+.essay-item:hover .essay-title { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 0.2em; }
 .essay-date { font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-secondary); letter-spacing: 0.02em; white-space: nowrap; }
 .essay-title { font-family: var(--font-serif); font-size: 1.1rem; font-weight: 500; letter-spacing: 0.02em; }
 .essay-excerpt { font-size: 0.88rem; color: var(--text-secondary); margin-top: 0.25rem; line-height: 1.7; }
