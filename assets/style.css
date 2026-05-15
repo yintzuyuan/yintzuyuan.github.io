@@ -321,7 +321,7 @@ body::after { content: ''; position: fixed; top: 0; left: 0; width: 100%; height
   background: color-mix(in srgb, var(--text) 3%, transparent);
 }
 .work-card:hover .work-card-title { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 0.2em; }
-.work-card-meta, .work-card-category, .work-card-tag {
+.work-card-meta {
   font-family: var(--font-mono);
   font-size: 0.7rem;
   letter-spacing: 0.1em;
@@ -331,7 +331,7 @@ body::after { content: ''; position: fixed; top: 0; left: 0; width: 100%; height
   align-items: center;
   gap: 0.4em;
 }
-.work-card-meta .ph, .work-card-category .ph { font-size: 0.85rem; opacity: 0.85; }
+.work-card-meta .ph { font-size: 0.85rem; opacity: 0.85; }
 .work-card-body { display: flex; flex-direction: column; }
 .work-card-title, .work-card h3 {
   font-family: var(--font-serif);
@@ -355,6 +355,7 @@ body::after { content: ''; position: fixed; top: 0; left: 0; width: 100%; height
   gap: 0.35em;
 }
 
+/* margin-top: var(--space-lg)（40px）對齊 editorial list 節奏；舊 card-grid 用 --space-md（24px），但 list 需要更大組間呼吸 */
 .category-header { font-family: var(--font-mono); font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-secondary); display: flex; align-items: center; gap: 0.75rem; padding: var(--space-sm) 0; margin-top: var(--space-lg); }
 .category-header:first-child { margin-top: 0; }
 .category-header::after { content: ''; flex: 1; height: 1px; background: var(--border); }
