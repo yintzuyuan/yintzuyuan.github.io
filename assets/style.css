@@ -135,13 +135,13 @@ body::after { content: ''; position: fixed; top: 0; left: 0; width: 100%; height
 
 /* ===== 7. Index — Hero ===== */
 .hero { padding: var(--space-2xl) 0; }
-.hero-inner { max-width: var(--max-width); margin: 0 auto; padding: 0 var(--space-md); display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-xl); align-items: center; }
+.hero-inner { max-width: var(--max-width); margin: 0 auto; padding: 0 var(--space-md); display: grid; grid-template-columns: 1.4fr 1fr; gap: var(--space-xl); align-items: center; }
 .hero-text h1 { font-family: var(--font-serif); font-size: 4rem; font-weight: 700; line-height: 1.2; letter-spacing: 0.06em; margin-bottom: var(--space-sm); }
 .hero-subtitle { font-family: var(--font-mono); font-size: 0.9rem; color: var(--text-secondary); letter-spacing: 0.05em; margin-bottom: var(--space-lg); }
 .hero-description { font-size: 1.05rem; color: var(--text); line-height: 2; max-width: 28rem; }
 .hero-accent { height: 3px; width: 8rem; margin: var(--space-md) 0 var(--space-lg); border-radius: 2px; background: linear-gradient(135deg, var(--gradient-brand)); }
 .hero-visual { display: flex; justify-content: center; align-items: center; }
-.glyph-field { width: 280px; height: 280px; display: grid; grid-template-columns: repeat(var(--glyph-cols, 17), 1fr); grid-template-rows: repeat(var(--glyph-cols, 17), 1fr); gap: 0; overflow: hidden; }
+.glyph-field { width: 240px; height: 240px; display: grid; grid-template-columns: repeat(var(--glyph-cols, 15), 1fr); grid-template-rows: repeat(var(--glyph-cols, 15), 1fr); gap: 0; overflow: hidden; }
 .glyph-field span { display: flex; align-items: center; justify-content: center; font-family: "JetBrains Mono", "Noto Sans TC", sans-serif; font-size: 0.85rem; line-height: 1; color: var(--text); opacity: 0.08; transition: opacity 0.6s ease, color 0.4s ease; overflow: hidden; }
 .glyph-field span.glyph-cjk { font-size: 0.75rem; }
 .glyph-field span.glyph-latin { font-size: 0.9rem; }
@@ -241,8 +241,8 @@ body::after { content: ''; position: fixed; top: 0; left: 0; width: 100%; height
   opacity: 1;
 }
 
-/* Legacy aliases — 對齊 .card.interactive 規範（無頂條淡入、無箭頭滑入、無 shadow lift） */
-.product-card, .tool-card, .work-card {
+/* Legacy aliases — .product-card / .tool-card 仍為 .card.interactive 樣式（無頂條淡入、無箭頭滑入、無 shadow lift）；.work-card 已改為 editorial list，見 §14 */
+.product-card, .tool-card {
   background: var(--bg-card);
   border: 1px solid var(--border-light);
   border-radius: 8px;
@@ -255,11 +255,11 @@ body::after { content: ''; position: fixed; top: 0; left: 0; width: 100%; height
   position: relative;
   overflow: hidden;
 }
-.product-card:hover, .tool-card:hover, .work-card:hover {
+.product-card:hover, .tool-card:hover {
   transform: translateY(-2px);
   border-color: var(--border);
 }
-.product-footer, .tool-card-footer, .work-card-footer {
+.product-footer, .tool-card-footer {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -268,7 +268,7 @@ body::after { content: ''; position: fixed; top: 0; left: 0; width: 100%; height
   font-size: 0.7rem;
   color: var(--text-secondary);
 }
-.product-link, .tool-card-link, .work-card-link {
+.product-link, .tool-card-link {
   display: flex;
   align-items: center;
   gap: 0.3em;
@@ -298,25 +298,76 @@ body::after { content: ''; position: fixed; top: 0; left: 0; width: 100%; height
 .filter-tab.active { background: var(--text); color: var(--bg); border-color: var(--text); }
 .filter-count { font-size: 0.65rem; opacity: 0.6; margin-left: 0.3em; }
 
-.works-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-md); padding-bottom: var(--space-2xl); }
-.work-card { cursor: pointer; }
-.work-card-category { font-family: var(--font-mono); font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-secondary); margin-bottom: var(--space-xs); display: flex; align-items: center; gap: 0.4em; }
-.work-card-category .ph { font-size: 0.85rem; }
-.work-card h3 { font-family: var(--font-serif); font-size: 1.15rem; font-weight: 500; letter-spacing: 0.03em; flex: 1; }
-.work-card p { font-size: 0.9rem; color: var(--text-secondary); line-height: 1.7; }
-.work-card-tag { font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-secondary); margin-bottom: var(--space-xs); }
-.work-card-arrow { position: absolute; bottom: var(--space-md); right: var(--space-md); color: var(--text-secondary); font-size: 1.1rem; }
+/* Works — editorial list（per Composition Recipe 3 + Brand DNA #4 排版優先）
+   視覺語言對齊 essays-list（§14 Writing），grid 三欄：類別 | 標題+描述 | 箭頭 */
+.works-grid { display: block; padding-bottom: var(--space-2xl); }
+.work-card {
+  display: grid;
+  grid-template-columns: 8rem 1fr 2.5rem;
+  gap: var(--space-md);
+  align-items: baseline;
+  /* padding/margin 同時定義以讓 hover 時 box 幾何不變，避免 hover/idle 切換閃爍 */
+  padding: var(--space-md) var(--space-sm);
+  margin: 0 calc(-1 * var(--space-sm));
+  border-bottom: 1px solid var(--border-light);
+  border-radius: 6px;
+  text-decoration: none;
+  color: var(--text);
+  transition: background 0.2s;
+}
+.work-card:first-of-type { padding-top: 0; }
+.work-card:last-child { border-bottom: none; }
+.work-card:hover {
+  background: color-mix(in srgb, var(--text) 3%, transparent);
+}
+.work-card:hover .work-card-title { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 0.2em; }
+.work-card-meta {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.work-card-meta .ph { font-size: 0.85rem; opacity: 0.85; }
+.work-card-body { display: flex; flex-direction: column; }
+.work-card-title, .work-card h3 {
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  margin: 0;
+}
+.work-card-body p, .work-card p {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin: 0.35rem 0 0;
+}
+.work-card-arrow {
+  color: var(--text-secondary);
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.35em;
+}
 
-.category-header { grid-column: 1 / -1; font-family: var(--font-mono); font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-secondary); display: flex; align-items: center; gap: 0.75rem; padding: var(--space-sm) 0; margin-top: var(--space-md); }
+/* margin-top: var(--space-lg)（40px）對齊 editorial list 節奏；舊 card-grid 用 --space-md（24px），但 list 需要更大組間呼吸 */
+.category-header { font-family: var(--font-mono); font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-secondary); display: flex; align-items: center; gap: 0.75rem; padding: var(--space-sm) 0; margin-top: var(--space-lg); }
 .category-header:first-child { margin-top: 0; }
 .category-header::after { content: ''; flex: 1; height: 1px; background: var(--border); }
 
 /* ===== 14. Writing — Essays List ===== */
 .essays-list { padding: var(--space-lg) 0 var(--space-2xl); }
-.essay-item { display: grid; grid-template-columns: 7rem 1fr; gap: var(--space-md); padding: var(--space-md) 0; border-bottom: 1px solid var(--border-light); text-decoration: none; color: var(--text); transition: background 0.2s; align-items: baseline; }
+/* padding/margin 同時定義（idle 即 hover 幾何）以避免 hover/idle 切換 box 寬度跳動引起閃爍 */
+.essay-item { display: grid; grid-template-columns: 7rem 1fr; gap: var(--space-md); padding: var(--space-md) var(--space-sm); margin: 0 calc(-1 * var(--space-sm)); border-bottom: 1px solid var(--border-light); border-radius: 6px; text-decoration: none; color: var(--text); transition: background 0.2s; align-items: baseline; }
 .essay-item:first-child { padding-top: 0; }
 .essay-item:last-child { border-bottom: none; }
-.essay-item:hover { background: color-mix(in srgb, var(--text) 3%, transparent); margin: 0 calc(-1 * var(--space-sm)); padding-left: var(--space-sm); padding-right: var(--space-sm); border-radius: 6px; }
+.essay-item:hover { background: color-mix(in srgb, var(--text) 3%, transparent); }
+.essay-item:hover .essay-title { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 0.2em; }
 .essay-date { font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-secondary); letter-spacing: 0.02em; white-space: nowrap; }
 .essay-title { font-family: var(--font-serif); font-size: 1.1rem; font-weight: 500; letter-spacing: 0.02em; }
 .essay-excerpt { font-size: 0.88rem; color: var(--text-secondary); margin-top: 0.25rem; line-height: 1.7; }
@@ -427,8 +478,9 @@ body::after { content: ''; position: fixed; top: 0; left: 0; width: 100%; height
   .product-card { text-align: center; }
   .product-features { justify-content: center; }
 
-  /* Works */
-  .works-grid { grid-template-columns: repeat(2, 1fr); }
+  /* Works — editorial list mobile：類別 / 標題 / 箭頭 堆疊；padding-h 維持以對齊 desktop negative margin trick */
+  .work-card { grid-template-columns: 1fr; gap: 0.35rem; padding: var(--space-sm); }
+  .work-card-arrow { justify-content: flex-start; }
 
   /* Writing */
   .essay-item { grid-template-columns: 1fr; gap: 0.25rem; }
@@ -451,7 +503,6 @@ body::after { content: ''; position: fixed; top: 0; left: 0; width: 100%; height
 }
 
 @media (max-width: 480px) {
-  .works-grid { grid-template-columns: 1fr; }
   .page-header h1 { font-size: 1.8rem; }
   .hero-text h1 { font-size: 2rem; }
 }

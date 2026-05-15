@@ -66,33 +66,32 @@
       a.rel = 'noopener';
       a.className = 'work-card';
 
-      var catDiv = document.createElement('div');
-      catDiv.className = 'work-card-category';
+      var metaDiv = document.createElement('div');
+      metaDiv.className = 'work-card-meta';
       var catIcon = document.createElement('i');
       catIcon.className = 'ph ' + meta.icon;
-      catDiv.appendChild(catIcon);
-      catDiv.appendChild(document.createTextNode(' ' + meta[currentLang]));
+      metaDiv.appendChild(catIcon);
+      metaDiv.appendChild(document.createTextNode(' ' + meta[currentLang]));
 
+      var body = document.createElement('div');
+      body.className = 'work-card-body';
       var h3 = document.createElement('h3');
+      h3.className = 'work-card-title';
       h3.textContent = project.title[currentLang];
+      body.appendChild(h3);
 
-      var footer = document.createElement('div');
-      footer.className = 'work-card-footer';
-      var spacer = document.createElement('span');
-      var linkSpan = document.createElement('span');
-      linkSpan.className = 'work-card-link';
+      var arrow = document.createElement('div');
+      arrow.className = 'work-card-arrow';
       var hostIcon = document.createElement('i');
       hostIcon.className = 'ph ' + getHostIcon(project.url);
       var arrowIcon = document.createElement('i');
       arrowIcon.className = 'ph ph-arrow-right';
-      linkSpan.appendChild(hostIcon);
-      linkSpan.appendChild(arrowIcon);
-      footer.appendChild(spacer);
-      footer.appendChild(linkSpan);
+      arrow.appendChild(hostIcon);
+      arrow.appendChild(arrowIcon);
 
-      a.appendChild(catDiv);
-      a.appendChild(h3);
-      a.appendChild(footer);
+      a.appendChild(metaDiv);
+      a.appendChild(body);
+      a.appendChild(arrow);
       return a;
     }
 
