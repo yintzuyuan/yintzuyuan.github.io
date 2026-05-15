@@ -67,6 +67,8 @@ window.UI_DATA = {
     'tools.scriptmate.desc': 'Glyphs 3 的 AI 腳本工作台，整合智慧輔助的腳本開發環境。',
     'tools.mcp.title': 'Glyphs Info MCP',
     'tools.mcp.desc': '整合 Glyphs 手冊與 API 文件的 MCP 伺服器，為 AI 助手提供即時查詢。',
+    'tools.glyphsref.title': 'Glyphs Reference',
+    'tools.glyphsref.desc': 'Glyphs.app API 與文件查詢的 Claude Code 技能組，10 個 skills 加 1 個 meta-dispatcher agent，取代舊版 MCP 伺服器。',
 
     // Works
     'works.page.title': '作品集',
@@ -152,6 +154,8 @@ window.UI_DATA = {
     'tools.scriptmate.desc': 'An AI-powered scripting workbench for Glyphs 3 with intelligent assistance.',
     'tools.mcp.title': 'Glyphs Info MCP',
     'tools.mcp.desc': 'An MCP server integrating Glyphs handbook and API docs for real-time AI assistant queries.',
+    'tools.glyphsref.title': 'Glyphs Reference',
+    'tools.glyphsref.desc': 'A skills-based Glyphs.app API reference for Claude Code: 10 skills plus 1 meta-dispatcher agent. Replaces the legacy MCP server.',
 
     'works.page.title': 'Works',
     'works.page.desc': 'Type design, translations, open source projects, and visual art. For dev tools, see the Tools page.',
