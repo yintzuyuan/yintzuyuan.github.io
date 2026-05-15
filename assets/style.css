@@ -27,8 +27,8 @@
   --space-2xl: 6rem;
 
   /* Typography */
-  --font-serif: "Noto Serif TC", "Source Han Serif TC", "PMingLiU", serif;
-  --font-sans: "Noto Sans TC", "Source Han Sans TC", -apple-system, "PingFang TC", "Microsoft JhengHei", sans-serif;
+  --font-serif: "Noto Serif", "Noto Serif TC", "Source Han Serif TC", "PMingLiU", serif;
+  --font-sans: "Noto Sans", "Noto Sans TC", "Source Han Sans TC", -apple-system, "PingFang TC", "Microsoft JhengHei", sans-serif;
   --font-mono: "JetBrains Mono", "SF Mono", "Fira Code", monospace;
 
   /* Layout */
