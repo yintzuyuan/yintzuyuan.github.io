@@ -2,11 +2,13 @@
 
 /**
  * 掃描 content/writing/*.md 的 frontmatter，產生 data/essays.js
+ * 排程：frontmatter date 為未來日期（台灣時區）的文章不納入，日期到後由每日建置自動現身
  * 用法：node scripts/build-essays.js
  */
 
 const fs = require('node:fs');
 const path = require('node:path');
+const { isVisible } = require('./essay-visibility.js');
 
 const CONTENT_DIR = path.join(__dirname, '..', 'content', 'writing');
 const OUTPUT_FILE = path.join(__dirname, '..', 'data', 'essays.js');
@@ -48,6 +50,7 @@ function main() {
 
   const files = fs.readdirSync(CONTENT_DIR).filter(f => f.endsWith('.md'));
   const essays = [];
+  const now = new Date();
 
   for (const file of files) {
     const content = fs.readFileSync(path.join(CONTENT_DIR, file), 'utf-8');
@@ -57,9 +60,9 @@ function main() {
       continue;
     }
 
-    // 方案 A：排除草稿
-    if (meta.draft === true) {
-      console.log(`草稿：${file}（已排除）`);
+    // 排程：日期未到（台灣時區）的文章不納入
+    if (!isVisible(meta.date, now)) {
+      console.log(`排程中：${file}（日期 ${meta.date}，尚未到）`);
       continue;
     }
 
@@ -81,7 +84,7 @@ window.ESSAYS_DATA = ${JSON.stringify(essays, null, 2)};
 `;
 
   fs.writeFileSync(OUTPUT_FILE, output, 'utf-8');
-  console.log(`已產生 data/essays.js（${essays.length} 篇已發表，${files.length - essays.length} 篇草稿已排除）`);
+  console.log(`已產生 data/essays.js（${essays.length} 篇已發佈，${files.length - essays.length} 篇未納入：排程未到期或無 frontmatter）`);
 }
 
 main();
