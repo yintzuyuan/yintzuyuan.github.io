@@ -2,6 +2,19 @@
    色票全部取自 app 定稿資產：icon.json 背景（鼠尾草）、SquirrelMark 六層
    （樹皮棕／松鼠棕／橡實米）、AccentColor（苔蘚綠）。不另創色。 */
 
+/* Google Fonts 的 Iansui 沒有切出方音擴充區（U+31A0–31BF）的子集——
+   ㆣㆩㆦㆵ 會掉系統字體（app 內嵌字型的同一個理由）。這裡用自託管子集
+   補洞：同 family 名、只認領缺的碼位，其餘字元仍走 Google 的檔。
+   字型 OFL 授權（無 Reserved Font Name），授權檔在 assets/。 */
+@font-face {
+  font-family: "Iansui";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("assets/iansui-taigi.woff2") format("woff2");
+  unicode-range: U+31A0-31BF, U+02D9, U+02C7, U+02CA-02CB, U+02EA-02EB, U+0307;
+}
+
 :root {
   --sage: #D5DCC9;
   --bark: #593715;
