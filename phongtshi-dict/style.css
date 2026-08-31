@@ -1,0 +1,323 @@
+/* 膨鼠台語辭典 — 產品頁
+   色票全部取自 app 定稿資產：icon.json 背景（鼠尾草）、SquirrelMark 六層
+   （樹皮棕／松鼠棕／橡實米）、AccentColor（苔蘚綠）。不另創色。 */
+
+/* Google Fonts 的 Iansui 沒有切出方音擴充區（U+31A0–31BF）的子集——
+   ㆣㆩㆦㆵ 會掉系統字體（app 內嵌字型的同一個理由）。這裡用自託管子集
+   補洞：同 family 名、只認領缺的碼位，其餘字元仍走 Google 的檔。
+   字型 OFL 授權（無 Reserved Font Name），授權檔在 assets/。 */
+@font-face {
+  font-family: "Iansui";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("assets/iansui-taigi.woff2") format("woff2");
+  unicode-range: U+31A0-31BF, U+02D9, U+02C7, U+02CA-02CB, U+02EA-02EB, U+0307;
+}
+
+:root {
+  --sage: #D5DCC9;
+  --bark: #593715;
+  --fur: #C08A4E;
+  --nut: #DFC69C;
+  --moss: #5F7A3D;
+  --paper: #FAF8F2;
+  --ink: #2B2A26;
+  --ink-soft: #55503F;
+  --rule: #DDD6C4;
+}
+
+@supports (color: color(display-p3 0 0 0)) {
+  :root { --sage: color(display-p3 0.83529 0.86275 0.78824); }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --sage: #2B3524;
+    --bark: #DFC69C;   /* 字標棕的深色態，同 SplashOverlay */
+    --nut: #4A4030;
+    --moss: #8FA86B;
+    --paper: #201E1A;
+    --ink: #E8E4D8;
+    --ink-soft: #B0AA98;
+    --rule: #3B372C;
+  }
+  @supports (color: color(display-p3 0 0 0)) {
+    :root { --sage: color(display-p3 0.16863 0.20784 0.14118); }
+  }
+}
+
+* { margin: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: "Noto Sans TC", sans-serif;
+  font-size: 17px;
+  line-height: 1.95;               /* CJK 內文行高 */
+  color: var(--ink);
+  background: var(--paper);
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: var(--moss); text-underline-offset: 3px; }
+
+:focus-visible {
+  outline: 2px solid var(--moss);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* ── Hero：app 開場品牌頁的網頁化 ─────────────────────────── */
+
+.hero {
+  background: var(--sage);
+  text-align: center;
+  padding: clamp(72px, 12vh, 128px) 24px clamp(64px, 10vh, 104px);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero .wm {
+  position: absolute;
+  font-family: "Iansui", serif;
+  font-size: clamp(56px, 9vw, 96px);
+  color: var(--bark);
+  opacity: 0.07;
+  user-select: none;
+  pointer-events: none;
+}
+
+.hero-inner { position: relative; }
+
+.hero .mark { width: clamp(128px, 22vw, 168px); height: auto; display: block; margin: 0 auto 20px; }
+
+.hero h1 {
+  font-family: "Huninn", sans-serif;
+  font-weight: 400;
+  font-size: clamp(52px, 9vw, 80px);
+  line-height: 1.2;
+  color: var(--bark);
+  letter-spacing: 0.08em;
+}
+
+.hero .reading {
+  font-family: "Iansui", serif;
+  font-size: clamp(18px, 3vw, 23px);
+  color: var(--bark);
+  opacity: 0.78;
+  letter-spacing: 0.28em;
+  margin-top: 10px;
+}
+
+.hero .subname {
+  font-family: "Huninn", sans-serif;
+  font-size: clamp(17px, 2.6vw, 21px);
+  color: var(--bark);
+  letter-spacing: 0.52em;
+  text-indent: 0.52em;             /* 抵掉尾字多出的字距，維持置中 */
+  margin-top: 10px;
+}
+
+.hero .thesis {
+  font-size: clamp(17px, 2.8vw, 19px);
+  color: var(--ink);
+  margin-top: 30px;
+}
+
+.hero .store {
+  display: inline-block;
+  margin-top: 30px;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 13.5px;
+  letter-spacing: 0.06em;
+  color: var(--paper);
+  background: var(--bark);
+  padding: 13px 28px;
+  border-radius: 100px;
+  text-decoration: none;
+}
+
+@media (prefers-color-scheme: dark) {
+  .hero .store { color: #201E1A; }
+}
+
+.hero .store-meta {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  color: var(--ink-soft);
+  margin-top: 14px;
+}
+
+/* ── 內文區：排版層級組織，不靠容器 ───────────────────────── */
+
+.section {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: clamp(56px, 9vh, 88px) 24px 0;
+}
+
+.kicker {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 12px;
+  letter-spacing: 0.22em;
+  color: var(--moss);
+  margin-bottom: 12px;
+}
+
+.section h2 {
+  font-family: "Huninn", sans-serif;
+  font-weight: 400;
+  font-size: clamp(26px, 4.5vw, 32px);
+  line-height: 1.5;
+  color: var(--bark);
+  margin-bottom: 14px;
+}
+
+.section p { color: var(--ink-soft); max-width: 36em; }
+.section p + p { margin-top: 0.9em; }
+.section strong { color: var(--ink); font-weight: 600; }
+
+.num { font-family: "JetBrains Mono", monospace; color: var(--moss); }
+
+/* ── 簽名元素：注音長出台語（衍生格） ─────────────────────── */
+
+.pairs {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+  margin-top: 34px;
+}
+
+.pairs .cell {
+  background: var(--sage);
+  border-radius: 18px;
+  text-align: center;
+  padding: 30px 6px 20px;
+}
+
+.pairs .g {
+  position: relative;
+  height: 1.25em;
+  font-family: "Iansui", serif;
+  font-size: clamp(44px, 8vw, 64px);
+  line-height: 1.25;
+  color: var(--bark);
+}
+
+.pairs .g span {
+  position: absolute;
+  inset: 0;
+  transition: opacity 0.55s ease;
+}
+
+/* 預設（含 reduced-motion 與 JS 不在）顯示方音那一面——資訊在它身上 */
+.pairs .zhu { opacity: 0; }
+.pairs .fang { opacity: 1; }
+
+body.flip .pairs .zhu { opacity: 1; }
+body.flip .pairs .fang { opacity: 0; }
+
+/* 交替時輕微錯拍，像逐一長出來 */
+.pairs .cell:nth-child(2) span { transition-delay: 0.1s; }
+.pairs .cell:nth-child(3) span { transition-delay: 0.2s; }
+.pairs .cell:nth-child(4) span { transition-delay: 0.3s; }
+
+.pairs .from {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  color: var(--moss);
+  margin-top: 10px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .pairs .g span { transition: none; }
+}
+
+@media (max-width: 560px) {
+  .pairs { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* ── 三分頁敘事的小標 ────────────────────────────────────── */
+
+.tabword {
+  font-family: "Iansui", serif;
+  color: var(--moss);
+  letter-spacing: 0.12em;
+}
+
+/* ── 資料來源：引文式，等寬安靜交代 ───────────────────────── */
+
+.license {
+  margin-top: 30px;
+  padding-left: 20px;
+  border-left: 3px solid var(--rule);
+  font-size: 15.5px;
+  color: var(--ink-soft);
+}
+
+/* ── Footer ──────────────────────────────────────────────── */
+
+.foot {
+  margin-top: clamp(64px, 10vh, 96px);
+  background: var(--sage);
+  padding: 44px 24px 52px;
+  text-align: center;
+}
+
+.foot .promise {
+  font-family: "Huninn", sans-serif;
+  font-size: 19px;
+  color: var(--bark);
+  letter-spacing: 0.06em;
+}
+
+.foot nav {
+  margin-top: 18px;
+  font-size: 14.5px;
+  display: flex;
+  gap: 8px 26px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.foot nav a { color: var(--bark); }
+
+.foot .fine {
+  margin-top: 20px;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  color: var(--ink-soft);
+}
+
+/* ── 隱私政策頁 ──────────────────────────────────────────── */
+
+.doc { max-width: 680px; margin: 0 auto; padding: 56px 24px 80px; }
+.doc header { margin-bottom: 40px; }
+.doc h1 {
+  font-family: "Huninn", sans-serif;
+  font-weight: 400;
+  font-size: clamp(30px, 5vw, 38px);
+  color: var(--bark);
+  line-height: 1.4;
+}
+.doc .updated {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 12.5px;
+  color: var(--ink-soft);
+  margin-top: 8px;
+}
+.doc h2 {
+  font-family: "Huninn", sans-serif;
+  font-weight: 400;
+  font-size: 22px;
+  color: var(--bark);
+  margin: 36px 0 8px;
+}
+.doc p, .doc li { color: var(--ink-soft); }
+.doc ul { padding-left: 1.3em; }
+.doc .home { font-size: 14.5px; }

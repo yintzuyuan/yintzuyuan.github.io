@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>膨鼠台語辭典 — 方音符號為主的台語辭典</title>
+  <meta name="description" content="會注音，就會查台語。膨鼠台語辭典以方音符號為主、臺羅與白話字為輔：單框查詢、發音教學、台文與姓名轉換，教育部錄音可離線。查詢與基本功能永遠免費。">
+  <meta name="author" content="TzuYuan Yin">
+  <meta name="keywords" content="台語, 臺語, 台語辭典, 方音符號, 注音, 臺羅, 白話字, 閩南語, 台文, 教育部, 學台語, phongtshi">
+
+  <link rel="canonical" href="https://erikyin.net/phongtshi-dict/">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="膨鼠台語辭典">
+  <meta property="og:description" content="會注音，就會查台語。方音符號為主的台語辭典——查詢永遠免費。">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="zh_TW">
+  <meta property="og:image" content="https://erikyin.net/phongtshi-dict/assets/og-image.png">
+  <meta property="og:url" content="https://erikyin.net/phongtshi-dict/">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="膨鼠台語辭典">
+  <meta name="twitter:description" content="會注音，就會查台語。方音符號為主的台語辭典。">
+  <meta name="twitter:image" content="https://erikyin.net/phongtshi-dict/assets/og-image.png">
+
+  <link rel="icon" type="image/png" href="assets/icon.png">
+
+  <!-- Smart App Banner（iOS Safari；app 上架後自動生效） -->
+  <meta name="apple-itunes-app" content="app-id=6805922769">
+
+  <!-- Fonts：與 app 同一套——Huninn 字標、Iansui 方音 -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Huninn&family=Iansui&family=JetBrains+Mono:wght@400;500&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "膨鼠台語辭典",
+    "operatingSystem": "iOS",
+    "applicationCategory": "ReferenceApplication",
+    "inLanguage": "zh-Hant-TW",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "TWD" },
+    "author": { "@type": "Person", "name": "殷慈遠 Erik Yin", "url": "https://erikyin.net" },
+    "url": "https://erikyin.net/phongtshi-dict/"
+  }
+  </script>
+</head>
+<body>
+
+<!-- Hero＝app 開場品牌頁的網頁化：鼠尾草底、符號浮水印、松鼠、粉圓字標 -->
+<header class="hero">
+  <span class="wm" aria-hidden="true" style="top:6%;left:5%">ㆣ</span>
+  <span class="wm" aria-hidden="true" style="top:14%;right:8%">ㆤ</span>
+  <span class="wm" aria-hidden="true" style="bottom:22%;left:10%">ㆷ</span>
+  <span class="wm" aria-hidden="true" style="bottom:6%;right:14%">ㆩ</span>
+  <div class="hero-inner">
+    <img class="mark" src="assets/squirrel.svg" alt="" width="168" height="168">
+    <h1>膨鼠</h1>
+    <div class="reading">ㄆㆲ˫ ㄑㄧˋ</div>
+    <div class="subname">台語辭典</div>
+    <p class="thesis">會注音，就會查台語。</p>
+    <!-- 上架後把 span 換成：
+         <a class="store" href="https://apps.apple.com/tw/app/id6805922769">App Store 下載</a> -->
+    <span class="store">App Store・準備上架中</span>
+    <div class="store-meta">免費 · iOS 先行 · Android 開發中</div>
+  </div>
+</header>
+
+<main>
+  <section class="section">
+    <div class="kicker">為什麼是方音符號</div>
+    <h2>從你會的注音出發</h2>
+    <p>方音符號 <span class="num">52</span> 個裡有 <span class="num">28</span> 個就是注音——台語只多 <span class="num">24</span> 個新符號和 <span class="num">7</span> 個聲調，而且都是從注音變出來的：加一個圈、掛一個尾巴，你會的符號就長出台語的音。對慣用注音的人，這是阻力最小的台語入口。</p>
+    <div class="pairs" aria-label="注音與方音符號的衍生對照">
+      <div class="cell"><div class="g"><span class="zhu" aria-hidden="true">ㄍ</span><span class="fang">ㆣ</span></div><div class="from">ㄍ → 濁聲母</div></div>
+      <div class="cell"><div class="g"><span class="zhu" aria-hidden="true">ㄚ</span><span class="fang">ㆩ</span></div><div class="from">ㄚ → 鼻化韻</div></div>
+      <div class="cell"><div class="g"><span class="zhu" aria-hidden="true">ㄛ</span><span class="fang">ㆦ</span></div><div class="from">ㄛ → 開口韻</div></div>
+      <div class="cell"><div class="g"><span class="zhu" aria-hidden="true">ㄉ</span><span class="fang">ㆵ</span></div><div class="from">ㄉ → 入聲尾</div></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="kicker">辭典</div>
+    <h2>一個框，什麼都能查</h2>
+    <p>漢字、華語、臺羅、注音、方音——直接打，<strong>自動判別</strong>。用注音近似輸入也查得到，精確方音排前面；無調可查、連字號可省。</p>
+    <p>條目頁方音為主，臺羅、白話字一鍵切換。詞條與例句都有<strong>教育部錄音</strong>，也可以下載離線音檔包，沒有網路照樣查、照樣聽。找詞之外還能逛：主題分類索引，加上節氣、俗諺、地名、外來詞、十腔比較這些教典附錄。</p>
+  </section>
+
+  <section class="section">
+    <div class="kicker">發音</div>
+    <h2>方音符號一次學完</h2>
+    <p>台語專屬的符號不必硬背。<span class="tabword">發音</span>分頁把它們按來源分組——濁聲母、鼻化韻、聲隨韻母、入聲韻尾——每一個都從你會的注音出發，配對比說明、例字與錄音。封閉集合，一次學完就是你的。</p>
+  </section>
+
+  <section class="section">
+    <div class="kicker">轉換</div>
+    <h2>整段台文，逐詞看懂</h2>
+    <p>貼上整段台文、臺羅或白話字，<span class="tabword">轉換</span>分頁逐詞給你方音、漢字與讀音卡片。姓名查詢輸入漢字姓名，逐字讀音直接出——連百家姓的複姓都認得。</p>
+  </section>
+
+  <section class="section">
+    <div class="kicker">資料來源</div>
+    <h2>站在教典的肩膀上</h2>
+    <p>辭典正文與錄音出自教育部《臺灣台語常用詞辭典》，依 CC BY-ND 3.0 TW 授權原樣收錄、逐條標示來源。</p>
+    <div class="license">
+      教育部《臺灣台語常用詞辭典》 · <a href="https://sutian.moe.edu.tw/" rel="external">sutian.moe.edu.tw</a><br>
+      文字與音檔依「創用 CC 姓名標示－禁止改作 3.0 臺灣」授權條款使用。
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="kicker">免費與贊助</div>
+    <h2>查詢與基本功能永遠免費</h2>
+    <p>辭典內容本身是公有資源。app 內的贊助支持的是開發與維運——伺服器與音檔託管——<strong>不會換到任何額外的辭典內容</strong>。Android 版開發中。</p>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="promise">查詢與基本功能永遠免費</div>
+  <nav>
+    <a href="privacy.html">隱私權政策</a>
+    <a href="mailto:phongtshi-dict@erikyin.net">聯絡與回饋</a>
+    <a href="../panda-zhuyin/">同家族：胖打注音</a>
+  </nav>
+  <div class="fine">© 2026 殷慈遠 Erik Yin · erikyin.net</div>
+</footer>
+
+<script>
+  // 衍生格的「注音長出台語」交替。reduced-motion 或無 JS 時停在方音面。
+  (function () {
+    if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    setInterval(function () { document.body.classList.toggle('flip'); }, 2400);
+  })();
+</script>
+</body>
+</html>
