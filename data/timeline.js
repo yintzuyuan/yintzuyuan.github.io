@@ -9,7 +9,7 @@ window.TIMELINE_DATA = [
       {
         text: {
           zh: '以 YTY 名義發行三款產品：[NineBoxView Pro](https://erikyin.net/NineBoxView-Pro/)（1 月）、[胖打注音](https://erikyin.net/panda-zhuyin/)（4 月）、[膨鼠台語辭典](https://phongtshi-dict.erikyin.net/)（9 月）',
-          en: 'Three products published under YTY: [NineBoxView Pro](https://erikyin.net/NineBoxView-Pro/) (Jan), [Panda Zhuyin](https://erikyin.net/panda-zhuyin/) (Apr), [Phongtshi Taiwanese Dictionary](https://phongtshi-dict.erikyin.net/) (Sep)'
+          en: 'Three products published under YTY: [NineBoxView Pro](https://erikyin.net/NineBoxView-Pro/) (Jan), [Panda Zhuyin](https://erikyin.net/panda-zhuyin/) (Apr), [PhongTshi Dict](https://phongtshi-dict.erikyin.net/), a Taiwanese Hokkien dictionary (Sep)'
         }
       }
     ]
