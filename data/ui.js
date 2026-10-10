@@ -227,6 +227,7 @@ window.UI_COMPONENTS = {
           '<a href="https://www.instagram.com/erikyin/" aria-label="Instagram" title="Instagram" target="_blank" rel="noopener"><i class="ph ph-instagram-logo"></i></a>' +
           '<a href="https://www.facebook.com/erikyin" aria-label="Facebook" title="Facebook" target="_blank" rel="noopener"><i class="ph ph-facebook-logo"></i></a>' +
           '<a href="https://github.com/yintzuyuan" aria-label="GitHub" title="GitHub" target="_blank" rel="noopener"><i class="ph ph-github-logo"></i></a>' +
+          '<a href="https://www.linkedin.com/in/erikyin/" aria-label="LinkedIn" title="LinkedIn" target="_blank" rel="noopener"><i class="ph ph-linkedin-logo"></i></a>' +
         '</div>' +
       '</div>' +
     '</footer>';
