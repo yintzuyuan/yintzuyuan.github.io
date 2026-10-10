@@ -4,8 +4,25 @@
 
 window.TIMELINE_DATA = [
   {
+    year: 2026,
+    events: [
+      {
+        text: {
+          zh: '以 YTY 名義發行三款產品：[NineBoxView Pro](https://erikyin.net/NineBoxView-Pro/)（1 月）、[胖打注音](https://erikyin.net/panda-zhuyin/)（4 月）、[膨鼠台語辭典](https://phongtshi-dict.erikyin.net/)（9 月）',
+          en: 'Three products published under YTY: [NineBoxView Pro](https://erikyin.net/NineBoxView-Pro/) (Jan), [Panda Zhuyin](https://erikyin.net/panda-zhuyin/) (Apr), [PhongTshi Dict](https://phongtshi-dict.erikyin.net/), a Taiwanese Hokkien dictionary (Sep)'
+        }
+      }
+    ]
+  },
+  {
     year: 2025,
     events: [
+      {
+        text: {
+          zh: '12 月以 YTY（Yin TzuYuan 的縮寫）名義設立發行與收款帳戶，準備販售 NineBoxView Pro',
+          en: 'In December, set up YTY (short for Yin TzuYuan) as the publishing and payment name to sell NineBoxView Pro'
+        }
+      },
       {
         text: {
           zh: '個人網站上線、多款 Glyphs 外掛發布',
